@@ -1,0 +1,58 @@
+# Tokens
+
+## Available tokens
+
+In Figma Tokens, you can create reusable and semantic tokens which you can then reference in your design process.
+
+The available token groups are:
+
+- Sizing tokens (width, height)
+- Spacing tokens (horizontal, vertical, gap)
+- Color tokens (fill, border)
+- Border radius tokens (individual, all corners)
+- Border width tokens
+- Opacity tokens
+- Font family tokens
+- Font weight tokens
+- Font size tokens
+- Line height tokens
+- Letter spacing tokens
+- Paragraph spacing tokens
+- Typography style tokens
+
+## Creating tokens
+
+Creating a new token via the UI is a simple process. As an example, create a new token in the Fill group by clicking on the `+` icon in the `Fill` group.
+
+In the modal that appears, give your token a name, for example `blue` with a value of `#0000FF`, save your progress by clicking `Create`.
+
+## Applying tokens
+
+There are two ways how you can apply tokens to your selection:
+
+### Default behaviour (left-click)
+When you left-click a token this token is being put on your selection (multiple layers selected are possible!). For certain tokens we assume defaults, such as for `Colors` we assume you want to apply `Fill`.
+
+### Specifying what to apply (right-click)
+You can right-click tokens to specify what property should be set, such as in `Spacing` the `Horizontal Spacing`, `Vertical Spacing` or `Gap` properties individually
+
+## Editing tokens
+To change the value of an existing token, right click the token you wish to edit and select `Edit Token`.
+
+You can also change the name of the token, which will automatically update all references to this token.
+
+## Token aliases
+The true power of Figma Tokens lies in the ability to alias or reference tokens in other tokens.
+
+To do that, add a new token with the value `$` followed by the path to the token. So, for example, to create a color token that is aliased to the color `blue`, create a new token with any name you want, and use `$colors.blue` as its value. Now, whenever you update the `blue` token, your `primary` token will also update automatically.
+
+This effectively enables you to design with semantic tokens!
+
+## Token groups
+As having a lot of tokens can become quite messy, you can group your tokens by adding them to a token group. There's two ways how you can do that:
+
+### Create a new token group
+Go to the Edit Tokens dialog of the property you want to create a group for and then hit the `Add a new group` button.
+
+### Create a new group by adding a new token
+When you add a new token, you can simply write your tokens in dot-seperated names. Naming your new token `primary.500` will add this new token to the group `primary` and with a name of `500`.

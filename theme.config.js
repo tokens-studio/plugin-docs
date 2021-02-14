@@ -36,6 +36,6 @@ export default {
   prevLinks: true,
   nextLinks: true,
   footer: true,
-  footerEditOnGitHubLink: true,
+  footerEditOnGitHubLink: false,
   footerText: <>© {new Date().getFullYear()} Jan Six</>
 }

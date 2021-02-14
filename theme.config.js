@@ -12,17 +12,17 @@ export default {
   head: (
     <>
       <meta name="msapplication-TileColor" content="#ffffff" />
-      <meta name="theme-color" content="#ffffff" />
+      <meta name="theme-color" content="#000000" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta httpEquiv="Content-Language" content="en" />
       <meta name="description" content="Figma Tokens: Plugin Docs" />
       <meta name="og:description" content="Figma Tokens: Plugin Docs" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:image" content="https://nextra.vercel.app/og.png" />
+      <meta name="twitter:image" content="https://img.websnap.app/?url=https://docs.tokens.studio&token=D5rpX7VfD3dACoyb&viewport_width=1200&viewport_height=630" />
       <meta name="twitter:site:domain" content="nextra.vercel.app" />
-      <meta name="twitter:url" content="https://jansix.at/tokens/docs" />
+      <meta name="twitter:url" content="https://docs.tokens.studio" />
       <meta name="og:title" content="Figma Tokens: Plugin Docs" />
-      <meta name="og:image" content="https://nextra.vercel.app/og.png" />
+      <meta name="og:image" content="https://img.websnap.app/?url=https://docs.tokens.studio&token=D5rpX7VfD3dACoyb&viewport_width=1200&viewport_height=630" />
       <meta name="apple-mobile-web-app-title" content="Nextra" />
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png"/>
       <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png"/>

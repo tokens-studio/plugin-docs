@@ -1,5 +1,5 @@
 {
-  "name": "nextra",
+  "name": "figma-tokens-docs",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,15 @@
     "start": "next start",
     "build": "next build"
   },
-  "author": "Shu Ding",
+  "author": "Jan Six",
   "license": "MIT",
   "dependencies": {
     "next": "^10.0.3",
     "nextra": "^0.4.0",
     "nextra-theme-docs": "^1.1.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-player": "^2.8.2"
   },
   "devDependencies": {
     "prettier": "^2.0.5"

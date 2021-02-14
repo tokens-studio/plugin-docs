@@ -1,0 +1,156 @@
+# Import Styles
+
+Instead of manually creating all tokens, you can let the plugin do the work for you.
+
+In the document where your styles are located, click on `Import Styles` in the upper right of the plugin.
+
+---
+
+import ReactPlayer from 'react-player'
+
+
+<ReactPlayer
+  muted
+  width="100%"
+  height="auto"
+  loop
+  playing
+  controls
+  url="/cxqos7Yhr4.mp4"
+/>
+
+The plugin will automatically convert color and typography styles to tokens for you. What's best about this approach is that the plugin tries to determine your base units, and create tokens for these.
+
+That means, your 4 styles all referencing `Inter` as a font family, with 2 font weights, `Regular` and `Bold` will become a set of base tokens (options) of `font-inter`, `font-weight-bold`, various font size, line height, letter spacing and paragraph  and a set of Typography tokens (style decisions composed of these base units.
+
+This process is not perfect (yet), but with a little bit of manual tweaking you'll get yourself a token set that's easy to update later on.
+
+## Color Tokens
+
+Importing color styles into Tokens is fairly straightforward. What the plugin will do is create sets of tokens according to the naming of your base styles, so you'd get tokens similar to these:
+
+```
+ "colors": {
+    "Black": "#212121",
+    "White": "#ffffff",
+    "Primary ": {
+      "100 T": "#e9f4ff",
+      "200 T": "#d2e9ff",
+      "300 T": "#8fc8ff",
+      "400 T": "#4ba6ff",
+      "500 (Base)": "#1e90ff",
+      "600 S": "#1565b3",
+      "700 S": "#0c3a66",
+      "800 S": "#061d33",
+      "900 S": "#030e19"
+    },
+    "Secondary ": {
+      "100 T": "#e7efff",
+      "200 T": "#cfdffe",
+      "300 T": "#a0bffd",
+      "400 T": "#709ffd",
+      "500 (Base)": "#115ffb",
+      "600 S": "#0a3997",
+      "700 S": "#072664",
+      "800 S": "#031332",
+      "900 S": "#020919"
+    },
+```
+
+
+## Typography Tokens
+
+Typography tokens supported for now are:
+- Font families
+- Font weights
+- Font sizes
+- Line heights
+- Letter spacing
+- Paragraph spacing
+
+The resulting Token JSON for these imported styles will look something like this:
+
+```
+"fontFamilies": {
+    "heading": "Monument Extended",
+    "body": "Circular Std"
+  },
+  "lineHeights": {
+    "body": "140%",
+    "auto": "AUTO",
+    "none": "100%",
+    "tight": "110%"
+  },
+  "fontWeights": {
+    "heading": {
+      "regular": "Regular",
+      "bold": "Bold"
+    },
+    "body": {
+      "regular": "Regular",
+      "bold": "Bold"
+    }
+  },
+  "fontSizes": {
+    "sm": "16",
+    "lg": "20",
+    "xl": "25",
+    "2xl": "31",
+  },
+  "letterSpacing": {
+    "normal": "0%",
+    "tight": "-1%",
+    "tighter": "-3%",
+    "wide": "5%"
+  },
+}
+```
+
+The resulting import of styles should result in a set of tokens similar to the one below. What this means, is that you can update any of your token values, and all your styles will automatically get updated as well. Changing a the font family of your headings is now a matter of changing a single token.
+
+```
+"typography": {
+  "Headings": {
+    "Display 1": {
+      "Bold": {
+        "fontFamily": "$fontFamilies.heading",
+        "fontWeight": "$fontWeights.heading.bold",
+        "lineHeight": "$lineHeights.tight",
+        "fontSize": "$fontSizes.8xl",
+        "letterSpacing": "$letterSpacing.tighter",
+        "paragraphSpacing": "$paragraphSpacing.none"
+      }
+    },
+    "Display 2": {
+      "Bold": {
+        "fontFamily": "$fontFamilies.heading",
+        "fontWeight": "$fontWeights.heading.bold",
+        "lineHeight": "$lineHeights.tight",
+        "fontSize": "$fontSizes.7xl",
+        "letterSpacing": "$letterSpacing.tighter",
+        "paragraphSpacing": "$paragraphSpacing.none"
+      }
+    },
+    "Display 3": {
+      "Bold": {
+        "fontFamily": "$fontFamilies.heading",
+        "fontWeight": "$fontWeights.heading.bold",
+        "lineHeight": "$lineHeights.tight",
+        "fontSize": "$fontSizes.6xl",
+        "letterSpacing": "$letterSpacing.tighter",
+        "paragraphSpacing": "$paragraphSpacing.none"
+      }
+    }
+  }
+}
+```
+
+## Keeping styles in sync
+
+Naturally you'd want your styles to update whenever you update your tokens. In order to do this, it's important to keep the naming structure of the tokens the same as your styles in Figma. Meaning, if you rename any tokens, make sure to rename their styles counterparts as well.
+
+If you create a new style later on and want to keep it in tokens, create it in Figma Tokens and use the `Create Styles` button, instead of applying Import Styles again. 
+
+`Create Styles` basically tells Figma to create any styles that are non existant.
+
+![](/create-styles.jpg)

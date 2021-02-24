@@ -1,0 +1,15 @@
+# Aliases
+
+The nice thing about Figma Tokens is that you can reference other tokens as a value for your tokens (or ultimately, your styles). That means you can have your brand color be a reference to `colors.red.500`, or have a background token that takes its value from a `colors.black` token while a foreground token takes its value from a `colors.white` token.
+
+To use an alias in your tokens, we write them in the following notation: `$spacing.sm`
+
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout emoji="💡">
+  References are case sensitive, that means you should write your references like your tokens are named (usually lowercase).
+</Callout>
+
+What this does is tell the plugin to go look for a token of `spacing.sm`, if it is found, use that value. Whenever you change `spacing.sm`, the token that referenced it also changes.
+
+You can also embed aliases inside color tokens! If you want a color style that's using the brand color but reduce it's opacity to 50% you could just write: `rgba($colors.brand, 0.5)`

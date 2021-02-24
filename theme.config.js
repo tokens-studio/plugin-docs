@@ -1,5 +1,5 @@
 export default {
-  repository: 'https://github.com/six7/figma-tokens-docs',
+  repository: 'https://github.com/six7/figma-tokens',
   docsRepository: 'https://github.com/six7/figma-tokens-docs',
   titleSuffix: ' – Figma Tokens',
   logo: (

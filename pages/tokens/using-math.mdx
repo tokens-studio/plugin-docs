@@ -1,19 +1,11 @@
-# Color Tokens
+# Using Math
 
-Color tokens make up a big part of Figma Tokens, as they're so tightly integrated with Figma's styles but give you options that Styles don't offer (yet).
+A lot of times it may make sense to build your tokens with a scale in mind, such as a type scale or a spacing scale. What that means, is that a value uses another value, but does calculations with it.
 
-You can use color tokens for various things:
+For example, you may want your `spacing.sm` token reference the `spacing.xs` token, but multiply its value by 2. To do that, you can write the following as the token's value: `$spacing.xs * 2` (note the space between token and value)
 
-- Updating color styles
-- Creating color styles
-- Applying a fill color
-- Applying a stroke color
+You can also multiply with another token: `$spacing.xs * $spacing.scale`
 
-There are multiple ways you can write color tokens:
+where `spacing.scale` would be a token who's value could be for example 2.
 
-- Hex: `#ff0000`
-- RGB: `rgb(255, 0, 0)`
-- RGBA: `rgba(255, 0, 0, 1)`
-- HSLA: `hsla(120, 50, 50, 1)`
-
-By default, a token references a Solid Paint (single colors).
+Other use cases where this is helpful could be typography with font sizes referencing the previous token and multiply that with a type scale of e.g. 1.25.

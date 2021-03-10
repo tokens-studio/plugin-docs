@@ -25,6 +25,12 @@ That means, your 4 styles all referencing `Inter` as a font family, with 2 font 
 
 This process is not perfect (yet), but with a little bit of manual tweaking you'll get yourself a token set that's easy to update later on.
 
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout emoji="💡">
+  Importing styles that have a dot (`.`) in their names will currently not work. Use `/` as a divider instead.
+</Callout>
+
 ## Color Tokens
 
 Importing color styles into Tokens is fairly straightforward. What the plugin will do is create sets of tokens according to the naming of your base styles, so you'd get tokens similar to these:

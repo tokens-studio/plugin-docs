@@ -9,6 +9,8 @@ You can use color tokens for various things:
 - Applying a fill color
 - Applying a stroke color
 
+## Solid colors
+
 There are multiple ways you can write color tokens:
 
 - Hex: `#ff0000`
@@ -17,3 +19,18 @@ There are multiple ways you can write color tokens:
 - HSLA: `hsla(120, 50, 50, 1)`
 
 By default, a token references a Solid Paint (single colors).
+
+## Gradients
+
+You can define gradient color tokens by specifying a css-like syntax: `linear-gradient(45deg, #ffffff 0%, #000000 100%)`.
+
+If you need multiple color steps, just add more (minimum is 2). `linear-gradient(45deg, #ffffff 0%, #ff0000 50%, #000000 100%)`
+
+### Token References
+The great thing about token gradients is that you can create gradients that reference another token, something that is not possible in Figma itself. `linear-gradient(45deg, $colors.white 0%, $colors.black 100%)`
+
+### Alpha values (opacity)
+Opacity is supported as well, you can write your gradients like this: `linear-gradient(45deg, rgba($colors.primary 0.5) 0%, rgba($colors.primary 1) 100%)`
+
+### Limitations
+- Positioning your gradient on a layer, as you can do in Figma, is currently not possible, as we won't know where to position it, as we only store the degree, not any translation.

@@ -1,0 +1,21 @@
+# Sync
+
+As Tokens make most sense in a team environment, some sort of Sync is required to keep values updated while the team is working on different files.
+
+## JSONBin
+
+To get started with enabling Sync for your file, head to the `Sync` tab in the plugin. Choose `JSONBin` to select JSONBin as your Sync Provider.
+
+When you're launching the Sync feature for the first time, you will not have any stored provider credentials on your device. Go ahead and select `Add Credentials`.
+
+For `name`, choose any name you want. You can change the name later on.
+
+Now you'll want to get your credentials from JSONBin. To do that, head to JSONBin.io and register an account.
+
+Once logged in, click on your avatar and select "API-Keys". There you'll find your Secret Key. Copy that and insert it into the `Secret` field in Figma Tokens.
+
+If you want to create a new sync bin, you can leave the ID part blank. The plugin will create a new bin for you. You could also insert an existing ID into this field to link an existing bin.
+
+## Getting your team on board
+
+Once you set a storage provider on a document, we store the ID and the name of your bin to this document. The Secret is left blank, so each team member will have to add the secret on their own. The reason for that is that in the future we want to enable different permissions based on different users, some only acting as consumers, some as contributors.

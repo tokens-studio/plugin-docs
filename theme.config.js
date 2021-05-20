@@ -38,5 +38,12 @@ export default {
   nextLinks: true,
   footer: true,
   footerEditOnGitHubLink: true,
-  footerText: <>© {new Date().getFullYear()} Jan Six</>
+  footerText: (
+    <div>
+      <div>© {new Date().getFullYear()} Jan Six</div>
+      <a href="https://splitbee.io/?ref=badge">
+        <img src="https://splitbee-cdn.fra1.cdn.digitaloceanspaces.com/static/badge/splitbee-badge.svg" alt="Analytics by Splitbee.io" /> 
+      </a>
+    </div>
+  )
 }

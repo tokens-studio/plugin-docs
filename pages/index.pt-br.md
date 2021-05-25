@@ -2,7 +2,7 @@
 
 **Figma Tokens** é um [Plugin do Figma](https://jansix.at/resources/figma-tokens) que permite integrar o conceito de Design Tokens em seus projetos no Figma.
 
-Ele lhe permite criar tokens reutilizáveis que podem ser aplicados com grande abrangência de opções, desde o arredondamento de bordas até unidades semânticas de cores ou estilos tipográficos. Ele permite a alteração de tokens e que essas alterações sejam aplicadas em todo o documento ou em seus estilos.
+Ele lhe permite criar tokens reutilizáveis que podem ser aplicados com grande abrangência de opções, desde o arredondamento de bordas até unidades semânticas de cores ou estilos tipográficos. Você pode também controlar e alterar seus tokens de forma que isso seja se reflita em todo o documento ou em seus estilos.
 
 ![](/tokens-intro.jpg)
 

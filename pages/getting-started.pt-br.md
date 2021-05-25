@@ -9,7 +9,7 @@ Ao usar o plugin pela primeira vez você não terá token algum definido. Clique
 Agora você vai poder continuar dentre três maneiras:
 
 - Criar seus próprios tokens pela UI do plugin
-- Importar seus tokens já feitos em algum projeto
-- Criar sus tokens através de um editor JSON
+- Importar seus tokens já feitos em algum projeto (através do botão `Import Styles`)
+- Criar seus tokens através de um editor JSON
 
 ![](/import-styles.jpg)

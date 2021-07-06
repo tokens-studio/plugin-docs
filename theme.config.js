@@ -30,9 +30,14 @@ export default {
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
       <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+      <link rel="stylesheet" href="/style.css"/>
       <meta name="msapplication-TileImage" content="/ms-icon-144x144.png"/>
     </>
   ),
+  i18n: [
+    { locale: 'en', text: 'English' },
+    { locale: 'pt-br', text: 'Brazilian Portuguese' }
+  ],
   search: true,
   prevLinks: true,
   nextLinks: true,

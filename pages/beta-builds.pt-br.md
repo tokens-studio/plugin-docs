@@ -1,21 +1,21 @@
-# Beta Builds
+# Compilações Beta
 
-From time to time, beta builds are released before a new version is published. If you want to get in on this process, let me know on [Twitter](https://twitter.com/six7) by writing a DM.
+De tempos em tempos, compilações beta são lançadas antes que uma nova versão seja publicada. Se você quiser entrar neste processo, deixe-me saber no [Twitter] (https://twitter.com/six7) escrevendo um DM.
 
-### Installing a development build
+### Instalando uma compilação de desenvolvimento
 
-If you received a beta build, here's a short guide explaining how to install it. First of all, it's important that you're using the Figma Desktop app. Development builds won't work on the browser version of Figma. [Download it here.](https://www.figma.com/downloads/)
+Se você recebeu uma versão beta, aqui está um pequeno guia que explica como instalá-la. Em primeiro lugar, é importante que você esteja usando o aplicativo Figma Desktop. As compilações de desenvolvimento não funcionarão na versão do navegador do Figma. [Baixe aqui.] (Https://www.figma.com/downloads/)
 
-To get started, click on the menu icon in Figma and type `Manage` — you should find the entry `Manage plugins`. Click on it.
+Para começar, clique no ícone do menu na Figma e digite `Manage` - você deve encontrar a entrada `Manage plugins`. Clique nele.
 
 ![](/manage-plugins.jpg)
 
-Next, click on Create new plugin in the Development section.
+Em seguida, clique em `Create new plugin` na seção `Development`.
 
 ![](/create-new-plugin.jpg)
 
-Then click on `Choose a manifest.json file` and navigate to where you downloaded the ZIP File. Select the `manifest.json` file.
+Em seguida, clique em `Choose a manifest.json file` e navegue até o local onde você baixou o arquivo ZIP. Selecione o arquivo `manifest.json`.
 
 ![](/choose-manifest.jpg)
 
-That's it! You now got a development build of Figma Tokens. Start it by right clicking anywhere in a document and choose `Plugins > Figma Tokens (Dev)`
+É isso! Agora você tem uma compilação de desenvolvimento do Figma Tokens. Comece clicando com o botão direito em qualquer lugar em um documento e escolha `Plugins > Figma Tokens (Dev)`

@@ -4,7 +4,7 @@ module.exports = withNextra({
     locales: ['en', 'pt-br'],
     defaultLocale: 'en',
   },
-  async rewrites() {
+  rewrites() {
     return [
       {
         source: "/bee.js",

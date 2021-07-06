@@ -9,12 +9,10 @@ module.exports = withNextra({
       {
         source: "/bee.js",
         destination: "https://cdn.splitbee.io/sb.js",
-        locale: false,
       },
       {
         source: "/_hive/:slug",
         destination: "https://hive.splitbee.io/:slug",
-        locale: false,
       },
     ]
   },

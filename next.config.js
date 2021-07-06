@@ -1,6 +1,10 @@
 const withNextra = require('nextra')('nextra-theme-docs', './theme.config.js')
 module.exports = withNextra({
-  async rewrites() {
+  i18n: {
+    locales: ['en', 'pt-br'],
+    defaultLocale: 'en',
+  },
+  rewrites() {
     return [
       {
         source: "/bee.js",

@@ -4,7 +4,7 @@ Instale o Figma Tokens pressionando o botão `Install` [nesta página](https://w
 
 Isso irá instalar o plugin para você.
 
-Ao usar o plugin pela primeira vez você não terá token algum definido. Clique em `Configure Tokens` para iniciar.
+Ao usar o plugin pela primeira vez você não terá token algum definido. Clique em `Get started` para iniciar.
 
 Agora você vai poder continuar dentre três maneiras:
 

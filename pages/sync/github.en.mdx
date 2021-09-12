@@ -1,0 +1,74 @@
+# GitHub Sync
+
+Welcome to the Figma Tokens Beta of the GitHub sync.
+
+## Get started
+
+Download the latest version of the beta by going to the [pull request](https://github.com/six7/figma-tokens/pull/226/checks), click on Node.js CI and then download the package under "Artifacts". This is always the latest version in development.
+
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout emoji="💡">
+  Already have a GitHub account with a repository? Great, skip to step 3
+</Callout>
+
+### 1. Create a GitHub account
+
+Go to https://github.com/signup and create an account.
+
+### 2. Create a new repository
+
+If you already have an existing repository, you can skip this step.
+
+Go to https://github.com/new and create a new repository. Give it any name you like, make it public or private and initialize it with a README.
+
+### 3. Generate your Personal Access Token
+
+Go to your Profile Settings > Developer Settings > [Personal Access Tokens](https://github.com/settings/tokens) and generate a new token and select scope repo.
+
+Copy that token, you'll need it in a second.
+
+### 4. Add a new GitHub sync to your Tokens file.
+
+Go to the Sync tab and select GitHub. Add a new item
+
+- Add any name (this is only used for the plugin UI)
+- Add your Personal Access Token which we just copied.
+- Add your GitHub repository (e.g. six7/figma-tokens)
+- Add your default branch (probably main)
+- Specify a file path where your tokens should be stored, e.g. data/tokens.json
+
+### 5. Push your initial set of tokens
+
+The plugin will now ask you to push your currently stored tokens to the repository.
+
+Add a commit message, e.g. "Initial commit"
+
+If you're adding an already existing tokens file, the plugin will ask you if you want to pull the latest tokens. This will overwrite your locally stored tokens, so make sure to back these up if you don't want them to get removed.
+
+### 6. Push or pull changes
+
+Whenever you make a change in Figma Tokens, you have to manually hit "Push to GitHub" to push your local changes to the remote. Anytime you do that you have to supply a commit message.
+
+If you only want to pull the latest changes, hit "Pull from GitHub".
+
+The plugin will let you know when your local changes differ from the ones stored on the remote by showing a blue dot.
+
+### 7. How to use these in development?
+
+If you now want to use your tokens also in development there's a few steps you need to follow.
+
+The tokens we store on GitHub is the raw source of truth for the plugin. Meaning, it still contains aliases and any Math you might have used. Tools such as Style Dictionary can't work with Math, though.
+
+So we need a way to transform our tokens to something Style Dictionary can read.
+
+I wrote a package that does just that, you or your dev can install that by running `npm install token-transformer`.
+
+You can then use it to generate tokens to a JSON that is readable by Style Dictionary or something else.
+
+Run `node token-transformer data/tokens.json output.json`, this will take your input JSON file (which is the file we generate from Figma Tokens, this should match what you entered in the Sync details) and output the transformed tokens to an output.json
+
+<Callout emoji="💡">
+  If you're using Token Sets you need to tell the CLI tool what sets you want activated. You can do that like this:
+  `node token-transformer data/tokens.json output.json options dark`. This will tell the tool you want the sets options and dark to be used.
+</Callout>

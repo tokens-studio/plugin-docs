@@ -2,7 +2,7 @@
 
 Creating a new token via the UI is a simple process. As an example, create a new token in the Fill group by clicking on the `+` icon in the `Fill` group.
 
-In the modal that appears, give your token a name, for example `blue` with a value of `#0000FF`, save your progress by clicking `Create`.
+In the modal that appears, give your token a name, for example `colors.blue` with a value of `#0000FF`, save your progress by clicking `Create`.
 
 ### Editing tokens
 To change the value of an existing token, right click the token you wish to edit and select `Edit Token`.
@@ -10,9 +10,6 @@ To change the value of an existing token, right click the token you wish to edit
 You can also change the name of the token, which will automatically update all references to this token.
 
 ### Token groups
-As having a lot of tokens can become quite messy, you can group your tokens by adding them to a token group.
+As having a lot of tokens can become quite messy, you can nest tokens by using a dot-notation in their name, for example `colors.button.background.primary`.
 
-#### Create a new token group
-When you add a new token, you can simply write your tokens in dot-seperated names. Naming your new token `primary.500` will add this new token to the group `primary` with a name of `500`.
-
-You can remove token groups by right-clicking them and selecting `Delete`.
+You can remove token groups by right-clicking them and selecting `Delete` which will remove all tokens under that group.

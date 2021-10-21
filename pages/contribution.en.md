@@ -5,7 +5,7 @@ If you want to get started contributing to Figma Tokens read this short guidelin
 1. Clone the repository
 2. Run `yarn` to install dependencies
 3. Run `yarn build:watch` to build the plugin and watch for changes
-4. Go to Figma and Add a new plugin, point it to the `manifest.json` of your local folder.
+4. Open Figma -> Plugins -> Development -> Import plugin from manifest... and choose manifest.json file from this repo.
 
 
 ### Known issues

@@ -1,4 +1,4 @@
-# Contribution
+# Contributing
 
 If you want to get started contributing to Figma Tokens read this short guideline that should get you started.
 

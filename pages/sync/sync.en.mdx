@@ -2,42 +2,20 @@
 
 As Tokens make most sense in a team environment, some sort of Sync is required to keep values updated while the team is working on different files.
 
-### JSONBin
+### Sync options
+- Local storage (default)
+- JSONBin.io
+- URL (new)
+- GitHub (new)
 
-To get started with enabling Sync for your file, head to the `Sync` tab in the plugin. Choose `JSONBin` to select JSONBin as your Sync Provider.
+#### Local storage
+By default all tokens are stored in the document where you're working in. If you need to work in multiple documents, this option won't work as it means you'd have to copy paste your tokens to the other document.
 
-When you're launching the Sync feature for the first time, you will not have any stored provider credentials on your device. Go ahead and select `Add Credentials`.
+#### JSONBin.io
+You can use JSONBin.io to create an account and sync your tokens there. It's a free and easy way to sync your tokens, they're not version controlled by default though.
 
-For `name`, choose any name you want. You can change the name later on.
+#### URL
+Pulls tokens from a remote .json stored on your server. This is a read-only sync method.
 
-Now you'll want to get your credentials from JSONBin. To do that, head to JSONBin.io and register an account.
-
-Once logged in, click on your avatar and select "API-Keys". There you'll find your Secret Key. Copy that and insert it into the `Secret` field in Figma Tokens.
-
-If you want to create a new sync bin, you can leave the ID part blank. The plugin will create a new bin for you. You could also insert an existing ID into this field to link an existing bin.
-
-import Callout from 'nextra-theme-docs/callout'
-
-<Callout emoji="💡">
-  When creating a new bin, your tokens get uploaded to that bin. However, when using an existing ID, the tokens stored on the remote will overwrite your existing ones.
-</Callout>
-
-### Getting your team on board
-
-Once you set a storage provider on a document, we store the ID and the name of your bin to this document. The Secret is left blank, so each team member will have to add the secret on their own. The reason for that is that in the future we want to enable different permissions based on different users, some only acting as consumers, some as contributors.
-
-### Changing storage credentials
-
-You can change between different stored token bins whenever you want to. To do that, after having created more than one provider item, click `Apply` to apply this token set to the current document.
-
-### Updating tokens
-
-Whenever you update a token, the remote will get updated automatically. There currently is no 'Publish' process in place, other than updating tokens.
-
-### Pulling changes
-
-The plugin will automatically fetch the newest remote tokens on startup. From time to time, your team might have made changes while you had the plugin open, to pull the newest changes, hit the 'Pull from JSONbin' button on the top right.
-
-### Pausing sync
-
-By default, every token change triggers an update on your sync provider. You can pause this behavior by unchecking `Update remote` (in the bottom left dropdown of the plugin).
+#### GitHub
+The recommended way as it allows your design decisions to live in the same place as your code lives. Connect to a repository, pull and push tokens or choose a branch you want to push to, which allows you to explore design decisions before pushing them to production.

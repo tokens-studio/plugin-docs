@@ -34,3 +34,12 @@ Opacity is supported as well, you can write your gradients like this: `linear-gr
 
 ### Limitations
 - Positioning your gradient on a layer, as you can do in Figma, is currently not possible, as we won't know where to position it, as we only store the degree, not any translation.
+
+
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout emoji="❓">
+**Applying color and text tokens**
+
+You might want to apply color or text tokens with the plugin, instead of using Figma's native style feature. This has a downside, which is that when the style is not local (but in a library) the plugin can't apply that style currently and will fall back to the hex value. I would advise you to use the plugin for color and text styles only as a manager of Figma Styles. That way you and your designers would keep using Styles but use the plugin to manage/create them (and have all the benefits of aliases etc). For theme swapping it's recommended to use Figma's Swap library feature.</Callout>
+

@@ -1,17 +1,20 @@
 # URL Sync
 
+![](/url-sync.png)
+
 To get started with enabling Sync for your file, head to the `Sync` tab in the plugin. Choose `URL` to select a .json stored on your server as your Sync Provider.
 
 When you're launching the Sync feature for the first time, you will not have any stored provider credentials on your device. Go ahead and select `Add Credentials`.
 
 For `name`, choose any name you want. You can change the name later on.
 
-If your server requires some sort of authentication you can store your Headers in the headers field. It's important that your .json stored on your server has `Access-Control-Allow-Origins` set to `*`, ask your engineers to help you out on that if you're stuck or [read up on it](https://gist.github.com/nixta/0b98d7975562bc31c4c9). The URL part is the complete URL that points to your .json
-
+If your server requires some sort of authentication you can store your Headers as a JSON object in the headers field. It's important that your .json stored on your server has `Access-Control-Allow-Origins` set to `*`, ask your engineers to help you out on that if you're stuck or [read up on it](https://gist.github.com/nixta/0b98d7975562bc31c4c9). The URL part is the complete URL that points to your .json
 
 ### Read only mode
 
 The URL sync mode is a Read-only mode. That means you cannot make any changes directly in the plugin, you'd have to make it in the .json stored on your server.
+
+You can find an example .json [here](https://raw.githubusercontent.com/six7/figma-tokens-example/main/tokens.json).
 
 ### Getting your team on board
 

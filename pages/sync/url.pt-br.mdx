@@ -1,0 +1,26 @@
+# URL Sync
+# Sincronizar por URL (URL Sync)
+
+![](/url-sync.png)
+
+Para começar a usar o Sync para o seu arquivo, vá para a guia `Sync` no plugin. Escolha `URL` para escolher um .json armazenado em seu servidor como seu provedor de sincronização.
+
+Ao iniciar o recurso *Sync* pela primeira vez, você não terá nenhuma credencial de provedor armazenada em seu dispositivo. Vá em frente e selecione `Add Credentials`.
+
+Para `name`, escolha o nome que desejar - você poderá alterá-lo mais tarde.
+
+Se o seu servidor requer algum tipo de autenticação, você pode armazenar seus *Headers* como um objeto JSON no campo de *Headers*. É importante que seu .json armazenado em seu servidor tenha `Access-Control-Allow-Origins` definido como `*`, peça a time de Desenvolvimento para ajudá-lo se você estiver travado ou [leia sobre isso](https: //gist.github.com/nixta/0b98d7975562bc31c4c9). A parte do URL é o URL completo que aponta para o seu .json
+
+### Modo de leitura (Read only mode)
+
+O modo de sincronização de URL é um modo somente leitura. Isso significa que você não pode fazer nenhuma alteração diretamente no plug-in, você terá que fazer no .json armazenado em seu servidor.
+
+Você pode encontrar um exemplo .json em [exemplo de JSON de tokens](https://raw.githubusercontent.com/six7/figma-tokens-example/main/tokens.json).
+
+### Trazendo sua equipe a bordo
+
+Depois de definir um provedor de armazenamento em um documento, armazenamos a ID e o nome do seu *bin* neste documento. O campo *Headers* é deixado em branco, então cada membro da equipe terá que adicionar os *Headers* por conta própria.
+
+### Pulling changes
+
+O plugin irá buscar automaticamente os tokens remotos mais recentes na inicialização. De vez em quando, sua equipe pode ter feito alterações enquanto você estava com o plug-in aberto. Para obter as alterações mais recentes, clique no botão 'Pull from URL' no canto superior direito.

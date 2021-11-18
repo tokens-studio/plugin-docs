@@ -2,7 +2,20 @@
 
 Como os tokens fazem mais sentido em um ambiente de equipe, algum tipo de sincronização é necessário para manter os valores atualizados enquanto a equipe está trabalhando em arquivos diferentes.
 
-- Local storage
+### Sync options
+- Local storage (padrão)
 - JSONBin.io
-- URL
-- GitHub
+- URL (novo)
+- GitHub (novo)
+
+#### Armazenamento Local (Local storage)
+Por padrão, todos os tokens são armazenados no documento em que você está trabalhando. Se precisar trabalhar em vários documentos, esta opção não funcionará, pois significa que você terá que copiar e colar seus tokens no outro documento.
+
+#### JSONBin.io
+Você pode usar JSONBin.io para criar uma conta e sincronizar seus tokens lá. É uma maneira fácil e gratuita de sincronizar seus tokens, embora eles não sejam tenham controle de versão por padrão.
+
+#### URL
+Extrai tokens de um .json remoto armazenado em seu servidor. Este é um método de sincronização somente de leitura.
+
+#### GitHub
+A maneira mais recomendada, pois permite que suas decisões de design vivam no mesmo lugar que seu código está. Conecte-se a um repositório, extraia e envie tokens ou escolha um branch para o qual deseja enviar o seu trabalho - o que permite explorar as decisões de design antes de colocá-los em produção.

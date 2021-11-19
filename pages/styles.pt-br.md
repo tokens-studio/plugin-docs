@@ -161,3 +161,12 @@ Se você criar um novo estilo posteriormente e quiser mantê-lo em tokens, crie-
 `Create Styles` basicamente diz ao Figma para criar qualquer estilo que não exista.
 
 ![](/create-styles.jpg)
+
+## Importando estilos mais tarde
+Se você criou ou alterou estilos depois de importar seus estilos iniciais, ainda pode usar a função `Import`. O plug-in mostrará quais estilos mudaram em comparação com seus tokens e quais novos foram adicionados. Você pode então decidir se deseja ignorar uma alteração ou se deseja atualizar o token.
+
+![](/import-styles-diff.png)
+
+<Callout emoji="💡">
+  O plugin atualmente trata tokens com um apelido como um valor diferente do valor de estilo. Isso será corrigido em uma versão futura.
+</Callout>

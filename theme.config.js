@@ -36,7 +36,7 @@ export default {
   ),
   i18n: [
     { locale: 'en', text: 'English' },
-    { locale: 'pt-br', text: 'Brazilian Portuguese' }
+    { locale: 'pt-br', text: 'Português (Brasil)' }
   ],
   search: true,
   prevLinks: true,

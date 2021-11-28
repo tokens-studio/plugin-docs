@@ -49,6 +49,9 @@ export default {
       <a href="https://splitbee.io/?ref=badge">
         <img src="https://splitbee-cdn.fra1.cdn.digitaloceanspaces.com/static/badge/splitbee-badge.svg" alt="Analytics by Splitbee.io" /> 
       </a>
+      <a href="https://vercel.com?utm_source=figma-tokens&utm_campaign=oss">
+        <img src="https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg" alt="Analytics by Splitbee.io" /> 
+      </a>
     </div>
   )
 }

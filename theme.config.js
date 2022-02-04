@@ -49,8 +49,11 @@ export default {
       <a href="https://splitbee.io/?ref=badge" className="block mb-4">
         <img src="https://splitbee-cdn.fra1.cdn.digitaloceanspaces.com/static/badge/splitbee-badge.svg" alt="Analytics by Splitbee.io" /> 
       </a>
-      <a href="https://vercel.com?utm_source=figma-tokens&utm_campaign=oss">
-        <img src="https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg" alt="Analytics by Splitbee.io" /> 
+      <a href="https://vercel.com?utm_source=figma-tokens&utm_campaign=oss" className="block mb-4">
+        <img src="https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg" alt="Powered by Vercel" /> 
+      </a>
+      <a href="https://www.websnap.app?utm_campaign=badge">
+        <img src="https://www.websnap.app/assets/img/badges/websnap-badge-dark.svg" alt="Social share images by Websnap.app" /> 
       </a>
     </div>
   )

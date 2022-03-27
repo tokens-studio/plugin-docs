@@ -11,4 +11,4 @@ where `spacing.scale` would be a token who's value could be for example 2.
 Other use cases where this is helpful could be typography with font sizes referencing the previous token and multiply that with a type scale of e.g. 1.25.
 
 ### Adding units
-The plugin cannot calculate if one of your tokens had the unit included (e.g. `spacing.sm = 2rem`). In that case you can either decide to remove the unit or append the unit after the operation (e.g. `{spacing.xs} * {spacing.scale}rem`)
+The plugin cannot calculate if one of your tokens had the unit included (e.g. `spacing.sm = 2rem`). In that case you can either decide to remove the unit or extract the operation to its own token, and then append the unit after that new alias token (e.g. `spacing.sm = {spacing.xs} * {spacing.scale}` and then `{spacing.sm}rem`). However, we recommend to use unit-less tokens and instead rely on transformers such as Style Dictionary to later add units to your tokens. The plugin itself will consider any unit-less token as px-based.

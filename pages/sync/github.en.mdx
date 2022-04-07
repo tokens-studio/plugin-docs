@@ -75,7 +75,7 @@ I wrote a package that does just that: [Token Transformer](https://www.npmjs.com
 
 You can then use it to generate tokens to a JSON that is readable by Style Dictionary, without any aliases, without any math.
 
-Run `node token-transformer tokens.json output.json` where input.json is the file you stored your tokens in.This will take your input JSON file (which is the file we generate from Figma Tokens, this should match what you entered in the Sync details) and output the transformed tokens to an output.json
+Run `node token-transformer tokens.json output.json` where tokens.json is the file you stored your tokens in.  This will take your input JSON file (which is the file we generate from Figma Tokens, this should match what you entered in the Sync details) and output the transformed tokens to an output.json
 
 If you use multiple token sets you might also want to create different token files per theme combination. You can do that by giving token-transformer additional parameters: `node token-transformer data/tokens.json output.json global,dark` will use the global and dark token sets to generate combinations.
 

@@ -1,8 +1,6 @@
-# Token Sets (Themes)
+# Token Sets
 
-With Version 36 Token sets (themes) are introduced!
-
-You can now split your tokens up into multiple sets, or themes.
+You can split your tokens up into multiple sets, or themes.
 
 Splitting tokens up has many benefits:
 - Allow you to split up options and decisions
@@ -11,20 +9,10 @@ Splitting tokens up has many benefits:
 
 ---
 
-import ReactPlayer from 'react-player'
-
-<ReactPlayer
-  muted
-  width="100%"
-  height="auto"
-  loop
-  playing
-  controls
-  url="/8M7EiMsoIW.mp4"
-/>
+![Switch between token sets](/token-sets-1.gif)
 
 ##### Creating sets
-You can create a new set by clicking the + near your existing sets. Enter a unique name.
+You can create a new set by clicking the + at the bottom of your existing sets. Enter a unique name.
 
 ![](/token-sets.png)
 
@@ -33,6 +21,11 @@ Click on the token set (not the checkbox) to switch editor context to this new s
 
 #### Renaming or deleting a set
 Right-click a set to display rename and delete options.
+
+#### Treat as source
+Right-click a set to enable treat as source. When a token set is treated as a source, these tokens will not be exported as styles but only used as a reference. You recognise a token set is marked as source by the dot inside the checbox.
+
+![](/treat-as-source.png)
 
 #### Activating (checking) a set
 By ticking the checkbox you activate this set, meaning these tokens will get exposed to Figma. If you have multiple sets (e.g. a light and a dark theme) you can overwrite decisions that may have been defined in another set.

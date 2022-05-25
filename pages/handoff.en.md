@@ -2,6 +2,8 @@
 
 As Figma currently provides no way to inspect plugin data as a viewer (we hope they do allow that at some point), you'd have to fall back to either letting your engineers use the plugin themselves and inspect layers, or use more traditional methods. One of those methods would be Redlining, where you'd create layers showing which tokens were applied to what layers, still containing token names so it would be clear what to apply when.
 
+<img src="/annotate-1.gif" alt="Annotate tokens" />
+
 ## Annotate in the plugin
 One way would be to use the Annotate feature inside Figma Tokens. You would select a single layer, go to the Inspect tab, switch to Debug & Annotate, and use the annotate tool to create annotations for you. Those would not update automatically, and only work for single layers.
 

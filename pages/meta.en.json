@@ -7,5 +7,7 @@
   "sync": "Sync",
   "themes": "Themes",
   "handoff": "Handoff",
+  "shared-data": "Shared data",
+  "token-sets": "Token Sets (Themes)",
   "beta-builds": "Beta Builds"
 }

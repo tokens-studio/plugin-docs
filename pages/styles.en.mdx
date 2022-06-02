@@ -16,7 +16,7 @@ import ReactPlayer from 'react-player'
   loop
   playing
   controls
-  url="/cxqos7Yhr4.mp4"
+  url="/import-styles.mov"
 />
 
 The plugin will automatically convert color and typography styles to tokens for you. What's best about this approach is that the plugin tries to determine your base units, and create tokens for these.
@@ -27,40 +27,98 @@ This process is not perfect (yet), but with a little bit of manual tweaking you'
 
 import Callout from 'nextra-theme-docs/callout'
 
-<Callout emoji="💡">
-  Importing styles that have a dot (`.`) in their names will currently not work. Use `/` as a divider instead.
-</Callout>
 
 ## Color Tokens
 
 Importing color styles into Tokens is fairly straightforward. What the plugin will do is create sets of tokens according to the naming of your base styles, so you'd get tokens similar to these:
 
 ```
- "colors": {
-    "Black": "#212121",
-    "White": "#ffffff",
+  "colors": {
+    "Black": {
+      "value": "#212121",
+      "type": "color"
+    },
+    "White": {
+      "value": "#ffffff",
+      "type": "color"
+    },
     "Primary ": {
-      "100": "#e9f4ff",
-      "200": "#d2e9ff",
-      "300": "#8fc8ff",
-      "400": "#4ba6ff",
-      "500": "#1e90ff",
-      "600": "#1565b3",
-      "700": "#0c3a66",
-      "800": "#061d33",
-      "900": "#030e19"
+      "100": {
+        "value": "#e9f4ff",
+        "type": "color"
+      },
+      "200": {
+        "value": "#d2e9ff",
+        "type": "color"
+      },
+      "300": {
+        "value": "#8fc8ff",
+        "type": "color"
+      },
+      "400": {
+        "value": "#4ba6ff",
+        "type": "color"
+      },
+      "500": {
+        "value": "#1e90ff",
+        "type": "color"
+      },
+      "600": {
+        "value": "#1565b3",
+        "type": "color"
+      },
+      "700": {
+        "value": "#0c3a66",
+        "type": "color"
+      },
+      "800": {
+        "value": "#061d33",
+        "type": "color"
+      },
+      "900": {
+        "value": "#030e19",
+        "type": "color"
+      }
     },
     "Secondary ": {
-      "100": "#e7efff",
-      "200": "#cfdffe",
-      "300": "#a0bffd",
-      "400": "#709ffd",
-      "500": "#115ffb",
-      "600": "#0a3997",
-      "700": "#072664",
-      "800": "#031332",
-      "900": "#020919"
-    },
+      "100": {
+        "value": "#e7efff",
+        "type": "color"
+      },
+      "200": {
+        "value": "#cfdffe",
+        "type": "color"
+      },
+      "300": {
+        "value": "#a0bffd",
+        "type": "color"
+      },
+      "400": {
+        "value": "#709ffd",
+        "type": "color"
+      },
+      "500": {
+        "value": "#115ffb",
+        "type": "color"
+      },
+      "600": {
+        "value": "#0a3997",
+        "type": "color"
+      },
+      "700": {
+        "value": "#072664",
+        "type": "color"
+      },
+      "800": {
+        "value": "#031332",
+        "type": "color"
+      },
+      "900": {
+        "value": "#020919",
+        "type": "color"
+      }
+    }
+  }
 ```
 
 
@@ -73,82 +131,146 @@ Typography tokens supported for now are:
 - Line heights
 - Letter spacing
 - Paragraph spacing
+- Text decoration
+- Text case
 
 The resulting Token JSON for these imported styles will look something like this:
 
 ```
 "fontFamilies": {
-    "heading": "Monument Extended",
-    "body": "Circular Std"
+    "heading": {
+      "value": "Monument Extended",
+      "type": "fontFamilies"
+    },
+    "body": {
+      "value": "Circular Std",
+      "type": "fontFamilies"
+    }
   },
   "lineHeights": {
-    "body": "140%",
-    "auto": "AUTO",
-    "none": "100%",
-    "tight": "110%"
+    "body": {
+      "value": "140%",
+      "type": "lineHeights"
+    },
+    "auto": {
+      "value": "AUTO",
+      "type": "lineHeights"
+    },
+    "none": {
+      "value": "100%",
+      "type": "lineHeights"
+    },
+    "tight": {
+      "value": "110%",
+      "type": "lineHeights"
+    }
   },
   "fontWeights": {
     "heading": {
-      "regular": "Regular",
-      "bold": "Bold"
+      "regular": {
+        "value": "Regular",
+        "type": "fontWeights"
+      },
+      "bold": {
+        "value": "Bold",
+        "type": "fontWeights"
+      }
     },
     "body": {
-      "regular": "Regular",
-      "bold": "Bold"
+      "regular": {
+        "value": "Regular",
+        "type": "fontWeights"
+      },
+      "bold": {
+        "value": "Bold",
+        "type": "fontWeights"
+      }
     }
   },
   "fontSizes": {
-    "sm": "16",
-    "lg": "20",
-    "xl": "25",
-    "2xl": "31",
+    "sm": {
+      "value": "16",
+      "type": "fontSizes"
+    },
+    "lg": {
+      "value": "20",
+      "type": "fontSizes"
+    },
+    "xl": {
+      "value": "25",
+      "type": "fontSizes"
+    },
+    "2xl": {
+      "value": "31",
+      "type": "fontSizes"
+    }
   },
   "letterSpacing": {
-    "normal": "0%",
-    "tight": "-1%",
-    "tighter": "-3%",
-    "wide": "5%"
-  },
-}
+    "normal": {
+      "value": "0%",
+      "type": "letterSpacing"
+    },
+    "tight": {
+      "value": "-1%",
+      "type": "letterSpacing"
+    },
+    "tighter": {
+      "value": "-3%",
+      "type": "letterSpacing"
+    },
+    "wide": {
+      "value": "5%",
+      "type": "letterSpacing"
+    }
+  }
 ```
 
 The resulting import of styles should result in a set of tokens similar to the one below. What this means, is that you can update any of your token values, and all your styles will automatically get updated as well. Changing a the font family of your headings is now a matter of changing a single token.
 
 ```
 "typography": {
-  "Headings": {
-    "Display 1": {
-      "Bold": {
-        "fontFamily": "$fontFamilies.heading",
-        "fontWeight": "$fontWeights.heading.bold",
-        "lineHeight": "$lineHeights.tight",
-        "fontSize": "$fontSizes.8xl",
-        "letterSpacing": "$letterSpacing.tighter",
-        "paragraphSpacing": "$paragraphSpacing.none"
-      }
-    },
-    "Display 2": {
-      "Bold": {
-        "fontFamily": "$fontFamilies.heading",
-        "fontWeight": "$fontWeights.heading.bold",
-        "lineHeight": "$lineHeights.tight",
-        "fontSize": "$fontSizes.7xl",
-        "letterSpacing": "$letterSpacing.tighter",
-        "paragraphSpacing": "$paragraphSpacing.none"
-      }
-    },
-    "Display 3": {
-      "Bold": {
-        "fontFamily": "$fontFamilies.heading",
-        "fontWeight": "$fontWeights.heading.bold",
-        "lineHeight": "$lineHeights.tight",
-        "fontSize": "$fontSizes.6xl",
-        "letterSpacing": "$letterSpacing.tighter",
-        "paragraphSpacing": "$paragraphSpacing.none"
+    "Headings": {
+      "Display 1": {
+        "Bold": {
+          "value": {
+            "fontFamily": "{fontFamilies.heading}",
+            "fontWeight": "{fontWeights.heading.bold}",
+            "lineHeight": "{lineHeights.tight}",
+            "fontSize": "{fontSizes.lg}",
+            "letterSpacing": "{letterSpacing.tighter}",
+            "paragraphSpacing": "{paragraphSpacing.none}"
+          },
+          "type": "typography"
+        }
+      },
+      "Display 2": {
+        "Bold": {
+          "value": {
+            "fontFamily": "{fontFamilies.heading}",
+            "fontWeight": "{fontWeights.heading.bold}",
+            "lineHeight": "{lineHeights.tight}",
+            "fontSize": "{fontSizes.xl}",
+            "letterSpacing": "{letterSpacing.tighter}",
+            "paragraphSpacing": "{paragraphSpacing.none}"
+          },
+          "type": "typography"
+        }
+      },
+      "Display 3": {
+        "Bold": {
+          "value": {
+            "fontFamily": "{fontFamilies.heading}",
+            "fontWeight": "{fontWeights.heading.bold}",
+            "lineHeight": "{lineHeights.tight}",
+            "fontSize": "{fontSizes.2xl}",
+            "letterSpacing": "{letterSpacing.tighter}",
+            "paragraphSpacing": "{paragraphSpacing.none}"
+          },
+          "type": "typography"
+        }
       }
     }
   }
-}
 ```
 
 > Note: While Font Family and Font Weight tokens can be applied individually to text nodes, both must be applied simultaneously to cause a visual change in Figma. 
@@ -160,13 +282,11 @@ Naturally you'd want your styles to update whenever you update your tokens. In o
 
 `Create Styles` basically tells Figma to create any styles that are non existant.
 
-![](/create-styles.jpg)
+![](/create-styles.png)
 
 ## Importing styles later on
 If you created or changed styles after you imported your initial styles, you can still use the Import function. The plugin will show you what styles changed in comparison to your tokens and what new ones were added. You can then decide if you want to ignore a change or if you want to update the token.
 
 ![](/import-styles-diff.png)
 
-<Callout emoji="💡">
-  The plugin currently treats tokens with an alias as a different value to the style value. This will be fixed in a future release.
-</Callout>
+

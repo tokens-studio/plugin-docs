@@ -22,4 +22,4 @@ We've [built a tool](https://www.npmjs.com/package/@six7/figma-tokens-helpers) t
 Automator is able to read and write to the shared plugin space. You could create all kinds of crazy automations - you could even create whole token sets using Automator. We've even [built an automation that automatically creates Documentation](https://automator.community/automation/create-documentation-for-figma-tokens) for you!
 
 ### Pro Layout Panel
-What would make a really great Auto Layout enhancement even greater? The ability to choose from design tokens as your spacing values. [Pro Layout Panel](http://plp.plasmic.site/) allows you to do that, so you can use the tokens you created in Figma Tokens and apply those (using the last used set combination in Figma Tokens)
+What would make a really great Auto Layout enhancement even greater? The ability to choose from design tokens as your spacing values. [Pro Layout Panel](https://www.mrbiscuit.design) allows you to do that, so you can use the tokens you created in Figma Tokens and apply those (using the last used set combination in Figma Tokens)

@@ -4,6 +4,7 @@
   "url": "URL",
   "github": "GitHub",
   "gitlab": "GitLab",
+  "ado": "Azure DevOps",
   "branch-switching": "Branch switching (Pro)",
   "multi-file": "Multi-file Sync (Pro)"
 }

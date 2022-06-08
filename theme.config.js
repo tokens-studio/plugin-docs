@@ -4,6 +4,7 @@ export default {
   titleSuffix: ' – Figma Tokens',
   logo: (
     <>
+      <img src="/logo.svg" alt="Figma Tokens" className="mr-2"/>
       <span className="mr-2 font-extrabold hidden md:inline">Figma Tokens</span>
       <span className="text-gray-600 font-normal hidden md:inline">
         Plugin Docs

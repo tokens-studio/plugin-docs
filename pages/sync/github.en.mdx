@@ -81,6 +81,11 @@ If you use multiple token sets you might also want to create different token fil
 
 Don't want to include the global set in the output but use it for resolving aliases? Provide another parameter like this and the transformer will exclude that in the output: `node token-transformer tokens.json output.json global,dark global`
 
+#### Using multi-file sync
+
+If you're using the [Pro](https://www.figmatokens.com/#pricing) instance of the plugin and wish to transform multiple files in a single folder, instead of specifying a single json as input, you can specify the folder as input.
+
+For example, if the tokens were stored in Figma Tokens inside a folder path like `data/core.json`, `data/functional.json`, `data/components.json`, and your goal was to generate a set of tokens from some combination of those inputs, pass the folder name as the input to `token-transformer` and provide additional arguments as specified above, like this: `node token-transformer data files,to,include files,to,ignore`
 
 <Callout emoji="💡">
   Examples
@@ -90,6 +95,6 @@ Don't want to include the global set in the output but use it for resolving alia
   - [1 theme to css variables](https://github.com/six7/figma-tokens-example)
   - [Multiple themes to css variables](https://github.com/six7/figma-tokens-example-multi)
   - [TailwindCSS with dark and light theme](https://github.com/six7/figma-tokens-example-tailwindcss)
-  
+  - [Multifile, multitheme](https://github.com/TheeMattOliver/figma-tokens-multifile-multitheme-example)
   Let me know if you have other examples you want to share with the community!
 </Callout>

@@ -37,3 +37,6 @@ The plugin will automatically fetch the newest remote tokens on startup. From ti
 ### Pausing sync
 
 By default, every token change triggers an update on your sync provider. You can pause this behavior by unchecking `Update remote` (in the bottom left dropdown of the plugin).
+
+### Read-only mode
+If you'd like some of your team members to only be able to Read tokens, not write, you can add JSONBin with the URL Sync option in the plugin. All you'll need to do is add the URL for the bin, such as `https://api.jsonbin.io/v3/b/1234878172571726252` and headers such as `{ "X-Master-Key":"YOUR_KEY", "X-Access-Key":"YOUR_ACCESS_KEY_", "X-Bin-Meta": false }`. The important part is X-Bin-Meta: false, which is required for JSONBin to only return the tokens, not any metadata they store.

@@ -1,5 +1,6 @@
 {
   "available-tokens": "Available tokens",
+  "token-types": "Token types",
   "creating-tokens": "Creating tokens",
   "applying-tokens": "Applying tokens",
   "color-tokens": "Color tokens",
@@ -7,5 +8,6 @@
   "aliases": "Aliases",
   "using-math": "Using math",
   "composition-tokens": "Composition tokens (Pro)",
-  "documentation-tokens": "Documentation tokens"
+  "documentation-tokens": "Documentation tokens",
+  "json-schema": "JSON schema"
 }

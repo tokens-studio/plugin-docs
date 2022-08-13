@@ -1,0 +1,87 @@
+# Token types
+
+Figma Tokens uses a `type` property on each token to decide how to deal with each token. Token types can be set on individual tokens, or on a token group level. You can define your own types, but the plugin won't be able to apply them correctly.
+
+### Types at a group level
+
+If you'd rather define types not on every individual token but on a higher level, you can do that as well.
+
+```
+{
+  "colors": {
+    "type": "color",
+    "red": {
+      value: '#ff0000',
+    },
+    "blue": {
+      value: '#0000ff',
+    },
+  }
+}
+```
+
+The plugin will treat any token as a color token then, except if there's a `type` property set on the token itself.
+
+### Color tokens
+
+Color tokens can be defined like this:
+
+```
+{
+  "colors": {
+    "red": {
+      type: 'color',
+      value: '#ff0000',
+    },
+    "blue": {
+      type: 'color',
+      value: '#0000ff',
+    },
+  }
+}
+```
+
+### Size tokens
+
+Size tokens can be defined like this:
+
+```
+{
+  "sizing": {
+    "large": {
+      type: 'sizing',
+      value: '12px',
+    },
+  }
+}
+```
+
+### Space tokens
+
+Space tokens can be defined like this:
+
+```
+{
+  "spacing": {
+    "large": {
+      type: 'spacing',
+      value: '1rem',
+    },
+  }
+}
+```
+
+### Space tokens
+
+Space tokens can be defined like this:
+
+```
+{
+  "spacing": {
+    "large": {
+      type: 'spacing',
+      value: '12px',
+    },
+  }
+}
+```

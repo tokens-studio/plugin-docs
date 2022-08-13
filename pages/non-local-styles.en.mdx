@@ -1,8 +1,13 @@
 # Non-local styles
 
+When you want to apply a color token in a file that is not the library file of your Figma styles what you often want to do is to apply the Style instead of a raw hex value. Otherwise all your designers will see, is a hex value, not the applied decision. To do that, we need to prepare our library files first.
+
+![](/non-local-styles/preview.png)
+
+
 In order for Figma Tokens to apply a Style instead of a raw hex value in documents where that style is not defined, we need to keep track of the Style ID of each of your created styles. As creating styles is always in relation to a theme (a combination of token sets that are activated), we need to store that information with Themes. With the Pro version of the plugin you are able to connect your tokens to styles.
 
-![](/non-local-styles/themes-modal.png)
+![](/non-local-styles/manage-themes-modal.png)
 
 To do that, you can do as follows:
 

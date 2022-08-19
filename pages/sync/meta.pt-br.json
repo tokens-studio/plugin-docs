@@ -2,5 +2,9 @@
   "sync": "Sync",
   "jsonbin": "JSONBin.io",
   "url": "URL",
-  "github": "GitHub"
+  "github": "GitHub",
+  "gitlab": "GitLab",
+  "ado": "Azure DevOps",
+  "branch-switching": "Trocando de Branchs (Pro)",
+  "multi-file": "Sincronizando multiplos arquivos (Pro)"
 }

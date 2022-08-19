@@ -6,5 +6,7 @@
   "spacing-tokens": "Tokens de Espaçamento (Spacing)",
   "aliases": "Apelidos (Aliases)",
   "using-math": "Usando matemática",
-  "documentation-tokens": "Tokens de documentação"
+  "composition-tokens": "Tokens de Composição (Pro)",
+  "documentation-tokens": "Tokens de documentação",
+  "json-schema": "JSON schema"
 }

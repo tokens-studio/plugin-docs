@@ -2,8 +2,13 @@
   "index": "Introdução",
   "getting-started": "Iniciando o uso",
   "tokens": "Tokens",
-  "styles": "Styles",
-  "sync": "Sync",
+  "styles": "Estilos",
+  "non-local-styles": "Styles não-locais (Pro)",
+  "multi-inspect": "Multi Inspect",
+  "sync": "Sincronizar",
+  "themes": "Temas",
+  "handoff": "Handoff",
+  "shared-data": "Dados compartilhados",
   "token-sets": "Token Sets (Temas)",
   "beta-builds": "Compilações Beta"
 }

@@ -1,0 +1,40 @@
+# Token Sets (Temas)
+
+Agora você pode dividir seus tokens em vários conjuntos ou temas.
+
+Dividir tokens tem muitos benefícios:
+- Permitem que você divida opções e decisões
+- Oferece a capacidade de separar semanticamente tokens
+- Conjuntos diferentes podem ser expostos ativando apenas o que você precisa
+
+---
+
+![Switch between token sets](/token-sets-1.gif)
+
+##### Criando sets
+Você pode criar um novo conjunto clicando no `+` próximo aos conjuntos existentes. Insira um nome único.
+
+![](/token-sets.png)
+
+#### Mudando para um conjunto (set)
+Clique no conjunto de tokens (não na caixa de seleção) para mudar o contexto do editor para este novo conjunto.
+
+#### Renomeando ou excluindo um conjunto (set)
+Clique com o botão direito em um conjunto para exibir as opções de renomear e excluir.
+
+#### Tratar como fonte (Treat as source)
+Clique com o botão direito do mouse em um conjunto para ativar 'Treat as source'. Quando um conjunto de tokens é tratado como fonte, esses tokens não serão exportados como estilos, mas usados apenas como referência. Você reconhece que um conjunto de tokens está marcado como origem pelo ponto dentro da caixa de seleção (checkbox).
+
+![](/treat-as-source.png)
+
+#### Ativando (verificando) um conjunto (set)
+Ao marcar a caixa de seleção, você ativa este conjunto, o que significa que esses tokens serão expostos ao Figma. Se você tiver vários conjuntos (por exemplo, um tema claro e um tema escuro), poderá substituir as decisões que podem ter sido definidas em outro conjunto.
+
+#### Alteração da ordem dos conjuntos
+Você pode arrastar conjuntos para definir sua ordem. Todos os conjuntos de tokens ativos são expostos e mesclados em um grande conjunto de tokens, se alguns tokens tiverem exatamente o mesmo nome e caminho, o último ganha (por exemplo, se `colors.foreground` existe em um tema claro e escuro, aquele que é visível mais tarde nas vitórias do `set list`)
+
+#### Criando uma estrutura de pastas de conjuntos (Pro)
+Primeiro você precisa habilitar a <a href="/sync/multi-file">Multi File Sync</a>.
+Quando o Multi File Sync está ativado, você pode criar uma estrutura de pastas a partir do plug-in. Basta renomear seus conjuntos de tokens para ter um caminho de pasta, por exemplo, `folder/set-1` , `folder/set-2`.
+
+![](https://user-images.githubusercontent.com/109062656/184136468-275b114d-ff50-4322-9c21-04d940ce2dab.png)

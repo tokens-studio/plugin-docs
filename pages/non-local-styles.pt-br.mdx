@@ -1,0 +1,56 @@
+# Estilos não locais
+
+Quando você quiser aplicar um token de cor em um arquivo que não é o arquivo de biblioteca de seus estilos Figma, o que quer é aplicar o estilo em vez de um valor hexadecimal brutov (raw value). Caso contrário, todos os seus designers verão um valor hexadecimal, não a decisão aplicada. Para fazer isso, precisamos preparar nossos arquivos de biblioteca primeiro.
+
+![](/non-local-styles/preview.png)
+
+Para que o Figma Tokens aplique um estilo em vez de um valor hexadecimal bruto em documentos em que esse estilo não está definido, precisamos acompanhar o ID do estilo de cada um dos estilos criados. Como a criação de estilos é sempre em relação a um tema (uma combinação de conjuntos de tokens que são ativados), precisamos armazenar essa informação com Temas. Com a versão Pro do plugin, você pode conectar seus tokens a estilos.
+
+![](/non-local-styles/manage-themes-modal.png)
+
+Para fazer isso, você pode fazer o seguinte:
+
+1. Crie um novo tema.
+2. Ative esse novo tema.
+3. Deixe o plugin criar todos os estilos para aquele tema para você, clique em `Styles > Create styles` na parte inferior.
+4. Publique sua biblioteca.
+5. Certifique-se de sincronizar com uma das soluções de sincronização remota (por exemplo, GitHub).
+6. Quando você aplicar um token em qualquer outro arquivo (com a mesma configuração de sincronização remota), aplicaremos esse estilo para você.
+
+
+Se você já tinha estilos e não quer criar novamente, você também pode clicar em `Manage themes`, selecionar o tema ao qual deseja conectar seus estilos, ir até a aba Estilos e clicar em `Attach styles`. Isso anexará qualquer estilo que corresponda a nomes de token a este tema.
+
+![](/non-local-styles/themes-styles-tab.png)
+
+O mesmo vale para `Importing styles`. Se você importar estilos, armazenaremos a conexão com o tema ativo no momento.
+
+### $themes.json file
+
+Armazenaremos essas conexões de estilo em um arquivo chamado `$themes.json` na raiz do seu projeto. Se você estiver usando a sincronização de arquivo único, essa será uma das chaves de nível raiz do seu JSON.
+
+
+### Vários temas em uma biblioteca
+
+Se você preferir colocar todos os seus estilos de tema em uma biblioteca, você também pode fazer isso. Para fazer isso, vá para `Settings` e marque `Prefix styles with active theme name`. Isso criará qualquer estilo com o nome do tema anexado.
+
+![](/non-local-styles/settings.png)
+
+
+### Como usar
+
+Se você ainda não tiver certeza de como começar a conectar seus tokens a estilos, o vídeo a seguir pode ajudar:
+
+---
+
+import ReactPlayer from 'react-player'
+
+
+<ReactPlayer
+  muted
+  width="100%"
+  height="auto"
+  loop
+  playing
+  controls
+  url="/nonlocalstyles.mp4"
+/>

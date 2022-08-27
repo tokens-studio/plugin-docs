@@ -35,4 +35,5 @@ Em seguida, você pode seguir das seguintes maneiras:
 
 - Criar seus próprios tokens pela UI do plugin
 - Importar seus tokens já feitos
+- Sincronizar seus tokens já existentes usando repositórios remotos (GitHub, GitLab, JSONbin)
 - Criar seus tokens através de um editor JSON

@@ -8,4 +8,4 @@ It gives you reusable tokens that can be used for a whole range of design option
 
 ### Slack Channel
 
-We have a Figma Tokens Slack channel so the community can exchange ideas, best practices or simply ask a question. [Join the Slack channel](https://join.slack.com/t/figmatokens/shared_invite/zt-wu477lb5-4OhKJ91ahP1bs56pCAc6qw).
+We have a Figma Tokens Slack channel so the community can exchange ideas, best practices or simply ask a question. [Join the Slack channel](https://www.figmatokens.com/slack).

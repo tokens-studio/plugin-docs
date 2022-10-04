@@ -1,8 +1,8 @@
 # Reset your tokens
 If you run into any problems with your tokens and have problems opening the plugin, you can always reset your tokens.
 
-<Callout emoji="warning">
-  If you have the tokens only on the local document, you will lose these tokens by resetting the tokens. If you have your tokens connected to an external syncing provider, you can pull the tokens again from the repository after resetting the tokens.
+<Callout type="warning" emoji="⚠️">
+If you have the tokens only on the local document, you will lose these tokens by resetting the tokens. If you have your tokens connected to an external syncing provider, you can pull the tokens again from the repository after resetting the tokens.
 </Callout>
 
 ### 1. Open your console
@@ -13,19 +13,19 @@ Open your developer tools and go to the console: `Cmd + Option + J` (on a Mac) o
 
 Click on the eye-icon to create a live expression.
 
-<img src='/reset-tokens-live-expression.png' alt="Create a live expression" width="500" />
+<img src='/reset-tokens-live-expression.png' alt="Create a live expression" width="300" />
 
 ### 3. Get tokens JSON
 
 Enter `figma.root.getSharedPluginData("tokens", "values")` to get the token JSON.
 
-<img src='/reset-tokens-get-json.png' alt="Get tokens JSON" width="500" />
+<img src='/reset-tokens-get-json.png' alt="Get tokens JSON" width="400" />
 
 ### 4. Reset tokens JSON
 
 After you got the JSON via the command above, enter `figma.root.setSharedPluginData("tokens", "values", "your JSON")` to reset the JSON.
 
-<img src='/reset-tokens-reset-json.png' alt="Reset tokens JSON" width="500" />
+<img src='/reset-tokens-reset-json.png' alt="Reset tokens JSON" width="400" />
 
 ### 5. Restart plugin
 

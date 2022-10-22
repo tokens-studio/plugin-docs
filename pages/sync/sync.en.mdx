@@ -7,7 +7,8 @@ As Tokens make most sense in a team environment, some sort of Sync is required t
 - JSONBin.io
 - URL 
 - GitHub 
-- GitLab (new)
+- GitLab
+- Azure DevOps
 
 #### Local storage
 By default all tokens are stored in the document where you're working in. If you need to work in multiple documents, this option won't work as it means you'd have to copy paste your tokens to the other document.
@@ -19,7 +20,13 @@ You can use JSONBin.io to create an account and sync your tokens there. It's a f
 Pulls tokens from a remote .json stored on your server. This is a read-only sync method.
 
 #### GitHub
-The recommended way as it allows your design decisions to live in the same place as your code lives. Connect to a repository, pull and push tokens or choose a branch you want to push to, which allows you to explore design decisions before pushing them to production.
+The recommended way as it allows your design decisions to live in the same place as your code lives. Connect to a repository, pull and push tokens or choose a branch you want to push to, which allows you to explore design decisions before pushing them to production. We also support GitHub Enterprise.
 
 #### Gitlab
-The recommended way as it allows your design decisions to live in the same place as your code lives. Connect to a repository, pull and push tokens or choose a branch you want to push to, which allows you to explore design decisions before pushing them to production.
+Like GitHub you can store your tokens on your repository.
+
+#### Azure DevOps
+Allows you to store your tokens on ADO.
+
+#### BitBucket (not yet)
+We're planning on integrating BitBucket as well, but have hit a roadblock with their API. If you'd like to support us in that effort, reach out on Slack in #feat-bitbucket-sync.

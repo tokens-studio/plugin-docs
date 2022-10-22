@@ -1,4 +1,4 @@
-# Styles
+# Importing styles
 
 Instead of manually creating all tokens, you can let the plugin do the work for you.
 
@@ -28,7 +28,7 @@ This process is not perfect (yet), but with a little bit of manual tweaking you'
 import Callout from 'nextra-theme-docs/callout'
 
 
-## Color Tokens
+### Color Tokens
 
 Importing color styles into Tokens is fairly straightforward. What the plugin will do is create sets of tokens according to the naming of your base styles, so you'd get tokens similar to these:
 
@@ -122,18 +122,7 @@ Importing color styles into Tokens is fairly straightforward. What the plugin wi
 ```
 
 
-## Typography Tokens
-
-Typography tokens supported for now are:
-- Font families
-- Font weights
-- Font sizes
-- Line heights
-- Letter spacing
-- Paragraph spacing
-- Paragraph Indent
-- Text decoration
-- Text case
+### Importing typography tokens
 
 The resulting Token JSON for these imported styles will look something like this:
 
@@ -277,21 +266,7 @@ The resulting import of styles should result in a set of tokens similar to the o
   }
 ```
 
-> Note: While Font Family and Font Weight tokens can be applied individually to text nodes, both must be applied simultaneously to cause a visual change in Figma. 
-
-
-> We now also support a fallback for your Font Family. You can comma separate Font Families and the first one of the mentioned Font Families is used. Note: the name of a Font Family can't contain a comma.
-
-
-## Keeping styles in sync
-
-Naturally you'd want your styles to update whenever you update your tokens. In order to do this, it's important to keep the naming structure of the tokens the same as your styles in Figma. Meaning, if you rename any tokens, make sure to rename their styles counterparts as well.
-
-`Create Styles` basically tells Figma to create any styles that are non existant.
-
-![](/create-styles.png)
-
-## Importing styles later on
+### Importing styles later on
 If you created or changed styles after you imported your initial styles, you can still use the Import function. The plugin will show you what styles changed in comparison to your tokens and what new ones were added. You can then decide if you want to ignore a change or if you want to update the token.
 
 ![](/import-styles-diff.png)

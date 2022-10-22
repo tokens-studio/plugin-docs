@@ -1,14 +1,12 @@
 {
   "index": "Introdução",
   "getting-started": "Iniciando o uso",
-  "tokens": "Tokens",
+  "tokens": "Using tokens",
+  "available-tokens": "Available tokens",
+  "multi-inspect": "Inspect",
   "styles": "Estilos",
-  "non-local-styles": "Styles não-locais (Pro)",
-  "multi-inspect": "Multi Inspect",
-  "sync": "Sincronizar",
   "themes": "Temas",
-  "handoff": "Handoff",
-  "shared-data": "Dados compartilhados",
-  "token-sets": "Token Sets (Temas)",
-  "beta-builds": "Compilações Beta"
+  "sync": "Sincronizar",
+  "contributing": "Contributing",
+  "troubleshooting": "Troubleshooting"
 }

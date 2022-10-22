@@ -1,0 +1,23 @@
+# Handoff
+
+As Figma currently provides no way to inspect plugin data as a viewer (we hope they do allow that at some point), you'd have to fall back to either letting your engineers use the plugin themselves and inspect layers, or use more traditional methods. One of those methods would be Redlining, where you'd create layers showing which tokens were applied to what layers, still containing token names so it would be clear what to apply when.
+
+<img src="/annotate-1.gif" alt="Annotate tokens" />
+
+## Annotate in the plugin
+One way would be to use the Annotate feature inside Figma Tokens. You would select a single layer, go to the Inspect tab, switch to Debug & Annotate, and use the annotate tool to create annotations for you. Those would not update automatically, and only work for single layers.
+
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout emoji="💡">
+  To use the Annotate feature make sure that the `Deep Inspect` is disabled in the Inspect tab.
+</Callout>
+
+## Component Spec Toolkit
+If your organization has not fully implemented design tokens, configured the Figma Tokens plugin, or has restrictions on plugin usage, consider this library-based alternative for annotation components: the [Component Spec Tool](https://bit.ly/3HYxszW). Designers can use the Component Spec Tool to annotate design systems component work without needing to upgrade their engineer’s Figma access level, install a plugin, or create a plugin dependency to their core library files. 
+
+This tool is great for:
+- Individuals/teams early in their design systems journey
+- Organizations with a limited license count
+- Organizations who outsource development of their component libraries
+- Teams looking to bridge the gap between their design and engineering teams

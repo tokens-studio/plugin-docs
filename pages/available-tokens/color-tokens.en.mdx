@@ -1,0 +1,45 @@
+# Color Tokens
+
+Color tokens make up a big part of Figma Tokens, as they're so tightly integrated with Figma's styles but give you options that Styles don't offer (yet).
+
+You can use color tokens for various things:
+
+- Updating color styles
+- Creating color styles
+- Applying a fill color
+- Applying a stroke color
+
+## Solid colors
+
+There are multiple ways you can write color tokens:
+
+- Hex: `#ff0000`
+- RGB: `rgb(255, 0, 0)`
+- RGBA: `rgba(255, 0, 0, 1)`
+- HSLA: `hsla(120, 50%, 50%, 1)`
+
+By default, a token references a Solid Paint (single colors).
+
+## Gradients
+
+You can define gradient color tokens by specifying a css-like syntax: `linear-gradient(45deg, #ffffff 0%, #000000 100%)`.
+
+If you need multiple color steps, just add more (minimum is 2). `linear-gradient(45deg, #ffffff 0%, #ff0000 50%, #000000 100%)`
+
+### Token References
+The great thing about token gradients is that you can create gradients that reference another token, something that is not possible in Figma itself. `linear-gradient(45deg, $colors.white 0%, $colors.black 100%)`
+
+### Alpha values (opacity)
+Opacity is supported as well, you can write your gradients like this: `linear-gradient(45deg, rgba($colors.primary, 0.5) 0%, rgba($colors.primary, 1) 100%)`
+
+### Limitations
+- Positioning your gradient on a layer, as you can do in Figma, is currently not possible, as we won't know where to position it, as we only store the degree, not any translation.
+
+
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout emoji="❓">
+**Applying color and text tokens**
+
+You might want to apply color or text tokens with the plugin, instead of using Figma's native style feature. This has a downside, which is that when the style is not local (but in a library) the plugin can't apply that style currently and will fall back to the hex value. I would advise you to use the plugin for color and text styles only as a manager of Figma Styles. That way you and your designers would keep using Styles but use the plugin to manage/create them (and have all the benefits of aliases etc). For theme swapping it's recommended to use Figma's Swap library feature.</Callout>
+

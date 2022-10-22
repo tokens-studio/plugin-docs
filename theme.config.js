@@ -46,7 +46,7 @@ export default {
         <meta name="twitter:url" content="https://docs.figmatokens.com" />
         <meta name="og:title" content={ogTitle} />
         <meta name="og:image" content={ogImage} />
-        <meta name="apple-mobile-web-app-title" content="Nextra" />
+        <meta name="apple-mobile-web-app-title" content="Figma Tokens Docs" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png"/>
         <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png"/>
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>

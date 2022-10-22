@@ -11,6 +11,15 @@ module.exports = withNextra({
     locales: ['en', 'pt-br'],
     defaultLocale: 'en',
   },
+  redirects: () => {
+    return [
+      {
+        source: "/reset-tokens",
+        destination: "/troubleshooting/reset-tokens",
+        statusCode: 302
+      }
+    ]
+  },
   async rewrites() {
     return [
       {

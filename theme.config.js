@@ -30,7 +30,7 @@ export default {
     
     const lastDot = route.lastIndexOf('.')
     const path = '/index' ? '/' : route.slice(0, lastDot)
-    const ogImage = `https://img.websnap.app/?url=https://docs.figmatokens.com${route.slice(-2)}&token=D5rpX7VfD3dACoyb&viewport_width=1200&viewport_height=630`;
+    const ogImage = `https://img.websnap.app/?url=https://docs.figmatokens.com${path}&token=D5rpX7VfD3dACoyb&viewport_width=1200&viewport_height=630`;
     const ogTitle = title ? `${title} – Figma Tokens Docs` : 'Figma Tokens Docs';
     return (
       <>

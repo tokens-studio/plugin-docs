@@ -17,6 +17,11 @@ module.exports = withNextra({
         source: "/reset-tokens",
         destination: "/troubleshooting/reset-tokens",
         statusCode: 302
+      },
+      {
+        source: "/non-local-styles",
+        destination: "/styles/non-local-styles",
+        statusCode: 302
       }
     ]
   },

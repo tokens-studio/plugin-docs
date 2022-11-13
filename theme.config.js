@@ -30,7 +30,7 @@ export default {
     
     const lastDot = route.lastIndexOf('.')
     const path = route === '/index' ? '/' : route.slice(0, lastDot)
-    const ogImage = `https://img.websnap.app/?url=https://docs.figmatokens.com${path}&token=D5rpX7VfD3dACoyb&viewport_width=1200&viewport_height=630`;
+    const ogImage = `https://img.websnap.app/?url=https://docs.tokens.studio${path}&token=D5rpX7VfD3dACoyb&viewport_width=1200&viewport_height=630`;
     const ogTitle = title ? `${title} – Tokens Studio for Figma Docs` : 'Tokens Studio for Figma Docs';
     return (
       <>
@@ -42,8 +42,8 @@ export default {
         <meta name="og:description" content="Tokens Studio for Figma: Plugin Docs" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={ogImage} />
-        <meta name="twitter:site:domain" content="docs.figmatokens.com" />
-        <meta name="twitter:url" content="https://docs.figmatokens.com" />
+        <meta name="twitter:site:domain" content="docs.tokens.studio" />
+        <meta name="twitter:url" content="https://docs.tokens.studio" />
         <meta name="og:title" content={ogTitle} />
         <meta name="og:image" content={ogImage} />
         <meta name="apple-mobile-web-app-title" content="Tokens Studio for Figma Docs" />

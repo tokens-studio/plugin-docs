@@ -12,10 +12,10 @@ We're storing tokens stored on a document on the shared plugin data namespace `t
 `node.getSharedPluginData("tokens", key)` gives you the token that was applied on that `node` for that `key`. To find out what `keys` are available, you'd first run `node.getSharedPluginDataKeys("tokens")` on the `node` to find out what `keys` are set. With that result you're able to query the stored tokens.
 
 #### Applying tokens on a layer
-`node.setSharedPluginData("tokens", key, value)` allows you to store a token on a layer. You'd need to make sure that `key` is [any of the plugin data keys](https://github.com/six7/figma-tokens/blob/main/src/config/properties.js) that we're using.
+`node.setSharedPluginData("tokens", key, value)` allows you to store a token on a layer. You'd need to make sure that `key` is [any of the plugin data keys](https://github.com/tokens-studio/figma-plugin/blob/main/src/config/properties.js) that we're using.
 
 ### Figma Plugin Helpers
-We've [built a tool](https://www.npmjs.com/package/@six7/figma-tokens-helpers) that allows you to read all of the above more easily in your own plugin. We're exposing functions that wrap our plugin data functions, so you can easily get tokens stored on the document, on the layer, and even get the resolved tokens taking the activated sets/themes into account!
+We've [built a tool](https://www.npmjs.com/package/@tokens-studio/figma-plugin-helpers) that allows you to read all of the above more easily in your own plugin. We're exposing functions that wrap our plugin data functions, so you can easily get tokens stored on the document, on the layer, and even get the resolved tokens taking the activated sets/themes into account!
 
 ### Examples
 #### Automator

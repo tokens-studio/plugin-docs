@@ -14,10 +14,10 @@ Também estamos armazenando decisões aplicadas em cada nó (node) no mesmo nome
 `node.getSharedPluginData("tokens", key)` fornece o token que foi aplicado nesse `nó` para essa `chave`. Para descobrir quais `keys` estão disponíveis, você deve primeiro executar `node.getSharedPluginDataKeys("tokens")` no `node` para descobrir quais `keys` estão definidas. Com esse resultado você pode consultar os tokens armazenados.
 
 #### Aplicando tokens em uma camada
-`node.setSharedPluginData("tokens", key, value)` permite armazenar um token em uma camada. Você precisa ter certeza de que `key` é [qualquer uma das chaves de dados do plug-in](https://github.com/six7/figma-tokens/blob/main/src/config/properties.js) que nós esta usando.
+`node.setSharedPluginData("tokens", key, value)` permite armazenar um token em uma camada. Você precisa ter certeza de que `key` é [qualquer uma das chaves de dados do plug-in](https://github.com/tokens-studio/figma-plugin/blob/main/src/config/properties.js) que nós esta usando.
 
 ### Ajudantes de Tokens Figma
-Nós [criamos uma ferramenta](https://www.npmjs.com/package/@six7/figma-tokens-helpers) que permite que você leia todos os itens acima com mais facilidade em seu próprio plugin. Estamos expondo funções que envolvem nossas funções de dados de plugins, para que você possa facilmente obter tokens armazenados no documento, na camada e até mesmo obter os tokens resolvidos levando em consideração os conjuntos/temas ativados!
+Nós [criamos uma ferramenta](https://www.npmjs.com/package/@tokens-studio/figma-plugin-helpers) que permite que você leia todos os itens acima com mais facilidade em seu próprio plugin. Estamos expondo funções que envolvem nossas funções de dados de plugins, para que você possa facilmente obter tokens armazenados no documento, na camada e até mesmo obter os tokens resolvidos levando em consideração os conjuntos/temas ativados!
 
 ### Exemplos de integrações com outros Plugins
 #### Automator

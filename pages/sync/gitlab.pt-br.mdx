@@ -71,7 +71,7 @@ Se você estiver adicionando um repositório que já contém tokens, o plug-in p
 
 ### 6. Enviar (Push) ou pegar (Pull) modificações
 
-Sempre que você fizer uma alteração no Figma Tokens, você precisará clicar manualmente em 'Push to GitLab' para enviar suas alterações locais para o controle remoto. Sempre que você fizer isso, você deve fornecer uma mensagem de confirmação. Você pode escolher a ramificação (branch) para a qual deseja enviar suas alterações, para poder experimentar novos tokens sem substituir os atuais.
+Sempre que você fizer uma alteração no Tokens Studio for Figma, você precisará clicar manualmente em 'Push to GitLab' para enviar suas alterações locais para o controle remoto. Sempre que você fizer isso, você deve fornecer uma mensagem de confirmação. Você pode escolher a ramificação (branch) para a qual deseja enviar suas alterações, para poder experimentar novos tokens sem substituir os atuais.
 
 Se você quiser apenas pegar (pull) as alterações mais recentes, clique em `Pull from GitLab`. O plug-in informará quando suas alterações locais forem diferentes das armazenadas no controle remoto, mostrando um ponto azul.
 
@@ -87,7 +87,7 @@ Como alternativa, você pode usar este pacote que transforma os tokens em um for
 
 Você pode usá-lo para gerar tokens para um JSON que pode ser lido pelo *Style Dictionary*, sem aliases, sem matemática.
 
-Execute `node token-transformer tokens.json output.json` onde `tokens.json` é o arquivo em que você armazenou seus tokens. Isso pegará seu arquivo JSON de entrada (que é o arquivo que geramos a partir do Figma Tokens, deve corresponder ao que você digitou nos detalhes de sincronização) e converterá os tokens transformados em um `output.json`.
+Execute `node token-transformer tokens.json output.json` onde `tokens.json` é o arquivo em que você armazenou seus tokens. Isso pegará seu arquivo JSON de entrada (que é o arquivo que geramos a partir do Tokens Studio for Figma, deve corresponder ao que você digitou nos detalhes de sincronização) e converterá os tokens transformados em um `output.json`.
 
 Se você usar vários conjuntos de token, também poderá criar arquivos de token diferentes por combinação de tema. Você pode fazer isso fornecendo parâmetros adicionais ao transformador de token: `node token-transformer data/tokens.json output.json global,dark` usará os conjuntos de token global e dark para gerar combinações.
 
@@ -97,7 +97,7 @@ Não deseja incluir o conjunto global na saída, mas usá-lo para resolver alias
 <Callout emoji="💡">
   Examples
 
-A few example repositories that utilise Figma Tokens, token-transformer, Style Dictionary and GitLab CI/CD can be found here:
+A few example repositories that utilise Tokens Studio for Figma, token-transformer, Style Dictionary and GitLab CI/CD can be found here:
 
 - [1 theme to css variables](https://github.com/six7/figma-tokens-example)
 - [Multiple themes to css variables](https://github.com/six7/figma-tokens-example-multi)

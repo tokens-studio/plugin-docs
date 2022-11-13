@@ -1,6 +1,6 @@
 # Dados compartilhados
 
-Acreditamos que os dados armazenados pelo Figma Tokens também devem ser acessíveis por outros fabricantes de plugins, para criar um ecossistema próspero de ferramentas que possam se comunicar umas com as outras. Imagine um mundo onde somos capazes de armazenar dados de plugins em uma camada ou documento, e outros plugins podem fazer o backup e fazer as coisas que seus plugins fazem melhor. É por isso que abrimos os dados do plug-in que o Figma Tokens armazena em seu documento ou nós para que você também possa usá-lo com outros plug-ins.
+Acreditamos que os dados armazenados pelo Tokens Studio for Figma também devem ser acessíveis por outros fabricantes de plugins, para criar um ecossistema próspero de ferramentas que possam se comunicar umas com as outras. Imagine um mundo onde somos capazes de armazenar dados de plugins em uma camada ou documento, e outros plugins podem fazer o backup e fazer as coisas que seus plugins fazem melhor. É por isso que abrimos os dados do plug-in que o Tokens Studio for Figma armazena em seu documento ou nós para que você também possa usá-lo com outros plug-ins.
 
 ### Como funciona?
 Estamos armazenando tokens em um documento de dados de plug-in compartilhado em `tokens`. Outros plugins podem ler a partir daí. 
@@ -24,4 +24,4 @@ Nós [criamos uma ferramenta](https://www.npmjs.com/package/@six7/figma-tokens-h
 O Automator é capaz de ler e escrever no espaço compartilhado do plugin. Você pode criar todos os tipos de automações malucas - você pode até criar conjuntos inteiros de tokens usando o Automator. Nós até [criamos uma automação que cria automaticamente a documentação](https://automator.community/automation/create-documentation-for-figma-tokens) para você!
 
 #### Pro Layout Panel
-O que tornaria um ótimo aprimoramento de layout automático ainda melhor? A capacidade de escolher tokens de design como seus valores de espaçamento. [Pro Layout Panel](https://www.mrbiscuit.design) permite que você faça isso, então você pode usar os tokens que você criou no Figma Tokens e aplicá-los (usando a última combinação de conjunto usada no Figma Tokens)
+O que tornaria um ótimo aprimoramento de layout automático ainda melhor? A capacidade de escolher tokens de design como seus valores de espaçamento. [Pro Layout Panel](https://www.mrbiscuit.design) permite que você faça isso, então você pode usar os tokens que você criou no Tokens Studio for Figma e aplicá-los (usando a última combinação de conjunto usada no Tokens Studio for Figma)

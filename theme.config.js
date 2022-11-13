@@ -14,12 +14,12 @@ export default {
   projectChatLink: 'https://figmatokens.com/slack',
   projectChatLinkIcon: <Slack />,
   docsRepositoryBase: 'https://github.com/six7/figma-tokens-docs/blob/master',
-  titleSuffix: ' – Figma Tokens',
+  titleSuffix: ' – Tokens Studio for Figma',
   chat: false,
   logo: (
     <>
-      <img src="/logo.svg" alt="Figma Tokens" className="mr-2"/>
-      <span className="mr-2 font-extrabold hidden md:inline">Figma Tokens</span>
+      <img src="/logo.svg" alt="Tokens Studio for Figma Logo" className="mr-2"/>
+      <span className="mr-2 font-extrabold hidden md:inline">Tokens Studio for Figma</span>
       <span className="opacity-75 font-normal hidden md:inline">
         Docs
       </span>
@@ -31,22 +31,22 @@ export default {
     const lastDot = route.lastIndexOf('.')
     const path = route === '/index' ? '/' : route.slice(0, lastDot)
     const ogImage = `https://img.websnap.app/?url=https://docs.figmatokens.com${path}&token=D5rpX7VfD3dACoyb&viewport_width=1200&viewport_height=630`;
-    const ogTitle = title ? `${title} – Figma Tokens Docs` : 'Figma Tokens Docs';
+    const ogTitle = title ? `${title} – Tokens Studio for Figma Docs` : 'Tokens Studio for Figma Docs';
     return (
       <>
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="theme-color" content="#000000" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="Content-Language" content="en" />
-        <meta name="description" content="Figma Tokens: Plugin Docs" />
-        <meta name="og:description" content="Figma Tokens: Plugin Docs" />
+        <meta name="description" content="Tokens Studio for Figma: Plugin Docs" />
+        <meta name="og:description" content="Tokens Studio for Figma: Plugin Docs" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={ogImage} />
         <meta name="twitter:site:domain" content="docs.figmatokens.com" />
         <meta name="twitter:url" content="https://docs.figmatokens.com" />
         <meta name="og:title" content={ogTitle} />
         <meta name="og:image" content={ogImage} />
-        <meta name="apple-mobile-web-app-title" content="Figma Tokens Docs" />
+        <meta name="apple-mobile-web-app-title" content="Tokens Studio for Figma Docs" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png"/>
         <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png"/>
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>

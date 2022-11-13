@@ -1,6 +1,6 @@
 # Contributing
 
-If you want to get started contributing to Figma Tokens read this short guideline that should get you started.
+If you want to get started contributing to Tokens Studio for Figma read this short guideline that should get you started.
 
 1. Clone the repository
 2. Run `yarn` to install dependencies

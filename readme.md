@@ -1,6 +1,6 @@
-# Figma Tokens Documentation
+# Tokens Studio for Figma Documentation
 
-This is the source code for the documentation of the open source plugin [Figma Tokens](https://github.com/six7/figma-tokens)
+This is the source code for the documentation of the open source plugin [Tokens Studio for Figma](https://github.com/tokens-studio/figma-plugin)
 
 Built with [Nextra](https://github.com/shuding/nextra)
 

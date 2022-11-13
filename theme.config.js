@@ -11,7 +11,7 @@ const Slack = () => (
 
 export default {
   projectLink: 'https://github.com/six7/figma-tokens',
-  projectChatLink: 'https://figmatokens.com/slack',
+  projectChatLink: 'https://tokens.studio/slack',
   projectChatLinkIcon: <Slack />,
   docsRepositoryBase: 'https://github.com/six7/figma-tokens-docs/blob/master',
   titleSuffix: ' – Tokens Studio for Figma',

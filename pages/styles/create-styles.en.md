@@ -1,4 +1,4 @@
-### Creating styles
+# Creating styles
 
 You can tell the plugin to create any styles for tokens that have not been created yet. The plugin will respect your naming of your tokens, and convert any group to a `/` separated style.
 

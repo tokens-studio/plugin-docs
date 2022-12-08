@@ -1,6 +1,6 @@
 # Tokens Disponíveis
 
-No plugin Figma Tokens, você pode criar Design Tokens reutilizáveis e semânticos para seus processos de Design.
+No plugin Tokens Studio for Figma, você pode criar Design Tokens reutilizáveis e semânticos para seus processos de Design.
 
 Os grupos de tokens disponíveis até o momento são:
 

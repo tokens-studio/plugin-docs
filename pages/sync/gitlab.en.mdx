@@ -45,7 +45,7 @@ Go to the Sync tab and select GitLab. Add a new item
 
 - Add any name (this is only used for the plugin UI)
 - Add your Personal Access Token which we just copied.
-- Add your GitLab repository (e.g. `six7/figma-tokens`)
+- Add your GitLab repository (e.g. `tokens-studio/figma-plugin`)
 - Add your default branch (probably `main`)
 - Specify a file path where your tokens should be stored, e.g. `data/tokens.json` or just `tokens.json`
 
@@ -59,7 +59,7 @@ If you're adding a repository that already contains tokens, the plugin will ask 
 
 ### 6. Push or pull changes
 
-Whenever you make a change in Figma Tokens, you have to manually hit `Push to GitLab` to push your local changes to the remote. Anytime you do that you have to supply a commit message. You can choose the branch you want to push your changes to, so you could just try new tokens out without overwriting the currently live ones.
+Whenever you make a change in Tokens Studio for Figma, you have to manually hit `Push to GitLab` to push your local changes to the remote. Anytime you do that you have to supply a commit message. You can choose the branch you want to push your changes to, so you could just try new tokens out without overwriting the currently live ones.
 
 If you only want to pull the latest changes, hit `Pull from GitLab`. The plugin will let you know when your local changes differ from the ones stored on the remote by showing a blue dot.
 
@@ -75,7 +75,7 @@ Alternatively, you can use this package that transforms the tokens into a format
 
 You can then use it to generate tokens to a JSON that is readable by Style Dictionary, without any aliases, without any math.
 
-Run `node token-transformer tokens.json output.json` where tokens.json is the file you stored your tokens in. This will take your input JSON file (which is the file we generate from Figma Tokens, this should match what you entered in the Sync details) and output the transformed tokens to an output.json
+Run `node token-transformer tokens.json output.json` where tokens.json is the file you stored your tokens in. This will take your input JSON file (which is the file we generate from Tokens Studio for Figma, this should match what you entered in the Sync details) and output the transformed tokens to an output.json
 
 If you use multiple token sets you might also want to create different token files per theme combination. You can do that by giving token-transformer additional parameters: `node token-transformer data/tokens.json output.json global,dark` will use the global and dark token sets to generate combinations.
 
@@ -85,11 +85,11 @@ Don't want to include the global set in the output but use it for resolving alia
 <Callout emoji="💡">
   Examples
 
-A few example repositories that utilise Figma Tokens, token-transformer, Style Dictionary and GitLab CI/CD can be found here:
+A few example repositories that utilise Tokens Studio for Figma, token-transformer, Style Dictionary and GitLab CI/CD can be found here:
 
-- [1 theme to css variables](https://github.com/six7/figma-tokens-example)
-- [Multiple themes to css variables](https://github.com/six7/figma-tokens-example-multi)
-- [TailwindCSS with dark and light theme](https://github.com/six7/figma-tokens-example-tailwindcss)
+- [1 theme to css variables](https://github.com/tokens-studio/figma-plugin-example)
+- [Multiple themes to css variables](https://github.com/tokens-studio/figma-plugin-example-multi)
+- [TailwindCSS with dark and light theme](https://github.com/tokens-studio/figma-plugin-example-tailwindcss)
 
 Let me know if you have other examples you want to share with the community!
 

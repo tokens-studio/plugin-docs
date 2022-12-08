@@ -18,4 +18,4 @@ Em seguida, clique em `Choose a manifest.json file` e navegue até o local onde 
 
 ![](/choose-manifest.jpg)
 
-É isso! Agora você tem uma compilação de desenvolvimento do Figma Tokens. Comece clicando com o botão direito em qualquer lugar em um documento e escolha `Plugins > Figma Tokens (Dev)`
+É isso! Agora você tem uma compilação de desenvolvimento do Tokens Studio for Figma. Comece clicando com o botão direito em qualquer lugar em um documento e escolha `Plugins > Tokens Studio for Figma (Dev)`

@@ -1,6 +1,6 @@
 # Contribuindo
 
-Se você deseja começar a contribuir com o Figma Tokens, leia esta breve orientação que deve começar.
+Se você deseja começar a contribuir com o Tokens Studio for Figma, leia esta breve orientação que deve começar.
 
 1. Clone o repositório
 2. Execute o `yarn` para instalar as dependências

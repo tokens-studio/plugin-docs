@@ -156,7 +156,7 @@ A importação de estilos resultante deve pareecer um conjunto de tokens semelha
 
 É claro que você quer que seus estilos sejam atualizados sempre que atualizar seus tokens. Para fazer isso, é importante manter a estrutura de nomenclatura dos tokens igual aos seus estilos no Figma. Ou seja, se você renomear quaisquer tokens, certifique-se de renomear suas contrapartes de estilos também.
 
-Se você criar um novo estilo posteriormente e quiser mantê-lo em tokens, crie-o no Figma Tokens e use o botão `Create Styles`, ao invés de aplicar Import Styles novamente.
+Se você criar um novo estilo posteriormente e quiser mantê-lo em tokens, crie-o no Tokens Studio for Figma e use o botão `Create Styles`, ao invés de aplicar Import Styles novamente.
 
 `Create Styles` basicamente diz ao Figma para criar qualquer estilo que não exista.
 

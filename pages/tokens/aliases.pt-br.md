@@ -1,6 +1,6 @@
 # Apelidos (Aliases)
 
-A coisa legal sobre Figma Tokens é que você pode fazer referência a outros tokens como um valor para seus tokens (ou, como podemos chamar, seus estilos). Isso significa que você pode fazer com que a cor de sua marca seja uma referência a `colors.red.500`, ou ter um token de fundo que obtém seu valor de um token de `colors.black` enquanto um token de primeiro plano obtém seu valor de um token `colors.white`.
+A coisa legal sobre Tokens Studio for Figma é que você pode fazer referência a outros tokens como um valor para seus tokens (ou, como podemos chamar, seus estilos). Isso significa que você pode fazer com que a cor de sua marca seja uma referência a `colors.red.500`, ou ter um token de fundo que obtém seu valor de um token de `colors.black` enquanto um token de primeiro plano obtém seu valor de um token `colors.white`.
 
 Para usar um alias em seus tokens, nós os escrevemos na seguinte notação: `$spacing.sm`
 

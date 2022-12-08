@@ -49,7 +49,7 @@ Go to the Sync tab and select GitLab. Add a new item
 
 - Add any name (this is only used for the plugin UI)
 - Add your Personal Access Token which we just copied.
-- Add your GitLab repository (e.g. `six7/figma-tokens`)
+- Add your GitLab repository (e.g. `tokens-studio/figma-plugin`)
 - Add your default branch (probably `main`)
 - Specify a file path where your tokens should be stored, e.g. `data/tokens.json` or just `tokens.json`
 
@@ -57,7 +57,7 @@ Vá para a guia `Sync` e selecione GitLab. Adicionar um novo item.
 
 - Adicione qualquer nome (isso é usado apenas para a interface do usuário do plug-in);
 - Adicione seu Token de Acesso Pessoal (*Personal Access Token*) que acabamos de copiar;
-- Adicione seu repositório GitLab (por exemplo, `six7/figma-tokens`);
+- Adicione seu repositório GitLab (por exemplo, `tokens-studio/figma-plugin`);
 - Adicione seu branch padrão (provavelmente `main`);
 - Especifique um caminho de arquivo onde seus tokens devem ser armazenados, por exemplo `data/tokens.json` ou apenas `tokens.json`.
 
@@ -71,7 +71,7 @@ Se você estiver adicionando um repositório que já contém tokens, o plug-in p
 
 ### 6. Enviar (Push) ou pegar (Pull) modificações
 
-Sempre que você fizer uma alteração no Figma Tokens, você precisará clicar manualmente em 'Push to GitLab' para enviar suas alterações locais para o controle remoto. Sempre que você fizer isso, você deve fornecer uma mensagem de confirmação. Você pode escolher a ramificação (branch) para a qual deseja enviar suas alterações, para poder experimentar novos tokens sem substituir os atuais.
+Sempre que você fizer uma alteração no Tokens Studio for Figma, você precisará clicar manualmente em 'Push to GitLab' para enviar suas alterações locais para o controle remoto. Sempre que você fizer isso, você deve fornecer uma mensagem de confirmação. Você pode escolher a ramificação (branch) para a qual deseja enviar suas alterações, para poder experimentar novos tokens sem substituir os atuais.
 
 Se você quiser apenas pegar (pull) as alterações mais recentes, clique em `Pull from GitLab`. O plug-in informará quando suas alterações locais forem diferentes das armazenadas no controle remoto, mostrando um ponto azul.
 
@@ -87,7 +87,7 @@ Como alternativa, você pode usar este pacote que transforma os tokens em um for
 
 Você pode usá-lo para gerar tokens para um JSON que pode ser lido pelo *Style Dictionary*, sem aliases, sem matemática.
 
-Execute `node token-transformer tokens.json output.json` onde `tokens.json` é o arquivo em que você armazenou seus tokens. Isso pegará seu arquivo JSON de entrada (que é o arquivo que geramos a partir do Figma Tokens, deve corresponder ao que você digitou nos detalhes de sincronização) e converterá os tokens transformados em um `output.json`.
+Execute `node token-transformer tokens.json output.json` onde `tokens.json` é o arquivo em que você armazenou seus tokens. Isso pegará seu arquivo JSON de entrada (que é o arquivo que geramos a partir do Tokens Studio for Figma, deve corresponder ao que você digitou nos detalhes de sincronização) e converterá os tokens transformados em um `output.json`.
 
 Se você usar vários conjuntos de token, também poderá criar arquivos de token diferentes por combinação de tema. Você pode fazer isso fornecendo parâmetros adicionais ao transformador de token: `node token-transformer data/tokens.json output.json global,dark` usará os conjuntos de token global e dark para gerar combinações.
 
@@ -97,11 +97,11 @@ Não deseja incluir o conjunto global na saída, mas usá-lo para resolver alias
 <Callout emoji="💡">
   Examples
 
-A few example repositories that utilise Figma Tokens, token-transformer, Style Dictionary and GitLab CI/CD can be found here:
+A few example repositories that utilise Tokens Studio for Figma, token-transformer, Style Dictionary and GitLab CI/CD can be found here:
 
-- [1 theme to css variables](https://github.com/six7/figma-tokens-example)
-- [Multiple themes to css variables](https://github.com/six7/figma-tokens-example-multi)
-- [TailwindCSS with dark and light theme](https://github.com/six7/figma-tokens-example-tailwindcss)
+- [1 theme to css variables](https://github.com/tokens-studio/figma-plugin-example)
+- [Multiple themes to css variables](https://github.com/tokens-studio/figma-plugin-example-multi)
+- [TailwindCSS with dark and light theme](https://github.com/tokens-studio/figma-plugin-example-tailwindcss)
 
 Let me know if you have other examples you want to share with the community!
 

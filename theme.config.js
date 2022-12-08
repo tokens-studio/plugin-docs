@@ -13,7 +13,7 @@ export default {
   projectLink: 'https://github.com/tokens-studio/figma-plugin',
   projectChatLink: 'https://tokens.studio/slack',
   projectChatLinkIcon: <Slack />,
-  docsRepositoryBase: 'https://github.com/tokens-studio/figma-plugin-docs/blob/master',
+  docsRepositoryBase: 'https://github.com/tokens-studio/plugin-docs/blob/master',
   titleSuffix: ' – Tokens Studio for Figma',
   chat: false,
   logo: (

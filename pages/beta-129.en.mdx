@@ -1,38 +1,53 @@
 # Beta 129
 
 This release is packed with new features, fixes and general polish improvements. We are very excited to share this release with you and we hope it improves your time working with the plugin. To install it, follow this guide: [Beta builds](contributing/beta-builds)
-## New Features
-### New token type: Dimension. 
+## New token type: Dimension
 
 ![New dimension type tokens](/beta-129/dimension-type.png)
 
-This token follows the W3C DTCG Format, must be set with a unit, and can be applied to Spacing, Sizing, Border radius, Border width or Background blur (new!) properties. To try it out, create a new token with `type dimension`, and then right-click that token to choose what to apply it on.
+This token follows the W3C DTCG Format, must be set with a unit, and can be applied to Spacing, Sizing, Border radius, Border width or Background blur (new!) properties. To try it out, create a new token with `type dimension`, and then right-click that token to choose what to apply it on. Note that dimension-type tokens need to come with a unit at the end (e.g. `px` or `rem`, so typing `14px` will work).
 
-### New token type: Border.
+## New token type: Border
 ![New border type tokens](/beta-129/border-type.png)
 
 This token is a composite token combining a width, style and color. To try it out, create a new token with `type border`, and then right-click that token to choose what to apply it on.
 
-### When two users work in the same document, we now keep state up-to-date.
-This applies when it comes to changes users are making on the document - note that this only includes applied tokens, not yet which tokens are created. To try this out, have two users work in the same document, apply tokens and notice how the Inspect tab is now aware of other user's changes.
-
-### None-value tokens
-![New none-value tokens](/beta-129/none-tokens.png)
-
-Add an option in Inspect that lets you set tokens to `none` - which means this token holds no value. This can be useful for Asset tokens where a specific theme shouldn't have a token set, or for component instances when you want to override the main component with a none decision.
-
-### Swap Styles (Alpha)
+## Swap Styles (Alpha)
 ![Apply selector showing Swap Styles as an option](/beta-129/swap-styles.png)
 
 This is an feature that we'll release behind a feature flag. It lets you swap styles without having any tokens applied (like Themer). To try it out, make sure you're utilizing Themes, have local styles attached, and then just apply Styles (not tokens) for Colors or Typography or Shadows. Activate `Swap styles (Alpha)` in the Apply dropdown (bottom left of the plugin), and then pick a different Theme to swap to. This will effectively swap the styles that are applied with the sibling styles of another theme (where name matches).
 
-### New sync provider UI
+---
+
+import ReactPlayer from 'react-player'
+
+<ReactPlayer
+  muted
+  width="100%"
+  height="auto"
+  loop
+  playing
+  controls
+  url="/swap-styles.mp4"
+/>
+
+---
+
+## When two users work in the same document, we now keep state up-to-date
+This applies when it comes to changes users are making on the document - note that this only includes applied tokens, not yet which tokens are created. To try this out, have two users work in the same document, apply tokens and notice how the Inspect tab is now aware of other user's changes.
+
+## None-value tokens
+![New none-value tokens](/beta-129/none-tokens.png)
+
+Add an option in Inspect that lets you set tokens to `none` - which means this token holds no value. This can be useful for Asset tokens where a specific theme shouldn't have a token set, or for component instances when you want to override the main component with a none decision.
+
+## New sync provider UI
 ![Improved sync provider UI listing each provider one row at a time](/beta-129/sync-ui.png)
 
 We've added a bunch of new sync providers in recent months, so the UI got heavily cluttered. We improved that - head on to the Settings tab to see it all.
 
-### Detach styles
+## Detach styles
 We previously only allowed detaching styles when the styleReference wasn't found. We now added the ability to detach styles from Themes at all times.
 
-### Themes.json / $themes improvements
+## Themes.json / $themes improvements
 We changed how we store $themes in a way where `disabled` token sets are not incldued in the array of sets. We'll treat any set that is not part of a theme as `disabled`. Note that this will mean a push will happen (you'll need to manually push) when you open the plugin, as we'll push this change to your repository.

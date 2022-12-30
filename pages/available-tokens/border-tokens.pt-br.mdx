@@ -1,0 +1,19 @@
+# Border tokens
+
+You can create Border tokens to define border styles. The token must contain the following properties:
+- Color: the color of the border
+- Width: the width or thickness of the border. Can be defined either unitless or with a unit such as px or rem.
+- Style: the border style. Currently solid and dashed is supported.
+
+The border token can be used in combination with border width and border radius tokens.
+
+```
+Type: 'border'
+Name: 'Border'
+Value: {
+         color: ColorToken: color token input or reference to a color token | Placeholder: 'Border color',
+         width: dimension token input or a reference to a borderWidth or dimension token | Placeholder: 'Border width'
+         style: StrokeStyle | Placeholder: 'solid | dashed'
+       }
+
+```

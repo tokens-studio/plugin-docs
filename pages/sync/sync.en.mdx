@@ -9,6 +9,7 @@ As Tokens make most sense in a team environment, some sort of Sync is required t
 - GitHub 
 - GitLab
 - Azure DevOps
+- Generic Versioned Storage
 
 You can choose the sync option in the Settings tab, from where you can add a new sync option.
 ![](/sync-sync.png)
@@ -30,6 +31,9 @@ Like GitHub you can store your tokens on your repository.
 
 #### Azure DevOps
 Allows you to store your tokens on ADO.
+
+#### Generic Versioned Storage
+An extension off of the URL storage. This storage provider supports read/only, read/write and read/write/create flows. Additionally it can be extended with arbitrary headers on the requests should you need more fined grained support for your endpoint.
 
 #### BitBucket (not yet)
 We're planning on integrating BitBucket as well, but have hit a roadblock with their API. If you'd like to support us in that effort, reach out on Slack in #feat-bitbucket-sync.

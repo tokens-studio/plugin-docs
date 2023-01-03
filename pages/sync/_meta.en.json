@@ -6,5 +6,6 @@
   "gitlab": "GitLab",
   "ado": "Azure DevOps",
   "branch-switching": "Branch switching (Pro)",
+  "generic-storage":"Generic Versioned Storage",
   "multi-file": "Multi-file Sync (Pro)"
 }

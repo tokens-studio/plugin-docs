@@ -1,4 +1,4 @@
-### Keeping styles in sync
+# Keeping styles in sync
 
 Naturally you'd want your styles to update whenever you update your tokens. If you're using Themes we offer an easy way to do that. Any time you rename a token, the plugin will ask if you want to also rename any connected style. This is only possible if you're doing that change in the file where that style is defined, though.
 

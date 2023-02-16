@@ -17,32 +17,40 @@ Next, choose the amount for the modifier (this is an amount between 0 and 1).
 ### Lighten
 When we lighten we take the base color and increase lightness by a percentage that equals the amount, so a 0.1 amount will mean the color gets 10% lighter. A value of 1 means you’re getting a white, so it’s always in relation to the base color to white.
 
+```
 0 amount: no change in lightness
 1 amount: white
+```
 
 ![](/lighten.png)
 
 ### Darken
 Applying a darken modifier means we’re darkening the current color closer to the darkest shade in relation to the amount. So a 0.1 amount will mean the color gets 10% darker, an amount of 1 means pure black.
 
+```
 0 amount: no change in darkness
 1 amount: black
+```
 
 ![](/darken.png)
 
 ### Mix
 If you want to mix a color with another color you can use the mix modifier. The amount means: 0 = the original base color is used. 1 = the color to be mixed with is used. A value of 0.5 means a 50% split between those values.
 
+```
 0 amount: base color
 1 amount: mix color
+```
 
 ![](/mix.png)
 
 ### Alpha
 To transparentize colors you can use the alpha modifier, which takes the base color and makes it transparent according to the amount. 0 = transparent, 1 = fully opaque.
 
+```
 0 amount: fully transparent
 1 amount: fully opaque
+```
 
 ![](/alpha.png)
 

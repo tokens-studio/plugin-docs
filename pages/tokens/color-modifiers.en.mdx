@@ -1,0 +1,67 @@
+import Callout from 'nextra-theme-docs/callout'
+
+# Color Modifiers (Pro)
+As a Pro user you are now able to manipulate colors to create slight variations of a specific base color. Currently there are four modifiers available: lighten, darken, mix, alpha.
+
+The color modifier can for example be used to create a hover state that is a bit brighter, a pressed state which is a bit darker or a color ramp from the base color.
+
+## How to use
+Create a base color and add a modifier
+
+![](/modifiers-intro.png)
+
+Choose the type of operation (lighten, darken, mix or alpha) and the color space (lcc, srgb, p3 or hsl)
+Next, choose the amount for the modifier (this is an amount between 0 and 1).
+
+## Available modifiers 
+### Lighten
+When we lighten we take the base color and increase lightness by a percentage that equals the amount, so a 0.1 amount will mean the color gets 10% lighter. A value of 1 means you’re getting a white, so it’s always in relation to the base color to white.
+
+```
+0 amount: no change in lightness
+1 amount: white
+```
+
+![](/lighten.png)
+
+### Darken
+Applying a darken modifier means we’re darkening the current color closer to the darkest shade in relation to the amount. So a 0.1 amount will mean the color gets 10% darker, an amount of 1 means pure black.
+
+```
+0 amount: no change in darkness
+1 amount: black
+```
+
+![](/darken.png)
+
+### Mix
+If you want to mix a color with another color you can use the mix modifier. The amount means: 0 = the original base color is used. 1 = the color to be mixed with is used. A value of 0.5 means a 50% split between those values.
+
+```
+0 amount: base color
+1 amount: mix color
+```
+
+![](/mix.png)
+
+### Alpha
+To transparentize colors you can use the alpha modifier, which takes the base color and makes it transparent according to the amount. 0 = transparent, 1 = fully opaque.
+
+```
+0 amount: fully transparent
+1 amount: fully opaque
+```
+
+![](/alpha.png)
+
+<Callout>
+  Note: Currently it’s only possible to add one modifier to a base color at once.
+</Callout>
+
+<Callout>
+  Note 2: ColorJS.io is the color library used for the implementation of the color modifiers.
+</Callout>
+
+
+
+

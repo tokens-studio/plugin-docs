@@ -1,0 +1,13 @@
+# Settings
+
+There's a number of settings that you can configure to adjust the plugin to how you'd like to use it. You can find those settings in the `Settings` tab of the plugin.
+
+## Ignore first part of token name for Styles
+This setting strips the first part of token names when you're creating styles, meaning a color token called `colors.grey.500` will become a style called `grey/500` instead of `colors/grey/500`.
+
+## Prefix styles with active theme name (Pro)
+If you have Themes setup and you'd like your styles to be created under a folder with the theme name, you can check this setting to make sure a token called `bg.default` gets created as `Light/bg/default` for the Light theme and as `Dark/bg/default` for the Dark theme.
+
+## Base font size
+When you're using `rem` units by default we treat `1rem` as `16px`. However, sometimes you'd want that to be platform or screen specific. To allow you to do that easily we allow you to change the `rem` value. You can change the `Base font size` value to something else, e.g. `24`. But you can also make this dynamic and change between different token sets. Just choose any token in this field by specifying as `{scales.fontsize} which could be a token called `scales.fontsize that has a value of `16px` in one set, and `24px` in another set.
+

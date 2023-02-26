@@ -1,13 +1,15 @@
 {
-  "available-tokens": "Overview",
-  "sizing-tokens": "Sizing tokens",
-  "spacing-tokens": "Tokens de Espaçamento (Spacing)",
-  "color-tokens": "Tokens de cor",
-  "border-radius-tokens": "Border radius tokens",
-  "border-width-tokens": "Border width tokens",
-  "shadow-tokens": "Shadow tokens",
-  "opacity-tokens": "Opacity tokens",
-  "typography-tokens": "Typography tokens",
-  "asset-tokens": "Asset tokens",
-  "composition-tokens": "Tokens de Composição (Pro)"
+  "available-tokens": "Resumo",
+  "sizing-tokens": "Tamanhos",
+  "spacing-tokens": "Espaçamento",
+  "color-tokens": "Cores",
+  "border-radius-tokens": "Bordas: raios",
+  "border-width-tokens": "Bordas: espessura",
+  "shadow-tokens": "Sombras",
+  "opacity-tokens": "Opacidade",
+  "typography-tokens": "Tipografia",
+  "asset-tokens": "Ativos (Assets)",
+  "composition-tokens": "Tokens de Composição (Pro)",
+  "dimension-tokens": "Dimensão",
+  "border-tokens": "Bordas"
 }

@@ -1,0 +1,59 @@
+# Tokens de Espaçamento (Spacing Tokens)
+
+Os tokens de espaçamento oferecem a capacidade de definir valores para `Auto Layout` que você pode reutilizar. 
+
+Depois de aplicar um token de espaçamento a uma camada, ele será atualizado sempre que você alterar esse token, portanto, qualquer camada que contenha uma referência a `{spacing.container}` será atualizada quando você atualizar esse token específico.
+
+#### Como usar
+
+Para fazer os tokens de espaçamento funcionarem, comece criando tokens na categoria Espaçamento.
+
+Em seguida, selecione ou crie uma camada `Auto Layout` (não funcionará em nenhum outro tipo de camada!)
+
+Depois de selecionado, aplique os tokens de espaçamento clicando com o botão esquerdo (todos os valores usarão esse token) ou clique com o botão direito do mouse para especificar qual parte do layout automático você deseja segmentar (`Gap`, `All`, `Top`, `Right `, `Bottom`, `Left`)
+
+---
+
+import ReactPlayer from 'react-player'
+
+<ReactPlayer
+  muted
+  width="100%"
+  height="auto"
+  loop
+  playing
+  controls
+  url="/uhrCSTbr5Q.mp4"
+/>
+
+### Tokens de espaçamento de vários valores
+
+Para economizar muito tempo, introduzimos os tokens de espaçamento de vários valores. Isso permite que você especifique o espaçamento apenas para o preenchimento horizontal ou vertical. Você pode definir um, dois, três ou quatro valores, assim como o CSS.
+
+**Single value (like today)**<br/>
+Isso se aplicará à propriedade gap (como hoje)<br/>
+```10px```
+
+**Two values**<br/>
+Isso se aplica top-and-bottom | left-and-right<br/>
+```10px 5px```
+
+**Three values**<br/>
+Isso se aplica top | right-and-left | bottom<br/>
+```2px 4px 2px```
+
+**Four values**<br/>
+Isso se aplica top | right | bottom | left<br/>
+```1px 0 3px 4px```
+
+---
+
+<ReactPlayer
+  muted
+  width="100%"
+  height="auto"
+  loop
+  playing
+  controls
+  url="/multi-value-spacing-tokens.mp4"
+/>

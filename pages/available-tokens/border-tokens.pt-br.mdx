@@ -1,6 +1,10 @@
-# Border tokens
+# Tokens de Bordas (Border Tokens)
 
-You can create Border tokens to define border styles. The token must contain the following properties:
-- Color: the color of the border
-- Width: the width or thickness of the border. Can be defined either unitless or with a unit such as px or rem.
-- Style: the border style. Currently solid and dashed is supported.
+Você pode criar tokens de borda para definir estilos de borda. O token deve conter as seguintes propriedades:
+- Cor: a cor da borda;
+- Largura: a largura ou espessura da borda. Pode ser definido sem unidade ou com uma unidade como px ou rem;
+- Estilo: o estilo da borda. Atualmente sólidos e tracejados são suportados.
+
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout>Este token será aplicado sob a propriedade `border`, que foi usada anteriormente por tokens de cor de borda. O plug-in migrará automaticamente quaisquer tokens de cor aplicados mais antigos na propriedade `border` para o novo `borderColor`.</Callout>

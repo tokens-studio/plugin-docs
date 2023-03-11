@@ -1,19 +1,24 @@
-# Typography tokens
+# Tokens de Tipografia (Typography tokens)
 
-Typography tokens supported for now are:
-- Font families
-- Font weights
-- Font sizes
-- Line heights
-- Letter spacing
-- Paragraph spacing
-- Paragraph Indent
-- Text decoration
-- Text case
+Os tokens de tipografia suportados por enquanto são:
 
-A typography token is a composite token consisting of a few parameters that make up a type definition. We also have individual token types for each of these options, as you can apply them individually as well. However, in order to create styles, you'd have to use a Typography token.
+- Famílias de fontes (Font families)
+- Pesos da fonte (Font weights)
+- Tamanhos de fonte (Font sizes)
+- Alturas de linha (Line heights)
+- Espaçamento entre letras (Letter spacing)
+- Espaçamento entre parágrafos (Paragraph spacing)
+- Recuo de parágrafo (Paragraph Indent)
+- Decoração de texto (Text decoration)
+- Caso de texto (Text case)
 
-An example of a typography token looks like this:
+Um token de tipografia é um token composto que consiste em alguns parâmetros que compõem uma definição de tipo. 
+
+Também temos tipos de token individuais para cada uma dessas opções, pois você também pode aplicá-los individualmente. 
+
+No entanto, para criar estilos, você teria que usar um token de tipografia.
+
+Um exemplo de token de tipografia se parece com isso:
 
 ```
 {
@@ -36,14 +41,18 @@ An example of a typography token looks like this:
 import Callout from 'nextra-theme-docs/callout'
 
 <Callout emoji="⚠️">
-  While Font Family and Font Weight tokens can be applied individually to text nodes, both must be applied simultaneously to cause a visual change in Figma. 
+  Embora os tokens `Font Family` e `Font Weight` possam ser aplicados individualmente a nós de texto, ambos devem ser aplicados simultaneamente para causar uma alteração visual no Figma.
 </Callout> 
 
-### Font family
+### Família da Fonte (Font family)
 
-You can define your font family as a single value or also as a comma-separated list. The plugin will try each of these, and if it finds one that works, takes this one
+Você pode definir sua família de fontes como um valor único ou também como uma lista separada por vírgulas. O plug-in tentará cada um deles e, se encontrar um que funcione, usará este.
 
-### Font weight
+### Peso da Fonte (Font weight)
 
-Font weights are defined using strings such as Regular or Bold and are applied in combination with a fontFamily token (or as part of a typography token) We also provide a way to support numerical weights such as 400, 600 - however due to the fact that Figma doesn't let us set a font weight by using these numbers we had to implement a mapping that gets this right for the majority of fonts, but it could be that this mapping doesn't work for your case. You can always use the exact string that's available inside Figma's font choice (e.g. font family `Inter` with a weight of `Bold`).
+Pesos de fonte são definidos usando strings como Regular ou Negrito (Bold) e são aplicados em combinação com um token fontFamily (ou como parte de um token de tipografia). 
+
+O Figma não nos permite definir um peso de fonte usando esses números, tivemos que implementar um mapeamento que acerte isso para a maioria das fontes, mas pode ser que esse mapeamento não funcione para o seu caso. 
+
+Você sempre pode usar a string exata que está disponível na escolha da fonte do Figma (por exemplo, família de fontes `Inter` com peso `Bold`).
 

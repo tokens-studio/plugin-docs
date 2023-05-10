@@ -1,20 +1,22 @@
-# Asset Tokens
+# Tokens de Ativos (Assets Tokens)
 
-To make it possible to tokenize logo’s, backgrounds and any other image, we created Asset tokens. The asset tokens allow you to use an image url as a fill for any layer. 
-This can be very useful in white-label projects, where you need to change the assets, next to colors and typography.
+Para possibilitar a tokenização de logotipos, planos de fundo e qualquer outra imagem, criamos tokens de ativos. Os tokens de ativos permitem que você use um URL de imagem como preenchimento para qualquer camada.
 
-#### How to use
+Isso pode ser muito útil em projetos white-label, onde você precisa alterar os ativos, junto a cores e tipografia.
 
-Create an Asset token under the ‘Asset’ category by clicking on the ‘+’ icon.  
-Enter a token name and an asset url.  
+#### Como usar
+
+Crie um token de Ativo na categoria ‘Ativo’ clicando no ícone ‘+’.
+
+Insira um nome de token e um URL de ativo.
 
 import Callout from 'nextra-theme-docs/callout'
 
 <Callout>
-  Currently the image source needs to have its own CORS (Cross-Origin Resource Sharing) validation. Some websites already have that implemented (e.g. Unsplash), but otherwise you can put this behind a CORS proxy. More information on CORS can be found [here](https://medium.com/nodejsmadeeasy/a-simple-cors-proxy-for-javascript-applications-9b36a8d39c51). We'll be adding a CORS proxy in a future release.
+  Atualmente, a fonte da imagem precisa ter sua própria validação CORS (Cross-Origin Resource Sharing). Alguns sites já implementaram isso (por exemplo, Unsplash), mas, caso contrário, você pode colocar isso atrás de um proxy CORS. Mais informações sobre CORS podem ser encontradas [aqui](https://medium.com/nodejsmadeeasy/a-simple-cors-proxy-for-javascript-applications-9b36a8d39c51). Adicionaremos um proxy CORS em uma versão futura.
 </Callout>
 
-After creating the asset token, you can apply the token by selecting any layer. The plugin will fetch the image from the url and replace the image on the layer.
+Depois de criar o token de ativo, você pode aplicar o token selecionando em qualquer camada. O plug-in buscará a imagem da url e substituirá a imagem na camada.
 
 ---
 

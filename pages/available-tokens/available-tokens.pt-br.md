@@ -8,7 +8,7 @@ Os grupos de tokens disponíveis até o momento são:
 | :---------------------- | :------------------------- | :-------------------------------------------- | :--------------------------------------------------- | ---- |
 | Sizing                  | Tamanho                    | Width, height                                 | Largura, altura                                      | `sizing` |
 | Spacing                 | Espaçamentos               | Auto-Layout (Gap, padding)                    | Auto-Layout (Gap, padding)                           | `spacing` |
-| Color                   | Cores                      | Fill, border (right click)                    | Preenchimento, borda (Clique direito)                | `color` |
+| Color                   | Cores                      |  Styles and Layers: Fill, borderColor (right click)                    | Estilos e Camadas: Preenchimento, borda (Clique direito)                | `color` |
 | Border radius           | Arredondamento das bordas  | All corners, individual                       | Todas as bordas, individual                          | `borderRadius` |
 | Border width            | Largura das bordas         | Border width: All, Top, Right, Bottom, Left (right click) | Largura da borda: todos, cima, direita, baixo, esquerda| |
 | Box Shadow              | Sombras                    | Styles and Layers: (one or many, drop/inner)  | Estilos e camadas (um ou vários, externo/interno)    | `boxShadow` |
@@ -22,5 +22,8 @@ Os grupos de tokens disponíveis até o momento são:
 | TextCase                | Caso do texto              | Text layers                                   | Camadas de texto                                     | `textCase` |
 | TextDecoration          | Decoração do texto         | Text Layers                                   | Camadas de texto                                     | `textDecoration` |
 | Typography compositions | Composição de Tipografia   | Text layers, styles                           | Camadas de texto, estilos                            | `typography` |
+| Assets                  | Ativos                     | Layers                                        | Camadas                                              | `asset` |
 | Composition             | Composição                 | All available tokens                          | Todos os tokens disponíveis                          | `composition` |
+| Dimension               | Dimensão                   | Layers, other tokens                          | Camadas, outros tokens                               | `dimension` |
+| Border                  | Borda                      | Layers                                        | Camadas                                              | `border` |
 

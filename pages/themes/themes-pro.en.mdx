@@ -1,30 +1,66 @@
-# Advanced themes (Pro)
+# Multi-dimensional themes (Pro)
 
-If you are on a Pro plan, you have access to the `Theme` feature.
-
-Using this feature you can select any number of token sets and save it as a theme and apply any theme with a single click.
+Advanced themes have now become Multidimensional themes! Previously, when working with themes, you would have to save multiple themes for different overrides, which led to a lengthy list of themes to choose from.
 
 ## Creating a theme
 
-Select the `Theme` dropdown and click on `Manage Themes` option. 
+Select the `Theme` dropdown and click on the `Manage Themes` option. 
  
- 
-<img src='/themes-create.png' alt="Creating a theme - step 1" width="500"/>
- 
-You can create a new theme by clicking on `New theme` button.
- 
- 
-<img src='/themes-create-1.png' alt="Creating a theme - step 2" width="500"/>
+<img src='/Manage themes.png' alt="Manage themes - step 1" width="500"/>
+
+To create a new theme, click on the `New Theme` button. Assign a name to your theme and enable the token sets that you want to include in the theme. Finally, click on the `Save Theme` button. Additionally, you can designate a token set as a `Source`. 
  
 Enter the name of the theme, enable the token sets you want to be included in the theme and click on `Save theme` button. You can also set a token set as a source.
- 
- 
-<img src='/theme-save.png' alt="Creating a theme - step 3" width="500"/>
+
+import Callout from ‘nextra-theme-docs/callout’
+
+<Callout>
+Note that no styles are generated when creating styles with a set that is treated as a source. If you wish to exclude a specific token set from a particular theme, set it to disabled.
+</Callout>
+
+<img src='/New theme.png' alt="Creating a theme - step 2" width="500"/>
+
+## Managing Themes
+
+In the `Manage Themes`section, you can not only obtain an overview of all your themes but also access information about the tokens attached to styles. To do this, click on the arrow next to one of your themes. This action will open a modal window with two tabs located on the top-right: `Sets` and `Styles`, select the Styles tab. Within the styles tab, upon expanding the available sections, you will find a comprehensive overview of the tokens and styles that are linked to the selected theme.  
+
+<Callout>
+ When connecting Styles to tokens in a Multi-dimensional theme where some tokens depend on another token which changes its value between themes, styles won't change their value as `Styles` in Figma have no concept of references.
+</Callout>
+
+<img src='/Styles tab.png' alt="Styles tab" width="500"/>
+
+## Grouping Themes
+
+With Multi-dimensional themes, we now provide the ability to categorise your themes into groups. This allows you to generate a matrix of potential combinations involving color themes, platforms, brands, density, languages, and more. Multi-dimensional themes significantly alleviate the need to create an excessive number of individual themes.
+
+For example:
+- **Mode** - Light, Dark
+- **Brand A** - RedPlanet, YellowCab
+- **Contrast** - Default, High
+- **Language** - English, Japanese, German
+
+Having your sets clubbed under groups makes it more accessible to switch from a matrix of themes. 
+
+<img src='/Multi-dimensional-us.png' alt="Themes dropdown" width="200"/>
+
+Prior to the implementation of multidimensional themes, achieving all possible combinations required the creation of 24 themes, such as:
+1. RedPlanet-Light-Default-English
+2. RedPlanet-Light-Default-Japanese
+3. RedPlanet-Light-Default-German
+4. RedPlanet-Dark-Default-English
+5. RedPlanet-Dark-Default-Japanese
+6. RedPlanet-Dark-Default-German, and so on. 
+
+With the introduction of multidimensional themes, this number has now been reduced to 9 themes.
 
 
 ## Applying a theme
 
-To apply a particular theme click on the `Theme` dropdown and select the theme you want to apply.
- 
- 
-<img src='/theme-apply.png' alt="Applying a theme" width="500"/>
+To apply a particular theme, click on the Theme dropdown, and select one set from each of the groups that you want applied. 
+
+<Callout>
+Existing themes will be ungrouped. You can move your themes to groups by editing the existing theme and adding a group name.
+</Callout>
+
+<img src='/Multi-dimensional.png' alt="Selected themes" width="200"/>

@@ -23,4 +23,4 @@ Os grupos de tokens disponíveis até o momento são:
 | TextDecoration          | Decoração do texto         | Text Layers                                   | Camadas de texto                                     | `textDecoration` |
 | Typography compositions | Composição de Tipografia   | Text layers, styles                           | Camadas de texto, estilos                            | `typography` |
 | Composition             | Composição                 | All available tokens                          | Todos os tokens disponíveis                          | `composition` |
-
+| Boolean                  | Layers (Visibility)                                     | `boolean` |

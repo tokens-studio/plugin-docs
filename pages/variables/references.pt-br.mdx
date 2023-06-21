@@ -1,0 +1,17 @@
+# Creating variables with references
+
+As Figma’s variables also support references, we are now able to create those with the same references as they have in the plugin. In contrast to the plugin, Figma’s references are hard references from one specific id to another. We can still make it work, though. In order for a variable to use a reference, the referenced variable needs to exist.
+
+If your tokens reference other tokens that are part of the same theme, the reference will exist right away.
+
+If, however, your tokens reference tokens that are part of a source set which would not get created, you will need to tweak your process slightly by creating a theme that just exposes the source sets, e.g. in a group called Core with a theme called Default (naming is up to you, it’s just important that the theme exists).
+
+![An open theme dropdown in the Tokens Studio for Figma plugin](/variables/themes.png)
+
+Would create 3 collections: Theme with 2 modes Light, Dark, Core with a mode called Default, Brand with 2 modes called A, B.
+
+![Figma's Collections showing various tokens that have references](/variables/collections.png)
+
+All with references! The great part about that is that you can then use these multidimensional themes even inside Figma.
+
+![Figma UI showing a way to switch modes](/variables/figma-modes.png)

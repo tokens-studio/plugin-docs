@@ -18,7 +18,7 @@ export default {
   chat: false,
   logo: (
     <>
-      <img src="/logo.svg" alt="Tokens Studio for Figma Logo" className="mr-2"/>
+      <img src="/logo.svg" alt="Tokens Studio for Figma Logo" className="mr-2 mt-0"/>
       <span className="mr-2 font-extrabold hidden md:inline">Tokens Studio for Figma</span>
       <span className="opacity-75 font-normal hidden md:inline">
         Docs

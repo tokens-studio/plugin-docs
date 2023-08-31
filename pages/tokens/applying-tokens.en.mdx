@@ -3,15 +3,17 @@
 There are two ways how you can apply tokens to your selection:
 
 ### Default behaviour (left-click)
-When you left-click a token this token is being put on your selection (multiple layers selected are possible!). For certain tokens we assume defaults, such as for `Colors` we assume you want to apply `Fill`.
+When you left-click on a token, it is applied to your current selection (multiple layers can be selected). For certain tokens, we provide default assumptions. For example, with `Colors`, we assume that you want to apply the token as a `Fill`.
 
 ### Specifying what to apply (right-click)
-You can right-click tokens to specify what property should be set, such as in `Spacing` the `Left`, `Top`, `Right`, `Bottom` or `Gap` properties individually
+You can also right-click on tokens to specify a particular token property you would like to set such as `Left`, `Top`, `Right`, `Bottom`, or `Gap` properties in the case of Spacing; can also be set individually.  
+<img src='/token-property.png' alt="Select token properties - step 1" width="800"/>
 
 ### Control where to apply changes
-You can control what parts of your design get updated by utilizing the Apply selector in the bottom left of the plugin. You can choose between
-- Apply to page (currently selected page will get updated)
-- Apply to document (all pages get updated, possibly slow)
-- Apply to selection (only the currently selected nodes will get updated)
+You can control the scale of which your designs are updated by utilising the `Apply selector` located at the bottom right of the plugin. You have the following options to choose from:
+- Apply to selection (updates only the currently selected elements)
+- Apply to page (updates the current/active page)
+- Apply to document (updates all pages, which can be slower)
 
-Also, we give you more control what happens after you change a token. By setting `Update on change` to false, the plugin will require you to manually press the `Update` button to send changes to your page/document/selection.
+Additionally, we provide you with more control over the updates made after changing a token. In the `Setting icon` next to the apply selector, unchecking 'Update on change' for example will require you to manually click the ‘Apply to’ button in order to update the changes on your selection, page or document.
+<img src='/update-settings.png' alt="Select update settings - step 2" width="800"/>

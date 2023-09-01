@@ -2,16 +2,30 @@ import Callout from 'nextra-theme-docs/callout'
 
 # Aliases
 
-The nice thing about Tokens Studio for Figma is that you can reference other tokens as a value for your tokens (or ultimately, your styles). That means you can have your brand color be a reference to `colors.red.500`, or have a background token that takes its value from a `colors.black` token while a foreground token takes its value from a `colors.white` token.
+One of the advantages of Tokens Studio for Figma is its ability to utilize references to other tokens when defining values for your tokens. This allows for a highly efficient and consistent design system. For example, your brand color can be established as a reference to `colors.red.500`, while a background token can derive its value from `colors.black`, and a foreground token can inherit its value from `colors.white` (all referenced from core). This feature enhances flexibility and maintains a cohesive visual language throughout your design system.
+<img src='/token-alias.png' alt="Aliasing a token - step 1" width="800"/>
 
-To use an alias in your tokens, we write them in the following notation: `{spacing.sm}`, you can also write them in the older `$` notation, like this: `$spacing.sm`
+To use aliases in tokens, we use the following notation: `{spacing.sm}`. Alternatively, you can alos use the notation with the dollar sign, like this: `$spacing.sm`.
 
-You can also select any available alias while creating a token from the dropdown or by typing `{` and then typing a part of the alias name.
+You can also select any available aliases while creating a token by typing `{` and then also typing a part of the alias name in the field, or by selecting available aliases from the dropdown.
+
+By using this notation, you instruct the plugin to locate a token named `spacing.sm` and use its corresponding value. The benefit of this approach is that any changes then made to the `spacing.sm` token will automatically propagate to all tokens that reference it.
 
 <Callout emoji="💡">
-  References are case sensitive, that means you should write your references like your tokens are named (usually lowercase).
+  References are case sensitive, which means you should write your references like your tokens are named (usually lowercase).
 </Callout>
 
-What this does is tell the plugin to go look for a token of `spacing.sm`, if it is found, use that value. Whenever you change `spacing.sm`, the token that referenced it also changes.
+---
 
-You can also embed aliases inside color tokens! If you want a color style that's using the brand color but reduce its opacity to 50% you could just write: `rgba({colors.brand}, 0.5)`
+import ReactPlayer from 'react-player'
+
+
+<ReactPlayer
+  muted
+  width="100%"
+  height="auto"
+  loop
+  controls
+  url="/alias-recording-dark.mp4"
+/>
+

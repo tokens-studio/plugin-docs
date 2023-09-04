@@ -1,13 +1,26 @@
 # Settings
 
-There's a number of settings that you can configure to adjust the plugin to how you'd like to use it. You can find those settings in the `Settings` tab of the plugin.
+There are a couple of settings that you can configure to customize the plugin according to your preferences. You can find these settings in the `Settings` tab of the plugin.
 
 ## Ignore first part of token name for Styles
 This setting strips the first part of token names when you're creating styles, meaning a color token called `colors.grey.500` will become a style called `grey/500` instead of `colors/grey/500`.
+This setting removes the initial part of token names when creating styles. As a result, a color token named "colors.blue.500" will be created into a style called `blue/500` instead of `colors/blue/500.`
+<img src='/ignore-first-part.png' alt="Ignore first part of token name for styles - step 1" width="800"/>
+
 
 ## Prefix styles with active theme name (Pro)
-If you have Themes setup and you'd like your styles to be created under a folder with the theme name, you can check this setting to make sure a token called `bg.default` gets created as `Light/bg/default` for the Light theme and as `Dark/bg/default` for the Dark theme.
+If you have set up themes and want your styles to be organized under a folder with the theme name, you can enable this setting. By doing so, a token named "bg.default" will be created as "Light/bg/default" for the Light theme and "Dark/bg/default" for the Dark theme.
+<img src='/prefix-styles.png' alt="Prefix styles with active theme name - step 2" width="800"/>
 
 ## Base font size
-When you're using `rem` units by default we treat `1rem` as `16px`. However, sometimes you'd want that to be platform or screen specific. To allow you to do that easily we allow you to change the `rem` value. You can change the `Base font size` value to something else, e.g. `24`. But you can also make this dynamic and change between different token sets. Just choose any token in this field by specifying as `{scales.fontsize} which could be a token called `scales.fontsize that has a value of `16px` in one set, and `24px` in another set.
+By default, we consider 1rem as equivalent to 16px when using rem units. However, there might be instances where you want this value to be platform or screen-specific. To facilitate this flexibility, we provide an option to modify the rem value. You can adjust the `Base font-size` setting to a different value, such as 24. 
+<img src='/base-font-size.png' alt="Base font-size token - step 3" width="800"/>
+
+Additionally, you can make this value dynamic and have it defined differently between token sets. For example, you can create a token called `scales.fontsize` with a value of 16px in the fontsize type and reference it in the `Base font-size`. Then, you can have the same token defined in a different set with a value of 24px.
+<img src='/font-size-reference.png' alt="Referencing base font-size token - step 4" width="800"/>
+
+## Debugging feature
+To better analyse certain issues users face with the plugin, we have something known as the `debugging feature` which eseentially allow us to receive a record of telemetry data for bug fixing and performance. This feature is unchecked by default and leaving it so will send no data to the team. By checking the feature, you will be provided with a `Session ID` that you need to save for later. Proceed to then carry out the steps that for instance caused the plugin to crash. An anonymized report is then sent to the team for analysis. You can then reach out to one of the team members at Token Studio and share the saved ID, who will then look into the plugin crash reports.
+<img src='/debugging-feature.png' alt="debugging feature - step 5" width="800"/>
+
 

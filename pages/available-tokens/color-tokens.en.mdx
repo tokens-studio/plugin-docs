@@ -2,46 +2,47 @@ import Callout from 'nextra-theme-docs/callout'
 
 # Color Tokens
 
-Color tokens make up a big part of Tokens Studio for Figma, as they're so tightly integrated with Figma's styles but give you options that Styles don't offer (yet).
+Color tokens play a significant role in Tokens Studio for Figma because they are tightly integrated with Figma's styles. They provide additional options that Figma's native styles currently don't offer.
+With color tokens you can:
 
-You can use color tokens for various things:
-
-- Updating color styles
-- Creating color styles
-- Applying a fill color
-- Applying a stroke color
+- Apply a fill color
+- Apply a stroke color
+- Create color styles
+- Update color styles
 
 ## Solid colors
 
-There are multiple ways you can write color tokens:
+By default, a token references a Solid Paint (single color).
+There are a few ways you can define color tokens:
 
 - Hex: `#ff0000`
 - RGB: `rgb(255, 0, 0)`
 - RGBA: `rgba(255, 0, 0, 1)`
 - HSLA: `hsla(120, 50%, 50%, 1)`
 
-By default, a token references a Solid Paint (single colors).
-
 ## Modifiers (Pro)
 
-We also support color modifiers which can help you create dynamic colors based on some parameters, such as lighten, darken, mix and alpha. You can [read more about modifiers here](/tokens/color-modifiers).
+We also support color modifiers which can help you create dynamic colors based on some parameters such as lighten, darken, mix and alpha. You can [read more about modifiers here](/tokens/color-modifiers).
 
 ## Gradients
 
-You can define gradient color tokens by specifying a css-like syntax: `linear-gradient(45deg, #ffffff 0%, #000000 100%)`.
+You can define gradient color tokens by specifying a css-like syntax: `linear-gradient (45deg, #87CEEB 0%, #008000 100%)`.
+<img src='/linear-gradient.png' alt="Creating a linear gradient - step 1" width="800"/>
 
-If you need multiple color steps, just add more (minimum is 2). `linear-gradient(45deg, #ffffff 0%, #ff0000 50%, #000000 100%)`
+If you need multiple color steps, just add more (minimum is 2). `linear-gradient(45deg, #0000FF 0%, #87CEEB 50%, #008000 100%)`
+<img src='/linear-gradient-x3.png' alt="Multiple values in gradients - step 2" width="800"/>
 
 ### Token References
-The great thing about token gradients is that you can create gradients that reference another token, something that is not possible in Figma itself. `linear-gradient(45deg, $colors.white 0%, $colors.black 100%)`
+The beauty of token gradients is that you can create gradients that reference another token, which is not possible within Figma itself. For example, you can define a gradient using token references by using the `{`, like this: linear-gradient (45deg, {colors.yellow.400} 0%, {colors.blue.700} 100%).
+<img src='/linear-gradient-reference.png' alt="Referencing in gradients - step 3" width="800"/>
 
 ### Alpha values (opacity)
-Opacity is supported as well, you can write your gradients like this: `linear-gradient(45deg, rgba($colors.primary, 0.5) 0%, rgba($colors.primary, 1) 100%)`
+Opacity is supported as well, you can write your gradients like this: `linear-gradient (45deg, rgba({colors.yellow.400}, 0.4) 0%, rgba({colors.blue.700}, 1) 100%)`. The `0.4` and `1` between the rgba brackets are the amounts that define the percentage of the opacity.
+<img src='/linear-gradient-opacity.png' alt="Using opacity in gradients - step 4" width="800"/>
 
 ### Limitations
-- Positioning your gradient on a layer, as you can do in Figma, is currently not possible, as we won't know where to position it, as we only store the degree, not any translation.
-
+- Positioning a gradient on a layer within the plugin is currently not possible. As the plugin only stores the degree of the gradient, without any translation information, it cannot accurately determine the positioning of the gradient on a layer.
 
 <Callout emoji="❓">
-You might want to apply color or text tokens with the plugin, instead of using Figma's native style feature. This has a downside, which is that when the style is not local (but in a library) the plugin can't apply that style and will fall back to the hex value. For it to apply styles instead, we need to store the Figma Style IDs of each associated style. This is possible with the Themes feature!
+If you prefer to apply color or text tokens using the plugin instead of relying on Figma's native style feature, there is a downside when the style is located in a library. In such cases, the plugin cannot directly apply the style and will fallback to using the associated hex value. However, if you want the plugin to apply styles seamlessly, you can leverage the Themes feature, which allows you to store the Figma Style IDs for each associated style. By utilizing Themes, the plugin can accurately apply the corresponding styles.
 </Callout>

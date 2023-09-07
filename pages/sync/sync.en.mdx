@@ -1,43 +1,44 @@
 # Sync
 
-As Tokens make most sense in a team environment, some sort of Sync is required to keep values updated while the team is working on different files.
+Since tokens are most useful in a team environment, it's also essential to have a version control in place to ensure that token values remain updated while the team members are working on different files.
+
+To select one of the sync providers, in the `Settings` tab, you should find the `Add New` button. You will find the following options in the menu. 
 
 ### Sync options
 - Local storage (default)
-- JSONBin.io
 - URL 
+- JSONBin.io
 - GitHub 
 - GitLab
 - Azure DevOps
 - Supernova
 - Generic Versioned Storage
 
-You can choose the sync option in the Settings tab, from where you can add a new sync option.
-![](/sync-sync.png)
+<img src='/sync-provider.png' alt="Syncing providers - step 1" width="800"/>
 
 #### Local storage
-By default all tokens are stored in the document where you're working in. If you need to work in multiple documents, this option won't work as it means you'd have to copy paste your tokens to the other document.
+By default, all tokens are stored on the document that you're working in. If you need to work in multiple documents, this option won't work as it means you would have to copy paste your tokens to the other document.
 
-#### JSONBin.io
-You can use JSONBin.io to create an account and sync your tokens there. It's a free and easy way to sync your tokens, they're not version controlled by default though.
+#### [URL](/sync/url)
+Pulls tokens from a remote `.json` stored on your server. This is a read-only sync method.
 
-#### URL
-Pulls tokens from a remote .json stored on your server. This is a read-only sync method.
+#### [JSONBin.io](/sync/jsonbin)
+You can use JSONBin.io by creating an account and syncing your tokens there. It's a free and easy way to sync your tokens, but they are however not version controlled by default.
 
-#### GitHub
-The recommended way as it allows your design decisions to live in the same place as your code lives. Connect to a repository, pull and push tokens or choose a branch you want to push to, which allows you to explore design decisions before pushing them to production. We also support GitHub Enterprise.
+#### [GitHub](/sync/github)
+The recommended way as it hosts your code and design decisions in the same location. By connecting to a repository, you can pull and push tokens or even select a branch to push to. This allows you to explore design decisions before deploying them to a production environment. Additionally, we provide support for GitHub Enterprise for enhanced functionality and compatibility.
 
-#### Gitlab
-Like GitHub you can store your tokens on your repository.
+#### [Gitlab](/sync/gitlab)
+Like GitHub, you can use GitLab to store your tokens on your repository.
 
-#### Azure DevOps
+#### [Azure DevOps](/sync/ado)
 Allows you to store your tokens on ADO.
 
-#### Supernova
+#### [Supernova](/sync/supernova)
 Allows you to sync your tokens between Tokens Studio and Supernova.
 
-#### Generic Versioned Storage
-An extension off of the URL storage. This storage provider supports read/only, read/write and read/write/create flows. Additionally it can be extended with arbitrary headers on the requests should you need more fined grained support for your endpoint.
+#### [Generic Versioned Storage](/generic-storage)
+An extension off of the URL storage. This storage provider supports read/only, read/write and read/write/create flows. Additionally it can be extended with arbitrary headers on the requests should you need more fined grained support for your end-point.
 
 #### BitBucket (not yet)
 We're planning on integrating BitBucket as well, but have hit a roadblock with their API. If you'd like to support us in that effort, reach out on Slack in #feat-bitbucket-sync.

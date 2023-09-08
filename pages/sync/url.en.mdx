@@ -1,25 +1,24 @@
 # URL Sync
+import Callout from 'nextra-theme-docs/callout'
 
-![](/url-sync.png)
+<Callout emoji="💡">
+    The URL sync mode operates in a read-only mode, which means you cannot make direct changes within the plugin. Instead, you will need to modify the corresponding .json file stored on your server.
+    For an example .json file, you can refer to the provided link to access a sample [file](https://raw.githubusercontent.com/tokens-studio/plugin-example-css/main/tokens.json).
+</Callout>
 
-To get started with enabling Sync for your file, head to the `Settings` tab in the plugin and in the section `Sync providers` click on `Add new` dropdown, choose `URL` to select a .json stored on your server as your Sync Provider.
+To enable the Sync feature for your file, follow these steps in the plugin:
+	1.	Open the Settings tab and navigate to the Sync providers section.
+	2.	Click on the `Add new` dropdown and choose `URL` as your Sync Provider.
+	3.	Enter a name for your credentials. <strong>NOTE:</strong> This does not concern your repository details at all, so you can also modify the name later if desired.
+	4.	If your server requires authentication, you can store the necessary Headers as a JSON object in the headers field. This allows you to provide any required authentication headers.
+	5.	It is important to ensure that your server's .json file has the Access-Control-Allow-Origin header set to `*`. If you need assistance with this, consult your engineers or refer to relevant [documentation](https://gist.github.com/nixta/0b98d7975562bc31c4c9).
+	6.	In the URL field, enter the complete URL that points to your .json file stored on your server.
 
-When you're launching the Sync feature for the first time, you will not have any stored provider credentials on your device. Go ahead and select `Add Credentials`.
-
-For `name`, choose any name you want. You can change the name later on.
-
-If your server requires some sort of authentication you can store your Headers as a JSON object in the headers field. It's important that your .json stored on your server has `Access-Control-Allow-Origins` set to `*`, ask your engineers to help you out on that if you're stuck or [read up on it](https://gist.github.com/nixta/0b98d7975562bc31c4c9). The URL part is the complete URL that points to your .json
-
-### Read only mode
-
-The URL sync mode is a Read-only mode. That means you cannot make any changes directly in the plugin, you'd have to make it in the .json stored on your server.
-
-You can find an example .json [here](https://raw.githubusercontent.com/tokens-studio/figma-plugin-example/main/tokens.json).
+<img src='/url-sync.png' alt="Adding URL Sync Credentials - step 1" width="800"/>
 
 ### Getting your team on board
-
-Once you set a storage provider on a document, we store the ID and the name of your bin to this document. The Headers field is left blank, so each team member will have to add the headers on their own.
+After setting a storage provider on a document, the ID and name of the bin will be stored within that document. The Headers field is intentionally left blank, as each team member will need to add their own headers.
 
 ### Pulling changes
-
-The plugin will automatically fetch the newest remote tokens on startup. From time to time, your team might have made changes while you had the plugin open. To pull the newest changes, hit the 'Pull from URL' button on the top right.
+On startup, the plugin will automatically fetch the latest remote tokens. However, if your team has made changes while the plugin was open, you can pull the newest updates by clicking the `Pull from URL` button located at the bottom-left. This way, you can ensure that you have the most up-to-date token information from the remote source and synchronize any changes that occurred while the plugin was running.
+<img src='/pull-url.png' alt="Pulling URL Updates - step 2" width="800"/>

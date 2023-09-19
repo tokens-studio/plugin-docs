@@ -1,17 +1,14 @@
 # GitHub Sync
 
-Storing tokens on GitHub makes a lot of sense. It's version controlled, allows you to work in different branches (think of a brand refresh that lives on a different branch than the current live version) and gives you varying access levels such as Read or Write access. Also you can integrate GitHub Actions which will allow you to create a token pipeline with Style Dictionary or other tools.
+Storing tokens on GitHub is beneficial as it's version controlled, allows you to work on different branches (think of a brand refresh that lives on a different branch than the current live version) and gives you varying access levels such as Read or Write access. You can also integrate GitHub Actions which will allow you to create a token pipeline with Style Dictionary or other tools.
 
 ---
 
 import ReactPlayer from 'react-player'
 
-
 <ReactPlayer
-  muted
   width="100%"
   height="auto"
-  loop
   playing
   controls
   url="/github-sync.mp4"
@@ -19,79 +16,52 @@ import ReactPlayer from 'react-player'
 
 import Callout from 'nextra-theme-docs/callout'
 
-<Callout emoji="💡">
-  Already have a GitHub account with a repository? Great, skip to step 3
-</Callout>
+To set up Github sync for your file, follow these steps:
+1. Go to [Github](https://github.com/signup) and create an account.
+2. [Create a new reopsitory](https://github.com/new). Give it a name, make it private or public, and initialize it with a **README** (a crucial step).
+3. In the `Settings` tab of your profile, sroll to the bottom to find `Developer Settings` whereafter you should find [Peronsal Access Tokens](https://github.com/settings/tokens).
+4. You can either create a personal access token with the older **'Tokens (Classic)'**, or with **'Fine-grained tokens'**:
+- **Classic**: Generate a new token and as a minimum scope you can check `repo`. Choose an expiry date, scroll down and click `Generate token`.
+- **Fine-grained tokens**: Generate a new token, decide for yourself when that token should expire. Select the repos you want to allow access for and under **'Repository permissions'**, make sure the option `Contents` has `Read and write` selected. Then, scroll down and click `Generate token`.
 
-### 1. Create a GitHub account
+After creating a token, it's important to copy and save the token immediately since you won't be able to access it again once you close the page. 
+**NOTE:** Please ensure that you keep the token confidential and never share it with anyone who shouldn't have access to your repository. Treat the token with the same level of security as your personal password. Even if a token is accidentally shared or compromised, it's essential to revoke and delete it promptly to maintain the security of your repository.
 
-Go to https://github.com/signup and create an account.
+### Adding GitHub as a Sync Provider
 
-### 2. Create a new repository
+In the Tokens Studio for Figma plugin, go to the `Settings` tab and in the `Add new` menu, select `GitHub`.
 
-Go to https://github.com/new and create a new repository. Give it any name you like, make it public or private and initialize it with a README.
-
-### 3. Generate your Personal Access Token
-
-Go to the Personal Access Tokens section by clicking [here](https://github.com/settings/tokens), or click on your Avatar in the top right, go to `Settings` > scroll down to `Developer Settings` > [Personal Access Tokens](https://github.com/settings/tokens).
-
-You can either create a personal access token with the older **'Classic'** scopes, or with **'Fine-grained tokens'** scope:
-
-- **Classic**: Generate a new token and select scope `repo`, decide for yourself when that token should expire. Scroll down and click `Generate token`.
-
-- **Fine-grained tokens**: Generate a new token, decide for yourself when that token should expire. Select the repos you want to allow access for, and under 'Repository permissions' make sure the option `Contents` has `Read and write` selected. Scroll down and click `Generate token`.
-
-Once you've created your token, copy the token, you'll need it in a second and won't see it again if you close the page.
-
-Also, never share this token with anyone who shouldn't have access to your repository. The token I shared in the video above was deleted already, treat it like your personal password.
-
-### 4. Add a new GitHub sync to your Tokens file.
-
-Go to the Sync tab and select GitHub. Add a new item
-
-- Add any name (this is only used for the plugin UI)
-- Add your Personal Access Token which we just copied.
+- Add a name (this is only used for the plugin UI)
+- Paste your Personal Access Token which you just copied.
 - Add your GitHub repository (e.g. `tokens-studio/figma-plugin`)
 - Add your default branch (probably `main`)
-- Specify a file path where your tokens should be stored, e.g. `data/tokens.json` or just `tokens.json`
+- Specify a file path where your tokens should be stored, e.g. `data/tokens.kson` or just `tokens.json`
+<img src='/adding-github.png' alt="Adding Github Repository Credentials- step 1" width="800"/>
 
-### 5. Push your initial set of tokens
+**Note:** If you only have a README (no token files) setup in your repo, you can use a forward slash **'/'** in the file path as a way of initiating your first commit to setup the repository via the plugin. You will then be able to push your newly created tokens.
 
-The plugin will now ask you to push your currently stored tokens to the repository.
+### Pushing your initial set of tokens
+
+The plugin will now ask you to push your currently setup tokens to the repository.
 
 Add a commit message, e.g. "Initial commit"
+<img src='/initial-commit.png' alt="Initiating an initial commit to the repository" width="800"/>
 
-If you're adding a repository that already contains tokens, the plugin will ask you if you want to pull the latest tokens. This will overwrite your locally stored tokens, so make sure to back these up if you don't want them to get removed.
+If you're adding a repository that already contains tokens, the plugin will ask you if you want to pull the latest tokens.
 
-### 6. Push or pull changes
+**NOTE:** This will overwrite any locally stored tokens, so make sure to back these up if you don't want to lose them.
+<img src='/pulling-tokens.png' alt="Pulling tokens afer Repository setup - step 1" width="800"/>
 
-Whenever you make a change in Tokens Studio for Figma, you have to manually hit `Push to GitHub` to push your local changes to the remote. Anytime you do that you have to supply a commit message. You can choose the branch you want to push your changes to, so you could just try new tokens out without overwriting the currently live ones.
+### Pushing or Pulling Changes
 
-If you only want to pull the latest changes, hit `Pull from GitHub`. The plugin will let you know when your local changes differ from the ones stored on the remote by showing a blue dot.
+Whenever you make a change in Tokens Studio for Figma, you have to manually hit the `Push to GitHub` to push your local changes to your repository. You have to enter a commit message with every push. You can also choose the branch you want to push your changes to. This way you could also try out new tokens without overwriting the current token set up you have.
+<img src='/push-to-github.png' alt="Pushing tokens to Github" width="800"/>
 
-### 7. How to use tokens stored in GitHub in development?
+If you only want to pull the latest changes, hit `Pull from GitHub`. The plugin indicates when your local changes differ from the ones stored on the repository by displaying a blue dot.
+<img src='/pull-from-github.png' alt="Pulling tokens from Github" width="800"/>
 
-If you now want to use your tokens also in development there's a few steps you need to follow.
-
-The tokens we store on GitHub is the raw source of truth for the plugin. Meaning, it still contains aliases and any math you might have used. Tools such as Style Dictionary can't work with math, though.
-
-So we need a way to transform our tokens to something Style Dictionary can read.
-
-I wrote a package that does just that: [Token Transformer](https://www.npmjs.com/package/token-transformer).  You or your dev can install that by running `npm install token-transformer`.
-
-You can then use it to generate tokens to a JSON that is readable by Style Dictionary, without any aliases, without any math.
-
-Run `node token-transformer tokens.json output.json` where tokens.json is the file you stored your tokens in.  This will take your input JSON file (which is the file we generate from Tokens Studio for Figma, this should match what you entered in the Sync details) and output the transformed tokens to an output.json
-
-If you use multiple token sets you might also want to create different token files per theme combination. You can do that by giving token-transformer additional parameters: `node token-transformer data/tokens.json output.json global,dark` will use the global and dark token sets to generate combinations.
-
-Don't want to include the global set in the output but use it for resolving aliases? Provide another parameter like this and the transformer will exclude that in the output: `node token-transformer tokens.json output.json global,dark global`
-
-#### Using multi-file sync
-
-If you're using the [Pro](https://www.tokens.studio/#pricing) instance of the plugin and wish to transform multiple files in a single folder, instead of specifying a single json as input, you can specify the folder as input.
-
-For example, if the tokens were stored in Tokens Studio for Figma inside a folder path like `data/core.json`, `data/functional.json`, `data/components.json`, and your goal was to generate a set of tokens from some combination of those inputs, pass the folder name as the input to `token-transformer` and provide additional arguments as specified above, like this: `node token-transformer data files,to,include files,to,ignore`
+### How to use tokens stored in GitHub in development?
+We have have now moved over from using Token Transformer to using our Custom Tranforms for [Style-dictionary](/transforming for development/style dictionary) to work with Design Tokens. 
 
 <Callout emoji="💡">
   Examples
@@ -102,5 +72,6 @@ For example, if the tokens were stored in Tokens Studio for Figma inside a folde
   - [Multiple themes to css variables](https://github.com/tokens-studio/plugin-example-multi)
   - [TailwindCSS with dark and light theme](https://github.com/tokens-studio/plugin-example-tailwindcss)
   - [Multifile, multitheme](https://github.com/TheeMattOliver/figma-tokens-multifile-multitheme-example)
-  Let me know if you have other examples you want to share with the community!
+
+  Let us know if you have other examples you want to share with the community!
 </Callout>

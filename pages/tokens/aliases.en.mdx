@@ -27,3 +27,5 @@ import ReactPlayer from 'react-player'
   url="/alias-recording.mp4"
 />
 
+## Nested references
+We also support nested references in the form of `{colors.{primary}.500}` up to 1 level of depth, any further level of depth is not supported. This is not supported by any other tool and is also not part of the DTCG format, in addition it can negatively impact performance of token resolution.

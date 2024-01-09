@@ -1,5 +1,7 @@
 # JSON Schema
 
+import Callout from 'nextra-theme-docs/callout'
+
 Tokens are represented in JSON, as a list of objects. A valid JSON would look like this:
 
 ```
@@ -190,7 +192,11 @@ If you're using multi-file sync (a Pro feature), your token files will not have 
 
 ## Allowed token values
 
-Depending on the type of a token we allow different values, this following JSON is trying to visualize that:
+<Callout type="warning" emoji="⚠️">
+  It is suggested against using `Value` or `Type` as parts of token naming as it will create conflict in the JSON. Both the aforementioned are by default a part of the JSON script.
+</Callout>
+
+Depending on the `Type` of a token, we allow different values. The following JSON is a simplified visualisation:
 
 ```
 {

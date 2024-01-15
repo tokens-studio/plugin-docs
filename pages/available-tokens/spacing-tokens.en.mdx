@@ -1,15 +1,11 @@
 # Spacing Tokens
 
-Spacing tokens give you the ability to define values for Auto Layout that you can reuse. Once you applied a spacing token to a layer, it will get updated whenever you change that token, so any layer containing a reference to `{spacing.container}` will get updated, when you update that specific token.
-
+Spacing tokens give you the ability to define values for Auto Layout that you can reuse. Once you apply a spacing token to a layer, it will be updated whenever you change that token. Therefore, any layer containing a reference to `{spacing.container}` will also be updated when you modify that specific token.
 #### How to use
 
-In order to make spacing tokens work, start by creating tokens in the Spacing category.
-
-Then, select or create an `Auto Layout` layer (it will not work on any other layer type!)
-
-Once selected, apply Spacing tokens by either left-clicking (all values will use this token) or right-click to specify which part of the Auto Layout you want to target (`Gap`, `All`, `Top`, `Right`, `Bottom`, `Left`)
-
+1. Add a new token in the `Spacing` type.
+2. Select or create a layer with Auto-layout(does not work on any other layer type).
+3. Once selected, you can apply a spacing token by either left-clicking (all values will have this token applied) or right-clicking and then specifying which part or side of the layer you want to target like: `Gap`, `All`, `Top`, `Right`, `Bottom`, `Left` . If you want to apply left-right and top-bottom with a click, you can select `horizontal-padding` or `vertical-padding` to apply them respectively. 
 ---
 
 import ReactPlayer from 'react-player'
@@ -21,7 +17,7 @@ import ReactPlayer from 'react-player'
   loop
   playing
   controls
-  url="/uhrCSTbr5Q.mp4"
+  url="/spacing-tokens.mp4"
 />
 
 ### Multi-value spacing tokens
@@ -34,15 +30,15 @@ This will apply to the gap property (like today)<br/>
 
 **Two values**<br/>
 This will apply top-and-bottom | left-and-right<br/>
-```10px 5px```
+```8px 64px```
 
 **Three values**<br/>
 This will apply top | right-and-left | bottom<br/>
-```2px 4px 2px```
+```16px 8px 32px```
 
 **Four values**<br/>
 This will apply top | right | bottom | left<br/>
-```1px 0 3px 4px```
+```2px 4px 8px 16px```
 
 ---
 
@@ -53,5 +49,5 @@ This will apply top | right | bottom | left<br/>
   loop
   playing
   controls
-  url="/multi-value-spacing-tokens.mp4"
+  url="/multi-value-tokens.mp4"
 />

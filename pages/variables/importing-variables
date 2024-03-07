@@ -1,0 +1,57 @@
+# Importing variables
+
+import Callout from 'nextra-theme-docs/callout'
+
+<img src='/import-variables.png' alt="Importing Variables Into Tokens Studio for Figma="800"/>
+
+Already have variables setup in your file but want to sync them into Tokens Studio for Figma? You can find the `Import Variables` option in the Styles & Variables menu at the bottom of the plugin. Once you click on ‘Import Variables’, you are presented with two options in the following modal. `Convert Numbers to Dimensions` and `Use REM for Dimension Values`.
+
+## Convert Numbers to Dimensions
+---
+<img src='/number-to-dimension.png' alt="Converting Number Variables to Dimension Tokens" width="800"/>
+
+With ‘Convert Numbers to Dimensions’ selected, number variables are converted to tokens under the `Dimension` type.
+
+**Note:** Spacing variables aren’t converted into tokens under the ‘Spacing’ type but are instead created as a token-group named `Spacing`, under the `Dimension` type.
+If the option is unchecked then the same will be imported but under the `Number` type.
+
+## REM for Dimension Values
+---
+<img src='/rem-for-dimension.png' alt="Converting Number Variables to REM Tokens" width="800"/>
+
+Selecting the ‘Use REM for Dimension Values’ option converts all your variables using numbers by dividing back for isntance a value of `16` to be `1 rem`. 
+
+## Using References As Values
+---
+
+<Callout emoji="💡">
+   - If your number value is a reference, then when have both import options checked the plugin's going to create tokens with the following value, `NaNrem` (Not a Number). 
+
+   - If you have numbers to dimensions unchecked and rem for dimensons checked, the plugin's going to create tokens with `Obeject Object` as values. 
+</Callout>
+
+**NOTE:** To have the correct number references created as tokens, you need to have the option `Convert to Dimensions` checked and `REM for Dimension` unchecked. 
+
+### NaNrem
+<img src='/value-nanrem.png' alt="NaNrem As Token Value With Incorrect Option Checked" width="800"/>
+
+### Object Object
+<img src='/value-object-object.png' alt="Object Object As Token Value With Incorrect Option Checked" width="800"/>
+
+## Import Structure
+---
+<img src='/modes-collections.png' alt="Translation of Variable Modes and Collections to Tokens Studio" width="800"/>
+
+- Variable collections are imported as folders in the plugin
+- Modes are imported as sets under their respective folders
+
+<img src='/import-updated-variables.png' alt="Converting Number Variables to REM Tokens" width="800"/>
+
+## Limitations
+- If you've imported variables and then create variables from tokens will not update your existing variables but will instead delete the collections.
+- If any changes were made to your variables, you need to use the `Import Variables` function and not the `Sync Variables` function to update your tokens. 
+
+<Callout emoji="💡">
+  Importing variables doesn't officialy link/connect to tokens. So applying tokens won't apply its corresponding variable, yet. 
+</Callout>
+

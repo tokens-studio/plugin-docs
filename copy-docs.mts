@@ -1,0 +1,87 @@
+// This file gets only the public doc files, and renames them to remove spaces
+
+import { default as fs } from 'fs';
+import { default as path } from 'path';
+import { fileURLToPath } from 'url';
+import _ from 'lodash';
+import replace from 'replace';
+
+const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
+const __dirname = path.dirname(__filename); // get the name of the directory
+
+
+// Define the folder paths
+const publishFolder = path.join(__dirname, 'obsidian_vault');
+const distFolder = path.join(__dirname, 'pages/');
+
+console.log("🗑️  Deleting old pages folder...")
+fs.existsSync(distFolder) && fs.rmSync(distFolder, { recursive: true });
+
+async function copyDirAndRename(sourceDir, targetDir) {
+  console.log("📂", path.basename(targetDir))
+  await fs.mkdirSync(targetDir, { recursive: true }); // Ensure target directory exists
+  const entries = await fs.readdirSync(sourceDir, { withFileTypes: true });
+
+  for (let entry of entries) {
+    const sourcePath = path.join(sourceDir, entry.name);
+    const targetPath = path.join(targetDir, entry.name);
+
+    if (entry.isDirectory() && ( !path.basename(sourcePath).startsWith('.') || !path.basename(sourcePath).startsWith('__') || path.basename(sourcePath) !== 'public') ){
+      // Ignore directories starting with a dot, like .obsidian
+      // Igrnore internal directories starting with, like __tempassets__
+      await copyDirAndRename(sourcePath, targetPath); // Recurse into subdirectory
+    } else {
+     
+      const fileName = path.basename(sourcePath)
+
+          if(fileName === "_meta.md"){
+            console.log("   🤖 meta.json")
+              const meta = await fs.readFileSync(sourcePath, 'utf8').trim().split('\n')
+  
+              const metaJson = {}
+              if(path.basename(targetDir) === "pages"){
+                metaJson["index"] = "Hyma Hub"
+              }
+              meta.forEach((line) => {
+              // Extract the title and path from the _meta.md file
+              const regex = /\[([^\]]+)\]\(([^\)]+)\)/g;
+              const input = line;
+              const matches = input.matchAll(regex);
+              let title, linePath;
+              for (const match of matches) {
+               title = match[1].toString()
+               linePath = match[2].toString()
+              }     
+              const sentenceCase = (str) => {
+                return _.upperFirst(_.lowerCase(str))
+                }
+              metaJson[path.parse(linePath).name] = sentenceCase(title)
+            })
+              await fs.writeFileSync(path.join(targetDir, '_meta.json'), JSON.stringify(metaJson, null, 2))
+            }
+            else {
+              if(!path.basename(sourcePath).startsWith('.')){
+              console.log("   📄", (path.basename(sourcePath)))
+              fs.copyFileSync(sourcePath, targetPath)
+              }
+            }
+        }
+
+    }
+    }
+
+
+await copyDirAndRename(publishFolder, distFolder)
+
+// Obsidian uses .md files, but we need to link to pages directly, not a file name
+replace({
+  regex: /.md/g,
+  replacement: "",
+  paths: [distFolder],
+  recursive: true,
+  silent: true,
+});
+
+
+
+console.log('✅ Done!')

@@ -20,8 +20,11 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",
+    "lodash": "^4.17.21",
     "postcss": "^8.4.5",
     "prettier": "^2.0.5",
+    "remark-obsidian": "^1.8.0",
+    "rename": "^1.0.4",
     "tailwindcss": "^3.0.16"
   },
   "prettier": {

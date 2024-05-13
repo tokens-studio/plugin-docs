@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "813211ac7a07179b",
+            "id": "420961f82412a4f9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Welcome.md",
+                "file": "index.md",
                 "mode": "source",
                 "source": false
               }
@@ -99,7 +99,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Welcome.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +115,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Welcome.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,9 +136,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Welcome.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -160,8 +156,42 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "813211ac7a07179b",
+  "active": "2f86248163ed20dc",
   "lastOpenFiles": [
-    "Welcome.md"
+    "index.md",
+    "public/obisdian-image.png",
+    "public",
+    "en/index.md",
+    "pt-br/index.md",
+    "pt-br",
+    "en",
+    "index.en.mdx",
+    "_",
+    "Welcome.md",
+    "legacy-docs/pages/variables/references.pt-br.mdx",
+    "legacy-docs/pages/variables/references.en.mdx",
+    "legacy-docs/pages/variables/creating-variables.pt-br.mdx",
+    "legacy-docs/pages/variables/creating-variables.en.mdx",
+    "legacy-docs/pages/variables/_meta.pt-br.json",
+    "legacy-docs/pages/tokens/using-math.pt-br.md",
+    "legacy-docs/pages/tokens/documentation-tokens.pt-br.md",
+    "legacy-docs/pages/tokens/creating-tokens.pt-br.md",
+    "legacy-docs/pages/tokens/applying-tokens.pt-br.md",
+    "legacy-docs/pages/tokens/aliases.pt-br.md",
+    "legacy-docs/pages/styles/styles.pt-br.md",
+    "legacy-docs/pages/styles/keeping-styles-in-sync.pt-br.md",
+    "legacy-docs/pages/styles/keeping-styles-in-sync.en.md",
+    "legacy-docs/pages/styles/create-styles.pt-br.md",
+    "legacy-docs/pages/styles/create-styles.en.md",
+    "legacy-docs/pages/contributing/shared-data.pt-br.md",
+    "legacy-docs/pages/contributing/shared-data.en.md",
+    "legacy-docs/pages/contributing/contributing.pt-br.md",
+    "legacy-docs/pages/contributing/contributing.en.md",
+    "legacy-docs/pages/contributing/beta-builds.pt-br.md",
+    "legacy-docs/pages/available-tokens/typography-tokens.pt-br.md",
+    "legacy-docs/pages/available-tokens/typography-tokens.en.md",
+    "legacy-docs/pages/available-tokens/spacing-tokens.pt-br.md",
+    "legacy-docs/pages/available-tokens/color-tokens.pt-br.md",
+    "legacy-docs/pages/available-tokens/available-tokens.pt-br.md"
   ]
 }

@@ -4,8 +4,9 @@
 
 It gives you reusable tokens that can be used for a whole range of design options, from border radius or spacer units to semantic color and typography styles. It allows you to change tokens and see these changes applied to the whole document or its styles.
 
-![](/header.png)
-
+![](public/header.png)
 ### Slack Channel
 
 We have a dedicated Slack server so the community can exchange ideas, best practices or simply ask a question. [Join the Slack channel](https://www.tokens.studio/slack).
+
+

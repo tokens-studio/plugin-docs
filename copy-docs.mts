@@ -5,19 +5,38 @@ import { default as path } from 'path';
 import { fileURLToPath } from 'url';
 import _ from 'lodash';
 import replace from 'replace';
+import { spawnSync } from 'child_process';
 
 const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
 const __dirname = path.dirname(__filename); // get the name of the directory
+
+const skipFiles = ['__tempassets__', 'public', '.obsidian'];
 
 
 // Define the folder paths
 const publishFolder = path.join(__dirname, 'obsidian_vault');
 const distFolder = path.join(__dirname, 'pages/');
+const distFolderPublic = path.join(__dirname, 'public/');
 
 console.log("🗑️  Deleting old pages folder...")
 fs.existsSync(distFolder) && fs.rmSync(distFolder, { recursive: true });
 
 async function copyDirAndRename(sourceDir, targetDir) {
+
+
+
+  if(path.basename(sourceDir) === 'public'){
+    console.log('public folder')
+    const publicFiles = await fs.readdirSync(sourceDir, { withFileTypes: true });
+    for (let file of publicFiles) {
+      const sourcePath = path.join(sourceDir, file.name);
+      const targetPath = path.join(distFolderPublic, file.name);
+      console.log("  🏞️ ", (path.basename(sourcePath)), ' >> ', targetPath)
+      fs.copyFileSync(sourcePath, targetPath)
+    }
+  }
+
+  if(!skipFiles.includes(path.basename(sourceDir))){
   console.log("📂", path.basename(targetDir))
   await fs.mkdirSync(targetDir, { recursive: true }); // Ensure target directory exists
   const entries = await fs.readdirSync(sourceDir, { withFileTypes: true });
@@ -53,9 +72,11 @@ async function copyDirAndRename(sourceDir, targetDir) {
                linePath = match[2].toString()
               }     
               const sentenceCase = (str) => {
+                str = str.replace(/-/g, ' ')
                 return _.upperFirst(_.lowerCase(str))
                 }
-              metaJson[path.parse(linePath).name] = sentenceCase(title)
+               console.log('🔥', title, title.split(' ').length)     
+              metaJson[path.parse(linePath).name] = title.split(' ').length > 1 ? title : sentenceCase(title)
             })
               await fs.writeFileSync(path.join(targetDir, '_meta.json'), JSON.stringify(metaJson, null, 2))
             }
@@ -69,6 +90,7 @@ async function copyDirAndRename(sourceDir, targetDir) {
 
     }
     }
+  }
 
 
 await copyDirAndRename(publishFolder, distFolder)

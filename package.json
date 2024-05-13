@@ -3,29 +3,39 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "prebuild": "npx tsx copy-docs.mts",
+    "clean": "rm -rf .next",
     "dev": "next",
-    "start": "next start",
+    "start": "next start --port 6767",
     "build": "next build"
   },
   "author": "Jan Six",
   "license": "MIT",
   "dependencies": {
-    "next": "^12.2.0",
-    "nextra": "2.0.0-beta.6",
-    "nextra-theme-docs": "2.0.0-beta.6",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-player": "^2.12.0"
+    "@next/bundle-analyzer": "^14.2.2",
+    "next": "^13.0.6",
+    "nextra": "^3.0.0-alpha.23",
+    "nextra-theme-docs": "^3.0.0-alpha.23",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sharp": "^0.33.3"
   },
   "devDependencies": {
+    "@types/node": "20.12.7",
+    "@types/react": "18.2.79",
     "autoprefixer": "^10.4.2",
     "lodash": "^4.17.21",
     "postcss": "^8.4.5",
     "prettier": "^2.0.5",
+    "rehype-raw": "^7.0.0",
+    "rehype-sanitize": "^6.0.0",
     "remark-obsidian": "^1.8.0",
     "rename": "^1.0.4",
-    "tailwindcss": "^3.0.16"
+    "replace": "^1.2.2",
+    "tsx": "^4.7.2",
+    "typescript": "^5.4.5"
   },
   "prettier": {
     "semi": false,

@@ -22,7 +22,12 @@ module.exports = withNextra({
         source: "/non-local-styles",
         destination: "/styles/non-local-styles",
         statusCode: 302
-      }
+      },
+      {
+        source: "/sams-fancy-link",
+        destination: "/guides/naming-design-tokens",
+        statusCode: 302
+      },
     ]
   }
 })

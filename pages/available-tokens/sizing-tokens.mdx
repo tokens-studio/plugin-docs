@@ -1,0 +1,20 @@
+# Sizing tokens
+
+You can create tokens that define the width, height (or both values) of a layer. One thing to keep in mind is that in Figma you cannot alter the width of a layer inside an instance, not even plugins can do that.
+
+```
+{
+  "my-token": {
+    type: 'sizing',
+    value: '32px',
+  },
+  "my-other-token": {
+    type: 'sizing',
+    value: '32',
+  },
+   "my-rem-token": {
+    type: 'sizing',
+    value: '2rem',
+  }
+}
+```

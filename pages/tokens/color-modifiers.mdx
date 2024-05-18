@@ -1,0 +1,67 @@
+import Callout from 'nextra-theme-docs/callout'
+
+# Color Modifiers (Pro)
+As a Pro user, you can manipulate colors to create slight variations of a specific base color. You can currently pick from the following opertaions: lighten, darken, mix and alpha. Additionally, you can also pick from the following color-spaces: lch, srgb, p3 and hsl.
+
+The color modifier can for example be used to create a hover state that is a bit brighter, a pressed state which is a bit darker or a color ramp from the base color. By leveraging these modifiers, you can introduce subtle variations, indicating states, or creating cohesive color schemes throughout your design.
+
+<img src='/operation-space.png' alt="Operations & Spaces - step 1" width="800"/>
+
+<Callout>
+  Note 2: ColorJS.io is the color library used for the implementation of the color modifiers.
+</Callout>
+
+## How to use
+
+Create a base color and add a modifier
+
+<img src='/add-modifier.png' alt="Add new modifier - step 2" width="800"/>
+
+Choose the type of operation (lighten, darken, mix or alpha) and the color space (lcc, srgb, p3 or hsl). Next, you can enter an amount between 0 and 1, 0 being the base color 1 being the value of the selected opreation. 
+
+## Available modifiers 
+
+<Callout>
+  Note: Currently it’s only possible to add one modifier to a base color at once.
+</Callout>
+
+### Lighten
+When we use the lighten operation, we take the base color and increase its lightness by a percentage that equals the amount. So, the amount 0.1 will mean that the base color gets 10% lighter. An amount of 1 means you get pure white, so it's in relation to the base color towards white.
+
+```
+0 amount: no change in lightness
+1 amount: white
+```
+<img src='/lighten-operation.png' alt="Lighten operation - step 3" width="800"/>
+
+### Darken
+Using the darken operation means to darken the base color closer to the darkest shade in relation to the amount. So, the amount 0.1 will mean the base color gets darker by 10%, and a value of 1 means you get pure black.
+
+```
+0 amount: no change in darkness
+1 amount: black
+```
+<img src='/darken-operation.png' alt="Darken operation- step 4" width="800"/>
+
+### Mix
+To mix a color with another color, you can use the mix operation. The amount 0 means = the original base color that is used, and 1 = the color that it is being mixed with. An amount of 0.3 means a 30-70% split between the two values.
+
+```
+0 amount: base color
+1 amount: mix color
+```
+<img src='/mix-operation.png' alt="Mix operation - step 5" width="800"/>
+
+### Alpha
+To transparentize colors, you can use the alpha operation which takes the base color and makes it transparent according to the amount. 0 = transparent, 1 = fully opaque. An amount 0.2 outputs an opacity of 20%.
+
+```
+0 amount: fully transparent
+1 amount: fully opaque
+```
+<img src='/alpha-operation.png' alt="Alpha operation - step 6" width="800"/>
+
+
+
+
+

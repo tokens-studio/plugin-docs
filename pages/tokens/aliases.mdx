@@ -1,0 +1,31 @@
+import Callout from 'nextra-theme-docs/callout'
+
+# Aliases
+
+One of the advantages of Tokens Studio for Figma is its ability to utilize references to other tokens when defining values for your tokens. This allows for a highly efficient and consistent design system. For example, your brand color can be established as a reference to `colors.red.500`, while a background token can derive its value from `colors.black`, and a foreground token can inherit its value from `colors.white` (all referenced from core). This feature enhances flexibility and maintains a cohesive visual language throughout your design system.
+<img src='/token-alias.png' alt="Aliasing a token - step 1" width="800"/>
+
+To use aliases in tokens, we use the following notation: `{spacing.sm}`. You can also select any available aliases while creating a token by typing `{` and a part of the alias name in the field, or by selecting available aliases from the dropdown.
+
+By using this notation, you instruct the plugin to locate a token named `spacing.sm` and use its corresponding value. The benefit of this approach is that any changes then made to the `spacing.sm` token will automatically propagate to all tokens that reference it.
+
+<Callout emoji="💡">
+  References are case sensitive, which means you should write your references like your tokens are named (usually lowercase).
+</Callout>
+
+---
+
+import ReactPlayer from 'react-player'
+
+
+<ReactPlayer
+  muted
+  width="100%"
+  height="auto"
+  loop
+  controls
+  url="/alias-recording.mp4"
+/>
+
+## Nested references
+We also support nested references in the form of `{colors.{primary}.500}` up to 1 level of depth, any further level of depth is not supported. This is not supported by any other tool and is also not part of the DTCG format, in addition it can negatively impact performance of token resolution.

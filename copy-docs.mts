@@ -14,12 +14,12 @@ const skipFiles = ['__tempassets__', 'public', '.obsidian'];
 
 // Define the folder paths
 const publishFolder = path.join(__dirname, 'obsidian_vault');
-const distFolder = path.join(__dirname, 'new_pages/');
-const distFolderPublic = path.join(__dirname, 'new_public/');
+const distFolder = path.join(__dirname, 'pages/');
+const distFolderPublic = path.join(__dirname, 'public/');
 
 console.log("🗑️  Cleaning up temporary folders...")
 fs.existsSync(distFolder) && fs.rmSync(distFolder, { recursive: true });
-fs.existsSync(distFolderPublic) && fs.rmSync(distFolderPublic, { recursive: true });
+
 
 async function copyDirAndRename(sourceDir, targetDir) {
 
@@ -54,13 +54,11 @@ async function copyDirAndRename(sourceDir, targetDir) {
       const fileName = path.basename(sourcePath)
 
           if(fileName === "_meta.md"){
-            console.log("   🤖 meta.json")
+            console.log("   🤖 meta.js")
               const meta = await fs.readFileSync(sourcePath, 'utf8').trim().split('\n')
   
               const metaJson = {}
-              if(path.basename(targetDir) === "pages"){
-                metaJson["index"] = "Hyma Hub"
-              }
+  
               meta.forEach((line) => {
               // Extract the title and path from the _meta.md file
               const regex = /\[([^\]]+)\]\(([^\)]+)\)/g;
@@ -78,7 +76,7 @@ async function copyDirAndRename(sourceDir, targetDir) {
                console.log('🔥', title, title.split(' ').length)     
               metaJson[path.parse(linePath).name] = title.split(' ').length > 1 ? title : sentenceCase(title)
             })
-              await fs.writeFileSync(path.join(targetDir, '_meta.json'), JSON.stringify(metaJson, null, 2))
+              await fs.writeFileSync(path.join(targetDir, '_meta.js'), `export default `+JSON.stringify(metaJson, null, 2))
             }
             else {
               if(!path.basename(sourcePath).startsWith('.')){

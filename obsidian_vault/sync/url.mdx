@@ -1,0 +1,24 @@
+# URL Sync
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout emoji="💡">
+    The URL sync mode operates in a read-only mode, which means you cannot make direct changes within the plugin. Instead, you will need to modify the corresponding .json file stored on your server.
+    For an example .json file, you can refer to the provided link to access a sample [file](https://raw.githubusercontent.com/tokens-studio/plugin-example-css/main/tokens.json).
+</Callout>
+
+To enable the Sync feature for your file, follow these steps in the plugin:
+	1.	Open the Settings tab and navigate to the Sync providers section.
+	2.	Click on the `Add new` dropdown and choose `URL` as your Sync Provider.
+	3.	Enter a name for your credentials. <strong>NOTE:</strong> This does not concern your repository details at all, so you can also modify the name later if desired.
+	4.	If your server requires authentication, you can store the necessary Headers as a JSON object in the headers field. This allows you to provide any required authentication headers.
+	5.	It is important to ensure that your server's .json file has the Access-Control-Allow-Origin header set to `*`. If you need assistance with this, consult your engineers or refer to relevant [documentation](https://gist.github.com/nixta/0b98d7975562bc31c4c9).
+	6.	In the URL field, enter the complete URL that points to your .json file stored on your server.
+
+<img src='/url-sync.png' alt="Adding URL Sync Credentials - step 1" width="800"/>
+
+### Getting your team on board
+After setting a storage provider on a document, the ID and name of the bin will be stored within that document. The Headers field is intentionally left blank, as each team member will need to add their own headers.
+
+### Pulling changes
+On startup, the plugin will automatically fetch the latest remote tokens. However, if your team has made changes while the plugin was open, you can pull the newest updates by clicking the `Pull from URL` button located at the bottom-left. This way, you can ensure that you have the most up-to-date token information from the remote source and synchronize any changes that occurred while the plugin was running.
+<img src='/pull-url.png' alt="Pulling URL Updates - step 2" width="800"/>

@@ -1,0 +1,42 @@
+# Border Radius Tokens
+
+Radius tokens give you the possibility to define values for your border radius. You can either create a single value token or define multiple border radii in a token.
+
+#### How to use
+Create a Border radius token under the `Border radius` category by clicking on the `+` icon.  
+Enter a name for your token and the value for your border radius.
+
+Once selected, apply by either left-clicking (all values will use this token) or right-click to specify which part you want to target (`All`, `Top Right`, `Top Left`, `Bottom Right` or `Bottom Left`).
+
+### Single / Multiple values
+To save a lot of time, we introduced the multi-value radius tokens. This allows you to specify border radius for individual corners with one token. You are able to define one, two, three or four values, just like CSS.
+
+**Single value (like today)**  
+This will apply to all corners (like today)  
+```10px```
+
+**Two values**  
+This will apply top-left-and-bottom-right | top-right-and-bottom-left  
+```10px 5px```
+
+**Three values**  
+This will apply top-left | top-right-and-bottom-left | bottom-right  
+```2px 4px 2px```
+
+**Four values**  
+This will apply top-left | top-right | bottom-right | bottom-left  
+```1px 0 3px 4px```
+
+---
+
+import ReactPlayer from 'react-player'
+
+<ReactPlayer
+  muted
+  width="100%"
+  height="auto"
+  loop
+  playing
+  controls
+  url="/multi-value-radius.mp4"
+/>

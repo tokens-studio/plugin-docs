@@ -5,7 +5,6 @@ import { default as path } from 'path';
 import { fileURLToPath } from 'url';
 import _ from 'lodash';
 import replace from 'replace';
-import { spawnSync } from 'child_process';
 
 const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
 const __dirname = path.dirname(__filename); // get the name of the directory
@@ -15,11 +14,12 @@ const skipFiles = ['__tempassets__', 'public', '.obsidian'];
 
 // Define the folder paths
 const publishFolder = path.join(__dirname, 'obsidian_vault');
-const distFolder = path.join(__dirname, 'pages/');
-const distFolderPublic = path.join(__dirname, 'public/');
+const distFolder = path.join(__dirname, 'new_pages/');
+const distFolderPublic = path.join(__dirname, 'new_public/');
 
-console.log("🗑️  Deleting old pages folder...")
+console.log("🗑️  Cleaning up temporary folders...")
 fs.existsSync(distFolder) && fs.rmSync(distFolder, { recursive: true });
+fs.existsSync(distFolderPublic) && fs.rmSync(distFolderPublic, { recursive: true });
 
 async function copyDirAndRename(sourceDir, targetDir) {
 

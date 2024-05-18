@@ -4,24 +4,6 @@
     "type": "split",
     "children": [
       {
-        "id": "5ca8c32fb5a616d4",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "420961f82412a4f9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "index.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          }
-        ]
-      },
-      {
         "id": "5c4ed51f41e38fb2",
         "type": "tabs",
         "children": [
@@ -29,7 +11,7 @@
             "id": "2f86248163ed20dc",
             "type": "leaf",
             "state": {
-              "type": "graph",
+              "type": "empty",
               "state": {}
             }
           }
@@ -99,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "index.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -162,40 +140,42 @@
   },
   "active": "2f86248163ed20dc",
   "lastOpenFiles": [
-    "index.md",
-    "public/obisdian-image.png",
-    "public",
-    "en/index.md",
-    "pt-br/index.md",
-    "pt-br",
-    "en",
-    "index.en.mdx",
-    "_",
-    "Welcome.md",
-    "legacy-docs/pages/variables/references.pt-br.mdx",
-    "legacy-docs/pages/variables/references.en.mdx",
-    "legacy-docs/pages/variables/creating-variables.pt-br.mdx",
-    "legacy-docs/pages/variables/creating-variables.en.mdx",
-    "legacy-docs/pages/variables/_meta.pt-br.json",
-    "legacy-docs/pages/tokens/using-math.pt-br.md",
-    "legacy-docs/pages/tokens/documentation-tokens.pt-br.md",
-    "legacy-docs/pages/tokens/creating-tokens.pt-br.md",
-    "legacy-docs/pages/tokens/applying-tokens.pt-br.md",
-    "legacy-docs/pages/tokens/aliases.pt-br.md",
-    "legacy-docs/pages/styles/styles.pt-br.md",
-    "legacy-docs/pages/styles/keeping-styles-in-sync.pt-br.md",
-    "legacy-docs/pages/styles/keeping-styles-in-sync.en.md",
-    "legacy-docs/pages/styles/create-styles.pt-br.md",
-    "legacy-docs/pages/styles/create-styles.en.md",
-    "legacy-docs/pages/contributing/shared-data.pt-br.md",
-    "legacy-docs/pages/contributing/shared-data.en.md",
-    "legacy-docs/pages/contributing/contributing.pt-br.md",
-    "legacy-docs/pages/contributing/contributing.en.md",
-    "legacy-docs/pages/contributing/beta-builds.pt-br.md",
-    "legacy-docs/pages/available-tokens/typography-tokens.pt-br.md",
-    "legacy-docs/pages/available-tokens/typography-tokens.en.md",
-    "legacy-docs/pages/available-tokens/spacing-tokens.pt-br.md",
-    "legacy-docs/pages/available-tokens/color-tokens.pt-br.md",
-    "legacy-docs/pages/available-tokens/available-tokens.pt-br.md"
+    "tokens/_meta.json",
+    "guides/_meta.json",
+    "sync/_meta.json",
+    "themes/_meta.json",
+    "contributing/_meta.json",
+    "troubleshooting/_meta.json",
+    "available-tokens/_meta.json",
+    "styles/_meta.json",
+    "transforming/_meta.json",
+    "inspect/_meta.json",
+    "_meta.json",
+    "available-tokens/typography-tokens.md",
+    "contributing/shared-data.md",
+    "styles/keeping-styles-in-sync.md",
+    "styles/create-styles.md",
+    "contributing/contributing.md",
+    "available-tokens/typography-tokens.pt-br.md",
+    "available-tokens/typography-tokens.en.md",
+    "available-tokens/spacing-tokens.pt-br.md",
+    "available-tokens/color-tokens.pt-br.md",
+    "available-tokens/available-tokens.pt-br.md",
+    "contributing/shared-data.pt-br.md",
+    "contributing/shared-data.en.md",
+    "contributing/contributing.pt-br.md",
+    "contributing/contributing.en.md",
+    "contributing/beta-builds.pt-br.md",
+    "styles/styles.pt-br.md",
+    "styles/create-styles.pt-br.md",
+    "styles/keeping-styles-in-sync.pt-br.md",
+    "styles/keeping-styles-in-sync.en.md",
+    "styles/create-styles.en.md",
+    "tokens/using-math.pt-br.md",
+    "tokens/documentation-tokens.pt-br.md",
+    "tokens/creating-tokens.pt-br.md",
+    "tokens/applying-tokens.pt-br.md",
+    "tokens/aliases.pt-br.md",
+    "public/obisdian-image.png"
   ]
 }

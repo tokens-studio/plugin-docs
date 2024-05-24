@@ -15,3 +15,11 @@ html {
 .dark .nextra-container .nextra-sidebar ul .active-anchor {
   color: #ffffff !important;
 }
+
+img {
+    margin-block: 2rem;
+}
+
+pre {
+    padding: 1rem;
+}

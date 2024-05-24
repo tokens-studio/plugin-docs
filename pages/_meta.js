@@ -11,6 +11,5 @@ export default {
   "sync": "Sync",
   "transforming": "Transforming for development",
   "contributing": "Contributing",
-  "troubleshooting": "Troubleshooting",
-  "guides": "Guides",
+  "troubleshooting": "Troubleshooting"
 }

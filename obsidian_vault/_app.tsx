@@ -1,7 +1,6 @@
 /* eslint react/no-unknown-property: ['error', { ignore: ['global', 'jsx'] }] */
 import { AppProps } from 'next/app';
 import React from "react"
-import "../styles.css"
 
 export default function App({ Component, pageProps, router }: AppProps) {
   return (

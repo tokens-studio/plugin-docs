@@ -36,7 +36,7 @@ const withNextra = nextra({
         statusCode: 302
       },
     ]
-})
+}})
 
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true'

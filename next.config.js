@@ -17,7 +17,25 @@ const withNextra = nextra({
   latex: true,
   mdxOptions: {
     remarkPlugins: [remarkObsidian]
-  }
+  },
+  redirects: () => {
+    return [
+      {
+        source: "/reset-tokens",
+        destination: "/troubleshooting/reset-tokens",
+        statusCode: 302
+      },
+      {
+        source: "/non-local-styles",
+        destination: "/styles/non-local-styles",
+        statusCode: 302
+      },
+      {
+        source: "/naming-design-tokens",
+        destination: "/guides/naming-design-tokens",
+        statusCode: 302
+      },
+    ]
 })
 
 const withBundleAnalyzer = bundleAnalyzer({

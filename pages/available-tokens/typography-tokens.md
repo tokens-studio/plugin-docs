@@ -33,7 +33,7 @@ An example of a typography token looks like this:
 ```
 
 
-import Callout from 'nextra-theme-docs/callout'
+import { Callout } from 'nextra/components'
 
 <Callout emoji="⚠️">
   While Font Family and Font Weight tokens can be applied individually to text nodes, both must be applied simultaneously to cause a visual change in Figma. 

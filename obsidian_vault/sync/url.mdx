@@ -1,5 +1,6 @@
+import { Callout } from 'nextra/components'
+
 # URL Sync
-import Callout from 'nextra-theme-docs/callout'
 
 <Callout emoji="💡">
     The URL sync mode operates in a read-only mode, which means you cannot make direct changes within the plugin. Instead, you will need to modify the corresponding .json file stored on your server.
@@ -9,7 +10,7 @@ import Callout from 'nextra-theme-docs/callout'
 To enable the Sync feature for your file, follow these steps in the plugin:
 	1.	Open the Settings tab and navigate to the Sync providers section.
 	2.	Click on the `Add new` dropdown and choose `URL` as your Sync Provider.
-	3.	Enter a name for your credentials. <strong>NOTE:</strong> This does not concern your repository details at all, so you can also modify the name later if desired.
+	3.	Enter a name for your credentials. *NOTE:* This does not concern your repository details at all, so you can also modify the name later if desired.
 	4.	If your server requires authentication, you can store the necessary Headers as a JSON object in the headers field. This allows you to provide any required authentication headers.
 	5.	It is important to ensure that your server's .json file has the Access-Control-Allow-Origin header set to `*`. If you need assistance with this, consult your engineers or refer to relevant [documentation](https://gist.github.com/nixta/0b98d7975562bc31c4c9).
 	6.	In the URL field, enter the complete URL that points to your .json file stored on your server.

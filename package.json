@@ -15,13 +15,13 @@
   "license": "MIT",
   "dependencies": {
     "@next/bundle-analyzer": "^14.2.2",
-    "next": "^13.0.6",
-    "nextra": "^3.0.0-alpha.23",
-    "nextra-theme-docs": "^3.0.0-alpha.23",
+    "next": "^14.2.3",
+    "nextra": "3.0.0-alpha.24",
+    "nextra-theme-docs": "3.0.0-alpha.24",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-player": "^2.16.0",
-    "sharp": "^0.33.3"
+    "sharp": "^0.33.4"
   },
   "devDependencies": {
     "@types/node": "20.12.7",

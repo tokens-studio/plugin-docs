@@ -29,10 +29,6 @@ const withBundleAnalyzer = bundleAnalyzer({
  */
 export default withBundleAnalyzer(
   withNextra({
-    eslint: {
-      // Eslint behaves weirdly in this monorepo.
-      ignoreDuringBuilds: true
-    },
     // i18n: {
     //   locales: ['en', 'pt-br'],
     //   defaultLocale: 'en'

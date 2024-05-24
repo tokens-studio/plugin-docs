@@ -18,25 +18,8 @@ const withNextra = nextra({
   mdxOptions: {
     remarkPlugins: [remarkObsidian]
   },
-  redirects: () => {
-    return [
-      {
-        source: "/reset-tokens",
-        destination: "/troubleshooting/reset-tokens",
-        statusCode: 302
-      },
-      {
-        source: "/non-local-styles",
-        destination: "/styles/non-local-styles",
-        statusCode: 302
-      },
-      {
-        source: "/naming-design-tokens",
-        destination: "/guides/naming-design-tokens",
-        statusCode: 302
-      },
-    ]
-}})
+  
+})
 
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true'
@@ -52,6 +35,16 @@ export default withBundleAnalyzer(
     //   defaultLocale: 'en'
     // },
     distDir: './.next', // Nextra supports custom `nextConfig.distDir`
-    reactStrictMode: true
-  })
+    reactStrictMode: true,
+    redirects: () => 
+      Object.entries({
+        "/reset-tokens": "/troubleshooting/reset-tokens",
+        "/non-local-styles": "/styles/non-local-styles",
+        "/naming-design-tokens": "/guides/naming-design-tokens",
+      }).map(([from, to]) => ({
+        source: from,
+        destination: to,
+        permanent: true,
+      }))
+  }),
 )

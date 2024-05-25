@@ -1,0 +1,52 @@
+# Azure DevOps (ADO)
+
+If you'd like to use Azure DevOps as your sync provider you can do that now!
+
+---
+
+import { Callout } from 'nextra/components'
+
+<Callout emoji="💡">
+  Already have an Azure account with a repository? Great, skip to step 3
+</Callout>
+
+### 1. Create an Azure account
+
+Go to https://dev.azure.com and create an account.
+
+### 2. Create a new repository
+
+Create a new repository. Give it any name you like, make it public or private and initialize it with a README.
+
+### 3. Generate your Personal Access Token
+
+Go to the Personal Access Tokens section by clicking the avatar icon left of your user and then choosing Personal access tokens, generate a new token and select the neccessary scopes for this repository.
+
+Copy that token, you'll need it in a second and won't see it again if you close the page.
+
+Also, never share this token with anyone who shouldn't have access to your repository.
+
+### 4. Add a new ADO sync to your Tokens file.
+
+Go to the Sync tab and select ADO. Add a new item
+
+- Add your organization URL, e.g. https://dev.azure.com/my_organization_name
+- Add your Personal Access Token which we just copied.
+- Add your repository name (e.g. `newproject`)
+- Add your default branch (probably `main`)
+- Specify a file path where your tokens should be stored, e.g. `data/tokens.json` or just `tokens.json`
+- If needed, add a project name
+
+### 5. Push your initial set of tokens
+
+The plugin will now ask you to push your currently stored tokens to the repository.
+
+Add a commit message, e.g. "Initial commit"
+
+If you're adding a repository that already contains tokens, the plugin will ask you if you want to pull the latest tokens. This will overwrite your locally stored tokens, so make sure to back these up if you don't want them to get removed.
+
+### 6. Push or pull changes
+
+Whenever you make a change in Tokens Studio for Figma, you have to manually hit `Push to ADO` to push your local changes to the remote. Anytime you do that you have to supply a commit message. You can choose the branch you want to push your changes to, so you could just try new tokens out without overwriting the currently live ones.
+
+If you only want to pull the latest changes, hit `Pull from ADO`. The plugin will let you know when your local changes differ from the ones stored on the remote by showing a blue dot.

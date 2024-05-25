@@ -1,0 +1,272 @@
+# Importing styles
+
+Instead of manually creating all tokens, you can let the plugin do the work for you.
+
+In the document where your styles are located, click on `Import` at the bottom of the plugin.
+
+---
+
+import ReactPlayer from 'react-player'
+
+
+<ReactPlayer
+  muted
+  width="100%"
+  height="auto"
+  loop
+  playing
+  controls
+  url="/import-styles.mp4"
+/>
+
+The plugin will automatically convert color and typography styles to tokens for you. What's best about this approach is that the plugin tries to determine your base units, and create tokens for these.
+
+That means, your 4 styles all referencing `Inter` as a font family, with 2 font weights, `Regular` and `Bold` will become a set of base tokens (options) of `font-inter`, `font-weight-bold`, various font size, line height, letter spacing and paragraph  and a set of Typography tokens (style decisions composed of these base units.
+
+This process is not perfect (yet), but with a little bit of manual tweaking you'll get yourself a token set that's easy to update later on.
+
+import { Callout } from 'nextra/components'
+
+
+### Color Tokens
+
+Importing color styles into Tokens is fairly straightforward. What the plugin will do is create sets of tokens according to the naming of your base styles, so you'd get tokens similar to these:
+
+```
+  "colors": {
+    "Black": {
+      "value": "#212121",
+      "type": "color"
+    },
+    "White": {
+      "value": "#ffffff",
+      "type": "color"
+    },
+    "Primary ": {
+      "100": {
+        "value": "#e9f4ff",
+        "type": "color"
+      },
+      "200": {
+        "value": "#d2e9ff",
+        "type": "color"
+      },
+      "300": {
+        "value": "#8fc8ff",
+        "type": "color"
+      },
+      "400": {
+        "value": "#4ba6ff",
+        "type": "color"
+      },
+      "500": {
+        "value": "#1e90ff",
+        "type": "color"
+      },
+      "600": {
+        "value": "#1565b3",
+        "type": "color"
+      },
+      "700": {
+        "value": "#0c3a66",
+        "type": "color"
+      },
+      "800": {
+        "value": "#061d33",
+        "type": "color"
+      },
+      "900": {
+        "value": "#030e19",
+        "type": "color"
+      }
+    },
+    "Secondary ": {
+      "100": {
+        "value": "#e7efff",
+        "type": "color"
+      },
+      "200": {
+        "value": "#cfdffe",
+        "type": "color"
+      },
+      "300": {
+        "value": "#a0bffd",
+        "type": "color"
+      },
+      "400": {
+        "value": "#709ffd",
+        "type": "color"
+      },
+      "500": {
+        "value": "#115ffb",
+        "type": "color"
+      },
+      "600": {
+        "value": "#0a3997",
+        "type": "color"
+      },
+      "700": {
+        "value": "#072664",
+        "type": "color"
+      },
+      "800": {
+        "value": "#031332",
+        "type": "color"
+      },
+      "900": {
+        "value": "#020919",
+        "type": "color"
+      }
+    }
+  }
+```
+
+
+### Importing typography tokens
+
+The resulting Token JSON for these imported styles will look something like this:
+
+```
+"fontFamilies": {
+    "heading": {
+      "value": "Monument Extended",
+      "type": "fontFamilies"
+    },
+    "body": {
+      "value": "Circular Std",
+      "type": "fontFamilies"
+    }
+  },
+  "lineHeights": {
+    "body": {
+      "value": "140%",
+      "type": "lineHeights"
+    },
+    "auto": {
+      "value": "AUTO",
+      "type": "lineHeights"
+    },
+    "none": {
+      "value": "100%",
+      "type": "lineHeights"
+    },
+    "tight": {
+      "value": "110%",
+      "type": "lineHeights"
+    }
+  },
+  "fontWeights": {
+    "heading": {
+      "regular": {
+        "value": "Regular",
+        "type": "fontWeights"
+      },
+      "bold": {
+        "value": "Bold",
+        "type": "fontWeights"
+      }
+    },
+    "body": {
+      "regular": {
+        "value": "Regular",
+        "type": "fontWeights"
+      },
+      "bold": {
+        "value": "Bold",
+        "type": "fontWeights"
+      }
+    }
+  },
+  "fontSizes": {
+    "sm": {
+      "value": "16",
+      "type": "fontSizes"
+    },
+    "lg": {
+      "value": "20",
+      "type": "fontSizes"
+    },
+    "xl": {
+      "value": "25",
+      "type": "fontSizes"
+    },
+    "2xl": {
+      "value": "31",
+      "type": "fontSizes"
+    }
+  },
+  "letterSpacing": {
+    "normal": {
+      "value": "0%",
+      "type": "letterSpacing"
+    },
+    "tight": {
+      "value": "-1%",
+      "type": "letterSpacing"
+    },
+    "tighter": {
+      "value": "-3%",
+      "type": "letterSpacing"
+    },
+    "wide": {
+      "value": "5%",
+      "type": "letterSpacing"
+    }
+  }
+```
+
+The resulting import of styles should result in a set of tokens similar to the one below. What this means, is that you can update any of your token values, and all your styles will automatically get updated as well. Changing a the font family of your headings is now a matter of changing a single token.
+
+```
+"typography": {
+    "Headings": {
+      "Display 1": {
+        "Bold": {
+          "value": {
+            "fontFamily": "{fontFamilies.heading}",
+            "fontWeight": "{fontWeights.heading.bold}",
+            "lineHeight": "{lineHeights.tight}",
+            "fontSize": "{fontSizes.lg}",
+            "letterSpacing": "{letterSpacing.tighter}",
+            "paragraphSpacing": "{paragraphSpacing.none}"
+            "paragraphIndent": "{paragraphIndent.none}"
+          },
+          "type": "typography"
+        }
+      },
+      "Display 2": {
+        "Bold": {
+          "value": {
+            "fontFamily": "{fontFamilies.heading}",
+            "fontWeight": "{fontWeights.heading.bold}",
+            "lineHeight": "{lineHeights.tight}",
+            "fontSize": "{fontSizes.xl}",
+            "letterSpacing": "{letterSpacing.tighter}",
+            "paragraphSpacing": "{paragraphSpacing.none}"
+            "paragraphIndent": "{paragraphIndent.none}"
+          },
+          "type": "typography"
+        }
+      },
+      "Display 3": {
+        "Bold": {
+          "value": {
+            "fontFamily": "{fontFamilies.heading}",
+            "fontWeight": "{fontWeights.heading.bold}",
+            "lineHeight": "{lineHeights.tight}",
+            "fontSize": "{fontSizes.2xl}",
+            "letterSpacing": "{letterSpacing.tighter}",
+            "paragraphSpacing": "{paragraphSpacing.none}"
+            "paragraphIndent": "{paragraphIndent.none}"
+          },
+          "type": "typography"
+        }
+      }
+    }
+  }
+```
+
+### Importing styles later on
+If you created or changed styles after you imported your initial styles, you can still use the Import function. The plugin will show you what styles changed in comparison to your tokens and what new ones were added. You can then decide if you want to ignore a change or if you want to update the token.
+
+![](/import-styles-diff.png)

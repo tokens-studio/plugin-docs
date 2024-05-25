@@ -1,0 +1,47 @@
+import { Callout } from 'nextra/components'
+
+# JSONBin.io
+To enable JSONBin.io Sync for your file, follow these steps:
+
+1. You will first need to register an account on JSONBin.io by visiting their [website](https://jsonbin.io/).
+2. Once created, click on your avatar and select `API Keys`. Locate your `Secret` Key and copy it.
+4. Then, in the Tokens Studio for Figma plugin, go to the `Settings` tab.
+5. `Add New`, and then choose JSONBin as your Sync Provider.
+6. Enter a name
+7. Past your Secret Key into the `Secret` field.
+8. Save Credentials to add your json BIN!
+
+If you want to create a new sync bin, leave the ID field blank. The plugin will generate a new bin for you. Alternatively, you can enter an existing ID to link to an already created bin.
+
+<Callout emoji="💡">
+  When creating a new bin, your tokens get uploaded to that bin. However, when using an existing ID, the tokens stored on the remote will overwrite your existing ones.
+</Callout>
+<img src='/json-bin.png' alt="Adding JSONBin credentials - step 1" width="800"/>
+
+### Getting your team on board
+
+Once you have set a storage provider on a document in the plugin, the ID and name of your bin will be stored within that document. However, the `Secret` field will be left blank for each team member as it requires them to add their own secret. This approach allows for future implementation of different permissions and granting certain users different levels of access as consumers or contributors.
+
+### Changing storage credentials
+
+You can switch between different stored token bins at any time. To do so, create multiple provider items and click "Apply" to assign a specific token set to the current document.
+<img src='/json-providers.png' alt="Multiple JSONBin providers - step 2" width="800"/>
+
+### Updating tokens
+
+Whenever you make changes to a token, the remote storage will be automatically updated. There is currently no separate "Publish" process; changes are immediately reflected in the tokens.
+
+### Pulling changes
+
+On startup, the plugin will automatically fetch the latest remote tokens. However, if your team has made changes while the plugin was open, you can pull the newest changes by clicking the `Pull from JSONBin` button located at the bottom-left of the plugin.
+<img src='/pull-jsonbin.png' alt="JSONBin pull icon - step 3" width="800"/>
+
+### Pausing sync
+
+By default, every token change triggers an update on your sync provider. However, you can pause this behavior by unchecking the `Update remote` option found in the bottom-right `setting-icon` menu of the plugin.
+<img src='/update-remote.png' alt="Update JSONBin setting - step 4" width="800"/>
+
+### Read-only mode
+If you'd like some of your team members to only be able to Read tokens, not write, you can add JSONBin with the `URL Sync` option in the plugin. All you'll need to do is add the URL for the bin, such as `https://api.jsonbin.io/v3/b/1234878172571726252` and headers such as `{ "X-Master-Key":"YOUR_KEY", "X-Access-Key":"YOUR_ACCESS_KEY_", "X-Bin-Meta": false }`. The important part is X-Bin-Meta: false, which is required for JSONBin to return only the tokens and not any metadata they store.
+<img src='/jsonbin-read-only.png' alt="Credentials for JSONBin read-only - step 5" width="800"/>
+

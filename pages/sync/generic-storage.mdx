@@ -1,0 +1,67 @@
+# Generic Versioned Storage Sync
+
+---
+
+import { Callout } from 'nextra/components'
+
+
+![](/generic-storage-sync.png)
+
+
+Sometimes you need more control over how your tokens are stored, either to circumvent direct git solutions like Github, Gitlab, etc, to keep control within your infrastructure and not rely on third party storage, or to adopt more fine grained control regarding access and modification of tokens by your users, in this case, you can create your own storage endpoint and hook it into the Figma Tokens plugin.
+
+An example implementation of creating your storage endpoint can be found [here](https://github.com/SorsOps/figma-tokens-generic-storage-example). In this example we are using a SQLite DB to store the tokens on a local file, however you need only to support the data contract between the plugin.
+
+
+## Flows
+
+There are 3 types of flows available to this storage provider:
+
+1. Readonly
+
+If this is used, the storage provider acts similar to the URL provider, with the only difference the ability to set additional headers. All read requests will be sent via `GET` calls to the endpoint, and no writes will be conducted at all.
+
+2. Read/Write
+
+In this flow, write requests are done using `PUT` requests that are considered to be idempotent. During the initial setup, a `PUT` request will be sent with the current set of tokens.
+
+<Callout emoji="💡">
+  If there are no pre-existing tokens, a warning will popup saying `No tokens stored on remote`. You can use the below flow if you wish to circumvent this.
+</Callout>
+
+3. Read/Write/Create
+
+With the above, the initial creation of the tokens might not be idempotent and thus the first call during the setup and provisioning is a `POST` request. This post request is expected to return a response to indicate whether the endpoints storage was setup or not for tracking purposes, as well as an `updatedAt` field in the json which could be used to determine whether an additional `GET` request for synchronization with the remote is needed
+
+These flows are noted in this simple sequence diagram
+
+![](/generic-storage-sequence.png)
+
+
+## Schemas 
+
+The example repo contains all the schemas necessary should you wish to roll your own endpoint. The swagger is available. [here](https://github.com/SorsOps/figma-tokens-generic-storage-example/blob/main/public/swagger.json)
+
+## Setup
+
+### 1. Create a new Generic Storage Provider
+
+Choose the appropriate flow for your backend and supply the url.
+
+### 2. Add in optional headers
+
+Additional header key value pairs can be setup. These headers will be sent for every request. As such you could user `Authorization` : `Bearer xxxyyyzzz` headers if you have an authorization layer in front of your endpoint, or need to identify users for auditing and tracking purposes.
+
+### 3. Push your initial set of tokens
+
+If using create flow, you will push your initial tokens as part of the storage provisioning, otherwise ensure that tokens are available at time and provisioning to request.
+
+### 4. Push or pull changes
+
+Tokens should be automatically updated whenever you make changes, however you might need to manually sync to your endpoint occasionally if multiple users are writing to the same endpoint.
+
+### 5. How to use tokens stored in Generic Storage in development?
+
+This storage provider stores the raw json representing your tokens, as such you will need to be responsible in disseminating the useable resolved tokens to your downstream consumers.
+
+To help you, the following package could be useful: [Token Transformer](https://www.npmjs.com/package/token-transformer). You or your dev can install it by running `npm install token-transformer`. You can then pull through the tokens json file from your endpoint, extract the `values` and `$themes` properties on the response and handle the resolution locally, or implement this functionality directly into your API for your consumers

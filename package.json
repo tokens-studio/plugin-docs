@@ -11,7 +11,7 @@
   "author": "Jan Six",
   "license": "MIT",
   "dependencies": {
-    "next": "^12.2.0",
+    "next": "^13.5.4",
     "nextra": "2.0.0-beta.6",
     "nextra-theme-docs": "2.0.0-beta.6",
     "react": "^17.0.2",

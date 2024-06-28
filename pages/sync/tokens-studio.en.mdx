@@ -1,1 +1,57 @@
-# Tokens Studio sync
+# Tokens Studio Platform sync setup guide
+Tokens Studio has a standalone web-based platform for dynamic creation and management of design decisions, currently in Beta! 
+
+→ More information on the Studio Platform and sign up for Beta access here. TODO
+
+## How it works
+Set up a `project` and `API key` in Tokens Studio
+- `Configure Tokens Studio as a sync provider` within the plugin.
+- Seamlessly `sync your design tokens` between Figma and Tokens Studio to maintain consistency across design and development workflows.
+## Tokens studio sync setup Instructions
+If you haven't already, sign up for an account at [Tokens Studio](https://app.tokens.studio/)
+### 1. Create a new project
+Once you've logged into your Tokens Studio account:
+- Select `New Project` from the top-right corner of the home page
+	- Give your project a title.
+- Now you are looking at the dashboard of your new project. 
+- Locate the `Connection String` (ID of the project) on the right side of the page
+- Use the `copy button` to copy the connection string to your clipboard
+- `Save the Connection ID` and 
+	- `Store it somewhere safe` as it's needed for the plugin configuration. 
+
+### 2. Creating an API key
+From your `project dashboard`, select the `project name` in the top left corner
+- Navigate to `Settings`
+- Select `API Keys`
+- Select `Create API Key`
+- Add a `Name` of what the API Key is for. 
+	- Example: `fimga-sync`
+	- Option to add a `Description` for the API Key
+		- Example: `test-token sync to plugin`
+- Under `Group` select `Power User`
+- Select `create key` 
+- `Copy the generated API key` and 
+	- `Store it somewhere safe` as it's needed for the plugin configuration. 
+
+## Configuring Tokens Studio Plugin
+In Figma, open the Tokens Studio plugin and navigate to the `Settings` page 
+- Under the `Sync providers` section, select the `Add new` button to see a list of all token storage providers 
+- Select `Tokens Studio` 
+
+### 3. Add credentials for Tokens Studio sync
+You'll need the information saved from the steps above to complete the sync configuration form. 
+
+#### Name
+This is a `nickname` that shows up in the `plugin settings page` later on to identify this specific sync provider configuration. 
+- Choose something memorable to you and your project. 
+- Example: `Hyma brand exploration`
+
+#### API Key
+The `API Key` you created and saved from the steps above. 
+
+#### ID (connection string)
+Enter the `Connection String ID` you copied and saved from the steps above. 
+- This can typically be found in the project section of your Tokens Stdio sync dashboard.
+
+### 4. Save and do the initial push
+

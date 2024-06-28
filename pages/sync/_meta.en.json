@@ -6,6 +6,8 @@
   "gitlab": "GitLab",
   "ado": "Azure DevOps",
   "supernova": "Supernova",
+  "bitbucket": "Bitbucket",
+  "tokens-studio": "Tokens Studio",
   "branch-switching": "Branch switching (Pro)",
   "generic-storage":"Generic Versioned Storage",
   "multi-file": "Multi-file Sync (Pro)",

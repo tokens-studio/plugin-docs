@@ -19,6 +19,7 @@ import ReactPlayer from 'react-player'
 
 <ReactPlayer
   muted
+  playsinline
   width="100%"
   height="auto"
   loop

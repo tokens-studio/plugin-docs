@@ -7,8 +7,8 @@ RUN apk add --no-cache libc6-compat
 RUN apk update
 WORKDIR /app
 
-# Note we should be using exclude here 
-COPY  ./ /app/
+# Note this could cause an issue on older docker versions
+COPY --exclude=./public  ./ /app/
 # Build the project
 RUN yarn install --frozen-lockfile --immutable
 RUN yarn run build

@@ -8,7 +8,7 @@ const withNextra = require("nextra")({
 
 module.exports = withNextra({
   i18n: {
-    locales: ['en', 'pt-br'],
+    locales: ['en'],
     defaultLocale: 'en',
   },
   redirects: () => {
@@ -26,6 +26,11 @@ module.exports = withNextra({
       {
         source: "/sams-fancy-link",
         destination: "/guides/naming-design-tokens",
+        statusCode: 302
+      },
+      {
+        source: "/pt-br/:path*",
+        destination: "/",
         statusCode: 302
       },
     ]

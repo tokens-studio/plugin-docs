@@ -1,0 +1,90 @@
+# Branch switching (pro)
+
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout emoji="✦">
+ *Pro Feature*\
+    The **Branch switching** feature requires a [Pro Licence](https://tokens.studio/pricing) for Tokens Studio. 
+</Callout>
+
+If you are working with one of these sync providers, you can use the plugin native integration to take advantage of **branch** workflows:
+- [Azure DevOps](/token-storage-and-sync/sync-provider-azure-devops)
+- [Bitbucket](/token-storage-and-sync/sync-provider-bitbucket)
+- [GitHub](/token-storage-and-sync/sync-provider-github)
+- [Gitlab](/token-storage-and-sync/sync-provider-gitlab)
+
+By default, Tokens Studio will connect to the **branch** you added in your **sync provider form**, for example, `main`. 
+
+However, you can **create a new branch** or **switch branches** using the plugin. 
+
+## Branch indicator
+When you are connected to **Sync Provider** that supports branching, the bottom of the plugin has **Sync Actions**. 
+
+The **Branch Button** is on the left, displaying the current branch you are working on. 
+
+In this example, the `main` branch is active.
+
+![](/token-storage-and-sync/sync-actions-none-v2-0.png)
+
+### View available branches
+**Selecting the branch name** from the **Sync Actions** at the bottom of the plugin will open the **Branch menu** which displays:
+1. An option to **Create a new branch**.
+2. Available branches from your sync provider. 
+
+The branches visible in the plugin come from your sync provider. 
+- The plugin can't remove any branches from the list; you have to log into your sync provider to delete branches. 
+
+![](/token-storage-and-sync/tokens-sync-branch-menus-annotated-V2-01.png)
+
+### Switch branches
+**Select the branch name** from the **Sync Actions** at the bottom of the plugin to see the available branches you can switch between. 
+- **Select a new branch name** to switch to that branch. 
+- The plugin will open the **Pull modal** to see if you want to replace your existing tokens with the Tokens in the new branch you've selected. 
+
+[→ Read the Keep Your Tokens in Sync guide for more details on the Pull modal.](/token-storage-and-sync/sync-push-pull-changes)
+
+### Create a new branch
+**Select the branch name** from the **Sync Actions** at the bottom of the plugin to open the **Branch menu**. 
+- Select the **Create a new branch from** option.
+- You'll see a list of current branches from your Sync provider.
+- **Select the branch** you want to make your new branch from.
+	- Choosing an existing branch (like `main`) will:
+		- Ignore any local changes you have made to your Tokens in the plugin.  
+		- Pull in the Tokens from the branch you selected as the starting place for your new branch. 
+	- Choosing **Current changes** will:
+		- Take the Tokens exactly as you have them in the plugin as the starting place for your new branch. 
+- Follow the prompts in the plugin to finish creating your new branch.
+	- If you have unsaved changes in the plugin (blue push notification is visible), you will be prompted to **push** your changes to the **Sync Provider** before creating the new branch so they aren't lost. 
+- Once the new branch is created, the plugin will open the **Push Modal** to sync your Tokens to your new branch. 
+
+[→ Read the Keep Your Tokens in Sync guide for more details on the Push modal.](/token-storage-and-sync/sync-push-pull-changes)
+
+## Limitations of branch switching
+Sometimes, when you open the plugin, it reverts to the default branch in your **Sync Provider** configuration, for example, `main`. 
+
+Other times, new branches created in a local file are automatically applied in all files sharing the same sync provider, which is not always desired. 
+
+So, it's important to double-check which branch you are working on each time you open the plugin. 
+- The **name of the branch you are working on** appears at the bottom of the plugin for easy reference. 
+
+You can switch branches by following the steps above at any time. 
+
+## Resources
+Community resources:
+- None yet! 
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+Tokens Studio Plugin GitHub - [Open issues for Sunc Brancing](https://github.com/tokens-studio/figma-plugin/labels/sync%20branch)
+- Add error when TS plugin is not able to push changes [#2487](https://github.com/tokens-studio/figma-plugin/issues/2487)
+	- Currently no error is shown when you try to push changes to a branch where you don't have permissions for.
+- Branch switching conflicts over multiple files https://github.com/tokens-studio/figma-plugin/issues/2476
+	- Branch settings in the plugin follow you across Figma files. 
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- None 
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.

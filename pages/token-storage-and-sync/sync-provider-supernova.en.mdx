@@ -1,0 +1,144 @@
+# Supernova sync setup guide
+[Supernova](https://supernova.io/) is a design data platform popular for documenting design systems. 
+
+With the Tokens Studio plugin's integration with Supernova, you can create and manage Design Tokens and themes in Figma and sync to Supernova to create documentation. 
+
+![](/token-storage-and-sync/sync-supernova-header.png)
+
+The Supernova integration has some limitations and does not provide the same bi-directional sync or version control our Git provider integrations offer. 
+- You may want to consider including a Git provider in your process in addition to Supernova.
+
+[→ Read the Sync Provider Overview for Git provider integrations we support.](/token-storage-and-sync/sync-provider-overview)
+
+## How it works
+- Gather **Design System Data** and **Authentication token** in Supernova.
+- **Configure Supernova as a sync provider** within the Tokens Studio plugin.
+- Use the plugin to **sync your Design Tokens** between Figma and Supernova to keep your Design Token documentation up to date. 
+
+## Supernova setup steps
+If you haven't already, sign up for a Supernova account at https://supernova.io/
+
+### 1. Gather design system project information
+Log into your Supernova account and navigate to the **Design System Project** that you'd like to sync with Tokens Studio.
+- You'll land on the **Design Tokens** page in Supernova for your project. 
+- **Save the URL of the Design Tokens page** somewhere safe as it's needed for the plugin configuration. 
+	- Be sure to include the `https://` in your URL copy
+
+![](/token-storage-and-sync/sync-Supernova-DSurl-v2-0.png)
+
+Each Design System project will require different code snippets for **mapping** Tokens Studio to Supernova. It's best to consult the Supernova docs to gather the right **mapping** code snippets or reach out to them for support:
+- → [Basic mapping documentation on the Supernova site](https://learn.supernova.io/latest/design-systems/import-design-system-data/importing-via-tokens-studio/setting-up-tokens-studio-inyFJuPh#section-5-setting-up-mapping-f1)
+- → [Advanced mapping for working with themes and multiple brands on the Supernova site](https://learn.supernova.io/latest/design-systems/import-design-system-data/importing-via-tokens-studio/working-with-themes-uDt16AKH)
+
+### 2. Generate an access token
+Not to be confused with anything to do with Design *Tokens*, an **access token** acts as a passcode from Supernova you enter into the plugin that allows the connection to happen. 
+
+Log into your Supernova account:
+- Navigate to the **Authentication** section of your project
+- **Generate a new authentication token** with the necessary permissions.
+- **Save the generated access token** somewhere safe as it's needed for the plugin configuration. 
+
+You're ready to configure the Tokens Studio plugin in Figma! 
+
+![](/token-storage-and-sync/sync-Supernova-PAT.png)
+
+## Configuring Tokens Studio Plugin
+In Figma, open up the Tokens Studio plugin and navigate to the **Settings** page using the navigation tab. 
+- Under the **Sync providers** section, select the **Add new** button to see a list of all Token storage providers 
+- Select **Supernova** 
+
+![](/token-storage-and-sync/settings-page-supernova-v2-0.png)
+
+### Add credentials for Supernova
+You'll need the information saved from the steps above to complete the JSONBin sync configuration form. 
+
+![](/token-storage-and-sync/sync-supernova-annotated-v2-0.png)
+
+#### 1. Name
+- This is a **nickname** that shows up in the **plugin settings page** later on to identify this specific sync provider configuration. 
+- Choose something memorable to you and your project. 
+- Example: `radix ui components`
+
+#### 2. Supernova access token
+The **Access token** you saved from the steps above. 
+
+#### 3. Design System URL
+The **URL** of your design system project from the steps above
+- Example:`https://supernova.io/ws/test/ds/amazingdesigner/radixtokens` 
+
+#### 4. Supernova < > Tokens Studio Mapping
+The exact code snippets provided by Supernova (see the steps above) limit the data that Tokens Studio can sync to Supernova. 
+
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout type="info" emoji="✦">
+ *The mapping structure is important!*\
+    Its essential to have the correct mapping structure, so copy/paste the configuration as outlined in the[ Supernova docs precisely](https://learn.supernova.io/latest/design-systems/import-design-system-data/importing-via-tokens-studio/working-with-themes-uDt16AKH), including the square brackets `[ ]`.
+</Callout>
+
+Example mapping configuration:
+
+```json
+[
+    {
+        "tokenSets": ["global", "light"],
+        "supernovaBrand": "Default"
+    }
+]
+```
+
+If you want to map multiple themes at once, then you can check out the Supernova docs on connecting to the plugin [here](https://learn.supernova.io/latest/design-systems/import-design-system-data/importing-via-tokens-studio/working-with-themes-uDt16AKH)
+
+### Save and do the initial sync
+Save to confirm your credentials, and then follow the plugin's prompts to finish setting up the Supernova sync. 
+
+[→ Read the Add New Sync Provider guide for more details.](/token-storage-and-sync/sync-provider-add)
+
+## Shared source of truth
+As you work in the plugin, push and pull indicators remind you to stay in sync with Supernova.
+
+[→ Read the Push and Pull to Sync Provider guide for more details.](/token-storage-and-sync/sync-push-pull-changes) 
+
+Engineers typically transform Tokens used in code with [Style Dictionary](https://styledictionary.com/), which is tool-agnostic. Tokens coming from Tokens Studio require an additional step: [@Tokens-studio/sd-transforms](https://www.npmjs.com/package/@tokens-studio/sd-transforms), an npm package that prepares Tokens for Style Dictionary. 
+
+The various Token Types supported by Tokens Studio have unique transforms to be aware of. 
+
+[→ Jump to the Token Type overview.](/available-tokens/available-tokens)
+
+## Limitations from Supernova
+According to the Supernova docs, Design Tokens synced to Tokens Studio cannot be edited directly in Supernova; all edits must be made in the Tokens Studio plugin interface.
+
+→ [Read the Supernova docs here. ](https://learn.supernova.io/latest/design-systems/import-design-system-data/importing-via-tokens-studio/import-and-update-tokens-d0sT3iiE#:~:text=Note%20that%20Tokens%20Studio%20tokens%20can%27t%20be%20edited%20in%20Supernova%20yet%2C%20and%20you%20or%20anyone%20from%20the%20team%20must%20edit%20them%20through%20the%20plugin%20interface%2C%20then%20push%20to%20Supernova%20to%20see%20the%20changes.)
+
+This means **pulling tokens** from Supernova will only show changes to tokens made in the Tokens Studio plugin that were pushed to Supernova. 
+
+### Customer support
+The Supernova team provides customer support for issues with Supernova sync, so you'll need to contact them directly through their support channels to triage issues and ask questions. 
+- In the Tokens Studio community slack, we have a channel moderated by the Supernova team. 
+- This is a great place to post questions and concerns to help other community members who might be having the same experience. It also allows the Tokens Studio team to help out where we can!
+
+## Resources
+Mentioned in this doc:
+- Supernova - https://www.supernova.io/
+- Supernova - [Tokens Studio sync documentation](https://learn.supernova.io/latest/design-systems/import-design-system-data/importing-via-tokens-studio/working-with-themes-uDt16AKH)
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms#readme)
+- Style Dictionary - https://styledictionary.com/
+
+Community resources:
+- None yet! 
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+Tokens Studio Plugin GitHub - [Open issues for Sync Supernova](https://github.com/tokens-studio/figma-plugin/labels/sync%20supernaova)
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- 🧑‍💻 [Sync to external token storage enhancements - Feature Request](https://tokensstudio.featurebase.app/p/sync-external-storage-enhancements)
+	- How might we improve the experience of working with sync providers in general?
+- ↕️ [Git sync enhancements - push, pull, merge, branching - Feature Request](https://feedback.tokens.studio/p/git-sync-enhancements)
+- 🔐 [Data security info request - Feature Request](https://feedback.tokens.studio/p/data-security-info)
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.
+

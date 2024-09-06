@@ -1,0 +1,127 @@
+# Sync your Design Tokens with code
+By default, Tokens Studio will store your Design Tokens locally in the Figma file you are working in, but their true power is unleashed when they can be synced with code. 
+
+This synchronization creates a shared source of truth, fostering collaboration and alignment between design and development teams. 
+
+![](/token-storage-and-sync/sync-header-infographic-v2.png)
+
+## Sync providers
+Tokens Studio offers out-of-the-box integrations with several third-party providers to sync your Design Tokens with code and store them externally for safekeeping outside of your local design files. 
+
+We support:
+- Git providers
+	- Connected to a code repository for remote Token storage that is version-controlled.
+- Cloud-based code storage providers
+	- Syncing your Token files with design data platforms.
+- Locally hosted server Token storage.
+
+### Git providers
+Git is an open-source system that tracks changes in code files. 
+
+Syncing your Tokens with a Git provider allows you to store your Design Tokens as code files in a repository. Tokens Studio has native features to push and pull Token changes easily and version-control your design decisions using the branching feature. 
+
+This allows you to explore design decisions before deploying them to a production environment.
+
+#### GitHub 
+[GitHub ](https://github.com/) is the most popular Git provider for hosting your code and design decisions in the same location. 
+
+Additionally, we provide support for GitHub Enterprise for enhanced functionality and compatibility.
+
+[→ Read the GitHub sync setup guide](/token-storage-and-sync/sync-provider-github)
+
+#### Gitlab
+[Gitlab](https://gitlab.com/) is a popular Git provider for projects that benefit from its enhanced security features.  
+
+[→ Read the Gitlab sync setup guide](/token-storage-and-sync/sync-provider-gitlab)
+
+#### Azure DevOps
+[Azure DevOps](https://azure.microsoft.com/en-us/services/devops/)  is a Microsoft-owned suite of development tools and services you can use to create a Git-based source code repository. 
+
+[→ Read the Azure DevOps sync setup guide](/token-storage-and-sync/sync-provider-azure-devops) 
+
+#### Bitbucket
+[Bitbucket](https://bitbucket.org/product) is a Git-based source code repository hosting service popular among teams using Atlassian tools. 
+
+[→ Read the Bitbucket sync setup guide](/token-storage-and-sync/sync-provider-bitbucket)
+
+### Cloud storage providers
+Cloud storage providers offer a platform to store, manage, and retrieve your Design Token data via an API.
+
+#### JSONBin 
+[JSONBin](https://JSONBin.io/)  provides a simple REST interface to store & retrieve your JSON data from the cloud. 
+
+[→ Read the JSONBin sync setup guide](/token-storage-and-sync/sync-provider-jsonbin)
+
+#### Supernova
+[Supernova](https://supernova.io/) is a design data platform popular for documenting design systems. 
+
+[→ Read the Supernova sync setup guide](/token-storage-and-sync/sync-provider-supernova) 
+
+#### Tokens Studio (beta)
+[Tokens Studio](https://tokens.studio/studio) has a standalone web-based platform for dynamic creation and management of design decisions. 
+
+[→ Read the Tokens Studio Platform sync setup guide](/token-storage-and-sync/sync-provider-tokens-studio)
+
+### Server storage providers
+Server storage providers offer an alternative to Git providers for projects that benefit from storing their Tokens on the same servers as the rest of their code. 
+
+#### Generic Versioned Storage
+Generic Versioned Storage is a way to host your Design Tokens on a local or remote server, which supports read-only, read/write, and read/write/create workflows. 
+
+[→ Read the Generic Versioned Storage sync setup guide](/token-storage-and-sync/sync-provider-generic-versioned)
+
+#### URL 
+When you host your Design Token JSON files on a web server or static hosting service, the plugin can access the Tokens (read-only) by syncing to the URL where your Token files are stored. 
+
+[→ Read the URL sync setup guide](/token-storage-and-sync/sync-provider-url)  
+
+## Sync actions 
+Once you have an active **sync provider**, you can find the **sync actions** at the bottom of the plugin. Depending on your sync provider you may see:
+- The **branch button** displays the current branch you are working on. 
+	- Select the button to switch branches or **create a new branch**.
+	- [→ Jump to the Branch Switching guide](/token-storage-and-sync/sync-branch-pro)
+- The **Token format** displays the format of your current branch, either W3C DTCG or Legacy, which influences how your Token JSON files are written. 
+	- Select the button to **switch Token formats**. 
+	-  → Learn more about the W3C DTCG Token Format #add-doc-link/token-format 
+- The **pull button** will have an indicator appear when new Token data can be received from your sync provider.
+	- Select the button to open the **pull modal**.
+- The **push button** will have an indicator appear when changes to your Tokens can be sent to your sync provider.
+	- Select the button to open the **push modal**.
+
+ [→ Read the Push and Pull to Sync Provider guide for more details](/token-storage-and-sync/sync-push-pull-changes)
+
+## Sync Provider Guides
+When you are ready to sync your Tokens to a remote storage provider, check out these guides:
+- [→ Add a new sync provider](/token-storage-and-sync/sync-provider-add)
+- [→ Edit an existing sync provider](/token-storage-and-sync/sync-provider-edit)
+- [→ Select a saved sync provider  ](/token-storage-and-sync/sync-provider-select-from-list)
+- [→ Save Tokens to your local document](/token-storage-and-sync/sync-provider-local-document)
+- [→ Delete a sync provider](/token-storage-and-sync/sync-provider-remove)
+- [→ Multi-file sync (pro)](/token-storage-and-sync/sync-multi-file-remote-storage-folder-pro)
+
+## Resources
+Mentioned in this doc:
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms)
+- Style Dictionary - [Read Me](https://amzn.github.io/style-dictionary/#/)
+
+Community resources:
+- None yet! 
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+*Note - each provider has their own issues listed on their official docs page*
+- Tokens Studio Plugin GitHub - [Sync Multi Player Experience](https://github.com/tokens-studio/figma-plugin/labels/sync%20multi-player%20experience)
+- Tokens Studio Plugin GitHub - [Sync Indicators](https://github.com/tokens-studio/figma-plugin/labels/sync%20indicators)
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- ↕️ [AWS CodeCommit - Add sync provider - Feature Request](https://feedback.tokens.studio/p/aws-codecommit)
+- 🧑‍💻 [Sync to external token storage enhancements - Feature Request](https://tokensstudio.featurebase.app/p/sync-external-storage-enhancements)
+	- How might we improve the experience of working with sync providers in general?
+- ↕️ [Git sync enhancements - push, pull, merge, branching - Feature Request](https://feedback.tokens.studio/p/git-sync-enhancements)
+- 🔐 [Data security info request - Feature Request](https://feedback.tokens.studio/p/data-security-info)
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.
+

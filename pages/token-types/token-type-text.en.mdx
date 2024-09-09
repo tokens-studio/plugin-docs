@@ -1,0 +1,122 @@
+![](/token-types/header-token-type-text.png)
+# Text Token
+The **Text Token** allows you to capture written content as Design Tokens. 
+
+![](/token-types/tokens-text-form-empty-2-01.png)
+
+## Design decisions defined by Text tokens
+Text Tokens define the written content in your designs and can be applied to text elements. 
+
+Useful for:
+- UX writing
+- Creating themes for different languages 
+- Capturing translations
+- When your product or brand names are still being iterated on 
+
+Text Tokens can be attached to String Variables in Figma. 
+
+→ [Jump to the Export to Figma overview for more details on Text Tokens as Variables](/variables/creating-variables) 
+
+## Possible values
+Text Token can have any combination of alpha-numeric values and may include emojis. 
+
+### Hard-coded string values
+Hard-coded values of Text Token would be a string of text you define directly. 
+
+For example, a Text Token named `welcome.message` with the hard-coded value of:
+```
+"Hello world"
+```
+
+<Callout type="error" emoji="✦">
+*Known Issue*\
+Text Tokens with values that are numeric only are not applying as expected. 
+</Callout>
+
+### Values that reference another token
+The **Value** of a Text Token can reference another Text Token. 
+
+For example a Text Token named `app.home-page.message` with a raw value of:
+```
+{welcome.message}
+```
+
+Which would inherit the text content from the `welcome.message` token and have a resolved value of `"Hello world"`. 
+
+When trying to **reference another Token as the Value** for a Text Token, you will see
+- Tokens living in **Token Sets that are currently active**.
+	- In the left menu on the plugin's **Tokens page**, a checkmark is visible next to the **Token Set name**. 
+- **Token Type** is compatible:
+	- The same = `text`
+
+However, like all token types, you can "force" a reference by manually entering the token name between curly brackets.
+
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout type="info" emoji="✦">
+The value will show a broken reference until the originating token set is marked as enabled.
+</Callout>
+
+→ [Jump to the Token Values with References guide for more details](/variables/references)
+
+#### Nested references
+Text Token can also reference another token nested somewhere within the value. 
+
+For example, a Text Token with a Name of `customer-id` with the hard-coded value of:
+```
+Jan Six
+```
+
+When referenced within the value of another Text Token with a Name of `app.home-page.title`:
+```
+👋 Welcome back, {customer-id}!
+```
+
+Which would inherit the text content from the `customer-id` token and have a resolved value of `👋 Welcome back, Jan Six!`
+
+This is a great way to communicate to engineers the design decision to have text content; in this case, the client name comes from a database. 
+- You could even add some notes in the description for engineers, like `"show the preferred name as the client ID if it exists in the database."`
+
+## W3C DTCG Token Format 
+**Text** is not yet an official token type in the W3C DTCG specifications. Tokens Studio has added Text as a token type to support Figma's String Variable. 
+
+
+## Transforming Tokens
+Engineers typically transform Tokens used in code with [Style Dictionary](https://styledictionary.com/), which is tool-agnostic. Tokens coming from Tokens Studio require an additional step: [@Tokens-studio/sd-transforms](https://www.npmjs.com/package/@tokens-studio/sd-transforms), an npm package that prepares Tokens for Style Dictionary. 
+
+When transforming **TextTokens**, there are specific transforms to be aware of. 
+
+The preprocessor in the SD-Transforms package will automatically convert the Tokens Studio specific Token Type of `text` to align with the Style Dictionary compatible Token Type of `content`. 
+
+→ [SD-Transforms Read-Me Doc, Using the preprocessor](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-the-preprocessor)
+
+
+**Text Case**, as part of **Typography Composite Tokens**, requires the SD-Transforms option to `expand composite Tokens into multiple Tokens`. 
+
+Make sure you look at the generic SD-Transforms package to include this option, which allows you to further customize this transformation further using Style Dictionary. 
+
+→ [SD-Transforms Read-Me Doc, Using Expand](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-expand)
+
+## Resources
+Mentioned in this doc:
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms#readme)
+- Style Dictionary - https://styledictionary.com/
+- Design Tokens Community Group - [W3C Draft](https://tr.designtokens.org/format/)
+- Design Tokens Community Group - [8.0 Types](https://tr.designtokens.org/format/#types)
+
+Community resources:
+- None yet! 
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+Tokens Studio Plugin GitHub - [Open issues for Token Type Text](https://github.com/tokens-studio/figma-plugin/labels/token%20type%20text)
+- Unable to Assign a Numeric Value in the Text Token Type [#2470](https://github.com/tokens-studio/figma-plugin/issues/2470)
+	- When the value is purely numeric, results are unexpected.
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- None 
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.

@@ -1,0 +1,191 @@
+# Spacing Token 
+The **Spacing Token** was one of the first token types we supported in the plugin. 
+
+Since then, a lot has changed. 
+
+The Design Tokens Community Group hosts a token specification on the W3C community group pages for web standards. Although it's in draft form, the tools and technologies working with Design Tokens are trying to align with the W3C DTCG specification. 
+
+The W3C DTCG specification does not recognize **Spacing** as an ['official token type'](https://tr.designtokens.org/format/#types) and instead has defined [**Dimension Tokens**](/token-types/token-type-dimension) as the preferred token for size-related design decisions.
+
+If we want to fully align with the spec, it requires Tokens Studio to phase out the **Spacing Token**. 
+
+However, we believe the choice should be yours!
+- If aligning with the W3C DTCG spec is important to your project, we suggest using [Dimension Tokens](/token-types/token-type-dimension) instead.
+
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout type="info" emoji="✦">
+*There is no immediate plan to discontinue support of the **Spacing Token**.*\
+We want to build a thoughtful solution to help Tokens Studio users migrate from these *'legacy token types'* to **Dimension Tokens** if that time comes. 
+</Callout>
+
+→ [If you love **Spacing Tokens** and want to make your voice heard, we've set up a forum in Featurebase where you can leave your comments!](https://feedback.tokens.studio/p/w3c-dtcg-feedback)
+
+## Design decisions defined by Spacing Tokens
+The **Spacing Token** defines the distance between design elements. 
+
+It must be applied to:
+- Auto-layout frames
+- If you apply the token to a frame before auto-layout is applied in Figma, you may have to remove and re-apply the token before it will work as expected.
+
+**Spacing Tokens** can be attached to Number Variables in Figma. 
+
+→ [Jump to the Export to Figma overview for more details on Number Tokens as Variables](/variables/creating-variables)
+
+## Design properties
+A **Spacing Token** can be used to define several different space-related design properties.
+- You choose which side of the element you want to apply the token to by **right-clicking on the token** to see your options. 
+	- If you click to apply this token to an element without accessing the right-click token menu, spacing will be applied to **all** sides. 
+
+*The following sections appear in the order of the **Spacing Token** menu.* 
+
+
+### Gap
+The **Gap property** applies space between child elements within a parent container.
+
+### All 
+The **All property** applies padding to all sides of the container.
+
+### Horizontal padding 
+The ***Horizontal padding property** applies padding to the left and right sides of the container.
+
+### Vertical padding 
+The **Vertical padding property** applies padding to the top and bottom sides of the container.
+
+### Row gap  
+The **Row gap property** applies vertical space between rows.
+- It only works on Figma's auto-layout frame elements that are set to wrap. 
+
+### Top 
+The **Top property** applies space to the top side of the container.
+
+### Right
+The **Right property** applies space to the right side of the container.
+
+### Bottom
+The **Bottom property** applies space to the bottom side of the container.
+
+### Left
+The **Left property** applies space to the left side of the container.
+
+## Possible values
+The **Spacing Token** supports numeric hard-coded values:
+- With or without a unit
+- Negative values
+- Multiple values
+
+The **Spacing Token** also supports a string value of `AUTO`. 
+
+### Hard-coded values
+When writing the hard-coded values for a **Spacing Token** you'll want to:
+- Avoid spaces
+
+For example:
+```
+1rem
+```
+
+#### Rem Units
+To support responsive design, you can define your **Spacing Token** in `rem units`, and the plugin automatically converts the value to the pixel equivalent. 
+ - For example, a **Spacing Token** with a value of `0.5rem` will appear as a `8px` in Figma.
+ 
+**Rem Units** act as a multiplier of the **base font size**, so when a user changes their preferences to a larger font size or uses a zoom feature in your product, elements defined in **rem units** will respond accordingly. 
+
+The value of `1rem` can be configured in the plugin **Settings** for **Base Font Size**.
+
+[→ Read the guide on Base Font Size in the plugin](/tokens/settings#base-font-size)
+
+### AUTO as a value
+The plugin supports a string value of `AUTO` to match Figma's unique way of defining the CSS property of `justify-content: space-between` in their Auto Layout feature. 
+
+It's important that you write this value in all caps `AUTO` as values in lowercase or titlecase will not work as expected. 
+
+### Values that reference another Token
+When trying to **reference another Token as the Value** for a Spacing Token, you will see
+- Tokens living in **Token Sets that are currently active**.
+	- In the left menu on the plugin's **Tokens page**, a checkmark is visible next to the **Token Set name**. 
+- **Token Type** is compatible:
+	- The same = `spacing`
+	- `number`
+	- `dimension`
+
+However, like all token types, you can "force" a reference by manually entering the token name between curly brackets.
+
+<Callout type="info" emoji="✦">
+The value will show a broken reference until the originating token set is marked as enabled.
+</Callout>
+
+→ [Jump to the Token Values with References guide for more details](/variables/references)
+
+### Values with math equations
+All token types that accept numeric values can also accept math equations. 
+
+→ [Read the guide on Tokens with Math Values for more details.](/tokens/using-math)
+
+### Multiple values
+You can define the value of a **Spacing Token** to mimic the way multi-value spacing properties are written in CSS. 
+
+When you **click to apply the token value** (without right-clicking), the plugin will apply spacing based on the number of values in your token. 
+
+Single value  - For example, `10px`
+- Applies the value to the `Gap` property.
+
+Two values  - For example, `8px 64px`
+- The first value is applied as padding to the top and bottom.
+- The second value is applied as padding to the right and left.
+
+Three values  - For example, `16px 8px 32px`
+- The first value is applied as padding to the top.
+- The second value is applied as padding to the right and left.
+- The third value is applied as padding to the bottom.
+
+Four values  - For example, `2px 4px 8px 16px`
+- The first value is applied as padding to the top.
+- The second value is applied as padding to the right.
+- The third value is applied as padding to the bottom.
+- The fourth value is applied as padding to the left. 
+
+You can also write multiple value **Spacing Tokens** with references. For example, `{space.sm} {space.md}`.
+
+<Callout type="info" emoji="✦">
+*Figma does not support multiple value Variables*\
+If you export your Tokens to Variables in Figma, multiple value Tokens will be skipped, as Figma only supports single values.\\
+→ [Read the Skipped Tokens when Exporting to Figma Variables guide for more details](/variables/creating-variables)
+</Callout>
+
+## Transforming Tokens
+Engineers typically transform tokens used in code with [Style Dictionary](https://styledictionary.com/), which is tool-agnostic. Tokens coming from Tokens Studio require an additional step: [@tokens-studio/sd-transforms](https://www.npmjs.com/package/@tokens-studio/sd-transforms), an npm package that prepares tokens for Style Dictionary. 
+
+When transforming Spacing Tokens, there are some specific configurations to be aware of. 
+
+The preprocessor in the SD-Transforms package will automatically convert the Tokens Studio specific Token Type of `spacing` to align with the DTCG Format Token Type of `dimension`. 
+
+→ [SD-Transforms Read-Me Doc, Using the preprocessor](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-the-preprocessor)
+
+**Token Values** entered as a number without a unit will be converted to a number with pixels as a unit.
+
+→ [SD-Transforms Read-Me Doc, ts/size/px](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#tssizepx)
+
+## Resources
+Mentioned in this doc:
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms)
+- Style Dictionary - [Read Me](https://amzn.github.io/style-dictionary/#/)
+- Design Tokens Community Group - [W3C Draft](https://tr.designtokens.org/format/)
+- Design Tokens Community Group - [8.0 Types](https://tr.designtokens.org/format/#types)
+
+Community resources:
+- None yet! 
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+Tokens Studio Plugin GitHub - [Open issues for Token Type Spacing](https://github.com/tokens-studio/figma-plugin/labels/token%20type%20spacing)
+- AUTO Value is Created as '0' in Variables [#2916](https://github.com/tokens-studio/figma-plugin/issues/2916)
+	- Exporting to variables when the Spacing Token value is `AUTO` creates a `0` value. 
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- None 
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.

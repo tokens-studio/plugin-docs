@@ -1,0 +1,83 @@
+# Other Token
+The **Other Token** allows you to capture design decisions that don't fit any other Token Type. 
+
+This provides flexibility to define and use tokens tailored to your specific needs. However, when applied to design elements, they don't interact with the Figma UI in any capacity. 
+
+![](/token-types/tokens-other-form-empty-2-01.png)
+
+## Design decisions defined by Other Tokens
+Other Tokens can be used to define almost any design decision that works for you, your project and your team which aren't covered by an existing Token Type. For example:
+- Notes within your token sets you want to be surfaced to engineers.
+- Internal documentation.
+- Creating Tokens you don't want to interact with Figma.
+
+Here are some creative ways the community is using Other Tokens:
+- Defining the CSS properties, like text alignment
+- Technical notes on where to find external documentation, like where to download a font family being used in the system. 
+- Math equations referenced in Number or Dimension tokens to ensure they are preserved without cluttering the main token set. 
+	- For example:`golden-ratio`: `1.618`
+
+## Possible Values
+An Other Token can have any hard-coded value as needed, including:
+- String
+- Numeric with units
+- Numeric without units
+- Math equations
+
+### Values that reference another Token
+When trying to **reference another Token as the Value** for an Other Token, you will see
+- Tokens living in **Token Sets that are currently active**.
+	- In the left menu on the plugin's **Tokens page**, a checkmark is visible next to the **Token Set name**. 
+- **Token Type** is compatible:
+	- The same = `other`
+
+However, like all token types, you can "force" a reference by manually entering the token name between curly brackets.
+
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout type="info" emoji="✦">
+The value will show a broken reference until the originating token set is marked as enabled.
+</Callout>
+
+→ [Jump to the Token Values with References guide for more details](/variables/references)
+
+## W3C DTCG Token Format
+**Other** is not an official Token Type in the W3C DTCG specifications.
+
+Tokens Studio has added Other as a Token Type to offer flexibility for custom properties not covered by the standard types.
+
+## Transforming Tokens
+Engineers typically transform Tokens used in code with [Style Dictionary](https://styledictionary.com/), which is tool-agnostic. Tokens coming from Tokens Studio require an additional step: [@Tokens-studio/sd-transforms](https://www.npmjs.com/package/@tokens-studio/sd-transforms), an npm package that prepares Tokens for Style Dictionary. 
+
+When transforming Sizing Tokens, there are some specific configurations to be aware of. 
+
+The preprocessor in the SD-Transforms package will automatically convert the Tokens Studio specific properties to align with the DTCG Format. 
+
+→ [SD-Transforms Read-Me Doc, Using the preprocessor](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-the-preprocessor)
+
+
+**Token Values** entered as a number without a unit will be converted to a number with pixels as a unit.
+
+→ [SD-Transforms Read-Me Doc, ts/size/px](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#tssizepx)
+
+## Resources
+Mentioned in this doc:
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms#readme)
+- Style Dictionary - https://styledictionary.com/
+- Design Tokens Community Group - [W3C Draft](https://tr.designtokens.org/format/)
+- Design Tokens Community Group - [8.0 Types](https://tr.designtokens.org/format/#types)
+
+Community resources:
+- None yet! 
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+Tokens Studio Plugin GitHub - [Open issues for Token Type Other](https://github.com/tokens-studio/figma-plugin/labels/token%20type%20other)
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- None 
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.

@@ -1,0 +1,87 @@
+![](/token-types/header-token-type-opacity.png)
+# Opacity Token
+The **Opacity Token** allows you to capture the transparency of a layer as a Design Token. 
+
+![](/token-types/tokens-opacity-form-empty-2-01.png)
+
+## Design decisions defined by Opacity Tokens
+Opacity Tokens define a layer's opacity. In Figma, they can be applied to any design element that supports reduced opacity. 
+
+For example, you might have a Button that changes opacity when hovered over. 
+- You could create two Opacity tokens:
+	- `button.opacity.default` with a value of `1` (fully opaque)
+	- `button.opacity.hover` with a value of `0.8` (slightly transparent)
+- Then, apply the Opacity Tokens to the background container layer of each variation of the Button design. 
+
+## Possible Values
+An Opacity Token can define any level of transparency from fully opaque to fully transparent. The values range from:
+- `1` (layer is fully opaque)
+- `0` (layer is fully transparent)
+- Any decimal value between `0` and `1` can be used to set varying levels of transparency.
+
+### Values that reference another Token
+When trying to **reference another Token as the Value** for an Opacity Token, you will see
+- Tokens living in **Token Sets that are currently active**.
+	- In the left menu on the plugin's **Tokens page**, a checkmark is visible next to the **Token Set name**. 
+- **Token Type** is compatible:
+	- The same = `opacity`
+
+However, like all token types, you can "force" a reference by manually entering the token name between curly brackets.
+
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout type="info" emoji="✦">
+The value will show a broken reference until the originating token set is marked as enabled.
+</Callout>
+
+→ [Jump to the Token Values with References guide for more details](/variables/references)
+
+## W3C DTCG Token Format 
+Opacity is not yet an official token type in the W3C DTCG specifications, but there is mention of a `Percentage/radio` type under consideration ([8.8 Additional Types](https://tr.designtokens.org/format/#additional-types))
+
+## Transforming Tokens
+Engineers typically transform Tokens used in code with [Style Dictionary](https://styledictionary.com/), which is tool-agnostic. Tokens coming from Tokens Studio require an additional step: [@Tokens-studio/sd-transforms](https://www.npmjs.com/package/@tokens-studio/sd-transforms), an npm package that prepares Tokens for Style Dictionary. 
+
+When transforming **Opacity Tokens**, there are specific configurations to be aware of.
+
+For **Opacity Token** values entered in percentages, the SD-transforms package converts the value from `%` to number between `0` and `1` -> `ts/opacity`.
+
+→ [SD-Transforms Read-Me Doc, ts/opacity](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#tsopacity)
+
+## Resources
+Mentioned in this doc:
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms#readme)
+- Style Dictionary - https://styledictionary.com/
+- Design Tokens Community Group - [W3C Draft](https://tr.designtokens.org/format/)
+- Design Tokens Community Group - [8.8 Additional Types](https://tr.designtokens.org/format/#additional-types)
+
+Figma resources:
+- Design in Figma - [Adjust the properties of an asset](https://help.figma.com/hc/en-us/articles/360041098433-Adjust-the-properties-of-an-image)
+
+CSS resources:
+- MDN Web Docs - [Opacity](https://developer.mozilla.org/en-US/docs/Web/CSS/opacity)
+
+Community resources:
+- None yet! 
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+Tokens Studio Plugin GitHub - [Open issues for Token Type Opacity](https://github.com/tokens-studio/figma-plugin/labels/token%20type%20opacity)
+- Opacity issue: some values are wrongly rounded in Figma [#2380](https://github.com/tokens-studio/figma-plugin/issues/2380)
+	- Values entered less than 1% are resolving to 1% in Figma 
+	- Ex: `0.1%` will resolve to 1% 
+- Referencing a (base+opacity) and adding another opacity to that, doesn't give the correct result [#1822](https://github.com/tokens-studio/figma-plugin/issues/1822)
+	- Including an Opacity Token in the value of a Color Token produces unexpected results. 
+	- We may want to avoid using Opacity Tokens in Color Token values as Figma assigns the Opacity value to layer transparency and not a color modifier. 
+- Using Opacity in Tokens Creates Blank Variable [#2977](https://github.com/tokens-studio/figma-plugin/issues/2977)
+	- When Exporting Color Tokens with Opacity Tokens referenced in the value as Color Variables, the Variable is not created as expected. 
+	- Likely related to issue 1822 above. 
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- None 
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.
+

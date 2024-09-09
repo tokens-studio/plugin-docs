@@ -1,0 +1,147 @@
+![](/token-types/header-token-type-borderwidth.png)
+# Border Width Token 
+The **Border Width Token** was one of the first token types we supported in the plugin. 
+
+Since then, a lot has changed. 
+
+The Design Tokens Community Group hosts a token specification on the W3C community group pages for web standards. Although it's in draft form, the tools and technologies working with Design Tokens are trying to align with the W3C DTCG specification. 
+
+The W3C DTCG specification does not recognize **Border Width** as an ['official token type'](https://tr.designtokens.org/format/#types) and instead has defined [**Dimension Token** as the preferred token for size-related design decisions.](/token-types/token-type-dimension)  
+
+If we want to fully align with the spec, it requires Tokens Studio to phase out the **Border Width Token**. 
+
+However, we believe the choice should be yours!
+- [If aligning with the W3C DTCG spec is important to your project, we suggest using Dimension Tokens instead.](/token-types/token-type-dimension)  
+
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout type="info" emoji="✦">
+*There is no immediate plan to discontinue support of the **Border Radius Token**.*\
+We want to build a thoughtful solution to help Tokens Studio users migrate from these *'Unofficial Token Types'* to **Dimension Tokens** if that time comes.
+</Callout>
+
+→ [If you love **Border Width Tokens** and want to make your voice heard, we've set up a forum in Featurebase where you can leave your comments!](/token-format/token-format-view-change-dtcg) 
+
+## Design decisions defined by Border Width Tokens
+The **Border Width Token** defines the thickness of a stroke around a design element, such as:
+- Container design elements, like frames, groups, and polygonal shapes.
+- Text elements. 
+
+![](/token-types/tokens-borderWidth-form-empty-2-01.png)
+
+**Border Width Tokens** can be attached to Number Variables in Figma. 
+
+[→ Jump to the Export to Figma overview for more details on Border Width Tokens as Variables](/variables/creating-variables) 
+
+## Design properties
+A **Border Width Token** can define the border width of each side of the design element independently.
+- You choose which side of the element you want to apply the token to by **right-clicking on the token** to see your options. 
+	- If you click to apply this token to an element without accessing the right-click token menu, the border width will be applied to **all** sides. 
+
+*The following sections appear in the order of the **Border Width Token** menu.* 
+
+![](/token-types/tokens-borderWidth-rightClick-all-V2-01.png)
+
+If you apply the **Border Width Token** to an element before a stroke is applied in Figma, you may have to remove and re-apply the token before it will work as expected.
+
+The plugin supports a **Border Composite Token** that allows you to reference a Border Width Token to avoid this issue. 
+
+[→ Learn more about Border Composite Tokens](/token-types/token-type-border-composite)  
+
+### 1. All 
+The **All property** applies the stroke width to all sides of an element by the same value.
+
+### 2. Top left
+The **Top Left property** defines the stroke width of the top-left corner of an element.
+
+### 3. Top Right
+The **Top Right property** defines the stroke width of the top-right corner of an element.
+
+### 4. Bottom Right
+The **Bottom Right property** defines the stroke width of the bottom-right corner of an element.
+
+### 5. Bottom Left
+The **Bottom Left property** defines the stroke width of the bottom-left corner of an element.
+
+## Possible values
+The **Border Width Token** supports numeric values:
+- With or without a unit.
+- Single and multi-value.
+
+### Hard-coded values
+When writing the hard-coded values for a **Border Width Token**, you'll want to avoid spaces.
+
+For example:
+```
+1px
+```
+
+#### Rem Units
+To support responsive design, you can define your **Border Width Token** in `rem units`, and the plugin automatically converts the value to the pixel equivalent. 
+ - For example, a **Border Width Token** with a value of `0.25rem` will appear as a `4px` thick stroke in Figma.
+ 
+**Rem Units** act as a multiplier of the **base font size**, so when a user changes their preferences to a larger font size or uses a zoom feature in your product, elements defined in **rem units** will respond accordingly. 
+
+The value of `1rem` can be configured in the plugin **Settings** for **Base Font Size**.
+
+[→ Read the guide on Base Font Size in the plugin](/tokens/settings#base-font-size)  
+
+### Values that reference another Token
+
+When trying to **reference another Token as the Value** for a Border Width Token, you will see
+- Tokens living in **Token Sets that are currently active**.
+	- In the left menu on the plugin's **Tokens page**, a checkmark is visible next to the **Token Set name**. 
+- **Token Type** is compatible:
+	- The same = `borderWidth`
+	- `number`
+	- `dimension`
+
+However, like all token types, you can "force" a reference by manually entering the token name between curly brackets.
+
+<Callout type="info" emoji="✦">
+The value will show a broken reference until the originating token set is marked as enabled.
+</Callout>
+
+[→ Jump to the Token Values with References guide for more details](/variables/references)  
+
+### Values with math equations
+All token types that accept numeric values can also accept math equations. 
+
+[→ Read the guide on Tokens with Math Values for more details.](/tokens/using-math)  
+
+## Transforming Tokens
+Engineers typically transform Tokens used in code with [Style Dictionary](https://styledictionary.com/), which is tool-agnostic. Tokens coming from Tokens Studio require an additional step: [@Tokens-studio/sd-transforms](https://www.npmjs.com/package/@tokens-studio/sd-transforms), an npm package that prepares Tokens for Style Dictionary. 
+
+When transforming Border Width Tokens, there are some specific configurations to be aware of. 
+
+The preprocessor in the SD-Transforms package will automatically convert the Tokens Studio specific Token Type of `borderWidth` to align with the DTCG Format Token Type of `dimension`. 
+
+→ [SD-Transforms Read-Me Doc, Using the preprocessor](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-the-preprocessor)
+
+
+**Token Values** entered as a number without a unit will be converted to a number with pixels as a unit.
+
+→ [SD-Transforms Read-Me Doc, ts/size/px](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#tssizepx)
+
+## Resources
+Mentioned in this doc:
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms#readme)
+- Style Dictionary - https://styledictionary.com/
+- Design Tokens Community Group - [W3C Draft](https://tr.designtokens.org/format/)
+- Design Tokens Community Group - [8.0 Types](https://tr.designtokens.org/format/#types)
+
+Community resources:
+- None yet! 
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+### Known issues and bugs
+Tokens Studio Plugin GitHub - [Open issues for Token Type Border Width](https://github.com/tokens-studio/figma-plugin/labels/token%20type%20border%20width)
+- None
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- None 
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.
+

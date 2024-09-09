@@ -1,0 +1,298 @@
+![](/token-types/header-token-type-number.png)
+# Number Token
+The **Number Token** supports using numeric value properties that don't require a unit of measure. For example, a `1.2` multiplier of Font Size defines a responsive **Line Height** value. 
+
+The primary difference between a **Number Token** and a **Dimension Token** is 
+- **Number Tokens** are intended to be unitless.
+	- For example: `4`
+- **Dimension Tokens** are required to have a unit of `pixels` or `rem`. 
+	- For example: `4px` 
+
+![](/token-types/tokens-number-form-empty-2-01.png)
+
+## Design decisions defined by Number Tokens
+The **Number Token** is used for design decisions with a numeric value that doesn't benefit from a unit of measurement. For example:
+- Math equations to create scales 
+- The numeric value of **Font Weight**
+	- Ex: Bold = `700`
+
+**Number Tokens** can define these design properties in Figma; however, many of these properties benefit from a unit of measurement, and a **Dimension Token** is preferred:
+- rotation 
+- background blur 
+- absolute position location
+- size (Dimension Token preferred)
+- space (Dimension Token preferred)
+- border-radius and width (Dimension Token preferred)
+
+**Number Tokens** can be attached to Number Variables in Figma. 
+
+→ [Jump to the Export to Figma overview for more details on Number Tokens as Variables](/variables/creating-variables)
+
+## Design properties 
+A **Number Token** can define many design properties where a numeric value and unit of measurement is required. 
+- You choose which side of the element you want to apply the Token to by **right-clicking on the Token** to see your options. 
+	- If you click to apply this Token to an element without accessing the right-click Token menu, the value will be applied as a **spacing-gap property**.
+
+*The following sections appear in the order of the **Number Token** menu.* 
+
+![](/token-types/tokens-number-rightClick-all-V2-01.png)
+### 1. Space
+The `Spacing` property of the **Dimension Token** defines the distance between elements. 
+
+It must be applied to:
+- Auto-layout frames
+- If you apply the Token to a frame before auto-layout is applied in Figma, you may have to remove and re-apply the Token before it will work as expected.
+
+![](/token-types/tokens-number-rightClick-spacing-V2-01.png)
+
+You control which space property is applied by **right-clicking** on the **Number Token** and selecting the `Spacing` option.
+- Gap
+	- Adds space between child elements within a parent container
+- All 
+	- Applies padding to all sides of the container
+- Horizontal padding 
+	- Applies padding to the left and right sides of the container 
+- Vertical padding 
+	- Applies padding to the top and bottom sides of the container
+- Row gap 
+	- Adds vertical space between rows
+	- It only works on Figma's auto-layout frame elements that are set to wrap. 
+- Top 
+	- Applies space to the top side of the container
+- Right
+	- Applies space to the right side of the container
+- Bottom
+	- Applies space to the bottom side of the container
+- Left
+	- Applies space to the left side of the container
+
+→ [Read Figma's doc on Autolayout here](https://help.figma.com/hc/en-us/articles/360040451373-Explore-auto-layout-properties)
+
+### 2. Size
+The `Sizing` property of the **Number Token** defines the height or width of container design elements, like frames, groups, and polygonal shapes.
+
+![](/token-types/tokens-number-rightClick-sizing-V2-01.png)
+
+You control which size property is applied by **right-clicking** on the **Number Token** and selecting the `Sizing` option.
+- All 
+	- Applies the same size value to both the width and height of an element
+- Width
+	- Applies the horizontal size of an element
+- Height 
+	- Applies the vertical size of an element
+- Min width 
+	- Defines the smallest allowed horizontal size of an element but allows a larger size
+	- It only works on Figma's auto-layout frame elements. 
+- Max width 
+	- Defines the largest allowed horizontal size of an element but allows a smaller size
+	- It only works on Figma's auto-layout frame elements. 
+- Min height 
+	- Defines the smallest allowed vertical size of an element but allows a large size
+	- It only works on Figma's auto-layout frame elements. 
+- Max height 
+	- Defines the largest allowed vertical size of an element but allows a smaller size
+	- It only works on Figma's auto-layout frame elements. 
+
+If you apply any of the **min/max height/width properties** to a frame before auto-layout is applied in Figma, you may have to remove and re-apply the Token before it will work as expected.
+
+→ [Read Figma's doc on Autolayout here](https://help.figma.com/hc/en-us/articles/360040451373-Explore-auto-layout-properties)
+
+### 3. Border radius
+The `Border radius` property of the **Number Token** defines the roundness of the corner of container design elements, like frames, groups, and polygonal shapes.
+
+![](/token-types/tokens-number-rightClick-borderRadius-V2-01.png)
+
+You control which side of the element the Token is applied to by **right-clicking** on the **Number Token** and selecting the `Border radius` option.
+- All 
+	- Rounds the corner of all sides of an element by the same value.
+- Top Left 
+	- Rounds the top-left corner of an element.
+- Top Right 
+	- Rounds the top-right corner of an element.
+- Bottom Right 
+	- Rounds the bottom-right corner of an element.
+- Bottom Left 
+	- Rounds the bottom-left corner of an element.
+
+→ [Read Figma's doc on corner radius here](https://help.figma.com/hc/en-us/articles/360050986854-Adjust-corner-radius-and-smoothing)
+
+### 4. Border width
+The `Border width` property defines the thickness of a border applied to an element with a stroke property already applied. 
+- Container design elements, like frames, groups, and polygonal shapes.
+- Text elements. 
+
+If you apply the **Border Width** property to an element before a stroke is applied in Figma, you may have to remove and re-apply the Token before it will work as expected.
+
+The plugin supports a **Border Composite Token** that allows you to reference a Border Width Token to avoid this issue. 
+
+→ [Learn more about Border Composite Tokens](/token-types/token-type-border-composite)
+
+![](/token-types/tokens-number-rightClick-borderWidth-V2-01.png)
+
+You control which side of the element the Token is applied to by **right-clicking** on the **Number Token** and selecting the `Border width` option.
+- All 
+	- Stroke width of all sides of an element by the same value
+- Top Left 
+	- Stroke width to the top-left side of an element
+- Top Right
+	- Stroke width to the top-right side of an element
+- Bottom Right 
+	- Stroke width to the bottom-right side of an element
+- Bottom Left 
+	- Stroke width to the bottom-left side of an element
+
+→ [Read Figma's doc on stroke properties here](https://help.figma.com/hc/en-us/articles/360049283914-Apply-and-adjust-stroke-properties)
+
+### 5. Background blur
+The `background blur` property of the **Number Token** defines the intensity of the Blur Effect in Figma. 
+
+It must be applied to container design elements, like frames, groups, and polygonal shapes with a **reduced opacity color fill** applied.
+
+This Token can't yet be Exported to Figma as a reusable **Effect Style** from the plugin in the same way that Shadow. 
+
+→ [Read the Export to Figma Overview guide for more details](/variables/creating-variables) 
+
+### 6. X and Y position
+The `x position` and `y position` properties of the **Number Token** define the absolute position of the design element. 
+
+When the **Number Token** is applied to a design element as `X position`:
+- The element is absolutely positioned on the horizontal axis in relationship to the parent container.
+- If no parent container is present, it positions the element on the Figma canvas.
+
+When the **Number Token** is applied to a design element as `Y position`:
+- The element is absolutely positioned on the vertical axis in relationship to the parent container.
+- If no parent container is present, it positions the element on the Figma canvas.
+
+If you apply the **x/y** property to an element before enabling Absolute Position and Auto-layout in Figma, you may have to remove and re-apply the Token before it will work as expected.
+
+→ [Read Figma's docs on Absolute Position here](If you apply the **Border Width** property to an element before a stroke is applied in Figma, you may have to remove and re-apply the Token before it will work as expected.)
+### 7. Rotation
+The Number Token's rotation property can be applied to any design element that supports rotation on its access. 
+
+The value of the **Number Token** is applied as the degree value in the Figma UI. 
+- This means you can assign negative values to control the direction of rotation.
+
+→ [Read Figma's docs on Rotation here](https://help.figma.com/hc/en-us/articles/360039956914-Adjust-alignment-rotation-and-position)
+
+## Possible values
+According to the W3C DTCG specification, the value of a **Number Token** must be a unitless number. 
+
+### Hard-coded values
+When writing the hard-coded values for a **Number Token** you'll want to:
+- Avoid spaces
+- Include a number without a unit of measurement.
+
+### Values that reference another Token
+When trying to **reference another Token as the Value** for a Number Token, you will see:
+- Tokens living in **Token Sets that are currently active**.
+	- In the left menu on the plugin's **Tokens page**, a checkmark is visible next to the **Token Set name**. 
+- **Token Type** is compatible:
+	- The same = `number`
+
+However, like all Token types, you can "force" a reference by manually entering the Token name between curly brackets.
+
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout type="info" emoji="✦">
+The value will show a broken reference until the originating Token set is marked as enabled.
+</Callout>
+
+→ [Jump to the Token Values with References guide for more details](/variables/references) 
+
+#### Compatible Token types
+After you've created **Number Tokens**, they can be referenced in these compatible Token Types:
+- [Typography Composite Token](/token-types/token-type-typography-composite)
+- [Font Size](/token-types/token-type-font-size)
+- [Paragraph Spacing](/token-types/token-type-paragraph-spacing)
+- [Border Composite Tokens](/token-types/token-type-border-composite)
+
+You can also reference a **Number Token** in these additional Token Types; however, they are not recognized in the W3C DTCG specifications as *official Token Types*:
+- [Spacing](/token-types/token-type-spacing)
+- [Sizing](/token-types/token-type-sizing)
+- [Border](/token-types/token-type-border-composite)
+- [Border Width](/token-types/token-type-border-width)
+- [Composite](/token-types/token-type-token-type-composition-pro)
+
+### Values with math equations
+All Token types that accept numeric values can also accept math equations. 
+
+→ [Read the guide on Tokens with Math Values for more details.](/tokens/using-math)
+
+## W3C DTCG Token Format 
+`Number` is an official Token type in the W3C Design Token Community Group specifications. 
+
+> "Represents a number. Numbers can be positive, negative and have fractions. Example uses for number Tokens are [gradient stop positions](https://tr.design Tokens.org/format/#gradient) or unitless line heights. The `$type` property _MUST_ be set to the string `number`. The value _MUST_ be a JSON number value." [- 8.7 Number, DTCG Specifications on W3C](https://tr.design Tokens.org/format/#number)
+
+ Tokens Studio has approached **Number Tokens** differently than how it is defined in the current W3C spec to align with Figma's number variables more closely. 
+
+However, we will be iterating on **Number Tokens** in the near future to more closely align with the W3C DTCG specifications. 
+- We **allow a unit** in a Number Token (this will change).
+- We allow a **Number Token** to be used with many of the same properties the specification defines as requiring a **Dimension Token**.
+- We don't yet require a **Number Token** in all use cases the spec defines it as a requirement, such as a "gradient stop position."
+
+**Number Tokens** are a relatively new addition to the W3C DTCG specification, which defines this Token as being applied to many different design properties. 
+
+If we want to fully align with the spec, it requires Tokens Studio to phase out the following legacy Token types, which we introduced long before the **Number Token** was added to the spec:
+- [Spacing](/token-types/token-type-spacing)
+- [Sizing](/token-types/token-type-sizing) 
+- [Border Radius](/token-types/token-type-border-radius) 
+- [Border Width](/token-types/token-type-border-width)   
+
+<Callout type="info" emoji="✦">
+*There is no immediate plan to discontinue support of the **Spacing Token**.*\
+We want to build a thoughtful solution to help Tokens Studio users migrate from these *'legacy Token types'* to **Dimension Tokens** if that time comes.
+</Callout>
+
+→ [If you want to make your voice heard, we've set up a forum in Featurebase where you can leave your comments!!](https://feedback.tokens.studio/p/w3c-dtcg-feedback)
+
+## Transforming Tokens
+Engineers typically transform Tokens used in code with [Style Dictionary](https://styledictionary.com/), which is tool-agnostic. Tokens coming from Tokens Studio require an additional step: [@Tokens-studio/sd-transforms](https://www.npmjs.com/package/@tokens-studio/sd-transforms), an npm package that prepares Tokens for Style Dictionary. 
+
+When transforming **Dimension Tokens**, there are specific configurations to be aware of. 
+
+**Dimension Token Values** entered as a number without a unit converted to a number with pixels as a unit.
+
+→ [SD-Transforms Read-Me Doc, ts/size/px](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#tssizepx)
+
+
+**Dimension Token Values** entered with **math equations** need to be checked and resolved.
+
+→ [SD-Transforms Read-Me Doc, ts/resolveMath](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#tsresolvemath)
+
+
+Running the SD-Transforms pre-processor as part of the generic package will prep your Dimension Tokens for Style Dictionary. 
+
+→ [SD-Transforms Read-Me Doc, Using the preprocessor](https://github.com/ Tokens-studio/sd-transforms/?tab=readme-ov-file#using-the-preprocessor)
+
+## Resources
+Mentioned in this doc:
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms#readme)
+- Style Dictionary - https://styledictionary.com/
+- Design Tokens Community Group - [W3C Draft](https://tr.design Tokens.org/format/)
+- Design Tokens Community Group - [8.7 Number](https://tr.design Tokens.org/format/#number)
+
+Figma resources:
+- Design in Figma - [Explore autolayout properties](https://help.figma.com/hc/en-us/articles/360040451373-Explore-auto-layout-properties)
+- Design in Figma - [Apply and adjust stroke properties](https://help.figma.com/hc/en-us/articles/360049283914-Apply-and-adjust-stroke-properties)
+- Design in Figma - [Adjust corner radius and smoothing](https://help.figma.com/hc/en-us/articles/360050986854-Adjust-corner-radius-and-smoothing)
+- Design in Figma - [Adjust alignment, rotation, and position](https://help.figma.com/hc/en-us/articles/360039956914-Adjust-alignment-rotation-and-position)
+- Design in Figma - [Apply blur effect](https://help.figma.com/hc/en-us/articles/360041488473-Apply-shadow-or-blur-effects)
+
+CSS resources:
+- MDN Web Docs - [Number](https://developer.mozilla.org/en-US/docs/Web/CSS/number)
+
+Community resources:
+- None yet! 
+
+💡 Something to share? [Submit it here!](https://feedback. Tokens.studio/)
+
+### Known issues and bugs
+ Tokens Studio Plugin GitHub - [Open issues for Token Type Number](https://github.com/tokens-studio/figma-plugin/labels/token%20type%20number)
+- None yet
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https:// Tokens.studio/slack), or [submit it on our feedback tool.](https://feedback. Tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- None 
+
+💌 Visit https://feedback.Tokens.studio/ to contribute or subscribe to updates.

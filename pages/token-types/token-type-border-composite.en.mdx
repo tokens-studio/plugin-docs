@@ -1,0 +1,167 @@
+![](/token-types/header-token-type-border.png)
+# Border Token
+We add visual separation to design elements by composing several stroke-related design decisions together as a **Border**.
+
+**Border** is considered a ***Composite Token***.
+
+Each design decision (color, border width, and stroke style) that is a part of the Composite Token is referred to as a **property** of the **Border Token** in our guides. 
+
+![](/token-types/tokens-border-form-empty-2-01.png)
+
+## Design decisions
+The **Border Token** defines the stroke styling properties for containers, text elements, and polygonal shapes. 
+
+The properties within the **Border Token** closely align with the `border` property in [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/border).
+
+Each property of the Border can be created to define an independent styling property and referenced within the **Border Composite Token** as a unique value. 
+
+**Color** 
+- The color of the border can be defined by referencing a **Color Token**
+
+**Border Width**
+- The thickness of the stroke can be defined by referencing a **Dimension or Number Token**
+	- [You may also reference the Border Width Token here, but this Token Type is not officially recognized and will be converted to `dimension` during the transformation process](/token-types/token-type-border-width)
+
+**Stroke Style**
+- The plugin doesn't have a dedicated Token for this property, it is defined by entering in the string value `solid` or `dashed`.
+
+It's important to note that **radius** properties are not a part of the Border Token and need to be applied independently. 
+
+**Border Tokens** can be attached to Effect Styles in Figma. Tokens Studio also supports **Styles with Variable References**.
+
+[→ Read the Export to Figma overview for more details](/variables/creating-variables)
+
+## Design properties
+A **Border Token** can define each side of the design element independently.
+- You choose which side of the element to apply the token by **right-clicking on the token** to see your options. 
+	- If you click to apply this token to an element without accessing the right-click token menu, the border properties will be applied to **all** sides. 
+
+While the **Border Token** can be applied to independent sides of a design element, Figma does not yet support independent colors on the same element. 
+
+If you apply more than one **Border Token** to the same layer with independent colors defined, the **last Token applied** will change the color value on all sides.
+
+[→ See Figma's docs on Apply and Adjust Stroke Properties ](https://help.figma.com/hc/en-us/articles/360049283914-Apply-and-adjust-stroke-properties#h_01HNBDJBDZNETDYVBJ18VTDXCB)
+![](/token-types/tokens-border-rightClick-all-V2-01-1.png)
+
+### 1. All 
+**All** applies the same border properties to all sides of the element.
+
+### 2. Top
+**Top** applies the border property to the highest side of the element on the X-axis.
+
+### 3. Right
+**Right** applies the border property to the right side of the element on the Y-axis.
+
+### 4. Bottom
+**Bottom** applies the border property to the lowest side of the element on the X-axis.
+
+### 5. Left
+**Left** applies the border property to the right left of the element on the Y-axis.
+
+
+## Possible values
+Like all **Composite Tokens**, you define the value of each **property** individually. When you create the **Border Token** in the plugin, you can Reference each Token you've already created as a **property** in the **Composition Token** Value or enter a hard-coded value. 
+
+The best practice is to define all parts of a Composite Token, even with a `null/none` value, rather than to leave it empty.
+
+The independent **Token Type** of each **property** within the **Border Composite Token** has unique specifications. Select the Token Type below to get more details. 
+[- Color Token](/token-types/token-type-color)
+[- Number Token for Border Width](/token-types/token-type-number)  
+[- Dimension Token for Border Width](/token-types/token-type-dimension)
+
+### Hard coded values
+The color property is the same as the **Color Token** input which accepts modified colors, values from various color spaces, and the use of a color picker. 
+
+→ [Read the Color Token guide for more details](/token-types/token-type-color)
+
+The border width property accepts any of these numeric values:
+- Positive or negative numbers.
+- Decimal numbers.
+- With or without units.
+
+The stroke style property accepts either of these string values:
+- `solid`
+- `dashed`
+
+### Values that reference another Token
+If you'd prefer to reference an existing **Border Composite Token** as the value instead of defining each **Property**, select the Token's **Reference mode button** (2x2 circle icon).
+
+When trying to **reference another Token as the Value** for a Border Token, you will see:
+- Tokens living in **Token Sets that are currently active**.
+	- In the left menu on the plugin's **Tokens page**, a checkmark is visible next to the **Token Set name**. 
+- **Token Type** is compatible:
+	- `border`
+
+However, like all token types, you can "force" a reference by manually entering the token name between curly brackets.
+
+<Callout type="info" emoji="✦">
+ The value will show a broken reference until the originating token set is marked as enabled.
+</Callout>
+
+[→ Jump to the Token Values with References guide for more details](/variables/references)
+
+## W3C DTCG Token Format 
+`border` is an official token type in the in the W3C Design Token Community Group specifications. [9.3 Border](https://second-editors-draft.tr.designtokens.org/format/#border)
+
+Tokens Studio has approached our **Border Token** differently than how it is defined in the current W3C spec:
+- We allow the `borderWidth` property to be a `number` or `dimension` **Token Type** where the spec defines only `dimension`. 
+	- We allow unitless numbers where the spec defines a `dimension property` which must include a unit. 
+- The spec allows for a dedicated `borderStyle` Token Type, which we do not yet support. 
+
+As we move towards more closely aligning with the W3C DTCG specifications, we may adjust the **Border Composite Token** in the future. 
+
+## Transforming Tokens
+Engineers typically transform Tokens used in code with [Style Dictionary](https://styledictionary.com/), which is tool-agnostic. Tokens coming from Tokens Studio require an additional step: [@Tokens-studio/sd-transforms](https://www.npmjs.com/package/@tokens-studio/sd-transforms), an npm package that prepares Tokens for Style Dictionary. 
+
+When transforming **Border Tokens**, which are Composite Tokens, there are specific configurations to be aware of.
+
+**Composite Tokens** require the SD-Transforms option to `expand composite Tokens into multiple Tokens`. 
+
+Make sure you look at the generic SD-Transforms package to include this option, which allows you to further customize this transformation further using Style Dictionary. 
+
+→ [SD-Transforms Read-Me Doc, Using the preprocessor](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-the-preprocessor)
+→ [SD-Transforms Read-Me Doc, Using Expand](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-expand)
+
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout type="info" emoji="✦">
+*"object, object"*\
+ When you transform your Border Tokens and they show `"object, object"`, it means your SD-Transforms configuration needs to be adjusted to include `"expand"`.
+</Callout>
+
+If the `borderWidth` property is entered as a number without a unit, the **ts/size/pxx** transform will convert the value to a number with pixels as a unit.
+
+→ [SD-Transforms Read-Me Doc, ts/size/px](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#tssizepx)
+
+## Resources
+Mentioned in this doc:
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms#readme)
+- Style Dictionary - https://styledictionary.com/
+- Design Tokens Community Group - [W3C Draft](https://tr.designtokens.org/format/)
+- Design Tokens Community Group - [9.3 Border](https://second-editors-draft.tr.designtokens.org/format/#border)
+
+Figma resources:
+- Design in Figma - [Apply and adjust stroke properties](https://help.figma.com/hc/en-us/articles/360049283914-Apply-and-adjust-stroke-properties)
+
+CSS resources:
+- MDN Web Docs - b[order](https://developer.mozilla.org/en-US/docs/Web/CSS/border)
+
+Community resources:
+- None yet! 
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+Tokens Studio Plugin GitHub - [Open Issues for Token Type Border](https://github.com/tokens-studio/figma-plugin/labels/token%20type%20border)
+- Caps For Dashed Value in Border Composite Token Does Not Work [#2975](https://github.com/tokens-studio/figma-plugin/issues/2975)
+	- The string value `Dashed` or `DASHED` does not work as expected, only `dashed` is accepted. 
+- Separated borders override colors [#2236](https://github.com/tokens-studio/figma-plugin/issues/2236)
+	- Applying independent borders with different colors does not work as expected. 
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- V2 release - [Variables in Stroke Weight and Opacity](https://feedback.tokens.studio/p/variables-in-stroke-weight-and-opacity)
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.
+

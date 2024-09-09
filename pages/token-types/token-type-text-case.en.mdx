@@ -1,0 +1,144 @@
+![](/token-types/header-token-type-textCase.png)
+# Text Case Token 
+**Text Case** is not intended to be applied to text elements directly but as a part of a [**Typography Composite Token**.](/token-types/token-type-typography-composite)
+
+## Design decisions defined by Text Case Tokens
+**Text Case** defines that the system should transform the capitalization of letters in a text element regardless of how they are typed. 
+
+In [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform), this property is called `text-transform`.
+
+Text Case design decisions are typically used to:
+- communicate the visual emphasis of text or 
+- standardize data inputs and data display to ensure consistency
+ 
+Occasionally, they are used for creative styling decisions, for example, a personal blog where the author wants: 
+- HEADINGS to have all letters capitalized.
+- contact details to appear in lowercase.
+
+![](/token-types/tokens-textCase-form-empty-2-01.png)
+
+When we apply a **Typography Composite Token** to a text layer in Figma, these **Text Case** values will change the **letter casing**:
+- All letters appear as typed - `null`
+	- By default, the system will not transform the capitalization of letters
+- All letters capitalized - `uppercase`
+	- Examples:
+		- button labels
+		- list of countries presented as abbreviations
+- No letters are capitalized - `lowercase`
+	- Examples:
+		- email address listed in a contact section
+		- username entered in a sign-up form
+- The first letter of each word is capitalized - `capitalize`
+	- Examples:
+		- full name entered in a sign-up form
+		- list of city names 
+
+## Possible Values
+The Value of a **Text Case** Token must be identical to the text string Value for the Font family in the Figma design panel due to limitations from Figma (plugin API). 
+
+When writing the Value of a **Text Case Token**, pay close attention to:
+- Spelling
+- Spacing
+- Punctuation
+- Use of capital letters
+
+### Hard-coded Values
+The **Text Case** Token has a few specific Values depending on your needs. 
+#### null
+Most of the time, text will appear as typed; the Text Case Token Value will be:
+```
+null
+```
+
+#### uppercase
+When all letters should be capitalized, set the Text Case Token Value to:
+```
+uppercase
+```
+
+#### lowercase
+When none of the letters should be capitalized, set the Text Case Token Value to:
+```
+lowercase
+```
+
+#### capitalize
+When the first letter of each word should be capitalized, set the Text Case Token Value to:
+```
+capitalize
+```
+
+ Many people confuse Figma's "capitalize" with "title case," but they are different. 
+- **Title case** has some words capitalized while others remain lowercase. 
+- **Capitalize** transforms all words. 
+
+#### Not supported by Figma
+Additional text-transform properties commonly used in CSS are not supported in Figma, such as `Full Width`. 
+
+You can still create **Text Case Tokens** with these Values using the Tokens Studio plugin.  
+
+When you apply them to design elements in Figma, the Token will be present and visible to engineers inspecting the design element in Figma, but the Token won't interact with the Letter Case property in Figma's UI. 
+
+### Values that reference another Token
+When trying to **reference another Token as the Value** for a Text Case Token, you will see
+- Tokens living in **Token Sets that are currently active**.
+	- In the left menu on the plugin's **Tokens page**, a checkmark is visible next to the **Token Set name**. 
+- **Token Type** is compatible:
+	- The same = `textCase`
+
+However, like all token types, you can "force" a reference by manually entering the token name between curly brackets.
+
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout type="info" emoji="✦">
+The value will show a broken reference until the originating token set is marked as enabled.
+</Callout>
+
+
+→ [Jump to the Token Values with References guide for more details](/variables/references)
+
+## W3C DTCG Token Format 
+**Text Case** is not yet an official Token type in the W3C Design Token Community Group specifications.
+
+Tokens Studio has added **Text Case** as a Token type in anticipation of its inclusion in the W3C specs in the near future. 
+
+## Transforming Tokens
+Engineers typically transform Tokens used in code with [Style Dictionary](https://styledictionary.com/), which is tool-agnostic. Tokens coming from Tokens Studio require an additional step: [@Tokens-studio/sd-transforms](https://www.npmjs.com/package/@tokens-studio/sd-transforms), an npm package that prepares Tokens for Style Dictionary. 
+
+When transforming Test Case tokens, there are specific transforms to be aware of.  
+
+However, **Text Case**, as part of **Typography Composite Tokens**, requires the SD-Transforms option to `expand composite Tokens into multiple Tokens`. 
+
+Make sure you look at the generic SD-Transforms package to include this option, which allows you to further customize this transformation further using Style Dictionary. 
+
+→ [SD-Transforms Read-Me Doc, Using the preprocessor](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-the-preprocessor)
+→ [SD-Transforms Read-Me Doc, Using Expand](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-expand)
+
+## Resources
+Mentioned in this doc:
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms#readme)
+- Style Dictionary - https://styledictionary.com/
+- Design Tokens Community Group - [W3C Draft](https://tr.designtokens.org/format/)
+-  Design Tokens Community Group - [9.7 Typography](ttps://tr.designTokens.org/format/#typography)
+
+Figma resources:
+- Design in Figma - [Explore Text Properties, Letter Case](https://help.figma.com/hc/en-us/articles/360039956634-Explore-text-properties#letter-case)
+
+CSS resources:
+- MDN Web Docs - [Letter Case](https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform)
+
+Community resources:
+- None yet! 
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+Tokens Studio Plugin GitHub - [Open issues for Token Type Text Case](https://github.com/tokens-studio/figma-plugin/labels/token%20type%20text%20case)
+- None yet
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- None 
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.

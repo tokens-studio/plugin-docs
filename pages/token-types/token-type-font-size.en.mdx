@@ -1,0 +1,210 @@
+![](/token-types/header-token-type-fontsize.png)
+# Font Size Token
+**Font Size** is not intended to be applied to text elements directly but as a part of a [**Typography Composite Token**.](/token-types/token-type-typography-composite)
+
+**Font Size** is important in responsive design. When you assign a Token Value in **Rem Units**, it creates a relationship with the system's **Base Font Size**. 
+## Base font size
+A **Rem Unit** acts as a multiplier of the **Base Font Size**, so when a user changes their preferences to a larger font size or uses a zoom feature in your product, elements defined in **rem units** will respond accordingly. 
+
+→ [Read the guide on Base Font Size in the plugin](/tokens/settings#base-font-size) 
+
+In addition to Token Types with Values which include **Rem Units**, assigning responsive values to **Letter Spacing** and **Line Height Tokens** using percentage creates a relationship to the current **Font Size** in a **Typography Composite Tokens**. 
+- Letter Spacing Token
+- Line Height Token 
+
+## Design decisions defined by Font Size Tokens
+**Font Size**, also known as point size or type size, defines the vertical size of each character/glyph in a typography design element. 
+
+In [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size) this property is called `font-size`.
+
+A design system typically defines font sizes as a proportional scale to help with visual hierarchy and readability of text elements. 
+
+![](/token-types/tokens-fontSize-form-empty-2-01.png)
+
+When we apply a **Typography Composite Token** to a text layer in Figma, these **Font Size** values will change the text layer:
+- Responsive   - `value in rem units`
+	- Example: heading at `2rem` paragraph at `1rem`
+		- a person who has increased the font-size of a mobile phone will see the heading text twice as large as the paragraph text
+- Fixed - `value in pixels`
+	- Example `32px`
+		- the text will remain the same size when a user zooms into a webpage
+
+**Font Size Tokens** can be attached to Number Variables in Figma. 
+
+→ [Jump to the Export to Figma overview for more details on Font Size Tokens as Variables](/variables/creating-variables)
+
+## Possible values
+Like all Tokens defining a dimension design decision, the value of a   `Font size` Token must include a numeric value and, ideally, a unit of measure. 
+
+Tokens without a unit specified are applied as the pixel equivalent in Figma. 
+
+### Hard-coded values
+When writing the hard-coded values for a `Font size` Token you'll want to:
+- Avoid spaces
+- Include a number and unit of measure
+	- Values without a unit will be translated to pixels in Figma
+	- `Font size` value should always be greater than 0. 
+#### rem units (rem) or (em)
+To support responsive design, you can define your **Font Size Token** in **rem units**, and the plugin automatically converts the value to the pixel equivalent. 
+ - For example, a **Font Size Token** with a value of `2rem`, when applied as a **Typography Composite Token, will have letters appear as `32px`tall in Figma.
+ 
+**Rem Units** act as a multiplier of the **base font size**, so when a user changes their preferences to a larger font size or uses a zoom feature in your product, elements defined in **rem units** will respond accordingly. 
+
+Tokens Studio supports **Font Size Tokens** in **em units** and will treat them the same as **rem units**.
+
+The value of `1rem` can be configured in the plugin **Settings** for **Base Font Size**.
+
+→ [Read the guide on Base Font Size in the plugin](/tokens/settings#base-font-size) 
+
+![](/token-types/settings-page-baseFontSize-v2-0.png)
+
+#### pixels (px)
+If your design requires a fixed value, you can define your **Font Size Token** in **pixel units**, for example:
+```
+20px
+```
+
+#### Units not supported by Figma
+There are additional units [commonly used in CSS for Font Size ](https://www.w3schools.com/css/css_font_size.asp)properties that are not supported in Figma. 
+- percentage (%)
+- em and percentage combined
+- viewport width (vw) 
+
+You can still create **Font Size Tokens** with these units using the Tokens Studio plugin.   
+
+When you apply them to design elements in Figma, the Token will be present and visible to engineers inspecting the design element in Figma, but the Token won't interact with the Font Size property in Figma's UI. 
+
+It will be up to the engineers working to transform the design Tokens in Style Dictionary if they want to transform the values as you've entered them or change them in some way. 
+
+### Values that reference another Token
+When trying to **reference another Token as the Value** for a Font Size Token, you will see
+- Tokens living in **Token Sets that are currently active**.
+	- In the left menu on the plugin's **Tokens page**, a checkmark is visible next to the **Token Set name**. 
+- **Token Type** is compatible:
+	- The same = `fontSizes`
+	- `number`
+	- `dimension`
+
+However, like all token types, you can "force" a reference by manually entering the token name between curly brackets.
+
+<Callout type="info" emoji="✦">
+The value will show a broken reference until the originating token set is marked as enabled.
+</Callout>
+
+[→ Jump to the Token Values with References guide for more details](/variables/references)
+
+### Values with math equations
+All token types that accept numeric values can also accept math equations. 
+
+For **Font Size Tokens**, math might be used to create dynamic scales of font sizes that follow a particular multiplier, like the golden ratio. 
+
+[→ Read the guide on Tokens with Math Values for more details.](/tokens/using-math) 
+
+## W3C DTCG Token Format 
+`Font Size` is not yet an official Token type in the W3C Design Token Community Group specifications.
+
+It is mentioned as a required part of a [typography Token](https://tr.designTokens.org/format/#typography)
+>   "The size of the typography. The value of this property _MUST_ be a valid dimension value or a reference to a dimension Token." - 9.7. Typography
+
+Tokens Studio has added `Font Size` as a Token type in anticipation it will be added to the W3C specs in the near future. 
+
+## Token Type syntax
+The **Font Size Token** has a unique syntax in code which identifies if the Token is:
+- An independent property Token 
+- Part of a Typography Composite Token
+
+Looking at the JSON format, the   `"type"` is written in plural   `"fontSizes`" when the Font Size Token is defined as an independent property Token. 
+
+This example shows a Font Size property Token named `font-size-small` with the value in pixels.
+```
+{
+   "font-size-small": {
+      "value": "20px",
+      "type": "fontSizes"
+   }
+}
+``````
+
+This is in contrast to the Typography Composite Token, which has the property Token `"type"` written in the singular `"fontSize"`.
+
+This example shows a Typography Composite Token with the Font Weight property Token named `font-size-small` referenced as the value. 
+```
+{
+   "paragraph-3": {
+      "value": {
+         "fontFamily": "{font-family-sans}",
+         "fontWeight": "{font-weight-default}",
+         "lineHeight": "{line-height-classic}",
+         "fontSize": "{font-size-small}",
+         "letterSpacing": "{letter-spacing-tight}",
+         "paragraphSpacing": "{paragraphSpacing.none}"
+         "paragraphIndent": "{paragraphIndent.none}"
+         "textCase": "{textCase.none}",
+         "textDecoration": "{textDecoration.none}"
+      },
+      "type": "typography"
+   }
+}
+``````
+
+## Transforming Tokens
+Engineers typically transform Tokens used in code with [Style Dictionary](https://styledictionary.com/), which is tool-agnostic. Tokens coming from Tokens Studio require an additional step: [@Tokens-studio/sd-transforms](https://www.npmjs.com/package/@tokens-studio/sd-transforms), an npm package that prepares Tokens for Style Dictionary. 
+
+When transforming **Font Size Tokens**, there are specific configurations to be aware of. 
+
+**Font Size Token** values entered as a number without a unit converted to a number with pixels as a unit.
+
+→ [SD-Transforms Read-Me Doc, ts/size/px](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#tssizepx)
+
+**Font Size Token Values** entered with **math equations** need to be checked and resolved.
+
+→ [SD-Transforms Read-Me Doc, ts/resolveMath](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#tssizepx)
+
+The preprocessor in the SD-Transforms package will automatically convert the Tokens Studio specific Token Type of `fontSizes` to align with the DTCG Format Token Type of `fontSize`. 
+
+→ [SD-Transforms Read-Me Doc, Using the preprocessor](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-the-preprocessor)
+
+**Font Size Tokens**, as part of **Typography Composite Tokens**, require the SD-Transforms option to `expand composite Tokens into multiple Tokens`. 
+
+Make sure you look at the generic SD-Transforms package to include this option, which allows you to further customize this transformation further using Style Dictionary. 
+
+→ [SD-Transforms Read-Me Doc, Using Expand](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-expand)
+
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout type="info" emoji="✦">
+*"object, object"*\
+When you transform your Typography Tokens, and they show `"object, object"` it means your SD-Transforms configuration needs to be adjusted to include `"expand"`.
+</Callout>
+
+## Resources
+Mentioned in this doc:
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms#readme)
+- Style Dictionary - https://styledictionary.com/
+- Design Tokens Community Group - [W3C Draft](https://tr.designtokens.org/format/)
+- Design Tokens Community Group - [9.7 Typography](ttps://tr.designTokens.org/format/#typography)
+
+Figma resources:
+- Design in Figma - [Explore Text Properties, Font Size](https://help.figma.com/hc/en-us/articles/360039956634-Explore-text-properties#font-size)
+
+CSS resources:
+- MDN Web Docs - [Font Size](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size)
+- W3 Schools - [Font Size](https://www.w3schools.com/css/css_font_size.asp)
+
+Community resources:
+- WHAT - LINK
+- Font size scalar tool 
+- None yet! 
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+Tokens Studio Plugin GitHub - [Open issues for Token Type Font Size](https://github.com/tokens-studio/figma-plugin/labels/token%20type%20font%20size)
+- None yet
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- None 
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.

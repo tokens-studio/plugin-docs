@@ -1,0 +1,179 @@
+![](/token-types/header-token-type-typography.png)
+# Typography Token
+We style text elements by composing many typography-related design decisions together. 
+
+**Typography** is considered a ***Composite Token***.
+
+In our guides, each design decision (font size, letter spacing, etc.) that is part of the Composite Token is referred to as a **property** of the Typography Token. 
+
+## Design decisions defined by Typography Tokens
+**Typography Tokens** define a group of properties used to style text elements. 
+
+[In CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals), this is known as the `Text and Font Styling` properties, which are defined individually. 
+
+**Typography Tokens** can be applied to text layers to define all styling decisions in a single token. 
+- Individual Tokens can be created to define each independent styling property and combined to create the **Typography Composite Token**.
+
+![](/token-types/tokens-typography-form-annotated-2-01.png)
+
+Tokens Studio supports these text and font styling design decisions to be combined within the **Typography Composite Token**:
+1. [Font family](/token-types/token-type-font-family)
+2. [Font weight](/token-types/token-type-font-weight)
+3. [Font size](/token-types/token-type-font-size)
+4. [Line height](/token-types/token-type-line-height)
+5. [Letter spacing](/token-types/token-type-letter-spacing)
+6. [Paragraph indent](/token-types/token-type-paragraph-indent)
+7. [Paragraph spacing](/token-types/token-type-paragraph-spacing)
+8. [Text decoration](/token-types/token-type-text-decoration)
+9. [Text case](/token-types/token-type-text-case)
+
+**Typography Tokens** can be attached to Text Styles in Figma. Tokens Studio also supports Styles with Variable References.
+
+→ [Jump to the Export to Figma Overview for more details](/variables/creating-variables)
+
+## Possible values
+Like all **Composite Tokens**, you define the value of each **property** individually. When you create the **Typography Token** in the plugin, you can Reference each Token you've already created as a **property** in the **Composition Token** Value or enter a hard-coded value. 
+
+The best practice is to define all parts of a Composite Token, even with a `null/none` value, rather than to leave it empty.
+
+The independent **Token Type** of each **property** within the **Typography Composite Token** has unique specifications. Select the Token Type below to get more details. 
+- [Font family](/token-types/token-type-font-family)
+- [Font weight](/token-types/token-type-font-weight)
+- [Font size](/token-types/token-type-font-size)
+- [Line height](/token-types/token-type-line-height)
+- [Letter spacing](/token-types/token-type-letter-spacing)
+- [Paragraph indent](/token-types/token-type-paragraph-indent)
+- [Paragraph spacing](/token-types/token-type-paragraph-spacing)
+- [Text decoration](/token-types/token-type-text-decoration) 
+- [Text case](/token-types/token-type-text-case)
+
+### Using Math
+Each property defined within the **Typography Token** that requires numeric values supports accepting math equations. 
+
+→ [Read the guide on Tokens with Math Values for more details.](/tokens/using-math)
+
+### Values that reference another Token
+If you'd prefer to reference an existing **Typography Composite Token** as the value instead of defining each **Property**, select the Token's **Reference mode button** (2x2 circle icon).
+
+When trying to **reference another Token as the Value** for a Typography Token, you will see
+- Tokens living in **Token Sets that are currently active**.
+	- In the left menu on the plugin's **Tokens page**, a checkmark is visible next to the **Token Set name**. 
+- **Token Type** is compatible:
+	- `typography`
+
+![](/token-types/tokens-typography-form-references-both-2-01.png)
+
+However, like all token types, you can "force" a reference by manually entering the token name between curly brackets.
+
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout type="info" emoji="✦">
+The value will show a broken reference until the originating token set is marked as enabled.
+</Callout>
+
+→ [Jump to the Token Values with References guide for more details](/variables/references) 
+
+## Limitations of Typography Tokens
+When working with Typography Tokens, there are a few known limitations to keep in mind. 
+
+Tokens can only be applied to the entire layer. 
+- In the case of Typography, you might want to apply a Token to a particular word within the text layer, but that is not possible today due to limitations of the Figma plugin API. 
+	- You can check out the [feature request for this here. ](https://feedback.tokens.studio/p/multiple-token-per-layer)
+
+## Text Styles with Variable references
+**Typography Tokens** can be **Exported to Figma** as **Text Styles** that reference **Text Properties as Variables**. 
+
+Before you export your **Typography Tokens** to Figma as styles, ensure:
+- Each property within the Typography Tokens has a value referencing another Token. 
+
+When you **Export to Figma**, select these **Options** from the menu:
+- `Typography Styles` is selected. 
+- `Number` and `String Variables` are selected. 
+- `Create styles with variable references` is selected.
+
+![](/token-types/tokens-typography-export-stylesvar-ref-2-01.png)
+
+Ensure your Export to Figma as Themes or Sets configuration includes all necessary Tokens. 
+- Themes and token sets where the referenced Tokens are located are `active`.
+- Themes and token sets where the variables are attached may need to be configured as `reference only`. 
+
+You'll notice these Variables are created on Export based on their Token Type:
+- `fontFamily` (will create as string variable)
+- `fontWeight` (will create either as string or number variable, depending on if they are a string or a number)
+- `letterSpacing` (number variable)
+- `lineHeight` (number variable)
+- `paragraphSpacing` (number variable)
+- `paragraphIndent` (number variable)
+
+You'll notice the Text Style will be created on Export, with all possible values mapped to the appropriate Variables, based on the Token Type for each property. 
+- For Tokens using percentage units, the plugin will not map this property to the variable created to preserve the responsive design decision in the token.
+
+→ [Read the Export to Figma Styles with Variable References for more details and troubleshooting tips.](/variables/references)
+
+## W3C DTCG Token Format 
+`typography` is an official token type in the W3C Design Token Community Group specifications.([9.7 Typography ](https://tr.designtokens.org/format/#typography))
+
+However, Tokens Studio has approached **Typography Tokens** differently than how it is defined in the current spec draft. We support:
+- Additional text properties not defined in the spec.
+- Dedicated Token Types for each text property.
+
+We've made these adjustments in the plugin to align with Figma's unique approach to Typography. 
+
+## Transforming Tokens
+Engineers typically transform Tokens used in code with [Style Dictionary](https://styledictionary.com/), which is tool-agnostic. Tokens coming from Tokens Studio require an additional step: [@Tokens-studio/sd-transforms](https://www.npmjs.com/package/@tokens-studio/sd-transforms), an npm package that prepares Tokens for Style Dictionary. 
+
+When transforming **Typography Tokens**, which are a **Composite Token** with several adaptations to accommodate Figma's unique approach to Text Styling, there are specific configurations to be aware of. 
+
+**Composite Tokens** require the SD-Transforms option to `expand composite Tokens into multiple Tokens`. 
+
+Make sure you look at the generic SD-Transforms package to include this option, which allows you to further customize this transformation further using Style Dictionary. 
+
+→ [SD-Transforms Read-Me Doc, Using the preprocessor](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-the-preprocessor)
+→ [SD-Transforms Read-Me Doc, Using Expand](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-expand)
+
+<Callout type="info" emoji="✦">
+*"object, object"*\
+When you transform your Typography Tokens and they show "object, object", it means your SD-Transforms configuration needs to be adjusted to include "expand".
+</Callout>
+
+If you are working in Android Compose, there is an optional transform to convert `typography objects` into Android Compose shorthand (platform option).
+
+[→ SD-Transforms Read Me Doc, ts/typography/compose/shorthand](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#options)
+
+Each property defined within the **Typography Token** has individual SD-Transform configurations to be aware of, which can all be found on the [Read Me page on Github.](https://github.com/tokens-studio/sd-transforms/blob/main/README.md)
+
+## Resources
+Mentioned in this doc:
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms#readme)
+- Style Dictionary - https://styledictionary.com/
+- Design Tokens Community Group - [W3C Draft](https://tr.designtokens.org/format/)
+- Design Tokens Community Group - [9.7 Typography](ttps://tr.designTokens.org/format/#typography)
+
+Figma resources:
+- Design in Figma - [Explore Text Properties](https://help.figma.com/hc/en-us/articles/360039956634-Explore-text-properties)
+
+Typography resources:
+- Nate Baldwin's[https://natebaldw.in](https://natebaldw.in/) Typography + Dimension scale tool - [Proportio.app](https://proportio.app/)
+
+CSS resources:
+- MDN Web Docs - [Text Styling Fundamentals](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals)
+
+Community resources:
+- Import Typography Styles from Figma into Tokens Studio - [Video Tutorial by Sam I am Designs](https://www.youtube.com/watch?v=Z8o3YDkB6c8)
+- Marco Krenn's [Fluid Typescale Generator + Design Token Integration ](https://fluid-tokenization.vercel.app/)
+	- [Office hours demo of the tool and process (2023)](https://www.youtube.com/watch?v=EbykWCBeqBg)
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+Tokens Studio Plugin GitHub - [Open issues for Token Type Typography Composite](https://github.com/tokens-studio/figma-plugin/labels/token%20type%20typography)
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- Enhanced Typography Support - [Feature Request](https://feedback.tokens.studio/p/enhanced-typography-support)
+- Expand Token Types - [Feature Request](https://feedback.tokens.studio/p/expand-token-types)
+- Support Multiple Token Types per Layer - [Feature Request](https://feedback.tokens.studio/p/multiple-token-per-layer)
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.
+

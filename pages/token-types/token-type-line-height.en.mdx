@@ -1,0 +1,234 @@
+![](/token-types/header-token-type-lineheight.png)
+# Line Height Token
+**Line Height** is not intended to be applied to text elements directly but as a part of a [**Typography Composite Token**.](/token-types/token-type-typography-composite)
+ 
+## Design decisions defined by Line Height Tokens
+
+**Line Height**, also known as leading, defines the vertical distance of each line of text. 
+
+In [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height) this property is called `line-height`.
+
+**Line Height** decisions are typically used to enhance the readability of text. For example, it's common to use a larger **Line Height** value for long-form text than a short headline to make paragraphs easier to read.  
+
+![](/token-types/tokens-lineHeight-form-empty-2-01.png)
+
+When we apply a **Typography Composite Token** to a text layer in Figma, these **Line Height** values will change the text layer:
+- No changes to the Line Height - `normal`
+	- By default, the system uses the value determined by the typeface it is pared with
+- Relative to - `value in %`
+	- Example `200%`
+		- **Line Height** will be twice as large as the font size no matter what the `Font size` is
+- Responsive - `value in rem`
+	- Example `2rem`
+		- A person with a webpage zoomed in will see this **Line Height** remain twice as large as a font size set at `1rem`
+- Fixed - `value in px`
+	- Example `32px`
+		- **Line Height** will remain the same even when the `Font size` changes or the user tries to modify the text using system accessibility features.
+
+**Line Height Tokens** can be attached to Number Variables in Figma, however, Figma does not support responsive values for Line Height as Number Variables, they only fixed values as Number Variables. 
+
+→ [Jump to the Export to Figma overview for more details on Line Height Tokens as Variables](/variables/creating-variables)
+
+## Possible values
+Like all Tokens defining a dimension design decision, the value of a  **Line Height** Token must include a numeric value and, ideally, a unit of measure. 
+- Unless you are choosing to use the "default" value defined by the [Font Family](/token-types/token-type-font-family), which is commonly referred to as the `normal` value. 
+
+Tokens without a unit specified are applied as the pixel equivalent in Figma. 
+
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout type="info" emoji="✦">
+*Figma allows values less than 0*\
+ Line Height Values less than 0 are not widely supported in CSS and other programming languages. So, while you can enter negative values in the plugin that will communicate with Figma, we don't suggest this without consulting with your engineering team.
+</Callout>
+
+### Hard-coded values
+When writing the hard-coded values for a **Line Height Token** you'll want to:
+- Avoid spaces.
+- Include a number and unit of measure.
+	- Values without a unit will be translated to pixels in Figma.
+	- **Line Height** value should always be greater than 0. 
+- Or use the specified string (below) for the `normal` value.
+
+#### normal (AUTO)
+Figma supports the equivalent of the `normal` Value in CSS. 
+
+To write your **Line Height Token** with this value, it needs to match the following text string, which is case sensitive:
+```
+normal
+```
+
+<Callout type="info" emoji="✦">
+*Export to Figma Variables*\
+  If you export your Tokens to Variables in Figma with the AUTO value, they will be skipped, as Figma can't support it. It will appear in the connect Text style as expected. \\
+→ [Learn more about skipped Tokens when Exporting to Figma Variables](/variables/creating-variables)
+</Callout>
+
+#### percentage (%)
+[To scale the Line Height relative to **Font Size** the **Line Height Token** value will be defined with a percentage to match Figma's unique approach to typography.](/token-types/token-type-font-size)
+
+When you enter the value of a **Line Height Token** in percentage, the plugin will apply that percentage value in Figma's UI. 
+
+This is different from the way we would define this relationship in code. In CSS, we might enter this as a unitless number, which Figma does not support as unitless numbers in Figma as assumed to be pixels. 
+
+↓ See the Transforming Tokens section below for more details. 
+
+#### rem units (rem)
+To support responsive design, you can define your **Line Height Token** in **rem units**, and the plugin automatically converts the value to the pixel equivalent. 
+ - For example, a **Line Height Token** with a value of `1rem`, when applied as a **Typography Composite Token, will appear as `16px` in Figma.
+ 
+**Rem Units** act as a multiplier of the **base font size**, so when a user changes their preferences to a larger font size or uses a zoom feature in your product, elements defined in **rem units** will respond accordingly. 
+
+The value of `1rem` can be configured in the plugin **Settings** for **Base Font Size**.
+
+→ [Read the guide on Base Font Size in the plugin](/tokens/settings#base-font-size)
+
+#### pixels (px)
+If your design requires a fixed value, you can define your **Line height Token** in **pixel units**, for example:
+```
+20px
+```
+
+#### Units not supported by Figma
+There are additional units [commonly used in CSS for Line Height](https://www.w3schools.com/cssref/pr_dim_line-height.php) properties that are not supported in Figma:
+- length in cm, pt, etc
+- additional text-strings
+	- initial - sets the property to default value
+	- inherit - parent element determines the value
+
+You can still create **Line Height Tokens** with these units using the Tokens Studio plugin.  
+
+When you apply them to design elements in Figma, the Token will be present and visible to engineers inspecting the design element in Figma, but the Token won't interact with the Line Height property in Figma's UI. 
+
+It will be up to the engineers working to transform the design Tokens in Style Dictionary if they want to transform the values as you've entered them or change them in some way. 
+
+### Values that reference another Token
+When trying to **reference another Token as the Value** for a Line Height Token, you will see
+- Tokens living in **Token Sets that are currently active**.
+	- In the left menu on the plugin's **Tokens page**, a checkmark is visible next to the **Token Set name**. 
+- **Token Type** is compatible:
+	- The same = `lineHeights`
+	- `dimension`
+	- `number`
+
+However, like all token types, you can "force" a reference by manually entering the token name between curly brackets.
+
+<Callout type="info" emoji="✦">
+The value will show a broken reference until the originating token set is marked as enabled.
+</Callout>
+
+
+→ [Jump to the Token Values with References guide for more details](/variables/references)
+
+### Values with math equations
+All token types that accept numeric values can also accept math equations. 
+
+For **Line Height Tokens**, math might be used to ensure that the bounding box for your text elements always sits on a 4/8 pixel grid. 
+
+→ [Read the guide on Tokens with Math Values for more details.](/tokens/using-math)
+
+## W3C DTCG Token Format 
+**Line Height** is not yet an official dedicated Token type in the W3C Design Token Community Group specifications.
+
+It is mentioned as a required part of a [typography Token](https://tr.designTokens.org/format/#typography)
+> "The vertical spacing between lines of typography. The value of this property *MUST* be a valid number value or a reference to a number Token. The number *SHOULD* be interpreted as a multiplier of the `fontSize`." - 9.7. Typography
+
+However, Figma doesn't support a unitless number that behaves as a multiplier; it interprets a unitless number as an exact value in pixels. 
+
+So in the Tokens Studio plugin for Figma, we have created the **Line Height** Token type to support percentage values to allow for a better workflow with Figma's unique approach to Line Height. 
+
+## Token Type syntax
+The **Line Height Token** has a unique syntax in code which identifies if the Token is:
+- An independent property Token 
+- Part of a Typography Composite Token
+
+Looking at the JSON format, the  `"type"` is written in plural  `"lineHeights`" when the Font Size Token is defined as an independent property Token. 
+
+This example shows a Line Height property Token named `line-height-classic` with the value in percentage.
+```
+{
+  "line-height-classic": {
+    "value": "100%",
+    "type": "lineHeights"
+  }
+}
+``````
+
+This is in contrast to the Typography Composite Token, which has the property Token `"type"` written in the singular `"lineHeight"`.
+
+This example shows a Typography Composite Token with the Font Weight property Token named `line-height-classic` referenced as the value. 
+```
+{
+  "paragraph-3": {
+    "value": {
+      "fontFamily": "{font-family-sans}",
+      "fontWeight": "{font-weight-default}",
+      "lineHeight": "{line-height-classic}",
+      "fontSize": "{font-size-small}",
+      "letterSpacing": "{letter-spacing-tight}",
+      "paragraphSpacing": "{paragraphSpacing.none}"
+      "paragraphIndent": "{paragraphIndent.none}"
+      "textCase": "{textCase.none}",
+      "textDecoration": "{textDecoration.none}"
+    },
+    "type": "typography"
+  }
+}
+``````
+
+## Transforming Tokens
+Engineers typically transform Tokens used in code with [Style Dictionary](https://styledictionary.com/), which is tool-agnostic. Tokens coming from Tokens Studio require an additional step: [@Tokens-studio/sd-transforms](https://www.npmjs.com/package/@tokens-studio/sd-transforms), an npm package that prepares Tokens for Style Dictionary. 
+
+When transforming **Line Height Tokens**, there are specific configurations to be aware of. 
+
+Line Height Token values entered as a **percentage** to accommodate Figma's unique approach to Typography need to be converted into a unitless number to match the [CSS preferred value for line height. ](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height#:~:text=font%2Dfamily.-,%3Cnumber%3E%20(unitless),-The%20used%20value)
+
+→ [SD-Transforms Read-Me Doc, ts/size/lineheight](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#tssizelineheight)
+
+
+**Line Height Token Values** entered with **math equations** need to be checked and resolved.
+
+→ [SD-Transforms Read-Me Doc, ts/resolveMath](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#tssizepx)
+
+
+The preprocessor in the SD-Transforms package will automatically convert the Tokens Studio specific Token Type of `lineHeights` to align with the DTCG Format Token Type of `lineHeight`. 
+
+→ [SD-Transforms Read-Me Doc, Using the preprocessor](https://github.com/ Tokens-studio/sd-transforms/?tab=readme-ov-file#using-the-preprocessor)
+
+
+**Line Height Tokens**, as part of **Typography Composite Tokens**, requires the SD-Transforms option to `expand composite Tokens into multiple Tokens`. 
+
+Make sure you look at the generic SD-Transforms package to include this option, which allows you to further customize this transformation further using Style Dictionary. 
+
+→ [SD-Transforms Read-Me Doc, Using the preprocessor](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-the-preprocessor)
+→ [SD-Transforms Read-Me Doc, Using Expand](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-expand)
+
+## Resources
+Mentioned in this doc:
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms#readme)
+- Style Dictionary - https://styledictionary.com/
+- Design Tokens Community Group - [W3C Draft](https://tr.designtokens.org/format/)
+- Design Tokens Community Group - [9.7 Typography](ttps://tr.designTokens.org/format/#typography)
+
+Figma resources:
+- Design in Figma - [Explore Text Properties, Line Height](https://help.figma.com/hc/en-us/articles/360039956634-Explore-text-properties#line-height)
+
+CSS resources:
+- MDN Web Docs - [line-height](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height)
+- W3 Schools - [line-height](https://www.w3schools.com/css/css_text_spacing.asp#:~:text=Try%20it%20Yourself%20%C2%BB-,Line%20Height,-The%20line%2Dheight)
+
+Community resources:
+- WHAT - LINK
+- None yet! 
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+Tokens Studio Plugin GitHub -[ Open issues for Token Type Line Height](https://github.com/tokens-studio/figma-plugin/labels/token%20type%20line%20height)
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- None 
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.

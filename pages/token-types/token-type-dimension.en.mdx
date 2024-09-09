@@ -1,0 +1,322 @@
+![](/token-types/header-token-type-dimension.png)
+# Dimension token
+The **Dimension Token** supports the size, space, radius, or position of specific elements within a design. 
+
+The primary difference between a **Number Token** and a **Dimension Token** is 
+- **Number tokens** are intended to be unitless.
+	- For example: `4`
+- **Dimension Tokens** are required to have a unit of `pixels` or `rem`. 
+	- For example: `4px` 
+
+![](/token-types/tokens-dimension-form-empty-2-01.png)
+
+## Design decisions defined by Dimension Tokens
+The **Dimension Token** is used for design decisions requiring a distance and unit of measurement for a specific property of a design element. 
+
+This doesn't match the [CSS definition for Dimension](https://developer.mozilla.org/en-US/docs/Web/CSS/dimension), which focuses on distance, durations, frequencies, and resolutions. 
+- Many of the properties supported by this token are individually defined in CSS. 
+
+**Dimension Tokens** can be used to define these design properties in Figma:
+- size
+- space
+- border-radius and width
+- absolute position location
+- background blur effects
+
+This is a great way to define tokens that might be used in various use cases, such as a sizing scale applied to text elements, icons, and containers. 
+
+**Dimension Tokens** support responsive and static design properties:
+- Responsive - **value in rem units**
+	- Example: `2rem` applied as a min-height property on an auto-layout frame applies a 32px min-height value to the frame
+- Static - **value in pixels**
+	- Example `32px` applied as border-radius rounds the corner of a frame to 32px
+
+**Dimension Tokens** can be attached to Number Variables in Figma. The plugin will automatically convert these to the pixel equivalent on export. 
+
+→ [Jump to the Export to Figma overview for more details on Sizing Tokens as Variables](/variables/creating-variables)
+
+## Design properties 
+A **Dimension Token** can define many design properties where a numeric value and unit of measurement is required. 
+- You choose which side of the element you want to apply the token to by **right-clicking on the token** to see your options. 
+	- If you click to apply this token to an element without accessing the right-click token menu, the value will be applied as a **spacing-gap property**.
+
+*The following sections appear in the order of the **Dimension Token** menu.* 
+
+![](/token-types/tokens-dimension-rightClick-all-V2-01-1.png)
+
+### 1. Space
+The `Spacing` property of the **Dimension Token** defines the distance between elements. 
+
+It must be applied to:
+- Auto-layout frames
+- If you apply the token to a frame before auto-layout is applied in Figma, you may have to remove and re-apply the token before it will work as expected.
+
+![](/token-types/tokens-dimension-rightClick-spacing-V2-01.png)
+
+You control which space property is applied by **right-clicking** on the **Dimension Token** and selecting the `Spacing` option.
+- Gap
+	- Adds space between child elements within a parent container
+- All 
+	- Applies padding to all sides of the container
+- Horizontal padding 
+	- Applies padding to the left and right sides of the container 
+- Vertical padding 
+	- Applies padding to the top and bottom sides of the container
+- Row gap 
+	- Adds vertical space between rows
+	- It only works on Figma's auto-layout frame elements that are set to wrap. 
+- Top 
+	- Applies space to the top side of the container
+- Right
+	- Applies space to the right side of the container
+- Bottom
+	- Applies space to the bottom side of the container
+- Left
+	- Applies space to the left side of the container
+
+→ [Read Figma's doc on Autolayout here](https://help.figma.com/hc/en-us/articles/360040451373-Explore-auto-layout-properties)
+
+### 2. Size
+The `Sizing` property of the **Dimension Token** defines the height or width of container design elements, like frames, groups, and polygonal shapes.
+
+![](/token-types/tokens-dimension-rightClick-sizing-V2-01.png)
+
+You control which size property is applied by **right-clicking** on the **Dimension Token** and selecting the `Sizing` option.
+- All 
+	- Applies the same size value to both the width and height of an element
+- Width
+	- Applies the horizontal size of an element
+- Height 
+	- Applies the vertical size of an element
+- Min width 
+	- Defines the smallest allowed horizontal size of an element but allows a larger size
+	- It only works on Figma's auto-layout frame elements. 
+- Max width 
+	- Defines the largest allowed horizontal size of an element but allows a smaller size
+	- It only works on Figma's auto-layout frame elements. 
+- Min height 
+	- Defines the smallest allowed vertical size of an element but allows a large size
+	- It only works on Figma's auto-layout frame elements. 
+- Max height 
+	- Defines the largest allowed vertical size of an element but allows a smaller size
+	- It only works on Figma's auto-layout frame elements. 
+
+If you apply any of the **min/max height/width properties** to a frame before auto-layout is applied in Figma, you may have to remove and re-apply the token before it will work as expected.
+
+→ [Read Figma's doc on Autolayout here](https://help.figma.com/hc/en-us/articles/360040451373-Explore-auto-layout-properties)
+
+### 3. Border radius
+The `Border radius` property of the **Dimension Token** defines the roundness of the corner of container design elements, like frames, groups, and polygonal shapes.
+
+![](/token-types/tokens-dimension-rightClick-borderRadius-V2-01.png)
+
+You control which side of the element the token is applied to by **right-clicking** on the **Dimension Token** and selecting the `Border radius` option.
+- All 
+	- Rounds the corner of all sides of an element by the same value.
+- Top Left 
+	- Rounds the top-left corner of an element.
+- Top Right 
+	- Rounds the top-right corner of an element.
+- Bottom Right 
+	- Rounds the bottom-right corner of an element.
+- Bottom Left 
+	- Rounds the bottom-left corner of an element.
+
+→ [Read Figma's doc on corner radius here](https://help.figma.com/hc/en-us/articles/360050986854-Adjust-corner-radius-and-smoothing)
+
+### 4. Border width
+The `Border width` property defines the thickness of a border applied to an element with a stroke property already applied. 
+- Container design elements, like frames, groups, and polygonal shapes.
+- Text elements. 
+
+If you apply the **Border Width** property to an element before a stroke is applied in Figma, you may have to remove and re-apply the token before it will work as expected.
+
+The plugin supports a **Border Composite Token** that allows you to reference a Border Width Token to avoid this issue. 
+
+→ [Learn more about Border Composite Tokens](/token-types/token-type-border-composite)
+![](/token-types/tokens-dimension-rightClick-borderWidth-V2-01.png)
+
+You control which side of the element the token is applied to by **right-clicking** on the **Dimension Token** and selecting the `Border width` option.
+- All 
+	- Stroke width of all sides of an element by the same value
+- Top Left 
+	- Stroke width to the top-left side of an element
+- Top Right
+	- Stroke width to the top-right side of an element
+- Bottom Right 
+	- Stroke width to the bottom-right side of an element
+- Bottom Left 
+	- Stroke width to the bottom-left side of an element
+
+→ [Read Figma's doc on stroke properties here](https://help.figma.com/hc/en-us/articles/360049283914-Apply-and-adjust-stroke-properties)
+
+### 5. Background blur
+The `background blur` property of the **Dimension Token** defines the intensity of the Blur Effect in Figma. 
+
+It must be applied to container design elements, like frames, groups, and polygonal shapes with a **reduced opacity color fill** applied.
+
+This token can't yet be Exported to Figma as a reusable **Effect Style** from the plugin in the same way that Shadow. 
+
+→ [Read the Export to Figma Overview guide for more details](/variables/creating-variables)
+
+→ [Read Figma's doc on Layer blur here](https://help.figma.com/hc/en-us/articles/360041488473-Apply-shadow-or-blur-effects#blur)
+
+### 6. X and Y position
+The `x position` and `y position` properties of the **Dimension Token** define the absolute position of the design element. 
+
+When the **Dimension Token** is applied to a design element as `X position`:
+- The element is absolutely positioned on the horizontal axis in relationship to the parent container.
+- If no parent container is present, it positions the element on the Figma canvas.
+
+When the **Dimension Token** is applied to a design element as `Y position`:
+- The element is absolutely positioned on the vertical axis in relationship to the parent container.
+- If no parent container is present, it positions the element on the Figma canvas.
+
+If you apply the **x/y** property to an element before enabling Absolute Position and Auto-layout in Figma, you may have to remove and re-apply the token before it will work as expected.
+
+→ [Read Figma's docs on Absolute Position here](If you apply the **Border Width** property to an element before a stroke is applied in Figma, you may have to remove and re-apply the token before it will work as expected.)
+## Possible values
+According to the W3C DTCG specification, the value of a **Dimension Token** must include a numeric value and a unit of measure, either **Pixels (px) or Rems (rem)**.
+
+### Hard-coded values
+When writing the hard-coded values for a **Dimension Token** you'll want to:
+- Avoid spaces
+- Include a number and unit of measure.
+	- `negative numbers` are supported, but they may not apply to all design properties. 
+		- For example, `-4px` would work for a `spacing property` but not as a `border radius` property. 
+
+### rem units (rem)
+To support responsive design, you can define your **Dimension Token** in `rem units`, and the plugin automatically converts the value to the pixel equivalent. 
+ - For example, a **Dimension Token** with a value of `1rem`, when applied as a will appear as `16px` in Figma. 
+ 
+**Rem Units** act as a multiplier of the **base font size**, so when a user changes their preferences to a larger font size or uses a zoom feature in your product, elements defined in **rem units** will respond accordingly. 
+
+The value of `1rem` can be configured in the plugin **Settings** for **Base Font Size**.
+
+→ [Read the guide on Base Font Size in the plugin](/tokens/settings#base-font-size)
+
+### pixel units (px)
+When you have design elements that should remain static even when users change their preferences, **Dimension Tokens** will be defined in pixels. 
+
+For example, a **Dimension Token** with a value of `4px`.
+
+### Units not supported
+The plugin only supports **Dimension Tokens** in **pixels** or **rem units**, to align with the W3C DTCG specification. 
+
+We do not support:
+- percentage (%)
+- em units
+
+### Values that reference another Token
+When trying to **reference another Token as the Value** for a Dimension Token, you will see
+- Tokens living in **Token Sets that are currently active**.
+	- In the left menu on the plugin's **Tokens page**, a checkmark is visible next to the **Token Set name**. 
+- **Token Type** is compatible:
+	- The same = `dimension`
+
+However, like all token types, you can "force" a reference by manually entering the token name between curly brackets.
+
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout type="info" emoji="✦">
+The value will show a broken reference until the originating token set is marked as enabled.
+</Callout>
+
+For example, if you want to reference a **Number Token** without a unit, you can force the reference by adding the token name, followed by the required unit for a **Dimension Token**. 
+
+You might write the value as:
+```
+{unitless.number}px
+```
+
+→ [Read the Token Values with References guide for more details](/variables/references)
+
+#### Compatible token types
+After you've created **Dimension Tokens**, they can be referenced in these compatible Token Types:
+- [Typography Composite Token](/token-types/token-type-typography-composite)
+- [Font Size](/token-types/token-type-font-size)
+- [Paragraph Spacing](/token-types/token-type-paragraph-spacing)
+- [Border Composite Tokens](/token-types/token-type-border-composite)
+
+You can also reference a **Dimension Token** in these additional Token Types; however, they are not recognized in the W3C DTCG specifications as *official Token Types*:
+- [Spacing](/token-types/token-type-spacing)
+- [Sizing](/token-types/token-type-sizing)
+- [Border Radius](/token-types/token-type-border-radius)
+- [Border Width](/token-types/token-type-border-width)
+- [Composite](/token-types/token-type-composition-pro) 
+
+### Values with math equations
+All Token Types that accept numeric values can also accept math equations. However, referencing Dimension Tokens in our math equations may lead to unexpected results if there is a combination of pixel and rem units in the same equation. 
+
+→ [Read the guide on Tokens with Math Values for more details.](/tokens/using-math)
+
+## W3C DTCG Token Format 
+`dimension` is an official token type in the W3C Design Token Community Group specifications.([8.2 Dimensions](https://second-editors-draft.tr.designtokens.org/format/#dimension))
+
+**Dimension Tokens** are a relatively new addition to the W3C DTCG specification, which defines this token as being applied to many different design properties. 
+
+If we want to fully align with the spec, it requires Tokens Studio to phase out the following legacy token types, which we introduced long before the **Dimension Token** was added to the spec:
+- [Spacing](/token-types/token-type-spacing)
+- [Sizing](/token-types/token-type-sizing)
+- [Border Radius](/token-types/token-type-border-radius)
+- [Border Width](/token-types/token-type-border-width)
+
+<Callout type="info" emoji="✦">
+*There is no immediate plan to discontinue support of the **Spacing Token**.*\
+ We want to build a thoughtful solution to help Tokens Studio users migrate from these *'legacy token types'* to **Dimension Tokens** if that time comes.
+</Callout>
+
+→ [If you want to make your voice heard, we've set up a forum in Featurebase where you can leave your comments!!](https://feedback.tokens.studio/p/w3c-dtcg-feedback)
+
+## Transforming Tokens
+Engineers typically transform Tokens used in code with [Style Dictionary](https://styledictionary.com/), which is tool-agnostic. Tokens coming from Tokens Studio require an additional step: [@Tokens-studio/sd-transforms](https://www.npmjs.com/package/@tokens-studio/sd-transforms), an npm package that prepares Tokens for Style Dictionary. 
+
+When transforming **Dimension Tokens**, there are specific configurations to be aware of. 
+
+**Dimension Token Values** entered as a number without a unit converted to a number with pixels as a unit.
+
+→ [SD-Transforms Read-Me Doc, ts/size/px](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#tssizepx)
+
+
+**Dimension Token Values** entered with **math equations** need to be checked and resolved.
+
+→ [SD-Transforms Read-Me Doc, ts/resolveMath](https://github.com/tokens-studio/sd-transforms/?tab=readme-ov-file#tssizepx)
+
+
+Running the SD-Transforms pre-processor as part of the generic package will prep your Dimension Tokens for Style Dictionary. 
+
+→ [SD-Transforms Read-Me Doc, Using the preprocessor](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-the-preprocessor)
+
+## Resources
+Mentioned in this doc:
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms#readme)
+- Style Dictionary - https://styledictionary.com/
+- Design Tokens Community Group - [W3C Draft](https://tr.designtokens.org/format/)
+- Design Tokens Community Group - [8.2 Dimension](https://tr.designtokens.org/format/#dimension)
+
+Figma resources:
+- Design in Figma - [Explore autolayout properties](https://help.figma.com/hc/en-us/articles/360040451373-Explore-auto-layout-properties)
+- Design in Figma - [Apply and adjust stroke properties](https://help.figma.com/hc/en-us/articles/360049283914-Apply-and-adjust-stroke-properties)
+- Design in Figma - [Adjust corner radius and smoothing](https://help.figma.com/hc/en-us/articles/360050986854-Adjust-corner-radius-and-smoothing)
+- Design in Figma - [Adjust alignment, rotation, and position](https://help.figma.com/hc/en-us/articles/360039956914-Adjust-alignment-rotation-and-position)
+- Design in Figma - [Apply blur effect](https://help.figma.com/hc/en-us/articles/360041488473-Apply-shadow-or-blur-effects)
+
+CSS resources:
+- MDN Web Docs - [Dimension](https://developer.mozilla.org/en-US/docs/Web/CSS/dimension)
+
+Community resources:
+- None yet! 
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+### Known issues and bugs
+Tokens Studio Plugin GitHub - [Open issues for Token Type Dimension](https://github.com/tokens-studio/figma-plugin/labels/token%20type%20dimensions)
+- Background blur > Figma values changed - [Community Post on Featurebase](https://feedback.tokens.studio/p/background-blur-token-issue)
+	- Figma is natively halving/doubling their background blur effect values, creating a disconnect between tokens managed by Token Studio and any parsed output.
+	- Known CSS quirk which can be solved with a custom Style Dictionary transform
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- None yet!
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.

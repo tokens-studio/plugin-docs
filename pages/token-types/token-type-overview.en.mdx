@@ -1,0 +1,118 @@
+![](/token-types/code-tokenAnat-type.png)
+# Token Types in the Plugin
+The Tokens Studio (TS) plugin for Figma supports 24 unique **Token Types**. 
+
+Recall that The `type` of Design Token defines which category of design property this decision belongs to, or ***when*** it can be applied.
+
+→ [Read the Intro to Design Tokens Guide on Token Types for a high-level breakdown.](/getting-started)
+
+![](/token-types/tokenType-overview-all.png)
+## Terms to be aware of
+Across our docs, you'll notice we describe Token Types in different terms. 
+
+**Official**
+- 'Official' Token Types are listed in the [W3C Design Tokens Community Group (DTCG) Specifications for Design Tokens](https://tr.designtokens.org/format/#types)
+- For example, **Dimension Token** is an official type.
+
+**Unofficial**
+- 'Unofficial' Token Types were created by Tokens Studio before the W3C DTCG Specs defined an alternate Token Type. 
+- For example, **Border Width Token** is an unofficial type defined by the spec as a **Dimension Token**. 
+- Tokens Studio will continue to support unofficial Token Types for now. We've already built a conversion into our SD-transforms script; more details are below. 
+- Any Token Types we are planning to deprecate will be listed as `legacy`. 
+
+**Composite**
+- When elements are styled by composing many related design decisions together, they are combined into a **Composite** Token Type. 
+- For example, a **Typography Token** is composed of 9 independent text-related properties.
+- **Property**
+- Each design decision that is a part of the **Composite Token** is referred to as a **Property** of their respective Composite Token in our guides. 
+- For example, **Font Family and Font Weight Tokens** are **Unofficial Tokens** we created to independently define the Properties that Compose a **Typography Token**.
+
+**Compatible**
+- A Token Type with properties that is compatible with another Token Type. For example, the `dimension` Token Type is compatible with `fontSize` when referenced within a `typography` Composite Token. 
+- Compatible Token Types are visible by default when defining Token Values which reference another Token in the plugin. 
+	- [This becomes important when creating and maintaining Tokens in the plugin](/tokens/aliases) 
+
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout type="info" emoji="✦">
+*Disclaimer on these terms*\
+These descriptive terms are not the only way to describe Token Types; they are the labels the Tokens Studio team uses for simplicity across our documentation. If your team uses different descriptive terms, that's totally okay! 
+</Callout>
+
+## Transforming Tokens
+To use Design Tokens in code, engineers need to transform them from their tool/platform-agnostic format to meet their programming needs. Engineers typically transform Tokens used in code with [Style Dictionary](https://styledictionary.com/), which is tool-agnostic and based on the Token Format in the DTCG specifications. 
+
+![](/token-types/TS-git-SD.png)
+
+Tokens coming from Tokens Studio require an additional step: [@tokens-studio/sd-transforms](https://www.npmjs.com/package/@tokens-studio/sd-transforms), an npm package that prepares tokens for Style Dictionary. 
+
+Some Tokens we create in Tokens Studio have subtle differences in how the Token `type` is written compared to the DTCG specifications. In the case of **unofficial** Token Types, which don't exist in the DTCG spec, we have to transform the **TS Type** into something Style Dictionary is prepared to work with. 
+
+The SD-Transforms package's preprocessor will transform the **TS Token Type** to the **Style Dictionary Type**, as described in the table below. 
+
+→ [SD-Transforms Read-Me Doc, Using the preprocessor](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-the-preprocessor)
+
+## Available Token Types
+Each Token Type has unique properties and specifications, which are documented in detail. Select the common name of the Token Type in the table below to access its docs. 
+
+| Common Name             | W3C DTCG Official | Composite                                             | Technical Type<br/>TS JSON      | Style Dictionary Type                              | DTCG Type    |
+| :---------------------- | :---------------- | :---------------------------------------------------- | :------------------------------ | :------------------------------------------------- | ------------ |
+| [Color Token](/token-types/token-type-color)             | ✓                 | Can be a Property of `border`, `shadow`               | `color`                         | `color`                                            | `color`      |
+| [Typography Token](/token-types/token-type-typography-composite)        | ✓                 | Composite                                             | `typography`                    | `typography`                                       | `typography` |
+| [Font Family Token](/token-types/token-type-font-family)       | ✓                 | Property of `typography`                              | `fontFamilies` and `fontFamily` | `fontFamily`                                       | `fontFamily` |
+| [Font Weight Token](/token-types/token-type-font-weight)       | ✓                 | Property of `typography`                              | `fontWeights` and `fontWeight`  | `fontWeight`                                       | `fontWeight` |
+| [Font Size Token](/token-types/token-type-font-size)         | ✓                 | Property of `typography`                              | `fontSizes` and `fontSize`      | `fontSize`                                         | `fontSize`   |
+| [Line Height Token](/token-types/token-type-line-height)       | ✓                 | Property of `typography`                              | `lineHeights` and `lineHeight`  | `lineHeight`                                       | NA           |
+| [Letter Spacing Token](/token-types/token-type-letter-spacing)    | ✓                 | Property of `typography`                              | `letterSpacing`                 | `dimension`                                        | `dimension`  |
+| [Paragraph Spacing Token](/token-types/token-type-paragraph-spacing) | X                 | Property of `typography` (in TS, not DTCG)            | `paragraphSpacing`              | `dimension`                                        | `dimension`  |
+| [Text Case Token](/token-types/token-type-text-case)         | X                 | Property of `typography` (in TS, not DTCG)            | `textCase`                      | `textCase`                                         | NA           |
+| [Text Decoration Token](/token-types/token-type-text-decoration)   | X                 | Property of `typography` (in TS, not DTCG)            | `textDecoration`                | `textDecoration`                                   | NA           |
+| [Dimension Token](/token-types/token-type-dimension)         | ✓                 | Can be a Property of `border`, `shadow`, `typography` | `dimension`                     | `dimension`                                        | `dimension`  |
+| [Number Token](/token-types/token-type-number)            | ✓                 |                                                       | `number`                        | `number`                                           | `number`     |
+| [Border Token](/token-types/token-type-border-composite)            | ✓                 | Composite                                             | `border`                        | `border`                                           | `border`     |
+| [Box Shadow Token](/token-types/token-type-box-shadow-composite)        | ✓                 | Composite                                             | `boxShadow`                     | `shadow`                                           | `shadow`     |
+| [Border Radius Token](/token-types/token-type-border-radius)     | X                 |                                                       | `borderRadius`                  | `dimension`                                        | `dimension`  |
+| [Border Width Token](/token-types/token-type-border-width)      | X                 |                                                       | `borderWidth`                   | `dimension`                                        | `dimension`  |
+| [Spacing Token](/token-types/token-type-spacing)           | X                 |                                                       | `spacing`                       | `dimension`                                        | `dimension`  |
+| [Sizing Token](/token-types/token-type-sizing)            | X                 |                                                       | `sizing`                        | `dimension`                                        | `dimension`  |
+| [Asset Token](/token-types/token-type-asset)             | X                 |                                                       | `asset`                         | `asset`                                            | NA           |
+| [Boolean Token](/token-types/token-type-boolean)           | X                 |                                                       | `boolean`                       | `boolean`                                          | NA           |
+| [Text Token](/token-types/token-type-text)              | X                 |                                                       | `text`                          | `content`                                          | NA           |
+| [Other Token](/token-types/token-type-other)             | X                 |                                                       | `other`                         | `other`                                            | NA           |
+| [Opacity Token](/token-types/token-type-opacity)           | X                 |                                                       | `opacity`                       | `opacity`                                          | NA           |
+| [Composition Token](/token-types/token-type-composition-pro)       | X                 |                                                       | `composition`                   | each type in the composition is added individually | NA           |
+
+## Related topics
+Curious about the other anatomic parts of a Design Token, like Name, Value and Description? 
+
+→ [Read the Intro to Design Tokens Guide](/getting-started)
+
+Curious about how the Token Types attach to Styles and Variables in Figma? 
+
+→ [Jump to Export to Figma - Overview](/variables/creating-variables)
+
+## Resources
+Mentioned in this doc:
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms#readme)
+- Style Dictionary - https://styledictionary.com/
+- Design Tokens Community Group - [W3C Draft](https://tr.designtokens.org/format/)
+- Design Tokens Community Group - [8.0 Token Types](https://tr.designtokens.org/format/#types)
+
+Community resources:
+- None yet! 
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+Tokens Studio Plugin GitHub - [Open issues for Transforming Token Types ](https://github.com/tokens-studio/figma-plugin/labels/transform%20tokens)
+
+Tokens Studio Plugin GitHub - [Open issues for Token Type Support](https://github.com/tokens-studio/figma-plugin/labels/token%20types)
+- Remove composition tokens [#2800](https://github.com/tokens-studio/figma-plugin/issues/2800)
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- Expand Token Types - [Feature request](https://feedback.tokens.studio/p/expand-token-types)
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.
+

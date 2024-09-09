@@ -1,0 +1,171 @@
+![](/token-types/header-token-type-fontfam.png)
+# Font Family Token
+**Font Family** is not intended to be applied to text elements directly but as a part of a [**Typography Composite Token**](/token-types/token-type-typography-composite)
+
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout type="info" emoji="✦">
+*Font Family and Font Weight Tokens work as a pair*\
+Figma's unique approach to Font Weight combines several text properties and requires an exact match to the Font Family it is paired with. \
+This means you'll need to apply both Font Family and Font Weight Tokens at the same time to interact with Figma's text properties and see a visual change. 
+</Callout>
+
+## Design decisions defined by Font Family Tokens
+**Font Family** defines a group of related fonts that vary in weight, style or width but maintain a consistent visual appearance and share the same design characteristics. 
+
+In [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family) this property is called `font-family`.
+
+**Font Family** design decisions ensure that text elements are easy to read in a particular context while representing the visual style of the brand/product/service. 
+
+A design system will typically define which **Font Family** is to be used when text within a visual design calls for:
+- serif font
+- sans-serif font 
+- mono-spaced font 
+- decorative font 
+
+![](/token-types/tokens-fontFamily-form-empty-2-01.png)
+
+Figma combines the **Font Family** property with its **Font Weight** and some styling properties, which differs from how they are defined in code. 
+- It's helpful to think of the **Font Family** and **Font Weight Tokens** as a pair and create/apply them together whenever possible. 
+
+**Font Family Tokens** can be attached to String Variables in Figma. 
+
+→ [Jump to the Export to Figma overview for more details on Font Family Tokens as Variables](/variables/creating-variables)
+
+## Possible values
+The value of a **Font Family Token** must be identical to the text string value for the Font Family in the Figma design panel due to limitations from Figma (plugin API). 
+
+When writing the value of a **Font Family Token**, pay close attention to:
+- Spelling
+- Spacing
+- Punctuation
+- Use of capital letters
+
+![](/token-types/tokenType-fontFamily-values-string-ref-2-01.png)
+
+### Hard-coded values
+To ensure your **Font Family Token** values are an exact match to what Figma has, you can:
+- Carefully type it out, paying attention to the syntax in Figma.
+- Save your **Font Family** and **Font Weight** pairs as text styles in Figma, then import them into the plugin to see how they appear. 
+- Select the value from the Tokens Studio menu, pictured below.
+
+![](/token-types/tokenType-typography-form-fontFam-references-suggest-2-01.png)
+
+### Values that reference another Token
+When trying to **reference another Token as the Value** for a Font Family Token, you will see
+- Tokens living in **Token Sets that are currently active**.
+	- In the left menu on the plugin's **Tokens page**, a checkmark is visible next to the **Token Set name**. 
+- **Token Type** is compatible:
+	- The same = `fontFamilies`
+
+However, like all token types, you can "force" a reference by manually entering the token name between curly brackets.
+
+<Callout type="info" emoji="✦">
+The value will show a broken reference until the originating token set is marked as enabled.
+</Callout>
+
+
+→ [Jump to the Token Values with References guide for more details](/variables/references)
+
+## W3C DTCG Token Format 
+**Font Family** is an official token type in the in the W3C Design Token Community Group specifications.( [8.3 Font Family](https://tr.designtokens.org/format/#font-family))
+
+It is mentioned as a required part of a [typography token](https://tr.designtokens.org/format/#typography)
+> "The typography's font. The value of this property *MUST* be a valid font family value or a reference to a font family token." - 9.7. Typography
+
+## Token Type syntax
+The **Font Family Token** has a unique syntax in code which identifies if the token is:
+- An independent property Token 
+- Part of a Typography Composite Token
+
+Looking at the JSON format, the  `"type"` is written in plural  `"fontFamilies`" when the Font Size Token is defined as an independent property Token. 
+
+This example shows a Font Family property Token named `font-family-sans` with a value of `Satoshi Variable`:
+```
+{
+  "font-family-sans": {
+      "value": "Satoshi Variable",
+      "type": "fontFamilies"
+    }
+  }
+``````
+
+This is in contrast to the Typography Composite Token, which has the property Token `"type"` written in the singular `"fontFamily"`.
+
+This example shows a Typography composite token with the **Font Family Token** named `font-family-sans` referenced as the value.
+```
+{
+  "paragraph-3": {
+    "value": {
+      "fontFamily": "{font-family-sans}",
+      "fontWeight": "{font-weight-default}",
+      "lineHeight": "{line-height-classic}",
+      "fontSize": "{font-size-small}",
+      "letterSpacing": "{letter-spacing-tight}",
+      "paragraphSpacing": "{paragraphSpacing.none}"
+      "paragraphIndent": "{paragraphIndent.none}"
+      "textCase": "{textCase.none}",
+      "textDecoration": "{textDecoration.none}"
+    },
+    "type": "typography"
+  }
+}
+``````
+
+## Transforming Tokens
+Engineers typically transform Tokens used in code with [Style Dictionary](https://styledictionary.com/), which is tool-agnostic. Tokens coming from Tokens Studio require an additional step: [@Tokens-studio/sd-transforms](https://www.npmjs.com/package/@tokens-studio/sd-transforms), an npm package that prepares Tokens for Style Dictionary. 
+
+When transforming Font Family Tokens, there are specific configurations to be aware of. 
+
+The preprocessor in the SD-Transforms package will automatically convert the Tokens Studio specific Token Type of `fontFamilies` to align with the DTCG Format Token Type of `fontFamily`. 
+
+→ [SD-Transforms Read-Me Doc, Using the preprocessor](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-the-preprocessor)
+
+
+A **Font Family Token** entered as a text string value matching the Figma API that needs to be converted into valid CSS, adding single quotes if necessary.
+
+→ [SD-Transforms Read-Me Doc, CSS - Font Family ](https://github.com/tokens-studio/sd-transforms/?tab=readme-ov-file#tstypographycssfontfamily) #transform-doc-link/broken
+
+
+Font Family, as a part of Typography Composite Tokens, require the SD-Transforms option to `expand composite Tokens into multiple Tokens`. 
+
+Make sure you look at the generic SD-Transforms package to include this option, which allows you to further customize this transformation further using Style Dictionary. 
+
+→ [SD-Transforms Read-Me Doc, Generic - expand composite Tokens](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#tstypographycssshorthand:~:text=does%20so%20for-,typography%2C,-border%20and%20shadow)
+
+<Callout type="info" emoji="✦">
+*"object, object"*\
+When you transform your Typography Tokens, and they show `"object, object"` it means your SD-Transforms configuration needs to be adjusted to include `"expand"`. 
+</Callout>
+
+## Resources
+Mentioned in this doc:
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms#readme)
+- Style Dictionary - https://styledictionary.com/
+- Design Tokens Community Group - [W3C Draft](https://tr.designtokens.org/format/)
+- Design Tokens Community Group - [8.3 Font Family](https://tr.designtokens.org/format/#font-family)
+- Design Tokens Community Group - [9.7 Typography](ttps://tr.designTokens.org/format/#typography)
+
+Figma resources:
+- Design in Figma - [Explore Text Properties, Font Family](https://help.figma.com/hc/en-us/articles/360039956634-Explore-text-properties#font-family)
+- Figma Learn - [Add a font in Figma](# Add a font to Figma design)
+
+CSS resources:
+- MDN Web Docs - [font-family](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family)
+
+Community resources:
+- Font Weight + Font Family Pairs explained by [Sam I am Designs](https://bento.me/samiam)
+	- [It took me 2 years to figure out that Typography in Figma is not how text properties work in code. ](https://samiamdesigns.substack.com/p/it-took-me-2-years-to-figure-out)
+	- Import Typography Styles from Figma into Tokens Studio - [Video Tutorial by Sam I am Designs](https://www.youtube.com/watch?v=Z8o3YDkB6c8)
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+Tokens Studio Plugin GitHub - [Open issues for Token Type Font Family](https://github.com/tokens-studio/figma-plugin/labels/token%20type%20font%20family)
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- None 
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.

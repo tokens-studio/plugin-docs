@@ -8,8 +8,9 @@
   "styles": "Styles",
   "variables": "Variables",
   "themes": "Themes & Sets",
-  "sync": "Sync",
+  "token-storage-and-sync": "Token Storage and Sync",
   "transforming": "Transforming for development",
   "contributing": "Contributing",
-  "troubleshooting": "Troubleshooting"
+  "troubleshooting": "Troubleshooting",
+  "token-format": "Token Format"
 }

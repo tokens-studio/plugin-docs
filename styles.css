@@ -15,3 +15,27 @@ html {
 .dark .nextra-container .nextra-sidebar ul .active-anchor {
   color: #ffffff !important;
 }
+
+.dark body, .dark .nx-sticky{background-color: #1e1e1e !important;}
+
+ul.nx-mt-6 {margin-top: 0rem!important;}
+p.nx-mt-6 {margin-top: 1rem;}
+.dark a.nx-underline{color:#DADADA!important;}
+.light a.nx-underline{color:#171717!important;}
+a.nx-underline:hover{font-weight:medium!important;}
+.nx-rounded-lg{border-radius: 8px!important;}
+.nx-w-full a:hover{font-weight: 500!important;letter-spacing: -0.15px;}
+
+:is(html[class~=dark] .dark\:nx-text-blue-200 em){color: #4278f6!important; font-style: normal; font-weight: bold;}
+:is(html[class~=dark] .dark\:nx-text-blue-200) p{color: #DADADA!important;}
+:is(html[class~=light] .dark\:nx-text-blue-200 em){color: #1E3A8A!important; font-style: normal; font-weight: bold;}
+:is(html[class~=light] .dark\:nx-text-blue-200) p{color: #171717!important;}
+:is(html[class~=dark] .dark\:nx-text-blue-200) {color: #4278f6!important;}
+
+:is(html[class~=dark] .dark\:nx-text-orange-300 em){color: #D3B4ED!important; font-style: normal; font-weight: bold;}
+:is(html[class~=dark] .dark\:nx-text-orange-300){background-color: #be48fe30!important; border-color: #D3B4ED!important; color:#D3B4ED!important; }
+:is(html[class~=dark] .dark\:nx-text-orange-300) p{color: #DADADA!important;}
+
+:is(html[class~=light] .dark\:nx-text-orange-300 em){color: #5F2D84!important; font-style: normal; font-weight: bold;}
+:is(html[class~=light] .dark\:nx-text-orange-300){background-color: #efe5f7!important; border-color: #D3B4ED!important; color:#5F2D84!important; }
+:is(html[class~=light] .dark\:nx-text-orange-300) p{color: #171717!important;}

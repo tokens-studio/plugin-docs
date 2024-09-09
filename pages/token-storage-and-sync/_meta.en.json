@@ -1,0 +1,21 @@
+{
+  "sync-provider-overview": "Sync your Design Tokens with code",
+  "sync-provider-local-document": "Local document Token storage",
+  "sync-provider-add": "Add new sync provider", 
+  "sync-provider-edit": "Edit a sync provider ",
+  "sync-provider-azure-devops": "Azure DevOps", 
+  "sync-provider-bitbucket": "Bitbucket", 
+  "sync-provider-generic-versioned": "Generic Versioned Storage", 
+  "sync-provider-github": "GitHub", 
+  "sync-provider-gitlab": "Gitlab", 
+  "sync-provider-jsonbin": "JSONBin", 
+  "sync-provider-supernova": "Supernova", 
+  "sync-provider-tokens-studio": "Tokens Studio (beta)", 
+  "sync-provider-url": "URL", 
+  "sync-multi-file-remote-storage-folder-pro": "Multi-file sync (pro)", 
+  "sync-provider-remove": "Remove sync provider", 
+  "sync-provider-select-from-list": "Change active sync provider", 
+  "sync-push-pull-changes": "Push and pull Token changes", 
+  "sync-branch-pro": "Branching (pro)"
+  
+}

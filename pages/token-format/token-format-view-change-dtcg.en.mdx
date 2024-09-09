@@ -1,0 +1,109 @@
+![](/token-format/token-format.png)
+# Token formats W3C DTCG vs Legacy
+In support of moving towards the [W3C Specifications for Design Tokens](https://tr.designtokens.org/format/), as managed by the Design Tokens Community Group (DTCG), you can choose a design token format (how tokens are written in their JSON files):
+- Current Tokens Studio "legacy" format
+- W3C DTCG spec format
+
+## What's the difference?
+The DTCG format prefixes the properties of a design token in the JSON file with the dollar sign (`$`)
+- `$value`
+- `$type`
+- `$description`
+
+Restrictions of special characters in token names are introduced to support this:
+- `{` 
+- `}`
+- `$`
+
+When creating token names with these characters, an error message appears, and the action is blocked.
+
+Note:
+- The DTCG specifies additional token types and their accepted values, which we will support in future releases.
+## In the plugin
+The choice of token format can be made for tokens stored:
+- Local (in file only)
+- Remote (sync to git providers)
+    - Different branches can have different formats.
+
+You can select a token format in two locations:
+- Plugin settings > sync/storage providers
+- Clicking the DTCG icon at the footer of the plugin
+    - Only visible when synced to external storage
+
+### Settings page
+On the plugin's settings page, you can see the **Token Format** being used in your file next to your token storage provider.
+- The default is `legacy format`
+- When you make the switch, you'll see `W3C DTCG format`
+
+#### Tokens stored on the local document
+If your tokens are stored locally in the Figma file (no external storage or sync providers), the **Token format action** is to the right of the **local document** option:
+
+#### Tokens stored externally
+When your tokens are stored externally via **Sync providers** the **token format** for the active sync provider will show.
+
+The **token format** for other sync providers will be hidden.
+
+### Plugin sync actions
+When synced to external storage, the current **token format** also appears at the bottom of the plugin alongside the other **Sync provider actions**. 
+
+It's possible for different branches of a sync provider to have different token formats, so you can **select** the **Token format icon button** to switch formats if needed. 
+
+[→ Learn more about the Branch Switching (pro) feature](/token-storage-and-sync/sync-branch-pro)
+
+#### When you change formats:
+Select the **Token format indicator** to start the process of changing formats. 
+- A **token format modal** appears to explain the process.
+- **Confirm** your decision to switch formats. 
+- The plugin will convert your token JSON files to the format of your choice. 
+
+#### If you are syncing to a remote storage provider
+If you have unsaved changes that need to be sent to your **Sync Provider**, the plugin will prompt you to **push changes** so you don't lose your work. 
+
+The plugin will convert your token JSON files to the format of your choice. 
+- A **new branch** is automatically created for you with updated JSON files.
+- The **push changes** modal will open.
+- A pre-filled **commit message** is added to help your engineers know what to do when they receive your changes. 
+- Follow the prompts in the plugin to **push changes** to your sync provider. 
+
+You can change between the W3C DTCG and Legacy token formats at any time by following the steps above. 
+
+## Transforming Tokens
+Engineers typically transform tokens used in code with [Style Dictionary](https://styledictionary.com/), which is tool-agnostic. Tokens coming from Tokens Studio require an additional step: [@tokens-studio/sd-transforms](https://www.npmjs.com/package/@tokens-studio/sd-transforms), an npm package that prepares tokens for Style Dictionary. 
+
+For each Token Type the SD-Transforms package will automatically convert the Tokens Studio specific Token Type to align with the DTCG Format Token Type where necessary. 
+
+→ [SD-Transforms Read-Me Doc, Using the preprocessor](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-the-preprocessor)
+
+[→ Jump to the Token Type Overview for more details](/token-storage-and-sync/sync-provider-overview)
+
+When your design token format is set to `W3C DTCG Format` using the steps above, you'll need to configure Style Dictionary to support this. 
+
+→ [Style Dictionary V4 Utils - convertToDTCG](https://v4.styledictionary.com/reference/utils/dtcg/)
+
+## Resources
+Mentioned in this doc:
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms#readme)
+- Style Dictionary - https://styledictionary.com/
+- Style Dictionary - [convertToDTCG](https://v4.styledictionary.com/reference/utils/dtcg/)
+- Design Tokens Community Group - [W3C Draft](https://tr.designtokens.org/format/)
+
+Community resources:
+- None yet! 
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+Tokens Studio Plugin GitHub - [Open issues for Token Format](https://github.com/tokens-studio/figma-plugin/labels/Token%20Format)
+- Add empty line when writing to files (sync providers + local export) [#2970](https://github.com/tokens-studio/figma-plugin/issues/2970)
+
+Tokens Studio Plugin Github - [Open issues for W3C DTCG](https://github.com/tokens-studio/figma-plugin/labels/W3C%20DTCG)
+- Remove composition tokens [#2800](# Remove composition tokens #2800)
+- Change boxShadow values from x and y to offsetX and offsetY [#2052](https://github.com/tokens-studio/figma-plugin/issues/2052)
+- Allow description in token groups [#1811](https://github.com/tokens-studio/figma-plugin/issues/1811)
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- None 
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.

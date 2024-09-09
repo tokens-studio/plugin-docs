@@ -16,7 +16,7 @@ html {
   color: #ffffff !important;
 }
 
-.dark body, .dark .nx-sticky{background-color: #1e1e1e !important;}
+.dark body, .dark .nx-sticky, .dark .dark\:bg-dark{background-color: #1e1e1e !important;}
 
 ul.nx-mt-6, article ul {margin-top: 0rem!important;}
 p.nx-mt-6 {margin-top: 1rem;}

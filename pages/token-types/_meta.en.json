@@ -5,7 +5,7 @@
   "token-type-border-composite": "Border (composite)",
   "token-type-border-radius": "Border Radius",
   "token-type-border-width": "Border Width ",
-  "token-type-box-shadow": "Box Shadow (composite)",
+  "token-type-box-shadow-composite": "Box Shadow (composite)",
   "token-type-color": "Color",
   "token-type-colorgradient": "Gradient Color",
   "token-type-color-modifiers-pro": "Color Modifiers (pro)",

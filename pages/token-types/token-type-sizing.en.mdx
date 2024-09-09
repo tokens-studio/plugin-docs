@@ -1,0 +1,143 @@
+# Sizing Token 
+The **Sizing Toke**n was one of the first token types we supported in the plugin. 
+
+Since then, a lot has changed. 
+
+The Design Tokens Community Group hosts a token specification on the W3C community group pages for web standards. Although it's in draft form, the tools and technologies working with Design Tokens are trying to align with the W3C DTCG specification. 
+
+The W3C DTCG specification does not recognize **Sizing** as an ['official token type'](https://tr.designtokens.org/format/#types) and instead has defined [**Dimension Token**](/token-types/token-type-dimension) as the preferred token for size-related design decisions.
+
+If we want to fully align with the spec, it requires Tokens Studio to phase out the **Sizing Token**. 
+
+However, we believe the choice should be yours!
+- If aligning with the W3C DTCG spec is important to your project, we suggest using [Dimension Tokens](/token-types/token-type-dimension) instead.
+
+import { Callout } from 'nextra/components'
+
+<Callout type="info" emoji="✦">
+There is no immediate plan to discontinue support of the **Sizing Token**.
+We want to build a thoughtful solution to help Tokens Studio users migrate from these *'legacy token types'* to **Dimension Token** if that time comes. 
+</Callout>
+
+→ [If you love **Sizing Tokens** and want to make your voice heard, we've set up a forum in Featurebase where you can leave your comments!!](https://feedback.tokens.studio/p/w3c-dtcg-feedback)
+
+## Design decisions defined by Sizing Tokens
+The **Sizing Token** defines the height or width of a design element. 
+
+**Sizing Tokens** can be attached to Number Variables in Figma. 
+
+→ [Jump to the Export to Figma overview for more details on Sizing Tokens as Variables](/variables/creating-variables)
+
+## Design properties
+A **Sizing Token** can be used to define several different size-related design properties.
+- You choose which side of the element you want to apply the token to by **right-clicking on the token** to see your options. 
+	- If you click to apply this token to an element without accessing the right-click token menu, size will be applied to **all** sides. 
+
+*The following sections appear in the order of the **Sizing Token** menu.* 
+
+### All
+The **All property** applies the same size value to both the width and height of an element.
+
+### Width
+The **Width property** defines the horizontal size of an element.
+
+### Height 
+The **Height property** defines the vertical size of an element.
+
+### Min width 
+The **Min width property** defines the smallest allowed horizontal size of an element but allows a larger size
+- It only works on Figma's auto-layout frame elements. 
+
+### Max width 
+The **Max width property** defines the largest allowed horizontal size of an element but allows a smaller size
+- It only works on Figma's auto-layout frame elements. 
+
+### Min height 
+The **Min height property** defines the smallest allowed horizontal size of an element but allows a larger size
+- It only works on Figma's auto-layout frame elements. 
+
+### Max height 
+The **Max height property** defines the largest allowed horizontal size of an element but allows a smaller size
+- It only works on Figma's auto-layout frame elements. 
+
+## Possible values
+The **Sizing Token** supports numeric values:
+- With or without a unit
+- Negative values
+
+### Hard-coded values
+When writing the hard-coded values for a **Sizing Token** you'll want to:
+- Avoid spaces
+
+For example:
+```
+1rem
+```
+
+#### Rem Units
+To support responsive design, you can define your **Sizing Token** in `rem units`, and the plugin automatically converts the value to the pixel equivalent. 
+ - For example, a **Sizing Token** with a value of `2rem` will appear as a `32px` in Figma.
+ 
+**Rem Units** act as a multiplier of the **base font size**, so when a user changes their preferences to a larger font size or uses a zoom feature in your product, elements defined in **rem units** will respond accordingly. 
+
+The value of `1rem` can be configured in the plugin **Settings** for **Base Font Size**.
+
+→ [Read the guide on Base Font Size in the plugin](/tokens/settings#base-font-size)
+
+### Values that reference another Token
+When trying to **reference another Token as the Value** for a Sizing Token, you will see
+- Tokens living in **Token Sets that are currently active**.
+	- In the left menu on the plugin's **Tokens page**, a checkmark is visible next to the **Token Set name**. 
+- **Token Type** is compatible:
+	- The same = `sizing`
+	- `number`
+	- `dimension`
+
+However, like all token types, you can "force" a reference by manually entering the token name between curly brackets.
+
+<Callout type="info" emoji="✦">
+The value will show a broken reference until the originating token set is marked as enabled.
+</Callout>
+
+→ [Jump to the Token Values with References guide for more details](/variables/references)
+
+### Values with math equations
+All token types that accept numeric values can also accept math equations. 
+
+→ [Read the guide on Tokens with Math Values for more details.](/tokens/using-math)
+
+## Transforming Tokens
+Engineers typically transform tokens used in code with [Style Dictionary](https://styledictionary.com/), which is tool-agnostic. Tokens coming from Tokens Studio require an additional step: [@tokens-studio/sd-transforms](https://www.npmjs.com/package/@tokens-studio/sd-transforms), an npm package that prepares tokens for Style Dictionary. 
+
+When transforming Sizing Tokens, there are some specific configurations to be aware of. 
+
+The preprocessor in the SD-Transforms package will automatically convert the Tokens Studio specific Token Type of `sizing` to align with the DTCG Format Token Type of `dimension`. 
+
+→ [SD-Transforms Read-Me Doc, Using the preprocessor](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-the-preprocessor)
+
+**Token Values** entered as a number without a unit will be converted to a number with pixels as a unit.
+
+→ [SD-Transforms Read-Me Doc, ts/size/px](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#tssizepx)
+
+## Resources
+Mentioned in this doc:
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms)
+- Style Dictionary - [Read Me](https://amzn.github.io/style-dictionary/#/)
+- Design Tokens Community Group - [W3C Draft](https://tr.designtokens.org/format/)
+- Design Tokens Community Group - [8.0 Types](https://tr.designtokens.org/format/#types)
+
+Community resources:
+- None yet! 
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+Tokens Studio Plugin GitHub - [Open issues for Token Type Sizing](https://github.com/tokens-studio/figma-plugin/labels/token%20type%20sizing)
+- Deselecting The "All" Property In Spacing Tokens Removes Other Spacing Tokens [#2377](https://github.com/tokens-studio/figma-plugin/issues/2377)
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- None 
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.

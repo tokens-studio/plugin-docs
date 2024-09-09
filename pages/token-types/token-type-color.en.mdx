@@ -1,0 +1,241 @@
+![](/token-types/header-token-type-color.png)
+
+# Color Token
+ **Color Tokens** support color properties applied to many different design elements, including:
+- Containers like frames, groups, and shapes
+- Text 
+- Graphic elements
+
+![](/token-types/tokens-color-form-empty-2-01.png)
+
+## Design decisions defined by Color Tokens
+ **Color Tokens** define the visibility and emphasis of design elements, ensuring we can read text easily, see the difference between objects in the background and foreground, and help us identify what we should pay attention to. 
+
+This doesn't quite match the [CSS definition for color](https://developer.mozilla.org/en-US/docs/Web/CSS/color), which focuses on the foreground color of text elements specifically. 
+- Many of the properties supported by this token are individually defined in CSS. 
+
+ **Color Tokens** can be used to define these design properties:
+- Fill color
+- Border color
+- Shadow color
+
+You can also create Color Styles and Color Variables in Figma from **Color Tokens**
+
+→ [Read the Export to Figma guide for more details](/variables/creating-variables)
+
+## Design properties
+A **Color Token** can define the **fill** or **border** color of a design element. 
+- You choose which property to apply by **right-clicking on the token** to see your options. 
+	- If you click to apply this token to an element without accessing the right-click token menu, the color property will be applied as **fill** by default. 
+
+![](/token-types/tokens-color-rightClick-all-V2-01.png)
+
+### 1. All 
+**All** applies the same border properties to all sides of the element.
+
+### 2. Top
+**Top** applies the border property to the highest side of the element on the X-axis.
+
+## Possible values
+Depending on how you write the value of your **Color Tokens** you can achieve:
+- **Solid color**
+	- Values written with full opacity
+	- For example, a Hex color that is black `#000000`
+- **Reduced opacity**
+	- Values written with reduced opacity
+	- For example, an RGBA color that is black at 10% opacity `rgba(0,0,0,0.1)`
+- **Gradients**
+	- Multiple color values with their position, direction, and angle defined
+	- → [Read the Gradients guide.](/token-types/token-type-colorgradient)  
+- **Modified colors** (pro feature)
+	- Adjusting the value of a **base color** using a specific operation, like lighten or darken.
+	- → [Read the Color Modifiers guide](/token-types/token-type-color-modifiers-pro)   
+
+### Color spaces 
+Using the plugin for Figma, you can define your **Color Tokens** in the following color spaces: 
+- **Solid colors**
+	- Hex: `#ff0000`
+	- RGB: `rgb(255, 0, 0)`
+- **Reduced opacity with alpha values**
+	- RGBA: `rgba(255, 0, 0, 1)`
+	- ARGB: `#80FFFF00` (also known as Hex8)
+	- HSLA: `hsla(120, 50%, 50%, 1)
+- **Modified colors** - Pro feature
+	- LCH
+	- SRGB
+	- P3
+	- HSL
+
+When you create a **Color Token** using a color space that is `not Hex`, the plugin will resolve the color to the equivalent Hex value. This is based on restrictions of the [current W3C DTCG specification](https://tr.designtokens.org/format/#color) for Color Tokens.
+
+### Values that reference another Token
+When trying to **reference another Token as the Value** for a Color Token, you will see
+- Tokens living in **Token Sets that are currently active**.
+	- In the left menu on the plugin's **Tokens page**, a checkmark is visible next to the **Token Set name**. 
+- **Token Type** is compatible:
+	- The same = `color`
+
+However, like all token types, you can "force" a reference by manually entering the token name between curly brackets.
+
+import { Callout } from 'nextra/components'
+
+<Callout type="info" emoji="✦">
+ The value will show a broken reference until the originating token set is marked as enabled.
+</Callout>
+
+→ [Jump to the Token Values with References guide for more details](/variables/references)
+
+### Compatible Token types
+After you've created **Color Tokens**, they can be referenced in these compatible Token Types:
+- Color
+- [Box Shadow Composite Tokens](/token-types/token-type-box-shadow-composite)  
+- [Border Composite Tokens](/token-types/token-type-border-composite)  
+
+## Color picker
+Like all tokens in the plugin, you can **Create a Color Token** by opening its **Create New Token form** and defining the **Token Name and Value**. 
+
+However, **Color Tokens** can also be created using a **Color Picker**, accessible by selecting the **color swatch** to the left of the **Token Value Input**. 
+
+![](/token-types/tokens-color-picker-empty-2-01.png)
+
+You can also use the **Color Modifier** (pro feature) with the **Color Picker**. 
+
+## Reduced opacity (transparency)
+Defining the **Value** of your **Color Token** as `RGBA`, `HSLA` or `ARGB` allows you to use the **alpha value** built into these color spaces. 
+
+The alpha modifier adjusts the opacity of the color. 
+
+In `RGBA` and `HSLA` the **alpha value** is defined as a numeric value that represents a percentage of adjustment for fine-grained control of transparency. 
+- `0` = fully transparent (0%), making the color invisible
+- `0.5` = 50% opacity, making the color semi-transparent
+- `1` = fully opaque (100%)
+
+For example, if you want a **Color Token** that is black with a 25% opacity you would write the value of the token to be:
+```
+rgba(0,0,0,0.25)
+```
+or 
+```
+hsla(0, 0%, 0%, 0.25)
+```
+
+The `ARGB` format is sometimes called "Hex 8" by developers because it uses 8 hexadecimal digits: the first two digits represent the alpha (opacity) channel, and the next six digits represent the RGB color channels.
+
+If we were to write the same **Color Token** that is black with a 25% opacity in ARGB it's value would be:
+```
+#40000000
+```
+
+### Opacity with referenced Tokens
+You can reference an existing Token as a part of an RGBA or HSLA **Token Value** to create a reduced opacity version of that Token. 
+
+For example:
+```
+rgba({colors.grey.900}, 0.06)
+```
+Creates a new token which references the `grey.900` Token with only 6% opacity. 
+
+<Callout type="warning" emoji="✦">
+*Known issue*\
+ When the value of a Color Token with reduced opacity includes a reference to another Color Token which has reduced opacity, the resolved value is incorrect.
+</Callout>
+
+It's also possible to write your RGBA or HSLA **Token Value** by referencing a **Color Token** and a unitless **Number Token** in the value. 
+
+For example, a **Number Token** called `brand.opacity.border.default` with a value of `0.06` would be added to the example above:
+```
+rgba({colors.grey.900}, {brand.opacity.border.default})
+```
+
+<Callout type="warning" emoji="✦">
+*Known issue*\
+ When the value of a Color Token with reduced opacity includes a reference to an `opacity` Token instead of a `number` Token, the plugin may resolve the value correctly, when exporting to Figma or Code, there could be issues. 
+</Callout>
+
+Ensure you are using a unitless **Number Token**. The Opacity Token Type in the plugin is intended for layer visibility in Figma only, not for use in Color Tokens as a modifier. 
+
+→ [Read the Opacity Token Type guide for more details.](/token-types/token-type-opacity)  
+
+### Opacity in the color picker
+If you prefer a visual way to create reduced opacity **Color Tokens** you can open the **color picker** tool in the plugin (instructions above). 
+
+The **opacity** can be defined in the color picker by:
+- **Typing the alpha value** between 0 and 1 in the last input.
+- **Adjusting the second slider** which controls the alpha value. 
+
+## Modified colors (pro feature)
+The plugin supports creating dynamic colors by **modifying a base color** through the use of certain parameters:
+- Lighten
+- Darken
+- Mix
+- Alpha
+
+→ [Read the Color Modifiers guide for more details](/token-types/token-type-color-modifiers-pro)  
+
+## Gradients
+The plugin currently supports **Gradient Colors** within a **Color Token** by writing the value to [match CSS gradients](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images/Using_CSS_gradients). 
+
+→ [Read the Gradients guide for more detials](/token-types/token-type-colorgradient)  
+
+## Color Styles with Variable references
+**Color Tokens** can be **Exported to Figma** as  **Color Styles** that reference **Color Variables**. 
+
+Before you export your **Color Tokens** to Figma as styles, ensure your:
+- **Color Tokens** you want to export as Styles, have Values referencing another Color Token.  
+- **Color variables have been created** and are attached to the **Referenced Color Tokens**.
+
+When you **Export to Figma** as **Color Styles**, ensure:
+- The option for `Color styles` is selected.
+- The option for `Create styles with variable references` is selected.
+- Themes and token sets where the referenced Tokens are located are `active`.
+- Themes and token sets where the variables are attached may need to be configured as `reference only`. 
+
+![](/token-types/tokens-typography-color-stylesvar-ref-2-01.png)
+
+→ [Read the Export to Figma Styles with Variable References for more details and troubleshooting tips.](/variables/creating-variables)
+
+## W3C DTCG Token Format 
+Color is an official token type in the W3C DTCG specifications ([8.1 Color](https://tr.designtokens.org/format/#color)) which is currently being updated to define expanded support for additional color spaces. 
+
+→ [We'd love to hear your thoughts on this! Join the conversation on Featurebase.](https://tokensstudio.featurebase.app/)
+
+## Transforming Tokens
+Engineers typically transform Tokens used in code with [Style Dictionary](https://styledictionary.com/), which is tool-agnostic. Tokens coming from Tokens Studio require an additional step: [@Tokens-studio/sd-transforms](https://www.npmjs.com/package/@tokens-studio/sd-transforms), an npm package that prepares Tokens for Style Dictionary. 
+
+When transforming **Color Tokens** with gradient values, there are specific configurations to be aware of. 
+
+The SD-Transforms generic package will convert color token values with Figma's "hex code RGBA" into actual `rgba()` format for CSS. 
+
+→ [SD-Transforms Read-Me Doc, ts/color/css/hexrgba](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#tscolorcsshexrgba)
+
+## Resources
+Mentioned in this doc:
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms#readme)
+- Style Dictionary - https://styledictionary.com/
+- Design Tokens Community Group - [W3C Draft](https://tr.designtokens.org/format/)
+- Design Tokens Community Group - [8.1 Color](https://tr.designtokens.org/format/#color)
+
+Figma resources:
+- Design in Figma - [Paints in Figma](https://help.figma.com/hc/en-us/articles/360041003694-Paints-in-Figma)
+- Design in Figma - [The difference between variables and styles](https://help.figma.com/hc/en-us/articles/15871097384471-The-difference-between-variables-and-styles)
+
+CSS resources:
+- MDN Web Docs - [color](https://developer.mozilla.org/en-US/docs/Web/CSS/color)
+
+Community resources:
+- [Nate Baldwin's]([https://natebaldw.in](https://natebaldw.in/))  + Adobe - [Leonardo color tool with design token export](https://leonardocolor.io/#)
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+Tokens Studio Plugin GitHub - [Open issues for Token Type Color](https://github.com/tokens-studio/figma-plugin/labels/token%20type%20color)
+- Referencing a (base+opacity) and adding another opacity to that, doesn't give the correct result [#1822](https://github.com/tokens-studio/figma-plugin/issues/1822)
+	- When the value of a Color Token with reduced opacity includes a reference to another Color Token which has reduced opacity, the resolved value is incorrect. 
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- Expanded support for color spaces - [Feature Request](https://feedback.tokens.studio/p/expanded-support-for-color-spaces)
+- JSON Enhancements for color tokens and theming - [Feature Request](https://feedback.tokens.studio/p/json-enhancements-for-color-tokens)
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.

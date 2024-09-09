@@ -1,0 +1,172 @@
+![](/token-types/header-token-type-borderradius.png)
+# Border Radius Token 
+The **Border Radius Token** was one of the first token types we supported in the plugin. 
+
+Since then, a lot has changed. 
+
+The Design Tokens Community Group hosts a token specification on the W3C community group pages for web standards. Although it's in draft form, the tools and technologies working with Design Tokens are trying to align with the W3C DTCG specification. 
+
+The W3C DTCG specification does not recognize **Border Radius** as an ['official token type'](https://tr.designtokens.org/format/#types) and instead has defined [**Dimension Tokens**](/token-types/token-type-dimension) as the preferred token for size-related design decisions.
+
+If we want to fully align with the spec, it requires Tokens Studio to phase out the **Border Radius Token**. 
+
+However, we believe the choice should be yours!
+- [If aligning with the W3C DTCG spec is important to your project, we suggest using Dimension Tokens instead.](/token-types/token-type-dimension)
+
+import { Callout } from 'nextra/components'
+
+<Callout type="info" emoji="✦">
+*There is no immediate plan to discontinue support of the **Border Radius Token**.*\
+We want to build a thoughtful solution to help Tokens Studio users migrate from these *'Unofficial Token Types'* to **Dimension Tokens** if that time comes. 
+</Callout>
+
+→ [If you love **Border Radius Tokens** and want to make your voice heard, we've set up a forum in Featurebase where you can leave your comments!!](https://feedback.tokens.studio/p/w3c-dtcg-feedback)
+
+## Design decisions defined by Border Radius Tokens
+The **Border Radius Token** defines the corner roundness of a design element, such as frames, groups, or polygonal shapes.
+
+![](/token-types/tokens-borderRadius-form-empty-2-01.png)
+
+**Border Radius Tokens** can be attached to Number Variables in Figma. 
+
+[→ Jump to the Export to Figma overview for more details on Sizing Tokens as Variables
+
+## Design properties
+A **Border Radius Token** can be used to define each corner of the design element independently.
+- You choose which side of the element you want to apply the token to by **right-clicking on the token** to see your options. 
+	- If you click to apply this token to an element without accessing the right-click token menu, the border radius will be applied to **all** sides. 
+
+*The following sections appear in the order of the **Border Radius Token** menu.* 
+
+![](/token-types/tokens-borderRadius-rightClick-all-V2-01.png)
+
+### 1. All 
+The **All property** rounds the corner of all sides of an element by the same value.
+
+### 2. Top left
+The **Top Left property** rounds the top-left corner of an element.
+
+### 3. Top Right
+The **Top Right property** rounds the top-right corner of an element.
+
+### 4. Bottom Right
+The **Bottom Right property** rounds the bottom-right corner of an element.
+
+### 5. Bottom Left
+The **Bottom Left property** rounds the bottom-left corner of an element.
+
+## Possible values
+The **Border Radius Token** supports numeric values:
+- With or without a unit
+- Multiple values
+
+### Hard-coded values
+When writing the hard-coded values for a **Border Radius Token** you'll want to:
+- Avoid spaces
+
+For example:
+```
+6px
+```
+
+#### Rem Units
+To support responsive design, you can define your **Border Radius Token** in `rem units`, and the plugin automatically converts the value to the pixel equivalent. 
+ - For example, a **Border Radius Token** with a value of `1rem` will appear as a `16px` corner radius in Figma.
+ 
+**Rem Units** act as a multiplier of the **base font size**, so when a user changes their preferences to a larger font size or uses a zoom feature in your product, elements defined in **rem units** will respond accordingly. 
+
+The value of `1rem` can be configured in the plugin **Settings** for **Base Font Size**.
+
+→ Read the guide on Base Font Size in the plugin
+
+### Values that reference another Token
+When trying to **reference another Token as the Value** for a Border Radius Token, you will see
+- Tokens living in **Token Sets that are currently active**.
+	- In the left menu on the plugin's **Tokens page**, a checkmark is visible next to the **Token Set name**. 
+- **Token Type** is compatible:
+	- The same = `borderRadius`
+	- `number`
+	- `dimension`
+
+However, like all token types, you can "force" a reference by manually entering the token name between curly brackets.
+
+<Callout type="info" emoji="✦">
+The value will show a broken reference until the originating token set is marked as enabled.
+</Callout>
+
+[→ Jump to the Token Values with References guide for more details](/variables/references)
+
+### Values with math equations
+All token types that accept numeric values can also accept math equations. 
+
+[→ Read the guide on Tokens with Math Values for more details.](/tokens/using-math)  
+
+### Multiple values
+You can define the value of a **Border Radius Token** to mimic how multi-value Border Radius properties are written in CSS. 
+
+When you **click to apply the token value** (without right-clicking), the plugin will apply the border radius based on the number of values in your token. 
+
+Single value  - For example, `10px`
+- Applies the value to **all corners**.
+
+Two values  - For example, `8px 64px`
+- The first value is applied to the radii on the top and bottom.
+- The second value is applied to the radii on the right and left.
+
+Three values  - For example, `16px 8px 32px`
+- The first value is applied to the radius on the top.
+- The second value is applied to the radii on the right and left.
+- The third value is applied to the radius on the bottom.
+
+Four values  - For example, `2px 4px 8px 16px`
+- The first value is applied to the radius on the top.
+- The second value is applied to the radius on the right.
+- The third value is applied to the radius on the bottom.
+- The fourth value is applied to the radius on the left. 
+
+You can also write multiple value **Border Radius Tokens** with references. For example, `{radius.sm} {radius.md}`.
+
+<Callout type="info" emoji="✦">
+*Figma does not support multiple value Variables*\
+If you export your Tokens to Variables in Figma, multiple value Tokens will be skipped, as Figma only supports single values.  
+[→ Read the Skipped Tokens when Exporting to Figma Variables guide for more details](/variables/creating-variables)
+</Callout>
+
+## Transforming Tokens
+Engineers typically transform Tokens used in code with [Style Dictionary](https://styledictionary.com/), which is tool-agnostic. Tokens coming from Tokens Studio require an additional step: [@Tokens-studio/sd-transforms](https://www.npmjs.com/package/@tokens-studio/sd-transforms), an npm package that prepares Tokens for Style Dictionary. 
+
+When transforming Border Radius Tokens, there are some specific configurations to be aware of. 
+
+The preprocessor in the SD-Transforms package will automatically convert the Tokens Studio specific Token Type of `borderRadius` to align with the DTCG Format Token Type of `dimension`. 
+
+→ [SD-Transforms Read-Me Doc, Using the preprocessor](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-the-preprocessor)
+
+
+**Token Values** entered as a number without a unit will be converted to a number with pixels as a unit.
+
+→ [SD-Transforms Read-Me Doc, ts/size/px](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#tssizepx)
+
+## Resources
+Mentioned in this doc:
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms#readme)
+- Style Dictionary - https://styledictionary.com/
+- Design Tokens Community Group - [W3C Draft](https://tr.designtokens.org/format/)
+- Design Tokens Community Group - [8.0 Types](https://tr.designtokens.org/format/#types)
+
+Figma resources:
+- Design in Figma - [Adjust corner radius and smoothing](https://help.figma.com/hc/en-us/articles/360050986854-Adjust-corner-radius-and-smoothing)
+
+Community resources:
+- None yet! 
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+### Known issues and bugs
+Tokens Studio Plugin GitHub - [Open issues for Token Type Border Radius](https://github.com/tokens-studio/figma-plugin/labels/token%20type%20border%20radius)
+- Color modifiers break when borderRadius token is renamed [#2668](https://github.com/tokens-studio/figma-plugin/issues/2668)
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- None 
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.

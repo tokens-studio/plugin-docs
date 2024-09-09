@@ -1,0 +1,198 @@
+![](/token-types/header-token-type-boxshadow.png)
+# Box Shadow Token
+We add elevation and depth to design elements by composing many shadow-related design decisions together. 
+
+**Box Shadow** is considered a ***Composite Token***.
+
+Each design decision (color, spread, blur, offeset) that is a part of the Composite Token is referred to as a **property** of the **Box Shadow Token** in our guides. 
+
+![](/token-types/tokens-boxShadow-form-empty-2-01.png)
+
+## Design decisions
+While the Token Name is specific to **Box Shadow**, this token supports **Inner Shadow** and **Drop Shadow** design decisions.
+
+Similar to how shadows are defined in [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow), you can combine multiple shadows in a single **Box Shadow Token**. 
+
+**Box Shadow Tokens** can be applied to text and container layers to define all shadow-related decisions in a single token. 
+
+Each property of the **Shadow** can be created to define an independent styling property and referenced within the **Box Shadow Composite Token**.
+- **X**
+	- The horizontal offset that shadow has from the element it is applied to can be defined by referencing a **Number or Dimension Token**
+- **Y**
+	- The vertical offset that shadow has from the element it is applied to can be defined by referencing a **Number or Dimension Token**
+- **Blur**
+	- The blur radius that is applied to the shadow can be defined by referencing a **Number or Dimension Token**
+- **Spread**
+	- The amount by which to expand or contract the shadow can be defined by referencing a **Number or Dimension Token**
+- **Color** 
+	- The color of the shadow can be defined by referencing a **Color Token**
+
+**Box Shadow Tokens** can be attached to Effect Styles in Figma. Tokens Studio also supports **Styles with Variable References**.
+
+→ [Read the Export to Figma overview for more details](/variables/creating-variables) 
+
+
+Looking for the **Blur Effect** in Figma? That's currently a property within our **Dimension Token**. 
+
+→ [Jump to the Dimension Token doc for more details on Blur Effect.](/token-types/token-type-dimension)  
+
+## Possible values
+Like all **Composite Tokens**, you define the value of each **property** individually. When you create the **Box Shadow Token** in the plugin, you can Reference each Token you've already created as a **property** in the **Composition Token** Value or enter a hard-coded value. 
+
+The best practice is to define all parts of a Composite Token, even with a `null/none` value, rather than to leave it empty.
+
+The independent **Token Type** of each **property** within the **Box Shadow Composite Token** has unique specifications. Select the Token Type below to get more details. 
+- [Number token](/token-types/token-type-number)  
+- [Dimension token](/token-types/token-type-dimension)  
+- [Color token](/token-types/token-type-color)  
+
+### Hard coded values
+In the plugin, use the UI button to select between `drop shadow` or `inner shadow`.
+
+The **Box Shadow** properties with numeric values will accept:
+- positive and negative numbers
+- decimal numbers
+- with or without units
+
+The color property is the same as the **Color Token** input which accepts modified colors, values from various color spaces, and the use of a color picker. 
+
+→ [Read the Color Token guide for more details](/token-types/token-type-color)  
+
+### Values that reference another Token
+If you'd prefer to reference an existing **Box Shadow Composite Token** as the value instead of defining each **Property**, select the Token's **Reference mode button** (2x2 circle icon).
+
+When trying to **reference another Token as the Value** for a Box Shadow Token, you will see:
+- Tokens living in **Token Sets that are currently active**.
+	- In the left menu on the plugin's **Tokens page**, a checkmark is visible next to the **Token Set name**. 
+- **Token Type** is compatible:
+	- `boxShadow`
+
+However, like all token types, you can "force" a reference by manually entering the token name between curly brackets.
+
+import { Callout } from 'nextra/components'
+
+<Callout type="info" emoji="✦">
+ The value will show a broken reference until the originating token set is marked as enabled.
+</Callout>
+
+→ [Jump to the Token Values with References guide for more details](/variables/references)
+
+### Multiple layers
+You can add another shadow layer to the current token by **selecting the plus icon button** in the Box Shadow Token form. 
+
+![](/token-types/tokens-boxShadow-form-multiple-V2-01.png)
+
+When you apply the token to your design element in the Figma UI, you will see multiple shadow effects applied, one for each shadow layer you created within your token. 
+
+When you export a multiple-layer shadow to Figma as a Style, you will see a single Effect Style applied, with multiple shadow effects within its value. 
+
+## Effect Styles with Variable references
+**Box Shadow Tokens** can be **Exported to Figma** as **Effect Styles** that reference **Color and Dimension Properties as Variables**. 
+
+Before you export your **Box Shadow Tokens** to Figma as styles, ensure:
+- Each property within the Box Shadow Tokens has a value referencing another Token. 
+
+When you **Export to Figma**, select these **Options** from the menu:
+- `Effect Styles` is selected. 
+- `Number` and `Color Variables` are selected. 
+- `Create styles with variable references` is selected.
+
+![](/token-types/tokens-boxShadow-stylesvar-ref-2-01-1.png)
+
+Ensure your Export to Figma as Themes or Sets configuration includes all necessary Tokens. 
+- Themes and token sets where the referenced Tokens are located are `active`.
+- Themes and token sets where the variables are attached may need to be configured as `reference only`. 
+
+You'll notice the Effect Style will be created on Export, with all possible values mapped to the appropriate Variables, based on the Token Type for each property:
+- `color` (will create as color variable)
+- `dimension` (number variable)
+- `number` (number variable)
+
+
+→ [Read the Export to Figma Styles with Variable References for more details and troubleshooting tips.](/variables/creating-variables)
+
+## Color Styles with Variable references
+**Box Shadow Tokens** can be **Exported to Figma** as  **Effect Styles** that reference **Color and Number Variables**. 
+
+Before you export your **Box Shadow Tokens** to Figma as styles, ensure your:
+- **Box Shadow Tokens** you want to export as Styles, have values which reference another Color or Number Token.  
+- **Color and Number variables have been created** and are attached to the **Tokens Referenced in the value**.
+
+When you **Export to Figma** as **Color Styles**, ensure:
+- The option for `Effects styles` is selected.
+- The option for `Create styles with variable references` is selected.
+- Themes and token sets where the referenced Tokens are located are `active`.
+
+![](/token-types/tokens-boxShadow-stylesvar-ref-2-01.png)
+
+→ [Read the Export to Figma Styles with Variable References for more details and troubleshooting tips.](/variables/creating-variables)
+
+
+## W3C DTCG Token Format 
+`shadow` is an official token type in the in the W3C Design Token Community Group specifications ([9.5 Shadow](https://second-editors-draft.tr.designtokens.org/format/#shadow)).
+
+The plugin had **Box Shadow** support long before the spec defined the `shadow` token, and as a result, we have some legacy decisions which do not completely align with the DTCG spec. 
+- We write the `type` as `BoxShadow` where the spec writes it as `shadow`.
+	- When you run the SD-Transforms npm package we will adjust this automatically to match the specification, details below. 
+- The plugin currently supports **Number Tokens** in numeric value properties.
+	- The spec requires dimension values only.
+
+## Transforming Tokens
+Engineers typically transform Tokens used in code with [Style Dictionary](https://styledictionary.com/), which is tool-agnostic. Tokens coming from Tokens Studio require an additional step: [@Tokens-studio/sd-transforms](https://www.npmjs.com/package/@tokens-studio/sd-transforms), an npm package that prepares Tokens for Style Dictionary. 
+
+When transforming **Box Shadow Tokens**, which are a **Composite Token** there are specific configurations to be aware of. 
+
+**Composite Tokens** require the SD-Transforms option to `expand composite Tokens into multiple Tokens`. 
+
+Make sure you look at the generic SD-Transforms package to include this option, which allows you to further customize this transformation further using Style Dictionary. 
+
+→ [SD-Transforms Read-Me Doc, Using Expand](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-expand)
+
+<Callout type="info" emoji="✦">
+ When you transform your Box Shadow Tokens and they show `"object, object"`, it means your SD-Transforms configuration needs to be adjusted to include `"expand"`.
+</Callout>
+
+The preprocessor in the SD-Transforms package will automatically convert the Tokens Studio specific Token Type of `boxShadow` to align with the DTCG Format Token Type of `shadow`. 
+
+→ [SD-Transforms Read-Me Doc, Using the preprocessor](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-the-preprocessor)
+
+
+The `innerShadow` properties need to be transformed to `inset` to be CSS compatible. 
+
+[→ SD-Transforms ts/shadow/innerShadow](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#tsshadowinnershadow)
+
+## Resources
+Mentioned in this doc:
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms#readme)
+- Style Dictionary - https://styledictionary.com/
+- Design Tokens Community Group - [W3C Draft](https://tr.designtokens.org/format/)
+- Design Tokens Community Group - [9.5 Shadow](https://second-editors-draft.tr.designtokens.org/format/#shadow)
+
+Figma resources:
+- Design in Figma - [Shadow or Blur Effects](https://help.figma.com/hc/en-us/articles/360041488473-Apply-shadow-or-blur-effects)
+
+CSS resources:
+- MDN Web Docs - [Box Shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow)
+
+Community resources:
+- None yet! 
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+Tokens Studio Plugin GitHub - [Open issues for Token Type Box Shadow](https://github.com/tokens-studio/figma-plugin/labels/token%20type%20box%20shadow)
+- Importing shadow styles causes the order of shadows to be reversed [#2979](https://github.com/tokens-studio/figma-plugin/issues/2979)
+- TokenDropdown collides in Color input of box shadows [#2796](https://github.com/tokens-studio/figma-plugin/issues/2796)
+	- UI issue where the dropdown menu needs repositioning. 
+- Multiple shadows in Box Shadow tokens - [array bug #2280](https://github.com/tokens-studio/figma-plugin/issues/2280)
+	- Removing one shadow from a Token with many shadows combined does not remove the deleted shadow from the array in the JSON file. 
+
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- Change boxShadow values from x and y to offsetX and offsetY[ #2052](https://github.com/tokens-studio/figma-plugin/issues/2052)
+	- Alignment with the W3C DTCG format for `shadow` token type
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.
+

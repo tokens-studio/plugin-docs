@@ -1,0 +1,85 @@
+![](/token-types/header-token-type-boolean.png)
+# Boolean Token
+The Boolean Token allows you to capture layer visibility as a Design Token. It does not control component properties, as Figma doesn't allow it. 
+
+![](/token-types/tokens-boolean-form-empty-2-01.png)
+
+## Design decisions defined by Boolean Tokens
+Boolean Tokens are great for hiding or showing layers that may be visible within a component under certain conditions. 
+
+For example, a card with some actions that are only visible once the card has been interacted with. 
+- You could create two Boolean Tokens:
+	- `card.show-actions.default` with a value as `false`.
+	- `card.show-actions.interaction` with values as `true`.
+- Then, apply the Boolean Tokens to the Actions layer of each variation of the card design. 
+
+**Boolean Tokens** can be attached to Boolean Variables in Figma. 
+
+[→ Jump to the Export to Figma overview for more details on Boolean Tokens as Variables](/variables/creating-variables)
+
+## Possible values
+The use of capital letters and spaces is important when writing string values for Design Tokens, so be sure to write your **Boolean Token value** with:
+- All lowercase letters.
+- No spaces.
+
+### Hardcoded string values
+There are only two possible values for the Boolean Token:
+- `true`
+	- The layer is visible.
+- `false`
+	- The layer is not visible.
+
+### Values that reference another Token
+When trying to **reference another Token as the Value** for a Boolean Token, you will see
+- Tokens living in **Token Sets that are currently active**.
+	- In the left menu on the plugin's **Tokens page**, a checkmark is visible next to the **Token Set name**. 
+- **Token Type** is compatible:
+	- The same = `boolean`
+
+However, like all Token types, you can "force" a reference by manually entering the Token name between curly brackets.
+
+import { Callout } from 'nextra/components'
+
+<Callout type="info" emoji="✦">
+ The value will show a broken reference until the originating Token set is marked as enabled.
+</Callout>
+
+[→ Jump to the Token Values with References guide for more details](/variables/references)
+
+## W3C DTCG Token Format 
+`boolean` is not yet an official Token Type in the W3C DTCG specifications. Tokens Studio has added Boolean as a Token Type to support Figma's Boolean Variable. 
+
+## Transforming Tokens
+Engineers typically transform Tokens used in code with [Style Dictionary](https://styledictionary.com/), which is tool-agnostic. Tokens coming from Tokens Studio require an additional step: [@Tokens-studio/sd-transforms](https://www.npmjs.com/package/@tokens-studio/sd-transforms), an npm package that prepares Tokens for Style Dictionary. 
+
+When transforming **Boolean Tokens**, there are no specific configurations to be aware of. Running the SD-Transforms pre-processor as part of the generic package will prep your Boolean Tokens for Style Dictionary. 
+
+→ [SD-Transforms Read-Me Doc, Using the preprocessor](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-the-preprocessor)
+
+## Resources
+Mentioned in this doc:
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms#readme)
+- Style Dictionary - https://styledictionary.com/
+- Design Tokens Community Group - [W3C Draft](https://tr.designtokens.org/format/)
+
+Figma resources:
+- Design in Figma - [Apply variables to designs, boolean](https://help.figma.com/hc/en-us/articles/15343107263511-Apply-variables-to-designs#h_01HGTTAWSSJ68PBT6CAGJ272PF)
+
+CSS resources:
+- MDN Web Docs - [Visibility](https://developer.mozilla.org/en-US/docs/Web/CSS/visibility)
+
+Community resources:
+- None yet! 
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+Tokens Studio Plugin GitHub - [Open issues for Token Type Boolean](https://github.com/tokens-studio/figma-plugin/labels/token%20type%20boolean)
+- None yet
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- None 
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.

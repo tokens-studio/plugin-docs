@@ -1,0 +1,120 @@
+![](/token-types/header-token-type-textDeco.png)
+# Text Decoration Token 
+**Text Decoration** is not intended to be applied to text elements directly but as a part of a [**Typography Composite Token**](/token-types/token-type-typography-composite)
+
+## Design decisions defined by Text Decoration Tokens
+**Text Decoration** defines an optional line as a part of font styling properties, typically used to communicate the visual emphasis of text. 
+
+In [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration), this property is called `text-decoration`.
+
+![](/token-types/tokens-textDecoration-form-empty-2-01.png)
+
+When we apply a **Typography Composite Token** to a text layer in Figma, these **Text Decoration** values will change the text:
+- By default - no lines are added to the text - `null`
+	- The text appears as typed with no decoration added.
+- A line below the text - `underline`
+	- It commonly indicates interactive text elements, like links.
+- A line in the middle of the text - `strike-through` 
+	- It commonly indicates information that is no longer accurate, like a to-do item that has been completed.
+
+## Possible values
+The value of a **Text Decoration Token** must be identical to the text string value for Font Family in the Figma design panel due to limitations from Figma (plugin API). 
+
+When writing the value of a **Text Decoration Token**, pay close attention to:
+- Spelling
+- Spacing
+- Punctuation
+- Use of capital letters
+
+### Hard-coded values
+The **Text Decoration Token** has a few specific values depending on your needs.
+#### null
+Most of the time, text will appear as typed; the Text Decoration Value will be:
+```
+null
+```
+
+#### underline
+To create a line at the bottom of the text, enter the Text Decoration Value as:
+```
+underline
+```
+
+#### strike-through
+To create a line through the centre of the text, enter the Text Decoration Value as:
+```
+strike-through
+```
+
+#### Not supported by Figma
+There are additional `text-decoration` properties commonly used in CSS that are not supported in Figma. 
+- Overline
+- Line-above
+
+Using the Tokens Studio plugin, you can still create a **Text Decoration Token** with these values. 
+
+When you apply them to design elements in Figma, the Token will be present and visible to engineers inspecting the design element in Figma, but the Token won't interact with the Text decoration property in Figma's UI. 
+
+### Values that reference another Token
+When trying to **reference another Token as the Value** for a Line Height Token, you will see
+- Tokens living in **Token Sets that are currently active**.
+	- In the left menu on the plugin's **Tokens page**, a checkmark is visible next to the **Token Set name**. 
+- **Token Type** is compatible:
+	- The same = `textDecoration`
+
+However, like all Token types, you can "force" a reference by manually entering the Token name between curly brackets.
+
+import { Callout } from 'nextra/components'
+
+<Callout type="info" emoji="✦">
+The value will show a broken reference until the originating Token set is marked as enabled.
+</Callout>
+
+→ [Jump to the Token Values with References guide for more details](/variables/references)
+
+## W3C DTCG Token Format 
+**Text Decoration** is not yet an official Token type in the W3C Design Token Community Group specifications.
+
+Tokens Studio has added **Text Decoration** as a Token type in anticipation it will be added to the W3C specs in the near future. 
+
+## Transforming Tokens
+Engineers typically transform Tokens used in code with [Style Dictionary](https://styledictionary.com/), which is tool-agnostic. Tokens coming from Tokens Studio require an additional step: [@Tokens-studio/sd-transforms](https://www.npmjs.com/package/@tokens-studio/sd-transforms), an npm package that prepares Tokens for Style Dictionary. 
+
+This property in Figma matches CSS, so there is no specific transform for Text Decoration. 
+
+However, **Text Decoration**, as part of **Typography Composite Tokens**, requires the SD-Transforms option to `expand composite Tokens into multiple Tokens`. 
+
+Make sure you look at the generic SD-Transforms package to include this option, which allows you to further customize this transformation further using Style Dictionary. 
+
+→ [SD-Transforms Read-Me Doc, Using the preprocessor](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-the-preprocessor)
+→ [SD-Transforms Read-Me Doc, Using Expand](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-expand)
+
+
+## Resources
+Mentioned in this doc:
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms#readme)
+- Style Dictionary - https://styledictionary.com/
+- Design Tokens Community Group - [W3C Draft](https://tr.designTokens.org/format/)
+- Design Tokens Community Group - [9.7 Typography](ttps://tr.designTokens.org/format/#typography)
+
+Figma resources:
+- Design in Figma - [Explore Text Properties, Decoration](https://help.figma.com/hc/en-us/articles/360039956634-Explore-text-properties#decoration)
+
+CSS resources:
+- MDN Web Docs - [Text Decoration](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration)
+
+Community resources:
+- None yet! 
+
+💡 Something to share? [Submit it here!](https://feedback.Tokens.studio/)
+
+### Known issues and bugs
+Tokens Studio Plugin GitHub - [Open issues for Token Type Text Decoration](https://github.com/tokens-studio/figma-plugin/labels/token%20type%20text%20decoration)
+- None yet
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://Tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.Tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- None 
+
+💌 Visit https://feedback.Tokens.studio/ to contribute or subscribe to updates.

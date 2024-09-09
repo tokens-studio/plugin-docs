@@ -1,0 +1,82 @@
+![](/token-types/header-token-type-asset.png)
+# Asset Token
+The **Asset Token** captures the location of images, icons, and other visual content within your design system as a Token. 
+
+![](/token-types/tokens-asset-form-empty-2-01.png)
+
+## Design decisions defined by Asset Tokens
+When you define your assets as Design Tokens, it becomes easier to maintain consistency across several design elements where the asset appears. 
+
+When the Asset Token is applied to a compatible design element, the asset will fill the layer. 
+
+For example, a product photo across several pages on a marketing website. 
+
+When it comes time to change your assets, you can update the Asset Token in the plugin and apply the changes across your entire design system with just a couple of clicks. 
+
+## Possible Values
+An Asset Token can reference any URL or path to an asset file, such as:
+- URLs pointing to images or icons hosted online.
+- Local file paths if working within a local environment.
+
+The image source needs to have its own CORS (Cross-Origin Resource Sharing) validation. 
+- Some websites already have that implemented (e.g. Unsplash).
+- You can put your images behind a CORS proxy if needed.
+
+→ More information on CORS can be found [here](https://medium.com/nodejsmadeeasy/a-simple-cors-proxy-for-javascript-applications-9b36a8d39c51). 
+
+### Values that reference another Token
+When trying to **reference another Token as the Value** for an Asset Token, you will see
+- Tokens living in **Token Sets that are currently active**.
+	- In the left menu on the plugin's **Tokens page**, a checkmark is visible next to the **Token Set name**. 
+- **Token Type** is compatible:
+	- The same = `asset`
+
+However, like all token types, you can "force" a reference by manually entering the token name between curly brackets.
+
+import { Callout } from 'nextra/components'
+
+<Callout type="info" emoji="✦">
+ The value will show a broken reference until the originating token set is marked as enabled.
+</Callout>
+
+[→ Jump to the Token Values with References guide for more details](/variables/references)
+
+## W3C DTCG Token Format
+`Asset` is not yet an official Token Type in the W3C DTCG specifications, but there is mention of a 'File' Token Type under consideration ([8.8 Additional Types](https://tr.designtokens.org/format/#additional-types))
+
+## Transforming Tokens
+Engineers typically transform Tokens used in code with [Style Dictionary](https://styledictionary.com/), which is tool-agnostic. Tokens coming from Tokens Studio require an additional step: [@Tokens-studio/sd-transforms](https://www.npmjs.com/package/@tokens-studio/sd-transforms), an npm package that prepares Tokens for Style Dictionary. 
+
+When transforming **Asset Tokens**, there are no specific configurations to be aware of. Running the SD-Transforms pre-processor as part of the generic package will prep your Asset Tokens for Style Dictionary. 
+
+→ [SD-Transforms Read-Me Doc, Using the preprocessor](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-the-preprocessor)
+
+## Resources
+Mentioned in this doc:
+- CORS information - [Medium Article, Sandeep - NodejsMadeEasy](https://medium.com/nodejsmadeeasy/a-simple-cors-proxy-for-javascript-applications-9b36a8d39c51)
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms#readme)
+- Style Dictionary - https://styledictionary.com/
+- Design Tokens Community Group - [W3C Draft](https://tr.designtokens.org/format/)
+- Design Tokens Community Group - [8.8 Additional Token Types](https://tr.designtokens.org/format/#additional-types)
+
+Figma resources:
+- Design in Figma - [Working with images in Figma](https://www.figma.com/best-practices/working-with-images-in-figma/)
+- Design in Figma - [Adjust the properties of an asset](https://help.figma.com/hc/en-us/articles/360041098433-Adjust-the-properties-of-an-image)
+
+CSS resources:
+- MDN Web Docs - [Images](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images)
+
+Community resources:
+- [Katie Cooper]([www.katiecooper.co](http://www.katiecooper.co/)) demo's Asset Tokens during the How to Leverage Tokens Studio to level up your Design System presentation - [YouTube](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images)
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+Tokens Studio Plugin GitHub - [Open issues for Token Type Asset](https://github.com/tokens-studio/figma-plugin/labels/token%20type%20asset%20token)
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- Asset token enhancements (to include icons) - [Feature Request](https://feedback.tokens.studio/p/asset-token-enhancements) 
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.

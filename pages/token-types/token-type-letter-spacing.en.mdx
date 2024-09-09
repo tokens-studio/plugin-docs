@@ -1,0 +1,167 @@
+![](/token-types/header-token-type-letter-spacing.png)
+
+# Letter Spacing Token
+**Letter Spacing** is not intended to be applied to text elements directly but as a part of a [**Typography Composite Token**.](/token-types/token-type-typography-composite)
+
+## Design decisions defined by Letter Spacing Tokens
+**Letter Spacing**, also known as kerning or tracking, defines the horizontal distance between individual characters/glyphs of a word or other strings of text. 
+
+In [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing) this property is called `letter-spacing`.
+
+**Letter Spacing** decisions are typically used to style text elements to improve readability and creatively express a product or brand's visual language. 
+
+![](/token-types/tokens-letterSpacing-form-empty-2-01.png)
+
+When we apply a **Typography Composite Token** to a text layer in Figma, these **Letter Spacing** values will change the text layer:
+- Default - `value is 0`
+	- By default, the system uses the value determined by the Font Family 
+- Characters/glyphs are closer together - `values less than 0`
+	- Example `-2%`
+		- Text styles with heavier and larger to "tighten" headlines and display text on a marketing website.
+- Characters/glyphs are farther apart - `values greater than 0`
+	- Example `1px`
+		- Text styles with lighter and smaller "relax" the account number and phone number in the settings page of a customer portal. 
+
+**Letter Spacing Tokens** can be attached to Number Variables in Figma. 
+
+→ [Jump to the Export to Figma overview for more details on Letter Spacing Tokens as Variables](/variables/creating-variables)
+
+## Possible values
+Like all Tokens defining a dimension design decision, the value of a **Letter Spacing** Token must include a numeric value and, ideally, a unit of measure. 
+
+Tokens without a unit specified are applied as the pixel equivalent in Figma. 
+
+### Hard-coded values
+When writing the hard-coded values for a **Letter Spacing** Token you'll want to:
+- Avoid spaces
+- Include a number and unit of measure
+	- Values without a unit will be translated to pixels in Figma
+
+#### percentage (%)
+[To scale the Letter Spacing relative to **Font Size** the **Line Spacing Token** value will be defined with a percentage to match Figma's unique approach to typography.](/token-types/token-type-font-size)
+
+When you enter the value of a **Letter Spacing Token** in percentage, the plugin will apply that percentage value in Figma's UI. 
+
+This is different from the way we would define this relationship in code. In CSS, we might enter this as a number in **em units**, which Figma does not support, but Tokens Studio has written a custom Token Transformation to help. 
+
+↓ See the Transforming Tokens section below for more details. 
+
+#### rem units (rem)
+To support responsive design, you can define your **Letter Spacing Token** in **rem units**, and the plugin automatically converts the value to the pixel equivalent. 
+ - For example, a **Paragraph Spacing Token** with a value of `-0.25rem`, when applied as a **Typography Composite Token, will have letters appear as `-4px`closer together in Figma.
+ 
+**Rem Units** act as a multiplier of the **base font size**, so when a user changes their preferences to a larger font size or uses a zoom feature in your product, elements defined in **rem units** will respond accordingly. 
+
+The value of `1rem` can be configured in the plugin **Settings** for **Base Font Size**.
+
+→ [Read the guide on Base Font Size in the plugin](/tokens/settings#base-font-size)
+
+#### pixels (px)
+If your design requires a fixed value, you can define your **Letter Spacing Token** in **pixel units**. 
+```
+1px
+```
+
+#### Units not supported by Figma
+Tracking is another CSS property related to Letter Spacing, typically defined in px or em units
+
+Figma does not allow em units but [suggests the use of this formula](https://help.figma.com/hc/en-us/articles/360039956634-Explore-text-properties#spacing:~:text=1000px%20tracking%20%3D%20100%25%20letter%20spacing%20%3D%201em%20letter%2Dspacing%20(CSS)) to convert em units to percentages: 
+ - `1000px tracking = 100% letter spacing = 1em letter-spacing (CSS)`
+	 - so a value of 4% would = 0.04em 
+
+You can still create **Letter Spacing** Tokens with these units using the Tokens Studio plugin. 
+
+When you apply them to design elements in Figma, the Token will be present and visible to engineers inspecting the design element in Figma, but the Token won't interact with the Letter Spacing property in Figma's UI. 
+
+It will be up to the engineers working to transform the design Tokens in Style Dictionary if they want to transform the values as you've entered them or change them in some way. 
+
+### Values that reference another Token
+When trying to **reference another Token as the Value** for a Letter Spacing Token, you will see
+- Tokens living in **Token Sets that are currently active**.
+	- In the left menu on the plugin's **Tokens page**, a checkmark is visible next to the **Token Set name**. 
+- **Token Type** is compatible:
+	- The same = `letterSpacing`
+	- `dimension`
+	- `number`
+
+However, like all token types, you can "force" a reference by manually entering the token name between curly brackets.
+
+import { Callout } from 'nextra/components'
+
+<Callout type="info" emoji="✦">
+The value will show a broken reference until the originating token set is marked as enabled.
+</Callout>
+
+→ [Jump to the Token Values with References guide for more details](/variables/references)
+
+### Values with math equations
+All token types that accept numeric values can also accept math equations. 
+
+For **Letter Spacing Tokens**, math might be used to convert a unitless number into a percentage.
+
+→ [Read the guide on Tokens with Math Values for more details.](/tokens/using-math)
+
+## W3C DTCG Token Format 
+**Letter Spacing** is not yet an official dedicated Token type in the W3C Design Token Community Group specifications.
+
+It is mentioned as a required part of a [typography Token](https://tr.designTokens.org/format/#typography)
+> "The horizontal spacing between characters. The value of this property *MUST* be a valid dimension value or a reference to a dimension Token." - 9.7. Typography
+
+However, Figma doesn't support a rem value number for responsive design.
+
+So, in the Tokens Studio plugin for Figma, we have created the Line Height Token type to support percentage values and allow for a better workflow with Figma's unique approach to Line Height. 
+
+## Transforming Tokens
+Engineers typically transform Tokens used in code with [Style Dictionary](https://styledictionary.com/), which is tool-agnostic. Tokens coming from Tokens Studio require an additional step: [@Tokens-studio/sd-transforms](https://www.npmjs.com/package/@tokens-studio/sd-transforms), an npm package that prepares Tokens for Style Dictionary. 
+
+When transforming **Letter Spacing Tokens**, there are specific configurations to be aware of. 
+
+**Letter Spacing Token Values** entered as a **percentage** to accommodate Figma's unique approach to Typography need to be converted to em units in [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing). 
+
+→ [SD-Transforms Read-Me Doc, ts/size/css/letterspacing](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#tssizecssletterspacing)
+
+The preprocessor in the SD-Transforms package will automatically convert the Tokens Studio specific Token Type of `paragraphSpacing` to align with the DTCG Format Token Type of `dimension`. 
+
+→ [SD-Transforms Read-Me Doc, Using the preprocessor](https://github.com/ Tokens-studio/sd-transforms/?tab=readme-ov-file#using-the-preprocessor)
+
+**Letter Spacing Tokens**, as part of **Typography Composite Tokens**, requires the SD-Transforms option to `expand composite Tokens into multiple Tokens`. 
+
+Make sure you look at the generic SD-Transforms package to include this option, which allows you to further customize this transformation further using Style Dictionary. 
+
+→ [SD-Transforms Read-Me Doc, Using Expand](https://github.com/Tokens-studio/sd-transforms/?tab=readme-ov-file#using-expand)
+
+<Callout type="info" emoji="✦">
+*"object, object"*\
+When you transform your Typography Tokens, and they show `"object, object"` it means your SD-Transforms configuration needs to be adjusted to include `"expand"`. 
+</Callout>
+
+## Resources
+Mentioned in this doc:
+- SD-Transforms - [Read Me ](https://github.com/tokens-studio/sd-transforms#readme)
+- Style Dictionary - https://styledictionary.com/
+- Design Tokens Community Group - [W3C Draft](https://tr.designtokens.org/format/)
+- Design Tokens Community Group - [9.7 Typography](ttps://tr.designTokens.org/format/#typography)
+
+Figma resources:
+- Design in Figma - [Explore Text Properties, Letter Spacing](https://help.figma.com/hc/en-us/articles/360039956634-Explore-text-properties#letter-spacing)
+
+CSS resources:
+- MDN Web Docs - [letter-spacing](https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing)
+- W3 Schools - [letter spacing](https://www.w3schools.com/css/css_text_spacing.asp#:~:text=Try%20it%20Yourself%20%C2%BB-,Letter%20Spacing,-The%20letter%2Dspacing)
+
+Community resources:
+- WHAT - LINK
+- None yet! 
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+Tokens Studio Plugin GitHub - [Open issues for Token Type Letter Spacing](https://github.com/tokens-studio/figma-plugin/labels/token%20type%20letter%20spacing)
+- None yet
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- None 
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.

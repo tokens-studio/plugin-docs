@@ -66,7 +66,7 @@ export default {
   search: true,
   prevLinks: true,
   nextLinks: true,
-  floatTOC: false,
+  floatTOC: true,
   defaultMenuCollapsed: true,
   footer: true,
   footerEditOnGitHubLink: true,

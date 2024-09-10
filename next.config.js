@@ -29,6 +29,11 @@ module.exports = withNextra({
         statusCode: 302
       },
       {
+        source: "/convert-to-dtcg-format",
+        destination: "/token-format/token-format-view-change-dtcg",
+        statusCode: 302
+      },
+      {
         source: "/pt-br/:path*",
         destination: "/",
         statusCode: 302

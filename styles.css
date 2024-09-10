@@ -16,15 +16,16 @@ html {
   color: #ffffff !important;
 }
 
-.dark body, .dark .nx-sticky{background-color: #1e1e1e !important;}
+/*background*/
+.dark body, .dark .nx-sticky, .dark .dark\:bg-dark{background-color: #1e1e1e !important;}
+.light body, .light .nx-sticky, .light .dark\:bg-dark{background-color: #FCFCFC !important;}
 
-ul.nx-mt-6 {margin-top: 0rem!important;}
+
+ul.nx-mt-6, article ul {margin-top: 0rem!important;}
 p.nx-mt-6 {margin-top: 1rem;}
 a.nx-underline:hover{font-weight:medium!important;}
 .nx-rounded-lg{border-radius: 8px!important;}
 .nx-w-full a:hover{font-weight: 500!important;letter-spacing: -0.15px;}
-
-html[class~=dark] .nextra-sidebar-menu .dark\:bg-dark{background-color:#171717;}
 
 html[class~=dark] main a{color:#DADADA!important;}
 html[class~=light] main a{color:#171717!important;}

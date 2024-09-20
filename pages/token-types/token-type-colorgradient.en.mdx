@@ -27,7 +27,7 @@ linear-gradient(45deg, #0000FF 0%, #87CEEB 50%, #008000 100%)
 
 You can also **Import Color Styles** of gradients you've created in Figma to see how they are written in the plugin. 
 
-→ [Read the Importing Styles Guide](/styles/styles)  
+→ [Read the Importing Styles Guide](/variables-and-styles/styles)  
 
 ## Gradients can reference another Color Token
 Like **Color Tokens** with a single value, you can reference another Token in your gradients by adding curly brackets { } around the Token name you want to reference. 
@@ -71,7 +71,7 @@ Note that if the Tokens referenced include modified colors that haven't been res
 - For example, a Token included in the gradient written as `rgba({colors.gray.900, 0.5)` will not be connected to the `colors.gray.900` variable because the plugin has not yet resolved the value, written as a 50% opacity in RGBA.
 - You could create a new Token, for example, `gradient-stop` with a value of `rgba({colors.gray.900, 0.5)`, then reference the `{gradient-stop}` Token in the gradient value instead.
 
-→ [Read the Export to Figma Styles with Variable References for more details](/variables/references)
+→ [Read the Export to Figma Styles with Variable References for more details](/variables-and-styles/export-to-figma-styles-variable-references)
 
 ## Limitations of gradient color Tokens 
 The plugin will support creating Tokens of any [CSS Gradients](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images/Using_CSS_gradients). However, we are not yet able to create all types of gradients in Figma: 

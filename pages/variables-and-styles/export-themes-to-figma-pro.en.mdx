@@ -1,0 +1,158 @@
+![](/variables-and-styles/Variables-export-themes-collection-annotated-V2-1.png)
+# Export to Figma from Themes (pro)
+
+import Callout from 'nextra-theme-docs/callout'
+
+<Callout emoji="✦">
+ *Pro Feature*\
+    The **Export to Figma from Themes** feature requires a [Pro Licence](https://tokens.studio/pricing) for Tokens Studio.
+</Callout>
+
+The **Themes (pro) feature** allows groups of Token Sets to work together to perform various tasks. When you attach your Tokens to Styles and Variables by Exporting to Figma from Themes, there are some powerful workflow advantages:
+- Choose which Themes are attached to Styles and Variables. 
+	- Styles can have Variable references.
+	- Variable collections with mode switching is supported.
+- Separate Figma Files can have Styles and Variables attached to different Themes. 
+	- Also known as **Non-local Variable references**
+
+→ [Learn more about the Themes (pro) feature.](/themes/themes-pro)
+
+Do you have a Free licence for Tokens Studio? 
+→ [Learn how to Export to Figma from Token Sets.](/variables-and-styles/export-sets-to-figma)
+
+## How it works
+Once you have created your [Themes (pro)](/themes/themes-pro) in the plugin, select the **Styles & Variables Button** from the Tokens page.
+
+Choose the **Export Styles & Variables** option.
+
+![](/variables-and-styles/Tokens-export-flow-ref-2-01.png)
+
+The **Export Options** menu will open and allow you to choose which actions the plugin should perform on the Tokens included in your export:
+- Export your Tokens as Variables, Styles or both.
+- Choose any Style export specific settings.
+- Choose any update specific settings.
+
+→ [Read the Export to Figma Options guide for more details.](/variables-and-styles/export-to-figma-options-menu)
+
+Once you confirm your Options, you'll see the Export as Themes or Token Sets page. This is where you choose which Tokens are included in your export. 
+- If you have a Pro licence for Tokens Studio, you'll be brought directly to the **Themes** tab. 
+
+![](/variables-and-styles/exportoptions-ThemesFlow-ref-2-01.png)
+
+### Export from Themes
+The **Export from Themes** page will display a list of all **Themes** you've already created.
+- If you don't see any Themes listed, you'll need to create a Theme to complete the export. 
+
+→ [Learn more about the Themes (pro) feature.](/themes/themes-pro)
+
+![](/variables-and-styles/export-Themes-empty-vs-populated-ref-2-01.png)
+
+### Choose which Themes to export 
+By default, all Themes are selected for Export (checkmark is visible). 
+- Adjust which Themes you'd like to Export by selecting the **checkbox**. 
+
+The plugin applies your **Export Options** to all compatible Tokens included in the Export.
+
+<Callout type="info" emoji="✦">
+*Exporting as Styles*\
+When exporting as Styles, try exporting one Theme at a time. \\
+This reduces the complexity of the export and reduces unexpected results.  
+</Callout>
+
+![](/variables-and-styles/export-Themes-allvsselected-ref-2-01.png)
+
+## Confirm and complete the Export to Figma
+Once you have confirmed the **Themes** to be included in the Export, you can review the **Export Options** by selecting the **Options button** from the bottom of the plugin if needed. 
+
+→ [Read the Export to Figma Options guide for more details.](/variables-and-styles/export-to-figma-options-menu)
+
+Select the **Export to Figma button** at the bottom of the plugin to complete the process. 
+
+#### Export as Variables feedback messages
+When exporting Variables, you'll see a feedback message at the bottom of your Figma file depending on your configuration. 
+- If you are creating new Collections of Variables or adding Variables within an existing collection, the message will show a count of what was created (right side of the image below). 
+- If you are updating existing Variables, the message will tell you that no Variables were created, but will not tell you that Variables were changed (left side of the image below). 
+
+![](/variables-and-styles/tokens-export-countMessage-V2-01.png)
+
+It's also common to see a red message at the bottom of your file, indicating an error in the export. 
+
+>Your Figma plan only allows for the creation of 1 mode
+
+This message will appear if you have a Free Figma plan, or the Figma file is in your Drafts instead of a Project. The image below shows how to tell if your file is in your Drafts. 
+- Move the file to a Figma project then Export to Figma as Variables again to create your other modes. 
+
+![](/variables-and-styles/exportVariables-error-draft-V2-2.1.png)
+
+> Your Figma plan only allows the creation of 4 modes
+
+This message will appear if you have 5 or more **Themes** within your **Theme Group**. The Plugin will export the first 4 **Themes** to your Variable collection (starting at the top of the Themes list) and skip the rest. 
+
+In the image below on the left, there are 5 **Themes** within the `brands` Theme Group, and on the right, the first 4 Themes have been created as modes within a Variable collection in Figma called `brands`. The 5th Theme in our list at the bottom called `black-berry` was not exported. 
+
+![](/variables-and-styles/Variables-export-moreThemes-Error-V2-1.png)
+### Check your exported Styles and Variables
+Check the exported Styles and Variables to ensure you have the output to Figma you expected. 
+- This is highly Variable based on the combination of the **Export Options** and the **Themes** you selected to export. 
+
+Recall that each Export is limited to the Tokens in the Themes selected. 
+- You may have to repeat the Export to Figma process with different configurations to update all of your Styles and Variables. 
+
+However, if you have unexpected results, review these guides, which cover the common troubleshooting tips:
+- [Export to Figma Overview](/variables-and-styles/export-to-figma-overview)
+	- Compatible Token Types with Styles and Variables.
+- [Export to Figma Options](/variables-and-styles/export-to-figma-options-menu)
+	- a detailed guide on each Export Option. 
+- [Skipped Variables when Exporting to Figma](/variables-and-styles/export-to-figma-skipped-variables)
+	- Reasons why some tokens can't be exported. 
+- [Export to Figma Styles with Variable references](/variables-and-styles/export-to-figma-styles-variable-references)
+- [Themes (pro) - Feature Guide](/themes/themes-pro)
+
+## Export Themes to multiple Figma files
+With the release of V2, the plugin is now able to support the use of Themes across multiple Figma files. 
+
+→ [Read the Non-local Variables guide for more details](/variables-and-styles/non-local-variables-and-styles)
+
+## Limitations with Variables
+There are some known limitations between Tokens Studio and Figma Variables.
+
+### Theme switching in the plugin won't work
+Once you Export to Figma using Themes, you will be required to use Figma's native Mode Switching feature. 
+- The plugin's Themes witching feature does not work as expected when the Theme is attached to a Variable collection. 
+
+### Scoping and Hide from Publishing
+Tokens Studio is not able to control Figma's Scoping or Hide from Publishing features. 
+- Once you've created the Variables, you can use the Figma native UI to adjust the desired settings. 
+
+### Tokens skipped when exporting as Variables
+When Exporting to Figma, the plugin sometimes can't create or update your Variables as expected. 
+
+→ [Read the Skipped Variables when Exporting to Figma guide for full details.](/variables-and-styles/export-to-figma-skipped-variables) 
+
+## Resources
+Figma resources:
+- Design in Figma - [Overview of Variable Collections and Modes](https://help.figma.com/hc/en-us/articles/14506821864087-Overview-of-variables-collections-and-modes)
+
+Community resources:
+- The Tokens Studio collection of Variable videos - [YouTube Playlist](https://youtube.com/playlist?list=PL-QzDOr0R7mOv7xV9NO2Z15n6uwWHfFul&si=um4MybodvHCfBUbo)
+- Our friends at [UI Collective](https://uicollective.co/designer-tools-and-resources) have free learning resources on Variables - [YouTube Playlist](https://www.youtube.com/playlist?list=PLkmvmF0zhgT_-dXmw8DWMV85MK5rkv135)
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+- Tokens Studio Plugin GitHub - [Open issues for Figma export - themes](https://github.com/tokens-studio/figma-plugin/labels/Figma%20export%20-%20themes)
+- Tokens Studio Plugin GitHub - [Open issues for Figma Variables](https://github.com/tokens-studio/figma-plugin/labels/Figma%20variables)
+- Tokens Studio Plugin GitHub - [Open issues for Figma Styles](https://github.com/tokens-studio/figma-plugin/labels/Figma%20styles)
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- Add support for scoping and publishing variables and styles - [Feature Request](https://feedback.tokens.studio/p/add-support-for-scoping-and-publishing-variables-and-styles)
+- Ignore parts of the token name for variables and styles - [Feature Request](https://feedback.tokens.studio/p/ignore-parts-of-the-token-name-for-variables)
+- Theme Switcher for non-DS designers so I don't need variables anymore - [Feature Request](https://feedback.tokens.studio/p/theme-switcher-for-non-ds-designers)
+- Tokens applied with Figma UI as Styles or Variables are Fragile - [Feature Request](https://feedback.tokens.studio/p/tokens-applied-as-variables-or-styles-are-fragile)
+- Create Variable Collections With The Plugin's Order of Themes - [Feature Request (blocked by Figma)](https://feedback.tokens.studio/p/create-variable-collections-with-the-plugins-order)
+- Show updated number of Variables (or styles) when exporting to Figma with updated values - [Feature Request](https://feedback.tokens.studio/p/twistedrightwardsarrows-show-updated-number-when-exporting-variables-with-updated-values)
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.
+

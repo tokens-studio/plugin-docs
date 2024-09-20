@@ -1,0 +1,12 @@
+  {
+    "export-to-figma-overview": "Export to Figma Overview",
+    "export-to-figma-options-menu": "Export to Figma options menu",
+    "export-sets-to-figma": "Export Sets to Figma",
+    "export-themes-to-figma-pro": "Export Themes to Figma Pro",
+    "export-to-figma-styles-variable-references": "Create Styles with Variable references",
+    "export-to-figma-skipped-variables": "Tokens skipped when exporting as Variables",
+    "references": "Creating variables with references",
+    "styles": "Importing Styles",
+    "non-local-styles": "Non-local Styles (Pro)",
+    "swap-styles": "Swap Styles (Pro)"
+  }

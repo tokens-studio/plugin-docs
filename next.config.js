@@ -162,6 +162,41 @@ module.exports = withNextra({
         source: "/sync/url",
         destination: "/token-storage-and-sync/sync-provider-url",
         statusCode: 302
+      },
+      {
+        source: "/variables/creating-variables",
+        destination: "/variables-and-styles/export-to-figma-overview",
+        statusCode: 302
+      },
+      {
+        source: "/variables/references",
+        destination: "/variables-and-styles/references",
+        statusCode: 302
+      },
+      {
+        source: "/styles/styles",
+        destination: "/variables-and-styles/styles",
+        statusCode: 302
+      },
+      {
+        source: "/styles/create-styles",
+        destination: "/variables-and-styles/export-to-figma-overview",
+        statusCode: 302
+      },
+      {
+        source: "/styles/keeping-styles-in-sync",
+        destination: "/variables-and-styles/export-to-figma-overview",
+        statusCode: 302
+      },
+      {
+        source: "/styles/swap-styles",
+        destination: "/variables-and-styles/swap-styles",
+        statusCode: 302
+      },
+      {
+        source: "/styles/non-local-styles",
+        destination: "/variables-and-styles/non-local-styles",
+        statusCode: 302
       }
     ]
   }

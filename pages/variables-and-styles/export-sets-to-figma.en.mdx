@@ -1,0 +1,144 @@
+# Export to Figma from Token Sets
+Free licence holders for Tokens Studio can attach their Tokens to Styles and Variables in Figma by Exporting to Figma from Token Sets. 
+
+This has some limited capabilities compared to when you Export to Figma from Themes (Pro). 
+- Create and maintain Styles and Variables in Figma powered by Token Sets in the plugin.
+	- A Variable collection is created for each Token Set exported. 
+	- Creating modes within a Variable Collection is not possible when exporting from Token Sets. 
+- Choose which Token Sets are attached to Styles and Variables. 
+	- Styles can have Variable references.
+- Local Styles and Variables supported (within the same Figma File). 
+	- `Non-local Variable references` are not possible when exporting from Token Sets.
+
+→ [Read the Export to Figma from Themes guide for more details on these features.](/variables-and-styles/export-themes-to-figma-pro)
+
+## How it works
+Once you have created Tokens in the plugin, select the **Styles & Variables Button** from the Tokens page. 
+
+Choose the **Export styles & variables** option.
+
+![](/variables-and-styles/Tokens-export-flow-ref-2-01.png)
+
+The **Export Options** menu will open and allow you to choose which actions the plugin should perform on the Tokens included in your export:
+- Export your tokens as Variables, Styles or both.
+- Choose any Style export specific settings.
+- Choose any update specific settings.
+
+→ [Read the Export to Figma Options guide for more details.](/variables-and-styles/export-to-figma-options-menu)
+
+Once you confirm your Options, you'll see the Export as Token Sets or Themes page. This is where you choose which Tokens are included in your export. 
+- If you have a Free licence for Tokens Studio, you'll be brought directly to the **Token Sets** tab. 
+
+![](/variables-and-styles/exportoptions-setsFlow-ref-2-01.png)
+
+### Export from Token Sets
+The **Export from Token Sets** page will display the **Number of Token Sets** selected for export.
+
+By default, the number of Token Sets selected will match the configuration from the plugin's Tokens Page before you start the Export process. 
+- For example, if only my "Primitive" Token Set was `Enabled` with the checkmark visible next to the Token Set Name on the left side of the Tokens Page, my **Export from Token Sets** would say `1 of X Sets selected for export`.  
+
+Token Sets with a status of **Reference/Set as Source** are not included in the count. 
+
+### Change Sets and their export status
+You can select the **Change Sets button** to review and adjust your Token Set configuration. 
+
+You'll see a list of all **Token Set Names** you've already created and their Export status. 
+- Adjust the status by changing the Toggle next to the token name
+
+![](/variables-and-styles/export-Sets-changeSets-V2-01.png)
+
+By changing the status of your Token Sets, you are telling the plugin which Tokens Sets should be included in the Export. 
+- The plugin applies your **Export Options** to all compatible tokens included in the Export.
+
+![](/variables-and-styles/export-Sets-changeSets-status-V2-01.png)
+
+#### Enabled Token Sets are exported
+Token Sets with the toggle active on the checkmark icon are `Enabled` and will be included in the Export. 
+
+These Tokens are created or updated as Styles and Variables, depending on your **Export Options**.
+
+#### Reference Token Sets are included in the export
+Token Sets with the toggle active on the curly bracket icon have the `Reference Only` status. 
+
+They are not directly exported, but this status reminds the Plugin that these token sets work together with the **Enabled Token Sets** and should be included in the export in a limited capacity. 
+- Changes to the values of Tokens in **Reference Only** sets are not updated during the export.
+- Tokens added or removed in **Reference Only** sets are not updated during the export.
+
+You can run a second **Export** with only these Token Sets as **Enabled** if you want to fully update Figma with changes you've made in the plugin. 
+
+#### Disabled Token Sets are ignored
+Token Sets with the toggle active on the x icon have the `Disabled` status and will be ignored during the export status. 
+
+If Tokens were updated or new Tokens were added to these Tokens Sets, this information will not be passed on to Figma during the Export. 
+
+## Confirm and complete the Export to Figma
+Once you have confirmed the **Token Sets** to be included in the Export, you'll return to the **Export from Token Sets** page. 
+
+If needed, you can review the **Export Options** by selecting the **Options button** from the bottom of the plugin. 
+
+→ [Read the Export to Figma Options guide for more details.](/variables-and-styles/export-to-figma-options-menu)
+
+Select the **Export to Figma button** at the bottom of the plugin to complete the process.  
+
+#### Export as Variables feedback messages
+When exporting Variables, you'll see a feedback message at the bottom of your Figma file depending on your configuration. 
+- If you are creating new Collections of Variables or adding Variables within an existing collection, the message will show a count of what was created (right side of the image below). 
+- If you are updating existing Variables, the message will tell you that no Variables were created, but will not tell you that Variables were changed (left side of the image below). 
+
+![](/variables-and-styles/tokens-export-countMessage-V2-01.png)
+
+### Check your exported Styles and Variables
+Check the exported Styles and Variables to ensure you have the output to Figma you expected. 
+- This is highly variable based on the combination of the **Export Options** and the **Token Sets** you selected to export. 
+
+Recall that each export is limited to the Tokens included in the Sets selected for this Export. 
+- This means you may have to repeat the Export to Figma process with different configurations to update your Styles and Variables completely. 
+
+However, if you have unexpected results, review these guides, which cover the common troubleshooting tips:
+- [Export to Figma Overview](/variables-and-styles/export-to-figma-overview)
+	- Compatible Token Types with Styles and Variables.
+- [Export to Figma Options](/variables-and-styles/export-to-figma-options-menu)
+	- a detailed guide on each Export Option. 
+- [Skipped Variables when Exporting to Figma](/variables-and-styles/export-to-figma-skipped-variables)
+	- Reasons why some tokens can't be exported. 
+- [Export to Figma Styles with Variable references](/variables-and-styles/export-to-figma-styles-variable-references)
+
+## Limitations with Variables
+There are some known limitations between Tokens Studio and Figma Variables.
+
+### Scoping and Hide from Publishing
+Tokens Studio is not able to control Figma's Scoping or Hide from Publishing features. 
+- Once you've created the Variables, you can use the Figma native UI to adjust the desired settings. 
+
+### Tokens skipped when exporting as Variables
+When Exporting to Figma, the plugin sometimes can't create or update your Variables as expected. 
+
+→ [Read the Skipped Variables when Exporting to Figma guide for full details.](/variables-and-styles/export-to-figma-skipped-variables)
+
+## Resources
+Figma resources:
+- Design in Figma - [Overview of Variable Collections and Modes](https://help.figma.com/hc/en-us/articles/14506821864087-Overview-of-variables-collections-and-modes)
+
+Community resources:
+- The Tokens Studio collection of Variable videos - [YouTube Playlist](https://youtube.com/playlist?list=PL-QzDOr0R7mOv7xV9NO2Z15n6uwWHfFul&si=um4MybodvHCfBUbo)
+- Our friends at [UI Collective](https://uicollective.co/designer-tools-and-resources) have free learning resources on Variables - [YouTube Playlist](https://www.youtube.com/playlist?list=PLkmvmF0zhgT_-dXmw8DWMV85MK5rkv135)
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+- Tokens Studio Plugin GitHub - [Open issues for Figma export - Sets](https://github.com/tokens-studio/figma-plugin/labels/Figma%20export%20-%20sets)
+- Tokens Studio Plugin GitHub - [Open issues for Figma Variables](https://github.com/tokens-studio/figma-plugin/labels/Figma%20variables)
+- Tokens Studio Plugin GitHub - [Open issues for Figma Styles](https://github.com/tokens-studio/figma-plugin/labels/Figma%20styles)
+
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- Add support for scoping and publishing variables and styles - [Feature Request](https://feedback.tokens.studio/p/add-support-for-scoping-and-publishing-variables-and-styles)
+- Ignore parts of the token name for variables and styles - [Feature Request](https://feedback.tokens.studio/p/ignore-parts-of-the-token-name-for-variables)
+- Theme Switcher for non-DS designers so I don't need variables anymore - [Feature Request](https://feedback.tokens.studio/p/theme-switcher-for-non-ds-designers)
+- Tokens applied with Figma UI as Styles or Variables are Fragile - [Feature Request](https://feedback.tokens.studio/p/tokens-applied-as-variables-or-styles-are-fragile)
+- Create Variable Collections With The Plugin's Order of Themes - [Feature Request (blocked by Figma)](https://feedback.tokens.studio/p/create-variable-collections-with-the-plugins-order)
+- Show updated number of Variables (or styles) when exporting to Figma with updated values - [Feature Request](https://feedback.tokens.studio/p/twistedrightwardsarrows-show-updated-number-when-exporting-variables-with-updated-values)
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.

@@ -1,0 +1,115 @@
+![](/variables-and-styles/header-export-variables-skipped.png)
+# Tokens skipped when exporting as Variables
+When Exporting to Figma, the plugin sometimes can't create or update your Variables as expected. 
+
+Your **Export to Figma Options** configuration allows you to skip certain types of Variables if needed. 
+
+→ [Read the Export to Figma Options guide for more details.](/variables-and-styles/export-to-figma-options-menu)
+
+However, there are a few other reasons why the plugin might skip exporting your Tokens as variables or creating modes. 
+
+## Variables skipped
+There are three main reasons why the plugin will skip creating individual Variables when Exporting to Figma:
+1. The **Token Type** isn't compatible with any Variable type. 
+2. The **Token Value** isn't supported in Variables.
+3. You have exceeded the number of allowed variables. 
+
+### Token type isn't compatible
+Figma only supports [4 types of Variables](https://help.figma.com/hc/en-us/articles/14506821864087-Overview-of-variables-collections-and-modes#h_01H9V3QSVH6TY6982N7YG6QS22), and Tokens Studio supports 24 unique **Token Types** in the plugin. 
+
+While we have figured out how to support most Tokens to Figma as Variables, these are the **Token Types** that will be skipped when you Export to Figma as Variables:
+- Asset Token
+- Composition Token
+- Other Token
+
+→ Read the [Export to Figma Overview guide](/variables-and-styles/export-to-figma-overview) for a full list of Token Types and their compatible Variable Types
+
+These **Token Types** will also be skipped but can be Exported as Styles with Variables referenced in their values:
+- Box Shadow Token
+- Color Tokens as Gradients
+- Border Token
+- Typography Composite Tokens
+	- Their individual **Property Tokens** ***will*** export as variables when possible, but you need to create Text Styles with Variable references as a second step. 
+
+→ [Read the guide on creating Styles with Variable references](/variables-and-styles/export-to-figma-styles-variable-references)
+
+### Multiple value Tokens 
+Figma only supports a single value for a variable. 
+
+This means if you have a Token with multiple values, like a **Color Token** with its value defined as a linear gradient, that Token can not be exported to Figma as a variable. 
+
+Tokens Studio supports multiple values for:
+- [**Color Tokens** as gradients](/token-types/token-type-colorgradient)
+	- Export as color styles instead. 
+- [Border Radius Tokens](/token-types/token-type-border-radius)
+- [Spacing Tokens](/token-types/token-type-spacing)
+
+### Value is "AUTO"
+The `AUTO` value is used for **Line Height Tokens** and **Typography Composite Tokens** to match Figma's required string value. 
+
+The plugin isn't able to resolve the `AUTO` value but relies on Figma to apply the correct value based on the **Font Size**. 
+
+Figma only accepts numeric values for this property, and therefore, it is skipped when exporting as Variables. 
+- When you export as Text Styles, the `AUTO` value will be applied in Figma as expected.
+
+→ [Read the Typography Line Heights guide for more details.](/token-types/token-type-line-height)
+
+### Value contains a percentage (%)
+Figma's Number Variables must be unitless.
+
+The plugin will skip Tokens with `%` values that should be exported as Number Variables as it can't resolve the value and pass it over to Figma is a numeric value. 
+
+If the **Token Type** is `text` or `opacity`, those will be exported as those Variables support the percentage value. 
+
+![](/variables-and-styles/Variables-Skipped-percentage-typography-V2-1.png)
+
+### More than 5000 variables in one collection
+[Figma has a limit of 5000 variables per collection.](https://help.figma.com/hc/en-us/articles/14506821864087-Overview-of-variables-collections-and-modes#:~:text=Note%3A%20You%20can%20create%20up%20to%205%2C000%20variables%20per%20collection.)
+
+If you export more than 5000 tokens as variables, we will create the first 5000 and skip the remaining Tokens. 
+- This size of the Variable library is bound to lead to memory issues, so you might want to split up your Tokens into multiple collections. 
+
+## Modes skipped
+Each Figma plan allows for a different number of modes per Variable collection. 
+→ [Read their pricing plan for more details](https://www.figma.com/pricing/#features)
+
+If you are exporting more **Themes** than you are allowed to have as modes in Figma, we will create as many as possible and then skip the remaining. 
+- In the plugin, under the **Themes dropdown**, you will see the list of **Themes** in each **Theme group**. 
+	- We will create as many as possible, starting at the top. 
+
+In the image below on the left, there are 5 **Themes** within the `brands` Theme Group, and on the right, the first 4 Themes have been created as modes within a Variable collection in Figma called `brands`. The 5th Theme in our list at the bottom called `black-berry` was not exported. 
+
+![](/variables-and-styles/Variables-export-moreThemes-Error-V2-1.png)
+Note that Drafts in Figma don't allow for modes!
+- If you are on any paid plan and we aren't exporting your themes as expected, check to see if your Figma file is in your drafts folder. 
+
+The image below shows how to tell if your file is in your Drafts. 
+- Move the file to a Figma project then **Export to Figma as Variables** again to create your other modes. 
+
+![](/variables-and-styles/exportVariables-error-draft-V2-2.1.png)
+
+## Resources
+Figma resources:
+- Design in Figma - [Overview of Variable Collections and Modes](https://help.figma.com/hc/en-us/articles/14506821864087-Overview-of-variables-collections-and-modes)
+
+Community resources:
+- The Tokens Studio collection of Variable videos - [YouTube Playlist](https://youtube.com/playlist?list=PL-QzDOr0R7mOv7xV9NO2Z15n6uwWHfFul&si=um4MybodvHCfBUbo)
+- Our friends at [UI Collective](https://uicollective.co/designer-tools-and-resources) have free learning resources on Variables - [YouTube Playlist](https://www.youtube.com/playlist?list=PLkmvmF0zhgT_-dXmw8DWMV85MK5rkv135)
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+- Tokens Studio Plugin GitHub - [Open issues for Figma export](https://github.com/tokens-studio/figma-plugin/labels/Figma%20export)
+- Tokens Studio Plugin GitHub - [Open issues for Figma Variables](https://github.com/tokens-studio/figma-plugin/labels/Figma%20variables)
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- Add support for scoping and publishing variables and styles - [Feature Request](https://feedback.tokens.studio/p/add-support-for-scoping-and-publishing-variables-and-styles)
+- Ignore parts of the token name for variables and styles - [Feature Request](https://feedback.tokens.studio/p/ignore-parts-of-the-token-name-for-variables)
+- Theme Switcher for non-DS designers so I don't need variables anymore - [Feature Request](https://feedback.tokens.studio/p/theme-switcher-for-non-ds-designers)
+- Tokens applied with Figma UI as Styles or Variables are Fragile - [Feature Request](https://feedback.tokens.studio/p/tokens-applied-as-variables-or-styles-are-fragile)
+- Create Variable Collections With The Plugin's Order of Themes - [Feature Request (blocked by Figma)](https://feedback.tokens.studio/p/create-variable-collections-with-the-plugins-order)
+- Show updated number of Variables (or styles) when exporting to Figma with updated values - [Feature Request](https://feedback.tokens.studio/p/twistedrightwardsarrows-show-updated-number-when-exporting-variables-with-updated-values)
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.

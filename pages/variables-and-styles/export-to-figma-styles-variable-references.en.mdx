@@ -1,0 +1,162 @@
+![](/variables-and-styles/header-export-styles-var-ref.png)
+# Create Styles with Variable references
+For the Figma Styles which support Variable values, you can create and manage Styles with Variables references using Tokens Studio. 
+
+This allows you to take advantage of the workflow benefits of working with Tokens Studio in Figma while sharing Styles and Variables with consumers of your Figma libraries. 
+
+If this is your first time Exporting to Figma, you'll want to get familiar with the basics of the process, then come back to this guide. 
+
+→ [Read the Export to Figma from Themes guide](/variables-and-styles/export-themes-to-figma-pro)\
+→ [Read the Export to Figma from Token Sets guide](/variables-and-styles/export-sets-to-figma)
+
+If you have a Free licence for Tokens Studio, follow the **Export to Figma from Token Sets** method.
+
+## 1. Token setup
+**Before you export** your desired Tokens to Figma as Styles, ensure your Tokens have been created with **Values that reference another token**. 
+
+→ [Read the Token Values with references guide](/token-values/token-values-with-references)
+
+Ensure the Tokens you wish to Export as Styles living in a Token Set that is separate from the Tokens which are being referenced in their values. 
+- This allows the plugin to export the desired token as Styles or Variables. 
+
+## 2. Create the Variables being referenced.
+If you haven't already, complete the **Export to Figma as Variables** process for the Tokens being referenced in the values of the Tokens you want to export as Styles. 
+
+Ensure the Tokens you want to export as Styles are NOT exported as Variables.
+- The plugin can only identify a Token by name to either Styles or Variables, not both. 
+- If needed, delete and detach any Variables you want to be created as styles. 
+
+![](/variables-and-styles/tokens-export-flowVarRef-var-ref-2-01.png)
+## 3. Export your Tokens
+In order for the plugin to attach your Styles to the Variables you created, you have to configure the Token Sets or Themes you are Exporting as Styles to **Reference** the Token Sets where your Variables are located. 
+
+The process is slightly different if you are Exporting from Themes or Token Sets. 
+
+### Export from Themes
+If you are Exporting your Tokens from Themes, navigate to the **Themes feature** in the plugin.
+- Open the Theme you want to Export as Styles
+- Ensure your Theme configuration has:
+	- Token Sets being Exported as Styles are `Enabled`.
+	- Token Sets being referenced in their values may need to be set as `Reference only`
+- Confirm and save the Theme configuration and close the Theme modal. 
+
+Open the **Export to Styles and Variables** modal and select your **Export Options**:
+- The **Style Types** you want to create are selected (checkmark visible).
+- The **Create Styles with Variable references** is selected (switch is on).
+- Select **Confirm** to save your configuration and close this menu. 
+	- You can open this menu anytime using the **Options button** at the bottom of the **Export to Figma** modal. 
+
+![](/variables-and-styles/tokens-export-flowoptions-ref-2-01.png)
+
+
+Select the **Themes** you want to Export as Styles.
+- Ensure the themes you have exported as Variables are not selected. 
+
+![](/variables-and-styles/tokens-export-flowVarRef-ref-2-01.png)
+
+Check the newly created Styles.
+- If the values are showing hard-coded values instead of your variables, don't worry! 
+	- There's a known issue with the plugin where occasionally it needs to create the styles before it can attach the Variable references.
+- Repeat the Export to Styles flow again, and the plugin will be able to map your variables to your styles. 
+
+When you see the name of your Variables in the values of the Styles, the process is complete!
+
+↓ If you have unexpected results, read the Troubleshooting section below. 
+
+### Export from Token Sets
+If you are Exporting your Tokens from Token Sets,  open the **Export to Styles and Variables** modal and select your **Export Options** to ensure:
+- The **Style Types** you want to create are selected (checkmark visible).
+- The **Create Styles with Variable references** is selected (switch is on).
+- Select **Confirm** to save your configuration and close this menu. 
+	- You can open this menu anytime using the **Options button** at the bottom of the **Export to Figma** modal. 
+
+![](/variables-and-styles/tokens-typography-color-stylesvar-ref-2-01.png)
+
+From the **Token Sets** page, select the **Change Sets Button** to review your Token Set configuration. 
+
+Review your **Token Set** configuration: 
+- Token Sets being Exported as Styles are `Enabled`.
+- Token Sets being referenced in their values may need to be set as  `Reference only`.
+- Save and confirm.
+- Select the **Export to Figma** button
+
+![](/variables-and-styles/export-Sets-changeSets-status-V2-01.png)
+
+Check the newly created Styles.
+- If the values are showing hard-coded values instead of your variables, don't worry! 
+	- There's a known issue with the plugin where, occasionally, it needs to create the styles before it can attach the Variable references.
+- Repeat the Export to Styles flow again, and the plugin will be able to map your variables to your styles. 
+
+When you see the name of your Variables in the values of the Styles, the process is complete!
+
+↓ If you have unexpected results, read the Troubleshooting section below. 
+
+## 4. Troubleshooting
+Here are the common issues you might run into the first couple of times you try this process. 
+
+### Styles created with the correct values but not attached to Variables
+If the Tokens you exported are created as styles with the correct value, but they are missing the connection to the attached Variable, the plugin is missing the information it needs to attach it to a variable. 
+
+Check your Token Values
+- Ensure the Tokens you Exported have values that are referencing existing Tokens. 
+	- Values are the name of a token inside curly brackets: `{token-name}`
+- Ensure the Tokens being referenced have been created as Variables
+	- If not:
+		- Export to Figma as Variables for the Referenced Tokens so they are created
+		- Export to Figma as Styles following the steps above.
+
+Check your Export Options 
+- Ensure the  **Create Styles with Variable references** option is enabled.
+	- If not, follow the Export as Styles steps above with the option enabled. 
+
+### Styles created with empty values 
+If the Tokens you exported were created as Styles, but the values are "empty", the plugin is missing the information it needs to populate the values. 
+
+Check your Theme and Token Set configuration. 
+- Ensure the Token Sets containing the Tokens being referenced in the Values are **reference only**. 
+- Ensure the Token Sets containing the Tokens being Exported as Styles are **Enabled**
+
+### Styles created with partial values attached to Variables
+If the Tokens you exported were created as Styles, but some of the values are hard-coded and others are referencing Variables, the plugin is missing a connection to some the Variables. 
+
+#### Check your Token Values and Token Types for compatibility. 
+- Not all Token Values and Token Types are compatible with Variables. 
+
+→ [Read the Export to Figma Overview for a list of compatible Token Types](/variables-and-styles/export-to-figma-overview)
+
+→ [Read the Export to Figma Skipped Variables guide for reasons why certain Values may not be referenced properly.](/variables-and-styles/export-to-figma-skipped-variables) 
+
+A common example is **Typography Composite Tokens** with `Percentage (%)` in their values for **Line Height** or **Letter Spacing**. 
+- The plugin will create the Text Style and show attached Variable references for most properties.
+- The values with percentages will remain as hard-coded values because Figma does not support numeric values with units. 
+
+![](/variables-and-styles/Variables-Skipped-percentage-typography-V2-1.png)
+
+→ [Read the guide on Typography Composite Tokens for more details.](/token-types/token-type-typography-composite)
+
+## Resources
+Figma resources:
+- Design in Figma - [Overview of Variable Collections and Modes](https://help.figma.com/hc/en-us/articles/14506821864087-Overview-of-variables-collections-and-modes)
+
+Community resources:
+- The Tokens Studio collection of Variable videos - [YouTube Playlist](https://youtube.com/playlist?list=PL-QzDOr0R7mOv7xV9NO2Z15n6uwWHfFul&si=um4MybodvHCfBUbo)
+- Our friends at [UI Collective](https://uicollective.co/designer-tools-and-resources) have free learning resources on Variables - [YouTube Playlist](https://www.youtube.com/playlist?list=PLkmvmF0zhgT_-dXmw8DWMV85MK5rkv135)
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+- Tokens Studio Plugin GitHub - [Open issues Styles with Variable reference](https://github.com/tokens-studio/figma-plugin/labels/setting%20-%20create%20styles%20with%20variable%20references)
+- Tokens Studio Plugin GitHub - [Open issues for Figma Variables](https://github.com/tokens-studio/figma-plugin/labels/Figma%20variables)
+- Tokens Studio Plugin GitHub - [Open issues for Figma Styles](https://github.com/tokens-studio/figma-plugin/labels/Figma%20styles)
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- Add support for scoping and publishing variables and styles - [Feature Request](https://feedback.tokens.studio/p/add-support-for-scoping-and-publishing-variables-and-styles)
+- Ignore parts of the token name for variables and styles - [Feature Request](https://feedback.tokens.studio/p/ignore-parts-of-the-token-name-for-variables)
+- Theme Switcher for non-DS designers so I don't need variables anymore - [Feature Request](https://feedback.tokens.studio/p/theme-switcher-for-non-ds-designers)
+- Tokens applied with Figma UI as Styles or Variables are Fragile - [Feature Request](https://feedback.tokens.studio/p/tokens-applied-as-variables-or-styles-are-fragile)
+- Create Variable Collections With The Plugin's Order of Themes - [Feature Request (blocked by Figma)](https://feedback.tokens.studio/p/create-variable-collections-with-the-plugins-order)
+- Show updated number of Variables (or styles) when exporting to Figma with updated values - [Feature Request](https://feedback.tokens.studio/p/twistedrightwardsarrows-show-updated-number-when-exporting-variables-with-updated-values)
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.

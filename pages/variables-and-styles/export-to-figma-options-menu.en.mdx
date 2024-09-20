@@ -1,0 +1,175 @@
+![](/variables-and-styles/header-export-figma-options.png)
+# Export to Figma options menu
+The **Export to Figma Options** menu has important settings for creating or updating Styles and Variables connected to your Tokens. 
+
+![](/variables-and-styles/Tokens-export-flow-ref-2-01.png)
+
+## In the plugin
+Select the **Styles & Variables Button** from the Tokens page and choose **Export Styles & Variables**.
+
+The **Export to Figma Options** menu is the first screen in the flow. 
+- If you close the menu, you can open it using the **Options button** at the bottom of the **Export to Figma** modal. 
+
+![](/variables-and-styles/exportSets-optionsFlow-ref-2-01.png)
+
+## Variable and Style type options
+You select which Variable and Style type options you want to export each time you use this feature.
+
+![](/variables-and-styles/exportFigmaOptions-variablesStyles-annotated-v2-0.png)
+
+This allows you to **Export** a selection of your Tokens as Variables, for example, primitive colors, then another selection of Tokens as Styles, like your brand colors. 
+
+Or you are working on a new project, and your Color Styles are ready to export, but your Typography is not. 
+
+### 1. Variable type options
+Color
+- Creates Color Tokens as Variables
+String
+- Creates Text Tokens as string Variables
+Number
+- Creates Dimension, Number, Spacing, Sizing, Border Radius, Border Width, and Opacity Tokens as number Variables
+Boolean 
+- Creates Boolean Tokens as Boolean Variables
+
+### 2. Style type options
+Color
+- Creates Color Tokens as Styles
+Typography
+- Creates Typography Tokens as Styles
+Effect 
+- Creates Box Shadow Tokens as Styles
+
+You can export both Variables and Styles at the same time.
+- Except for `Color`, the plugin will block both options from being selected at the same time to prevent undesired outcomes. 
+
+### Compatible Token Types
+For the export to be successful, the Variable and Style types you select must be compatible with your Token Types. 
+
+→ Read the Export to Figma overview for a list of Token Types and their compatible Variable types. 
+
+## Tokens exported to Figma should
+The options under the **Tokens exported to Figma should** label perform additional functions while creating or updating the Variables and Styles types you've selected. 
+
+![](/variables-and-styles/exportFigmaOptions-TokensShould-annotated-v2-0.png)
+
+### 1. Ignore first part of Token Name for Styles
+For **Token Names** that include groups, the **Ignore first part of Token name for Styles** option will export the Tokens as Styles with modified names. 
+
+This is helpful when your **Token Names** include prefixes intended for the Design System Team which are not helpful to see in Figma. 
+
+For example, a Token named `mode-colors.brand.primary.default` 
+
+With this option enabled will be created as a Style named:
+`brand.primary.default`
+
+If your **Token Names** don't include any groups and you have this option enabled, the Token can't be exported, and you will see an error message from the plugin. 
+
+>Some Styles were ignored due to Ignore first part of Token name setting
+
+For example, a Token named `mode-colors-brand-primary-default` will have the whole name ignored by the plugin, and the Style can't be created without a name. 
+
+→ Read the Token Naming technical specs for more details on names with groups.
+
+### 2. Prefix Styles with active Theme name
+Multiple Tokens with the same name cannot be exported to the same Figma file as Styles. 
+
+When we set up themes in Design Tokens, we have multiple Tokens with the same name but unique values, which live in different Token Sets. 
+- Token sets are then grouped into themes. 
+
+For example, we may have a Theme Group called `color-modes` with a few themes called:
+- `light`
+- `dark`
+- `high-contrast`
+
+Each theme has a Token called `mode-colors.brand.primary.default` but a unique value. 
+We can't export the same Token to Figma more than once. 
+
+So, if you want the color Styles for each theme exported to the same Figma file, you can enable the `Prefix Styles with the active theme name` setting. 
+
+In this example, you would need to run the **Export to Figma** three times, as each export will only prefix the **active** theme name. 
+- Export 1 - `Light theme` active 
+	- Return to the themes dropdown, turn this theme off, then repeat with the next theme.
+- Export 2 - `Dark theme` active
+	- Return to the themes dropdown, turn this theme off, then repeat with the next theme.
+- Export 3 - `High-contrast theme` active
+
+After the three exports, you would see Styles in Figma named:
+- `light/mode-colors/brand/primary/default`
+- `dark/mode-colors/brand/primary/default`
+- `high-contrast/mode-colors/brand/primary/default`
+
+→ Learn more about the [Themes (pro) Feature](/themes/themes-pro)
+
+### 3. Create Styles with Variable references 
+You need to follow a few steps when you want to use Color Styles in Figma and have the value reference a Color Variable. 
+
+Step 1 - Export your `Color Tokens` to Figma as Variables from Themes or Tokens Sets
+- Ensure only the Tokens which will appear as the references in the color Styles are selected for export. 
+
+Step 2 - Export your `Color Tokens` to Figma as Styles from Themes or Tokens Sets
+- Ensure the **Create Styles with Variable references** option is selected.
+- Ensure only the Tokens you want to export as color Styles are selected for export. 
+- Ensure your Themes and Token Sets are configured 
+
+Step 3 - Check the newly created Color Styles!
+- If the values are showing Hex codes instead of your Variables, don't worry! 
+- Repeat step 2 and the plugin will be able to map your Variables to your color Styles. 
+
+→ Read the guide on Exporting to Figma Styles with Variable References #add-doc-link/export-Styles-Variable-references  
+
+### 3. Update existing Style and Variable names
+When you update the names of Tokens in the plugin that are currently attached to Styles and Variables in Figma, the **Update existing Style and Variable names** setting ensures Figma will be updated with the new names. 
+
+This setting used to be located on the **Plugin Settings Page** previous to Version 2.0
+
+### 5. Remove Styles and Variables without connection to a Token
+When you remove Tokens in the plugin that are currently attached to Styles and Variables the **Remove Styles and Variables without connection to a Token** setting will remove those Styles and Variables from Figma. 
+
+This setting used to be located on the **Plugin Settings Page** previous to Version 2.0
+
+## Export as Themes or Token Sets
+Once you've configured your **Export Options**, the plugin will bring you to the **Export from Themes or Token Sets** page. 
+- If you have a **Free licence** for Tokens Studio, you will **Export as Token Sets**
+- If you have a **Pro licence** for Tokens Studio, will will be brought to the **Export as Themes** page
+	- Pro licence holders can optionally export as Token Sets, which have limited capabilities compared to Exporting as Themes. 
+
+→ [Read the Export to Figma from Themes guide](/variables-and-styles/export-themes-to-figma-pro)
+→ [Read the Export to Figma from Token Sets guide](/variables-and-styles/export-sets-to-figma)
+
+![](/variables-and-styles/exportFigma-sets-themes-annotated-v2-0.png)
+
+## Skipped Variables
+Sometimes, the plugin skips exporting your Tokens to Figma even when you have the desired options configured correctly. 
+
+→ [Read the Export to Figma Skipped Variables guide for more details](/variables-and-styles/export-to-figma-skipped-variables)
+
+## Resources
+Figma resources:
+- Design in Figma - [Overview of Variable Collections and Modes](https://help.figma.com/hc/en-us/articles/14506821864087-Overview-of-variables-collections-and-modes)
+
+Community resources:
+- The Tokens Studio collection of Variable videos - [YouTube Playlist](https://youtube.com/playlist?list=PL-QzDOr0R7mOv7xV9NO2Z15n6uwWHfFul&si=um4MybodvHCfBUbo)
+- Our friends at [UI Collective](https://uicollective.co/designer-tools-and-resources) have free learning resources on Variables - [YouTube Playlist](https://www.youtube.com/playlist?list=PLkmvmF0zhgT_-dXmw8DWMV85MK5rkv135)
+
+💡 Something to share? [Submit it here!](https://feedback.tokens.studio/)
+
+### Known issues and bugs
+- Tokens Studio Plugin GitHub - [Open issues for Figma export options menu](https://github.com/tokens-studio/figma-plugin/labels/Figma%20export%20options%20menu)
+- Tokens Studio Plugin GitHub - [Open issues for setting ignore first part of name](https://github.com/tokens-studio/figma-plugin/labels/setting%20-%20ignore%20first%20part%20of%20name)
+-  Tokens Studio Plugin GitHub - [Open issues for setting prefix theme name](https://github.com/tokens-studio/figma-plugin/labels/setting%20export%20-%20prefix%20theme%20name)
+-  Tokens Studio Plugin GitHub - [Open issues for update existing name styles variables](https://github.com/tokens-studio/figma-plugin/labels/setting%20export%20update%20existing%20name)
+-  Tokens Studio Plugin GitHub - [Open issues for remove styles and variables without connection](https://github.com/tokens-studio/figma-plugin/labels/setting%20export%20-%20remove%20styles%20var%20wo%20connection)
+- Tokens Studio Plugin GitHub - [Open issues for Figma Variables](https://github.com/tokens-studio/figma-plugin/labels/Figma%20variables)
+- Tokens Studio Plugin GitHub - [Open issues for Figma Styles](https://github.com/tokens-studio/figma-plugin/labels/Figma%20styles)
+
+🐞 If you are experiencing an issue not listed here, please reach out to us on the Troubleshooting channel of our [community Slack](https://tokens.studio/slack), or [submit it on our feedback tool.](https://feedback.tokens.studio/ ) 
+
+### Requests, roadmap and changelog
+- Add support for scoping and publishing variables and styles - [Feature Request](https://feedback.tokens.studio/p/add-support-for-scoping-and-publishing-variables-and-styles)
+- Ignore parts of the token name for variables and styles - [Feature Request](https://feedback.tokens.studio/p/ignore-parts-of-the-token-name-for-variables)
+- Theme Switcher for non-DS designers so I don't need variables anymore - [Feature Request](https://feedback.tokens.studio/p/theme-switcher-for-non-ds-designers)
+- Tokens applied with Figma UI as Styles or Variables are Fragile - [Feature Request](https://feedback.tokens.studio/p/tokens-applied-as-variables-or-styles-are-fragile)
+- Create Variable Collections With The Plugin's Order of Themes - [Feature Request (blocked by Figma)](https://feedback.tokens.studio/p/create-variable-collections-with-the-plugins-order)
+- Show updated number of Variables (or styles) when exporting to Figma with updated values - [Feature Request](https://feedback.tokens.studio/p/twistedrightwardsarrows-show-updated-number-when-exporting-variables-with-updated-values)
+
+💌 Visit https://feedback.tokens.studio/ to contribute or subscribe to updates.

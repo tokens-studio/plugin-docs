@@ -5,5 +5,7 @@
     "export-themes-to-figma-pro": "Export Themes to Figma Pro",
     "export-to-figma-styles-variable-references": "Export to Figma Variable references",
     "export-to-figma-skipped-variables": "Export to Figma Skipped Variables"
+    "non-local-styles": "Non-local Styles",
+    "swap-styles": "Swap Styles"
   }
   

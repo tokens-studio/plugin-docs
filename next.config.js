@@ -170,7 +170,12 @@ module.exports = withNextra({
       },
       {
         source: "/variables/references",
-        destination: "/variables-and-styles/export-to-figma-styles-variable-references",
+        destination: "/variables-and-styles/references",
+        statusCode: 302
+      },
+      {
+        source: "/styles/styles",
+        destination: "/variables-and-styles/styles",
         statusCode: 302
       },
       {

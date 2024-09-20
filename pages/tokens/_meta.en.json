@@ -6,6 +6,5 @@
   "color-modifiers": "Color modifiers (Pro)",
   "documentation-tokens": "Documentation tokens",
   "token-types": "Token types",
-  "json-schema": "JSON schema",
-  "settings": "Settings"
+  "json-schema": "JSON schema"
 }

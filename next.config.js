@@ -183,6 +183,16 @@ module.exports = withNextra({
         destination: "/variables-and-styles/export-to-figma-overview",
         statusCode: 302
       },
+      {
+        source: "/styles/swap-styles",
+        destination: "/variables-and-styles/swap-styles",
+        statusCode: 302
+      },
+      {
+        source: "/styles/non-local-styles",
+        destination: "/variables-and-styles/non-local-styles",
+        statusCode: 302
+      }
     ]
   }
 })

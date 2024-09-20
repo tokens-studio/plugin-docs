@@ -1,0 +1,57 @@
+# Non-local styles
+
+When you want to apply a color token in a file that is not the library file of your Figma styles what you often want to do is to apply the Style instead of a raw hex value. Otherwise all your designers will see, is a hex value, not the applied decision. To do that, we need to prepare our library files first.
+
+![](/non-local-styles/preview.png)
+
+
+In order for Tokens Studio for Figma to apply a Style instead of a raw hex value in documents where that style is not defined, we need to keep track of the Style ID of each of your created styles. As creating styles is always in relation to a theme (a combination of token sets that are activated), we need to store that information with Themes. With the Pro version of the plugin you are able to connect your tokens to styles.
+
+![](/non-local-styles/manage-themes-modal.png)
+
+To do that, you can do as follows:
+
+1. Create a new theme.
+2. Activate that new theme.
+3. Let the plugin create all styles for that theme for you, click on `Styles > Create styles` in the bottom.
+4. Publish your library.
+5. Make sure to sync with one of the remote sync solutions (e.g. GitHub).
+6. When you now apply a token in any other file (with that same remote sync setup) we will apply that Style for you.
+
+
+If you already had styles and don't want to create again, you can also click on `Manage themes`, select the theme you want to connect your styles to, go to the Styles tab, and click `Attach styles`. This will attach any style that match token names to this theme.
+
+![](/non-local-styles/themes-styles-tab.png)
+
+The same is true for `Importing styles`. If you import styles we will store the connection with the currently active theme.
+
+### $themes.json file
+
+We'll store these style connections in a file called `$themes.json` in the root of your project. If you're using single-file sync, this will be one of the root-level keys of your JSON.
+
+
+### Multiple themes in one library
+
+If you'd rather place all your theme styles in one library, you can do that as well. To do that, go to `Settings` and check `Prefix styles with active theme name`. This will create any styles with the theme name prepended.
+
+![](/non-local-styles/settings.png)
+
+
+### How to use
+
+If you're still not sure on how to get started connecting your tokens to styles, the following video might help:
+
+---
+
+import ReactPlayer from 'react-player'
+
+
+<ReactPlayer
+  muted
+  width="100%"
+  height="auto"
+  loop
+  playing
+  controls
+  url="/nonlocalstyles.mp4"
+/>

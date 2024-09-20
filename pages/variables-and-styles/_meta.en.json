@@ -7,6 +7,6 @@
     "export-to-figma-skipped-variables": "Tokens skipped when exporting as Variables",
     "references": "Creating variables with references",
     "styles": "Importing Styles",
-    "non-local-styles": "Non-local Styles",
-    "swap-styles": "Swap Styles"
+    "non-local-styles": "Non-local Styles (Pro)",
+    "swap-styles": "Swap Styles (Pro)"
   }

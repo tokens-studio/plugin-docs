@@ -1,0 +1,30 @@
+app: plugin-docs
+env: prod
+namespace: default
+deploy:
+  branch: master
+  event: push
+chart:
+  repository: https://chart.onechart.dev
+  name: onechart
+  version: 0.64.0
+values:
+  containerPort: 3000
+  gitRepository: tokens-studio/plugin-docs
+  gitSha: '{{ .SHA }}'
+  image:
+    repository: ghcr.io/tokens-studio/plugin-docs
+    tag: {{ .SHA }}
+  imagePullSecrets:
+    - ghcr-login-secret
+  ingress:
+    ingressClassName: traefik
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      networking.gke.io/v1beta1.FrontendConfig: default-frontend-config
+    host: docs.tokens.studio
+    path: /
+    tlsEnabled: true
+  replicas: 1
+  resources:
+    ignoreLimits: true

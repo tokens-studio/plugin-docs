@@ -21,7 +21,7 @@ html {
 .light body, .light .nx-sticky, .light .dark\:bg-dark{background-color: #FCFCFC !important;}
 
 /*shadow*/
-.dark {
+.dark .dark\:shadow-\[0_-12px_16px_\#111\] {
   --tw-shadow: 0 -12px 16px #1e1e1e !important;
 }
 

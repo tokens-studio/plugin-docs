@@ -56,7 +56,7 @@ To ensure your **Font Weight Token** values are an exact match to what Figma has
 Text Styles in Figma don't accept a numeric value for **Font Weight**, only a string value.
 - Text Variables in Figma have limited support for numeric values for Font Weights. 
 
-To work around this limitation, we've [written a conversion](https://github.com/tokens-studio/figma-plugin/blob/main/src/plugin/figmaTransforms/fontWeight.ts) into the plug-in, which allows the value of a **Font Weight Token** to be written in its numerical value, like `400` or `700`, and the plugin translates it into a text string that Figma recognizes.
+To work around this limitation, we've [written a conversion](https://github.com/tokens-studio/figma-plugin/blob/main/packages/tokens-studio-for-figma/src/plugin/figmaTransforms/fontWeight.ts) into the plug-in, which allows the value of a **Font Weight Token** to be written in its numerical value, like `400` or `700`, and the plugin translates it into a text string that Figma recognizes.
 
 You can enter any of these numeric raw values in the table below into the **Font Weight Token**, and the plugin will convert them to the corresponding resolved value for the Font Family Token they are paired with.
 - Keep in mind that your chosen Font Families may not support all Font Weights. 
